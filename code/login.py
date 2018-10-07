@@ -17,7 +17,7 @@ class Login:
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
   <div class="navbar-header">
   <a class="navbar-brand" href="/">Express Yourself</a>
