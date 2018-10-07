@@ -6,9 +6,3 @@ from code import app
 def hello():
 
     return "Hello World!"
-
-@app.route("/signup")
-
-def signup():
-
-    return "Sign Up"
