@@ -9,8 +9,7 @@ class Login:
         return self.html
     
     def setHTML(self):
-        self.html = 
-        """
+        self.html = """
 <head>
 <title>Login Page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
