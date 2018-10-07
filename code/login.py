@@ -1,4 +1,5 @@
 from code import app
+from flask import request
 
 class Login:
     def __init__(self):
@@ -42,10 +43,12 @@ window.onload=document.getElementById("name").value= "";
 </html>
 """
 
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 
 def login():
-    
-    loginHTML = Login()
-    loginHTML.setHTML()
-    return loginHTML.getHTML()
+    if request.method == 'POST':
+	return "Request received"
+    else:
+    	loginHTML = Login()
+    	loginHTML.setHTML()
+    	return loginHTML.getHTML()
