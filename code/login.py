@@ -44,5 +44,5 @@ window.onload=document.getElementById("name").value= "";
 def login():
     
     loginHTML = Login()
-
+    loginHTML.setHTML()
     return loginHTML.getHTML()
