@@ -19,14 +19,12 @@ class Login:
 
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="/">
-    Home
+    Express Yourself
   </a>
-  <a class="navbar-item" href="/login">
-    Login
-  </a>
-  <a class="navbar-item" href="/signup">
-    Sign Up
-  </a>
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="/login">Login</a></li>
+    <li><a href="/signup">Sign Up</a></li>
+  </ul>
 </nav>
 
 <form id="LogIn" style="width:500px" method="post" enctype="multipart/form-data">
