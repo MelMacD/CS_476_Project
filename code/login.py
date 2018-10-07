@@ -18,6 +18,8 @@ class Login:
 <body>
 
 <nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+  <div class="navbar-header">
   <a class="navbar-brand" href="/">
     Express Yourself
   </a>
@@ -25,6 +27,8 @@ class Login:
     <li><a href="/login">Login</a></li>
     <li><a href="/signup">Sign Up</a></li>
   </ul>
+  </div>
+  </div>
 </nav>
 
 <form id="LogIn" style="width:500px" method="post" enctype="multipart/form-data">
