@@ -6,7 +6,6 @@ class Login:
         self.html = "Log In"
         
     def getHTML(self):
-        print("Hey logger do you work?")
         return self.html
     
     def setHTML(self):
@@ -17,7 +16,19 @@ class Login:
 <link rel="stylesheet" href="static/bootstrap.css" />
 </head>
 <body>
-    
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="/">
+    Home
+  </a>
+  <a class="navbar-item" href="/login">
+    Login
+  </a>
+  <a class="navbar-item" href="/signup">
+    Sign Up
+  </a>
+</nav>
+
 <form id="LogIn" style="width:500px" method="post" enctype="multipart/form-data">
   <div class="container">
     <label><b>Username</b></label>
