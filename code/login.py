@@ -17,17 +17,15 @@ class Login:
 </head>
 <body>
 
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
   <div class="navbar-header">
-  <a class="navbar-brand" href="/">
-    Express Yourself
-  </a>
+  <a class="navbar-brand" href="/">Express Yourself</a>
+  </div>
   <ul class="nav navbar-nav navbar-right">
     <li><a href="/login">Login</a></li>
     <li><a href="/signup">Sign Up</a></li>
   </ul>
-  </div>
   </div>
 </nav>
 
