@@ -19,9 +19,10 @@ class Login:
     
 <form id="LogIn" style="width:500px" method="post" enctype="multipart/form-data">
   <div class="container">
-    <label><b>Email</b></label>
+    <label><b>Username</b></label>
     <label id="uname_msg" class="err_msg"></label>
-    <input id="uname" type="text" placeholder="Enter Email" size="30" name="email">
+    <input id="uname" type="text" placeholder="Enter Username" size="30" name="email">
+    </br>
 	
     <label><b>Password</b></label>
      <label id="pswd_msg" class="err_msg"></label>
@@ -29,6 +30,7 @@ class Login:
      <input type="submit" name="Login" value="Login"/>
      <a class="dropdown-item" href="#">Forgot password?</a>
      <a class="dropdown-item" href="/signup">New around here? Sign up</a>
+     </br>
   </div>
 </form>
     
