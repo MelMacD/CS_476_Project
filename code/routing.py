@@ -7,10 +7,10 @@ def hello():
 
     return """
 <p class="border border-dark rounded">
-    <h1 contenteditable="true">
+    <h1>
         What is the title?
     </h1>
-    <div contenteditable="true">
+    <div>
         What is the content?
     </div>
 </p>"""
