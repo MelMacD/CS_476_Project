@@ -24,11 +24,11 @@ $( function() {
 </script>
 </head>
 <body>
-<div id="draggable" class="border border-dark rounded" contenteditable="true">
-    <h3>
+<div id="draggable" class="border border-dark rounded">
+    <h3 contenteditable="true">
         What is the title?
     </h3>
-    <p>
+    <p contenteditable="true">
         What is the content?
     </p>
 </div>
