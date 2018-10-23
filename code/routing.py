@@ -12,10 +12,10 @@ def hello():
 <link rel="stylesheet" href="static/bootstrap.css" />
 </head>
     
-<div class="border border-dark rounded">
-    <h1>
+<div class="border border-dark rounded" contenteditable="true">
+    <h3>
         What is the title?
-    </h1>
+    </h3>
     <p>
         What is the content?
     </p>
