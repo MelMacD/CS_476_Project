@@ -10,15 +10,15 @@ def hello():
 <title>Test Page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="static/bootstrap.css" />
-<link rel="stylesheet" href="static/jquery-ui.theme.min.css" />
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="static/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
 <script>
 $( function() {
   $( "#draggable" ).draggable().resizable().click(function() {
-    $(this).draggable({ disabled: true });
+    $(this).draggable({ disabled: false });
     }).dblclick(function() {
-      $(this).draggable({ disabled: false });
+      $(this).draggable({ disabled: true });
     });  
 });
 </script>
