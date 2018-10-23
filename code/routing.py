@@ -19,6 +19,8 @@ $( function() {
     }).dblclick(function() {
       $(this).draggable({ disabled: true });
     });
+    
+  $( "#draggable" ).resizable();  
 });
 </script>
 </head>
