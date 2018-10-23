@@ -15,7 +15,7 @@ def hello():
 <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
 <script>
 $( function() {
-  $( "#draggable" ).draggable().resizable().click(function() {
+  $( ".draggable" ).draggable().resizable().click(function() {
     $(this).draggable({ disabled: false });
     }).dblclick(function() {
       $(this).draggable({ disabled: true });
@@ -24,7 +24,7 @@ $( function() {
 </script>
 </head>
 <body>
-<div id="draggable" class="border border-dark rounded">
+<div class="border border-dark rounded draggable">
     <h3 contenteditable="true">
         What is the title?
     </h3>
@@ -34,5 +34,9 @@ $( function() {
     <p contenteditable="false">
     <small>Click here to drag</small>
     </p>
+</div>
+
+<div class="draggable">
+    <img src="pictures/Revised Deployment Diagram.jpg">
 </div>
 </body>"""
