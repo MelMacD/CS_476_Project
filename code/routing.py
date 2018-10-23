@@ -19,7 +19,7 @@ $( function() {
 </script>
 </head>
 <body>
-<div id="draggable" class="border border-dark rounded">
+<div id="draggable" class="border border-dark rounded" contenteditable="true">
     <h3>
         What is the title?
     </h3>
