@@ -14,7 +14,12 @@ def hello():
 <script src="static/jquery-ui.min.js"></script>
 <script>
 $( function() {
-  $( "#draggable" ).draggable();
+  $( "#draggable" ).draggable().click(function() {
+    $(this).dragged({ disabled: false });
+    }).dblclick(function() {
+      $(this).draggable({ disabled: true });
+    });
+  });
 });
 </script>
 </head>
