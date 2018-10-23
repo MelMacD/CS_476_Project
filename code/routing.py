@@ -15,16 +15,17 @@ def hello():
 <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
 <script>
 $( function() {
-  $( ".draggable" ).draggable().resizable().click(function() {
+  $( ".draggable" ).draggable().click(function() {
     $(this).draggable({ disabled: false });
     }).dblclick(function() {
       $(this).draggable({ disabled: true });
     });  
+  $( ".resizable").resizable();
 });
 </script>
 </head>
 <body>
-<div class="border border-dark rounded draggable">
+<div class="border border-dark rounded draggable resizable">
     <h3 contenteditable="true">
         What is the title?
     </h3>
@@ -37,6 +38,6 @@ $( function() {
 </div>
 
 <div class="draggable">
-    <img src="static/very_important.jpg">
+    <img class="resizable" src="static/very_important.jpg">
 </div>
 </body>"""
