@@ -15,7 +15,7 @@ def hello():
 <script>
 $( function() {
   $( "#draggable" ).draggable().click(function() {
-    $(this).dragged({ disabled: false });
+    $(this).draggable({ disabled: false });
     }).dblclick(function() {
       $(this).draggable({ disabled: true });
     });
