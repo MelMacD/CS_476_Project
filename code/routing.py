@@ -5,4 +5,12 @@ from code import app
 
 def hello():
 
-    return "Hello World!"
+    return """
+<p>
+    <h contenteditable="true">
+        "What is the title?"
+    </h>
+    <div contenteditable="true">
+        "What is the content?"
+    </div>
+</p>"""
