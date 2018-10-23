@@ -10,7 +10,7 @@ def hello():
 <title>Test Page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="static/bootstrap.css" />
-<link rel="stylesheet href="static/jquery-ui.theme.min.css" />
+<link rel="stylesheet" href="static/jquery-ui.theme.min.css" />
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="static/jquery-ui.min.js"></script>
 <script>
