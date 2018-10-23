@@ -6,11 +6,13 @@ from code import app
 def hello():
 
     return """
-<p class="border border-dark rounded">
+<div class="panel panel-default">
+  <div class="panel-body">
     <h1>
         What is the title?
     </h1>
-    <div>
+    <p>
         What is the content?
-    </div>
-</p>"""
+    </p>
+  </div>  
+</div>"""
