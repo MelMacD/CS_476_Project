@@ -37,6 +37,6 @@ $( function() {
 </div>
 
 <div class="draggable">
-    <img src="static/very important.jpg">
+    <img src="static/very_important.jpg">
 </div>
 </body>"""
