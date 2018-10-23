@@ -40,4 +40,8 @@ $( function() {
 <div class="draggable">
     <img class="resizable" src="static/very_important.jpg" width="500" height="500">
 </div>
+
+<div class="draggable">
+    <iframe class="resizeable" width="420" height="315" src="https://www.youtube.com/watch?v=h2Lw9Zs98Gg" </iframe>
+</div>
 </body>"""
