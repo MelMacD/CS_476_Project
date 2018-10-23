@@ -6,13 +6,11 @@ from code import app
 def hello():
 
     return """
-<p>
-  <span class="border border-dark rounded">
+<p class="border border-dark rounded">
     <h1 contenteditable="true">
         What is the title?
     </h1>
     <div contenteditable="true">
         What is the content?
     </div>
-  </span>
 </p>"""
