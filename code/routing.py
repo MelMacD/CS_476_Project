@@ -14,13 +14,11 @@ def hello():
 <script src="static/jquery-ui.min.js"></script>
 <script>
 $( function() {
-  $( "#draggable" ).draggable().click(function() {
+  $( "#draggable" ).draggable().resizable().click(function() {
     $(this).draggable({ disabled: false });
     }).dblclick(function() {
       $(this).draggable({ disabled: true });
-    });
-    
-  $( "#draggable" ).resizable();  
+    });  
 });
 </script>
 </head>
