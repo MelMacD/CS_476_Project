@@ -19,7 +19,6 @@ $( function() {
     }).dblclick(function() {
       $(this).draggable({ disabled: true });
     });
-  });
 });
 </script>
 </head>
