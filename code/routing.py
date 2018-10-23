@@ -11,6 +11,7 @@ def hello():
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="static/bootstrap.css" />
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script src="static/jquery-ui.min.js" />
 <script>
 $( function() {
   $( "#draggable" ).draggable();
