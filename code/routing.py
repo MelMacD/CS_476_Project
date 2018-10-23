@@ -31,5 +31,8 @@ $( function() {
     <p contenteditable="true">
         What is the content?
     </p>
+    <p contenteditable="false">
+    <small>Click here to drag</small>
+    </p>
 </div>
 </body>"""
