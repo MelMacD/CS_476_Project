@@ -6,6 +6,12 @@ from code import app
 def hello():
 
     return """
+<head>
+<title>Test Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="static/bootstrap.css" />
+</head>
+    
 <div class="border border-dark rounded">
     <h1>
         What is the title?
