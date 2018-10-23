@@ -17,12 +17,13 @@ $( function() {
 });
 </script>
 </head>
-    
-<div id="draggable" class="border border-dark rounded" contenteditable="true">
+<body>
+<div id="draggable" class="border border-dark rounded">
     <h3>
         What is the title?
     </h3>
     <p>
         What is the content?
     </p>
-</div>"""
+</div>
+</body>"""
