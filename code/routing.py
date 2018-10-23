@@ -38,6 +38,6 @@ $( function() {
 </div>
 
 <div class="draggable">
-    <img class="resizable" src="static/very_important.jpg">
+    <img class="resizable" src="static/very_important.jpg" width="500" height="500">
 </div>
 </body>"""
