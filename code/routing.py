@@ -31,6 +31,18 @@ $( function() {
 </script>
 
 <style>
+    div {
+        border: 1px solid black;
+    }
+
+    .video {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px;
+        height: 0;
+        overflow: hidden;
+    }
+
     #mask {
         z-index: 5;
         position: absolute;
@@ -39,6 +51,16 @@ $( function() {
         width: 100%
         height: 100%
         display: none;
+    }
+    
+    .video iframe,
+    .video object,
+    .video embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 </style>
 
