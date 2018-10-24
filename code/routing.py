@@ -78,8 +78,8 @@ $( function() {
     </p>
 </div>
 
-<div class="draggable">
-    <img class="resizable" src="static/very_important.jpg" width="500" height="500">
+<div class="draggable resizable">
+    <img src="static/very_important.jpg" width="500" height="500">
 </div>
 
 <div class="video draggable">
