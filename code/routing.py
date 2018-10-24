@@ -21,6 +21,12 @@ $( function() {
       $(this).draggable({ disabled: true });
     });  
   $( ".resizable").resizable();
+  
+  $("div.video").mousedown( function() {
+      $("#mask").show();
+    }).mouseup( function() {
+      $("#mask").hide();
+    }).resizable();
 });
 </script>
 </head>
@@ -41,7 +47,9 @@ $( function() {
     <img class="resizable" src="static/very_important.jpg" width="500" height="500">
 </div>
 
-<div>
-    <iframe class="draggable" width="420" height="315" src="https://www.youtube.com/embed/h2Lw9Zs98Gg" </iframe>
+<div class="video">
+  <div id="mask"></div>
+    <iframe class="draggable" width="420" height="315" 
+    src="https://www.youtube.com/embed/h2Lw9Zs98Gg" allowfullscreen</iframe>
 </div>
 </body>"""
