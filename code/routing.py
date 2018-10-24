@@ -26,15 +26,11 @@ $( function() {
       $("#mask").show();
     }).mouseup( function() {
       $("#mask").hide();
-    }).resizable();
+    }).resizable().draggable();
 });
 </script>
 
 <style>
-    div {
-        border: 1px solid black;
-    }
-
     .video {
         position: relative;
         padding-bottom: 56.25%;
