@@ -29,6 +29,19 @@ $( function() {
     }).resizable();
 });
 </script>
+
+<style>
+    #mask {
+        z-index: 5;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%
+        height: 100%
+        display: none;
+    }
+</style>
+
 </head>
 <body>
 <div class="border border-dark rounded draggable resizable">
