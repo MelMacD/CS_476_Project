@@ -31,6 +31,10 @@ $( function() {
 </script>
 
 <style>
+    div {
+        border: 1px solid black;
+    }
+
     .video {
         position: relative;
         padding-bottom: 56.25%;
