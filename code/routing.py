@@ -20,9 +20,7 @@ $( function() {
     }).dblclick(function() {
       $(this).draggable({ disabled: true });
     });  
-  $( ".resizable").resizable({
-      containment: "parent"
-  });
+  $( ".resizable").resizable();
   
   $("div.video").mousedown( function() {
       $("#mask").show();
@@ -64,10 +62,6 @@ $( function() {
         width: 100%;
         height: 100%;
     }
-    
-    #imgContainer {
-        display: flex;
-    }
 </style>
 
 </head>
@@ -84,7 +78,7 @@ $( function() {
     </p>
 </div>
 
-<div id="imgContainer" class="draggable">
+<div class="draggable">
     <img class="resizable" src="static/very_important.jpg" width="500" height="500">
 </div>
 
