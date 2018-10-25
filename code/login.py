@@ -31,7 +31,7 @@ class Login:
 
 <form id="LogIn" style="width:500px" method="post" enctype="multipart/form-data">
   <div class="container">
-    <label><b>Username</b></label>
+    <label><b>Email</b></label>
     <label id="email_msg" class="err_msg"></label>
     <input id="email" type="text" placeholder="Enter Email" size="30" name="email">
     </br>
@@ -40,8 +40,7 @@ class Login:
      <label id="pswd_msg" class="err_msg"></label>
     <input  type="password" placeholder="Enter Password" size="30" name="pwd">
      <input type="submit" name="Login" value="Login"/>
-     <a class="dropdown-item" href="#">Forgot password?</a>
-     <a class="dropdown-item" href="/signup">New around here? Sign up</a>
+     <a class="dropdown-item" href="/signup">Don't have an account? Sign up</a>
      </br>
   </div>
 </form>
