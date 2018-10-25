@@ -18,7 +18,9 @@ $( function() {
   $( ".draggable" ).draggable().click(function() {
     $(this).draggable({ 
         disabled: false,
-        iframeFix: true });
+        iframeFix: true,
+        snap: true,
+        stack: ".draggable" });
     }).dblclick(function() {
       $(this).draggable({ disabled: true });
     });  
