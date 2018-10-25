@@ -21,9 +21,8 @@ $( function() {
       $(this).draggable({ disabled: true });
     });  
   $( ".resizable").resizable({
-      aspectRatio: true;
+      aspectRatio: true
   });
-});  
   
   $("div.video").mousedown( function() {
       $("#mask").show();
