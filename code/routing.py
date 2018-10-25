@@ -16,7 +16,9 @@ def hello():
 <script>
 $( function() {
   $( ".draggable" ).draggable().click(function() {
-    $(this).draggable({ disabled: false });
+    $(this).draggable({ 
+        disabled: false,
+        iframeFix: true });
     }).dblclick(function() {
       $(this).draggable({ disabled: true });
     });  
@@ -24,46 +26,12 @@ $( function() {
       aspectRatio: true,
       grid: [ 10, 10 ]
   });
-  
-  $("div.video").mousedown( function() {
-      $("#mask").show();
-    }).mouseup( function() {
-      $("#mask").hide();
-    }).resizable();
 });
 </script>
 
 <style>
     div {
         border: 1px solid black;
-    }
-
-    .video {
-        position: relative;
-        padding-bottom: 56.25%;
-        padding-top: 30px;
-        height: 0;
-        overflow: hidden;
-    }
-
-    #mask {
-        z-index: 5;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%
-        height: 100%
-        display: none;
-    }
-    
-    .video iframe,
-    .video object,
-    .video embed {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
     }
 </style>
 
@@ -85,9 +53,8 @@ $( function() {
     <img class="resizable" src="static/very_important.jpg" width="500" height="500">
 </div>
 
-<div class="video draggable">
-  <div id="mask"></div>
+<div class="draggable">
     <iframe width="420" height="315" 
-    src="https://www.youtube.com/embed/h2Lw9Zs98Gg" allowfullscreen</iframe>
+    src="https://www.youtube.com/embed/h2Lw9Zs98Gg" </iframe>
 </div>
 </body>"""
