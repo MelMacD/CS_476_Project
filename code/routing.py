@@ -54,7 +54,7 @@ $( function() {
 </div>
 
 <div class="draggable resizable">
-    <iframe width="420" height="315" 
+    <iframe class="resizable" width="420" height="315" 
     src="https://www.youtube.com/embed/h2Lw9Zs98Gg" </iframe>
 </div>
 </body>"""
