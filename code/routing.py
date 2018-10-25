@@ -23,6 +23,7 @@ $( function() {
   $( ".resizable").resizable({
       aspectRatio: true;
   });
+});  
   
   $("div.video").mousedown( function() {
       $("#mask").show();
