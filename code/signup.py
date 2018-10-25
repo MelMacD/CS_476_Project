@@ -47,16 +47,12 @@ class SignUp:
     <label><b>Re-enter Password</b></label>
      <label id="reEnter_msg" class="err_msg"></label>
     <input  type="password" placeholder="Re-enter Password" size="30" name="pwd2">
-     <input type="submit" name="Login" value="Login"/>
-     <a class="dropdown-item" href="/signup">Don't have an account? Sign up</a>
+     <input type="submit" name="Signup" value="Signup"/>
+     <a class="dropdown-item" href="/signup">Already have an account? Sign in</a>
      </br>
   </div>
 </form>
     
-<script>
-document.getElementById("LogIn").addEventListener("submit", LogInForm, false);
-window.onload=document.getElementById("name").value= "";
-</script>
 </body>
 </html>
 """
