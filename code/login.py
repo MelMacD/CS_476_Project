@@ -32,8 +32,8 @@ class Login:
 <form id="LogIn" style="width:500px" method="post" enctype="multipart/form-data">
   <div class="container">
     <label><b>Username</b></label>
-    <label id="uname_msg" class="err_msg"></label>
-    <input id="uname" type="text" placeholder="Enter Username" size="30" name="email">
+    <label id="email_msg" class="err_msg"></label>
+    <input id="email" type="text" placeholder="Enter Email" size="30" name="email">
     </br>
 	
     <label><b>Password</b></label>
@@ -58,7 +58,7 @@ window.onload=document.getElementById("name").value= "";
 
 def login():
     if request.method == 'POST':
-        return str(request.form)
+        return str(request.form.get("email") + " " + request.form.get("pwd"))
     else:
         loginHTML = Login()
         loginHTML.setHTML()
