@@ -21,7 +21,8 @@ $( function() {
       $(this).draggable({ disabled: true });
     });  
   $( ".resizable").resizable({
-      aspectRatio: true
+      aspectRatio: true,
+      grid: [ 10, 10 ]
   });
   
   $("div.video").mousedown( function() {
