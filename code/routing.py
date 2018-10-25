@@ -20,7 +20,9 @@ $( function() {
     }).dblclick(function() {
       $(this).draggable({ disabled: true });
     });  
-  $( ".resizable").resizable();
+  $( ".resizable").resizable({
+      containment: "parent"
+  });
   
   $("div.video").mousedown( function() {
       $("#mask").show();
