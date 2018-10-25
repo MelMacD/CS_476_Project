@@ -20,6 +20,7 @@ $( function() {
         disabled: false,
         iframeFix: true,
         snap: true,
+        containment: "window",
         stack: ".draggable" });
     }).dblclick(function() {
       $(this).draggable({ disabled: true });
