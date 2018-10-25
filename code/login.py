@@ -58,7 +58,7 @@ window.onload=document.getElementById("name").value= "";
 
 def login():
     if request.method == 'POST':
-        return str(request)
+        return str(request.form)
     else:
         loginHTML = Login()
         loginHTML.setHTML()
