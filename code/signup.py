@@ -48,7 +48,7 @@ class SignUp:
      <label id="reEnter_msg" class="err_msg"></label>
     <input  type="password" placeholder="Re-enter Password" size="30" name="pwd2">
      <input type="submit" name="Signup" value="Signup"/>
-     <a class="dropdown-item" href="/signup">Already have an account? Sign in</a>
+     <a class="dropdown-item" href="/login">Already have an account? Sign in</a>
      </br>
   </div>
 </form>
