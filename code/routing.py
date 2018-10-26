@@ -17,7 +17,8 @@ def hello():
 </head>
 <body>
     <div id="buttons">
-        <button id="toggleEditing">Enable Edit Mode</button>
+        <button id="enableEditing">Enable Edit Mode</button>
+        <button style="display:none;" id="disableEditing">Exit Edit Mode</button>
         <button style="display:none;" id="addText">Add Post</button>
         <button style="display:none;" id="addImage">Add Image</button>
         <button style="display:none;" id="addVideo">Add Video</button>
