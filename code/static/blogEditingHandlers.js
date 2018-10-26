@@ -1,6 +1,6 @@
 var postHtml = '<div class="border border-dark rounded draggable resizable" contenteditable="true">' +
                '<h3>What is the title?</h3><p>What is the content?</p>' +
-               '<p><small>Click here to drag</small></p>';
+               '</div>';
 var imageHtml = '<div class="draggable">' +
                 '<img class="resizable" src="static/very_important.jpg" width="500" height="500">' +
                 '</div>';
