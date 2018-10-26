@@ -10,21 +10,6 @@ var videoHtml = '<div class="draggable resizable">' +
 
 // Need default media
 $(document).ready(function() {
-    $( ".draggable" ).draggable().click(function() {
-    $(this).draggable({ 
-        disabled: false,
-        iframeFix: true,
-        snap: true,
-        containment: "window",
-        stack: ".draggable" });
-    }).dblclick(function() {
-      $(this).draggable({ disabled: true });
-    });  
-  $( ".resizable").resizable({
-      aspectRatio: true,
-      grid: [ 10, 10 ]
-  });
-  
     $("#enableEditing").click(function () {
         $("#enableEditing").css("display", "none");
         $("#disableEditing").css("display", "inline");
@@ -52,4 +37,19 @@ $(document).ready(function() {
     $("#addVideo").click(function() {
         $(document.body).append(videoHtml);
     });
+  
+        $( ".draggable" ).draggable().click(function() {
+    $(this).draggable({ 
+        disabled: false,
+        iframeFix: true,
+        snap: true,
+        containment: "window",
+        stack: ".draggable" });
+    }).dblclick(function() {
+      $(this).draggable({ disabled: true });
+    });  
+  $( ".resizable").resizable({
+      aspectRatio: true,
+      grid: [ 10, 10 ]
+  });
 });
