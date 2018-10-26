@@ -26,27 +26,7 @@ $(document).ready(function() {
         $("#addImage").css("display", "none");
         $("#addVideo").css("display", "none");
         $( ".draggable" ).draggable({ disabled: true });
-        $( ".resizable").resizable({ disabled: true )};
-    });
-    
-    $("#addText").click(function() {
-        $(document.body).append(postHtml);
-        setupDraggableResizable();
-    });
-  
-    $("#addImage").click(function() {
-        $(document.body).append(imageHtml);
-        setupDraggableResizable();
-    });
-  
-    $("#addVideo").click(function() {
-        $(document.body).append(videoHtml);
-        setupDraggableResizable();
-    }); 
-});
-
-function setupDraggableResizable() {
-    $( ".draggable" ).draggable().click(function() {
+        $( ".resizable").resizable({ disabled: true });
         $(this).draggable({ 
             disabled: false,
             iframeFix: true,
