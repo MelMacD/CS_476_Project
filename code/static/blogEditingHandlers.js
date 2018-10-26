@@ -1,5 +1,7 @@
 $(document).ready(function() {
-    $("#enableEditing").click(function () {
-        alert("yop");
+    $("#toggleEditing").click(function () {
+        $("#addText").css("display", "block");
+        $("#addImage").css("display", "block");
+        $("#addVideo").css("display", "block");
     });
 });
