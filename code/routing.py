@@ -13,51 +13,12 @@ def hello():
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="static/jquery-ui.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
-<script>
-$( function() {
-  $( ".draggable" ).draggable().click(function() {
-    $(this).draggable({ 
-        disabled: false,
-        iframeFix: true,
-        snap: true,
-        containment: "window",
-        stack: ".draggable" });
-    }).dblclick(function() {
-      $(this).draggable({ disabled: true });
-    });  
-  $( ".resizable").resizable({
-      aspectRatio: true,
-      grid: [ 10, 10 ]
-  });
-});
-</script>
-
-<style>
-    div {
-        border: 1px solid black;
-    }
-</style>
-
 </head>
 <body>
-<div class="border border-dark rounded draggable resizable">
-    <h3 contenteditable="true">
-        What is the title?
-    </h3>
-    <p contenteditable="true">
-        What is the content?
-    </p>
-    <p contenteditable="false">
-    <small>Click here to drag</small>
-    </p>
-</div>
-
-<div class="draggable">
-    <img class="resizable" src="static/very_important.jpg" width="500" height="500">
-</div>
-
-<div class="draggable resizable">
-    <iframe class="resizable" width="420" height="315" 
-    src="https://www.youtube.com/embed/h2Lw9Zs98Gg" </iframe>
-</div>
+    <div id="buttons">
+        <button id="enableEditing">Enable Edit Mode</button>
+        <button style="display:hidden;" id="addText">Add Post</button>
+        <button style="display:hidden;" id="addImage">Add Image</button>
+        <button id="addVideo">Add Video</button>
+    </div>
 </body>"""
