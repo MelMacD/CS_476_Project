@@ -1,3 +1,8 @@
+var postHtml = '<div class="border border-dark rounded draggable resizable" contenteditable="true">' +
+               '<h3>What is the title?</h3><p>What is the content?</p>' +
+               '<p><small>Click here to drag</small></p>';
+
+// Need default media
 $(document).ready(function() {
     $("#enableEditing").click(function () {
         $("#enableEditing").css("display", "none");
@@ -13,5 +18,9 @@ $(document).ready(function() {
         $("#addText").css("display", "none");
         $("#addImage").css("display", "none");
         $("#addVideo").css("display", "none");
+    });
+    
+    $("#addText").click(function() {
+        $(document.body).append(postHtml);
     });
 });
