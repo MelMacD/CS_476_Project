@@ -12,6 +12,7 @@ def hello():
 <link rel="stylesheet" href="static/bootstrap.css" />
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="static/jquery-ui.min.js"></script>
+<script src="static/blogEditingHandlers.js"></script>
 <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
 </head>
 <body>
