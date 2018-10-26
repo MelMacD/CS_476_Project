@@ -17,8 +17,8 @@ def hello():
 <body>
     <div id="buttons">
         <button id="enableEditing">Enable Edit Mode</button>
-        <button style="display: hidden;" id="addText">Add Post</button>
-        <button style="display: hidden;" id="addImage">Add Image</button>
-        <button style="display: hidden" id="addVideo">Add Video</button>
+        <button style="display:none;" id="addText">Add Post</button>
+        <button style="display:none;" id="addImage">Add Image</button>
+        <button style="display:none;" id="addVideo">Add Video</button>
     </div>
 </body>"""
