@@ -1,3 +1,5 @@
-$("#enableEditing").click(function () {
-    alert("yop");
+$(document).ready(function() {
+    $("#enableEditing").click(function () {
+        alert("yop");
     });
+});
