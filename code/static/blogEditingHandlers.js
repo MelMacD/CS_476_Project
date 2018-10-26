@@ -27,6 +27,26 @@ $(document).ready(function() {
         $("#addVideo").css("display", "none");
         $( ".draggable" ).draggable({ disabled: true });
         $( ".resizable").resizable({ disabled: true });
+    });
+    
+    $("#addText").click(function() {
+        $(document.body).append(postHtml);
+        setupDraggableResizable();
+    });
+  
+    $("#addImage").click(function() {
+        $(document.body).append(imageHtml);
+        setupDraggableResizable();
+    });
+  
+    $("#addVideo").click(function() {
+        $(document.body).append(videoHtml);
+        setupDraggableResizable();
+    }); 
+});
+
+function setupDraggableResizable() {
+    $( ".draggable" ).draggable().click(function() {
         $(this).draggable({ 
             disabled: false,
             iframeFix: true,
