@@ -1,6 +1,12 @@
 var postHtml = '<div class="border border-dark rounded draggable resizable" contenteditable="true">' +
                '<h3>What is the title?</h3><p>What is the content?</p>' +
                '<p><small>Click here to drag</small></p>';
+var imageHtml = '<div class="draggable">' +
+                '<img class="resizable" src"static/very_important.jpg" width="500" height="500">' +
+                '</div>';
+var videoHtml = '<div class="draggable resizable">' +
+                '<iframe class="resizable" width="420" height="315"' +
+                'src="https://www.youtube.com/embed/h2Lw9Zs98Gg" </iframe></div>';
 
 // Need default media
 $(document).ready(function() {
@@ -22,5 +28,13 @@ $(document).ready(function() {
     
     $("#addText").click(function() {
         $(document.body).append(postHtml);
+    });
+  
+    $("#addImage").click(function() {
+        $(document.body).append(imageHtml);
+    });
+  
+    $("#addVideo").click(function() {
+        $(document.body).append(videoHtml);
     });
 });
