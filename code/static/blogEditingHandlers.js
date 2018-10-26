@@ -28,17 +28,22 @@ $(document).ready(function() {
     
     $("#addText").click(function() {
         $(document.body).append(postHtml);
+        setupDraggableResizable();
     });
   
     $("#addImage").click(function() {
         $(document.body).append(imageHtml);
+        setupDraggableResizable();
     });
   
     $("#addVideo").click(function() {
         $(document.body).append(videoHtml);
-    });
-  
-        $( ".draggable" ).draggable().click(function() {
+        setupDraggableResizable();
+    }); 
+});
+
+function setupDraggableResizable() {
+    $( ".draggable" ).draggable().click(function() {
     $(this).draggable({ 
         disabled: false,
         iframeFix: true,
@@ -52,4 +57,4 @@ $(document).ready(function() {
       aspectRatio: true,
       grid: [ 10, 10 ]
   });
-});
+}
