@@ -1,3 +1,3 @@
-$("#enableEditing").onclick(function () {
+$("#enableEditing").click(function () {
     alert("yop");
     });
