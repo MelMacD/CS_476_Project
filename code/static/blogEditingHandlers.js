@@ -17,7 +17,7 @@ $(document).ready(function() {
         $("#addImage").css("display", "inline");
         $("#addVideo").css("display", "inline");
         setupDraggableResizable();
-        $("div[contenteditable]).attr("contenteditable", "true");
+        $("div[contenteditable]").attr("contenteditable", "true");
     });
     
     $("#disableEditing").click(function() {
@@ -28,7 +28,7 @@ $(document).ready(function() {
         $("#addVideo").css("display", "none");
         $( ".draggable" ).draggable({ disabled: true });
         $( ".resizable").resizable({ disabled: true });
-        $("div[contenteditable]).attr("contenteditable", "false");
+        $("div[contenteditable]").attr("contenteditable", "false");
     });
     
     $("#addText").click(function() {
