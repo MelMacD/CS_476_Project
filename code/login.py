@@ -14,6 +14,19 @@ class Login:
 <title>Login Page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="static/bootstrap.css" />
+<style>
+/* Center the image  */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+<style>
 </head>
 <body>
 
@@ -21,6 +34,9 @@ class Login:
   <div class="container-fluid">
   <div class="navbar-header">
   <a class="navbar-brand" href="/">Express Yourself</a>
+  <div class="imgcontainer">
+      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
   </div>
   <ul class="nav navbar-nav navbar-right">
     <li><a href="/login">Login</a></li>
@@ -40,6 +56,9 @@ class Login:
      <label id="pswd_msg" class="err_msg"></label>
     <input  type="password" placeholder="Enter Password" size="30" name="pwd">
      <input type="submit" name="Login" value="Login"/>
+     <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
      <a class="dropdown-item" href="/signup">Don't have an account? Sign up</a>
      </br>
   </div>
