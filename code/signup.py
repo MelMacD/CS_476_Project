@@ -62,7 +62,7 @@ class SignUp:
 
 def signup():
     if request.method == 'POST':
-        server = 'expressyourself.database.windows.net'
+        server = 'tcp:expressyourself.database.windows.net'
         database = 'expressyourself'
         username = 'cs476'
         password = '$up3rSecret'
@@ -70,7 +70,7 @@ def signup():
         cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
         cursor = cnxn.cursor()
         try:
-            cursor.execute("INSERT INTO users VALUES('test', 'test@hi', 'pwd', 0, null)")
+            cursor.execute("INSERT INTO users VALUES ('test', 'test@hi', 'pwd', 0, null)")
             #cursor.execute("SELECT * FROM users");
             print("huh")
         except pyodbc.Error as ex:
