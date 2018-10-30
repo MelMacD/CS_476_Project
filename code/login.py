@@ -26,7 +26,7 @@ img.avatar {
     width: 40%;
     border-radius: 50%;
 }
-<style>
+</style>
 </head>
 <body>
 
