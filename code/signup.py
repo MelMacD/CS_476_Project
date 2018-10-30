@@ -72,11 +72,7 @@ def signup():
         try:
             cursor.execute("INSERT INTO users VALUES('test', 'test@hi', 'pwd', 0, null)")
             #cursor.execute("SELECT * FROM users");
-            try:
-                rows = cursor.fetchall()
-                return str(rows)
-            except Exception as ex:
-                return ex
+            print("huh")
         except pyodbc.Error as ex:
             sqlstate = ex.args[1]
             return sqlstate
