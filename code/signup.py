@@ -66,13 +66,13 @@ def signup():
         database = 'expressyourself'
         username = 'cs476'
         password = '$up3rSecret'
-        driver= '{ODBC Driver 13 for SQL Server}'
-        cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
-        cursor = cnxn.cursor()
-        cursor.execute("INSERT INTO users VALUES ('${username}', '${email}', '${pwd}', 0, null)".format(
-                username=request.form.get("username"),
-                password=request.form.get("pwd"),
-                email=request.form.get("email")));
+        #driver= '{ODBC Driver 13 for SQL Server}'
+        #cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
+        #cursor = cnxn.cursor()
+        #cursor.execute("INSERT INTO users VALUES ('${username}', '${email}', '${pwd}', 0, null)".format(
+        #        username=request.form.get("username"),
+        #        password=request.form.get("pwd"),
+        #        email=request.form.get("email")));
         return "Sign up request received"
     else:
         signupHTML = SignUp()
