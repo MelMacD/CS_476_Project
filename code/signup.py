@@ -72,7 +72,7 @@ def signup():
         cursor.execute("INSERT INTO users VALUES ('${username}', '${email}', '${pwd}', 0, null)".format(
                 username=request.form.get("username"),
                 password=request.form.get("pwd"),
-                email=request.form.get("email")));
+                email=request.form.get("email")))
         return "Sign up request received"
     else:
         signupHTML = SignUp()
