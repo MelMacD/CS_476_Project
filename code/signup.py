@@ -70,11 +70,10 @@ def signup():
         cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
         cursor = cnxn.cursor()
         try:
-            return str(request.form.get("username"))
             cursor.execute("INSERT INTO users VALUES ('${username}', '${email}', '${pwd}', 0, null)".format(
-                username=request.form.get("username"),
-                password=request.form.get("pwd"),
-                email=request.form.get("email")))
+                username=str(request.form.get("username")),
+                password=str(request.form.get("pwd")),
+                email=str(request.form.get("email"))))
             cnxn.commit()
             return "Success"
         except pyodbc.Error as ex:
