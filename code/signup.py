@@ -74,7 +74,7 @@ def signup():
                 username=str(request.form.get("username")),
                 email=str(request.form.get("email")),
                 password=str(request.form.get("pwd"))))
-            cnxn.commit()
+            return redirect("/login", code=302)#cnxn.commit()
             return "Success"
         except pyodbc.Error as ex:
             sqlstate = ex.args[1]
