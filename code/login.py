@@ -57,8 +57,8 @@ img.avatar {
     <input  type="password" placeholder="Enter Password" size="30" name="pwd">
      <input type="submit" name="Login" value="Login"/>
      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
+        <input type="checkbox" checked="checked" name="remember" value="Remember me">
+     </label>
      <a class="dropdown-item" href="/signup">Don't have an account? Sign up</a>
      </br>
   </div>
