@@ -70,8 +70,8 @@ def signup():
         cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
         cursor = cnxn.cursor()
         try:
-            #cursor.execute("INSERT INTO users VALUES ('test', 'test@hi', 'pwd', 0, null)")
-            cursor.execute("SELECT * FROM users");
+            cursor.execute("INSERT INTO users VALUES ('test', 'test@hi', 'pwd', 0, null)")
+            #cursor.execute("SELECT * FROM users");
             rows = cursor.fetchall()
             return str(rows)
         except pyodbc.Error as ex:
