@@ -71,6 +71,9 @@ def signup():
         cursor = cnxn.cursor()
         try:
            cursor.execute("INSERT INTO users VALUES ('test', 'test@hi', 'pwd', 0, null);")
+           rows = cursor.fetchall()
+           for row in rows:
+               return str(row)
         except pyodbc.Error as ex:
             sqlstate = ex.args[1]
             return sqlstate
