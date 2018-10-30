@@ -71,6 +71,7 @@ def signup():
         cursor = cnxn.cursor()
         try:
             cursor.execute("INSERT INTO users VALUES ('test', 'test@hi', 'pwd', 0, null)")
+            cnxn.commit()
             #cursor.execute("SELECT * FROM users");
             print("huh")
             row = cursor.fetchone()
