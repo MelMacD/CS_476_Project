@@ -72,8 +72,8 @@ def signup():
         try:
             cursor.execute("INSERT INTO users VALUES ('{username}', '{email}', '{password}', 0, null)".format(
                 username=str(request.form.get("username")),
-                password=str(request.form.get("pwd")),
-                email=str(request.form.get("email"))))
+                email=str(request.form.get("email")),
+                password=str(request.form.get("pwd"))))
             cnxn.commit()
             return "Success"
         except pyodbc.Error as ex:
