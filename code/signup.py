@@ -70,8 +70,8 @@ def signup():
         cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
         cursor = cnxn.cursor()
         try:
-            cursor.execute("INSERT INTO users VALUES ('test', 'test@hi', 'pwd', 0, null)")
-            #cursor.execute("SELECT * FROM users");
+            #cursor.execute("INSERT INTO users VALUES ('test', 'test@hi', 'pwd', 0, null)")
+            cursor.execute("SLECT * FROM users");
             print("huh")
         except pyodbc.Error as ex:
             sqlstate = ex.args[1]
