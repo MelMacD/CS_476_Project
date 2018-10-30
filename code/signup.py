@@ -1,5 +1,5 @@
 from code import app
-from flask import request
+from flask import request, redirect
 import pyodbc
 
 
@@ -70,7 +70,7 @@ def signup():
         cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
         cursor = cnxn.cursor()
         try:
-            redirect('https://expressyourself.azurewebsites.net/login')
+            return redirect('/login')
             cursor.execute("INSERT INTO users VALUES ('{username}', '{email}', '{password}', 0, null)".format(
                 username=str(request.form.get("username")),
                 email=str(request.form.get("email")),
