@@ -71,9 +71,9 @@ def signup():
         cursor = cnxn.cursor()
         try:
             return "INSERT INTO users VALUES ('{username}', '{email}', '{pwd}', 0, null)".format(
-                username=str(request.form.get("username")),
-                password=str(request.form.get("pwd")),
-                email=str(request.form.get("email")))
+                username=str(request.form.get("username")))
+                #password=str(request.form.get("pwd")),
+                #email=str(request.form.get("email")))
             cursor.execute("INSERT INTO users VALUES ('${username}', '${email}', '${pwd}', 0, null)".format(
                 username=str(request.form.get("username")),
                 password=str(request.form.get("pwd")),
