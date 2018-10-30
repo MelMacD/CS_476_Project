@@ -1,6 +1,6 @@
 from code import app
 from flask import request
-import django-pyodbc
+import pyodbc
 
 
 class SignUp:
