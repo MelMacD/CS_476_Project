@@ -30,8 +30,9 @@ def hello():
 <link rel="stylesheet" href="static/bootstrap.css" />
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="static/jquery-ui.min.js"></script>
-<script src="static/blogEditingHandlers.js"></script>
 <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="static/blogEditingHandlers.js"></script>
 </head>
 <body>
     <div id="buttons">
@@ -44,7 +45,7 @@ def hello():
     </div>
     
 <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
