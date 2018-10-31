@@ -48,6 +48,7 @@ $(document).ready(function() {
     });
   
     $("#editPost").click(function() {
+      alert("clicked");
         $("#exampleModal").modal("show");
     });
 });
