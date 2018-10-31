@@ -8,7 +8,9 @@ from flask import request
 def hello():
     if request.method == 'POST':
         file = request.files['testFile']
-        return os.path.join("uploads/images", file.filename)
+        path = os.path.join("uploads\images", file.filename)
+        file.save(path)
+        return "Success"
     else:
         return """
 <head>
