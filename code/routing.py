@@ -20,13 +20,13 @@ def hello():
                 #block_blob_service.create_blob_from_stream(container, filename, file)
                 #ref =  'http://'+ 'expressiveblob' + '.blob.core.windows.net/' + container + '/' + filename
                 #return '''<!doctype html><title>File Link</title><h1>Uploaded File Link</h1>
-	        #              <p>''' + ref + '''</p>
-	        #              <img src="'''+ ref +'''">'''
-		return "Henlo"
+                #              <p>''' + ref + '''</p>
+                #              <img src="'''+ ref +'''">'''
+                return "Henlo"
             else:
                 return "Invalid file"
-        except:
-            return "why"
+        except Exception as e:
+            return e
     else:
         return """
 <head>
