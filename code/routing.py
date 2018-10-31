@@ -1,6 +1,7 @@
 from code import app
 import os
 from flask import request
+from werkzeug.utils import secure_filename
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -10,9 +11,11 @@ def hello():
         UPLOAD_FOLDER = os.path.basename('uploads')
         app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
         file = request.files['testFile']
-        path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-        #file.save(path)
-        return str(path)
+        if file:
+            filename = secure_filename(file.filename)
+            path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            #file.save(path)
+            return str(path)
     else:
         return """
 <head>
