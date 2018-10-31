@@ -13,7 +13,7 @@ def hello():
             file = request.files['testFile']
             if file:
                 filename = secure_filename(file.filename)
-                block_blob_service = BlockBlobService(account_name='expressiveblob', account_key='F2G8lu/eZ6PduDIJFksWvuItZdhf+GONR2wgwgSsJMUO4s0mMdFI6PiC7K7ypcMSOH6m5kPhn2C9ketBRQiyKA==')
+                #block_blob_service = BlockBlobService(account_name='expressiveblob', account_key='F2G8lu/eZ6PduDIJFksWvuItZdhf+GONR2wgwgSsJMUO4s0mMdFI6PiC7K7ypcMSOH6m5kPhn2C9ketBRQiyKA==')
                 #container = 'images'
                 #block_blob_service.create_container(container)
                 #block_blob_service.set_container_acl(container, public_access=PublicAccess.Container)#necessary?
