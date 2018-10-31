@@ -2,24 +2,30 @@ from code import app
 import os
 from flask import request
 from werkzeug.utils import secure_filename
+from azure.storage.blob import BlockBlobService, PublicAccess
 
 
 @app.route("/", methods=['GET', 'POST'])
 
 def hello():
     if request.method == 'POST':
-        APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-        UPLOAD_FOLDER = os.path.join(APP_ROOT, 'uploads\images')
-        #ALLOWED_EXTENSIONS
-        app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-        file = request.files['testFile']
-        if file:
-            filename = secure_filename(file.filename)
-            path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            file.save(path)
-            return str(path)
-        else:
-            return "Invalid file"
+        try:
+            file = request.files['testFile']
+            if file:
+                filename = secure_filename(file.filename)
+                block_blob_service = BlockBlobService(account_name='expressiveblob', account_key='F2G8lu/eZ6PduDIJFksWvuItZdhf+GONR2wgwgSsJMUO4s0mMdFI6PiC7K7ypcMSOH6m5kPhn2C9ketBRQiyKA==')
+                container = 'images'
+                block_blob_service.create_container(container)
+                block_blob_service.set_container_acl(container, public_access=PublicAccess.Container)#necessary?
+                block_blob_service.create_blob_from_stream(container, filename, file)
+                ref =  'http://'+ 'expressiveblob' + '.blob.core.windows.net/' + container + '/' + filename
+                return '''<!doctype html><title>File Link</title><h1>Uploaded File Link</h1>
+	                      <p>''' + ref + '''</p>
+	                      <img src="'''+ ref +'''">'''
+            else:
+                return "Invalid file"
+        except Exception as e:
+            return e
     else:
         return """
 <head>
