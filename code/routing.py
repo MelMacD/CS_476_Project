@@ -17,7 +17,7 @@ def hello():
                 container = 'videos'#or images
                 #block_blob_service.create_blob_from_stream(container, filename, file)
                 ref =  'https://'+ 'expressiveblob' + '.blob.core.windows.net/' + container + '/' + filename
-                return '<div><h1>' + ref + '</h1><iframe width="420" height="315" src="' + ref + '" </iframe></div>'
+                return '<div><h1>' + ref + '</h1><video width="420" height="315"><source src="' + ref + '" type="video/mpg"></video></div>'
             else:
                 return "Invalid file"
         except Exception as e:
