@@ -45,7 +45,11 @@ $(document).ready(function() {
     $("#addVideo").click(function() {
         $(document.body).append(videoHtml);
         setupDraggableResizable();
-    }); 
+    });
+  
+    $("#editPost").click(function() {
+        $("#exampleModal").modal("show");
+    });
 });
 
 function setupDraggableResizable() {
