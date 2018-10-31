@@ -11,8 +11,8 @@ def hello():
         app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
         file = request.files['testFile']
         path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-        file.save(path)
-        return "Success"
+        #file.save(path)
+        return str(path)
     else:
         return """
 <head>
