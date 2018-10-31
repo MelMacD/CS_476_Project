@@ -36,6 +36,7 @@ def hello():
 <body>
     <div id="buttons">
         <button id="enableEditing">Enable Edit Mode</button>
+        <button type="button" data-toggle="modal" data-target="#exampleModal">Edit Post</button>
         <button style="display:none;" id="disableEditing">Exit Edit Mode</button>
         <button style="display:none;" id="addText">Add Post</button>
         <button style="display:none;" id="addImage">Add Image</button>
