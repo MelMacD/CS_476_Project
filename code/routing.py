@@ -18,6 +18,7 @@ def hello():
 <body>
     <div id="buttons">
         <button id="enableEditing">Enable Edit Mode</button>
+        <input type="file" name="testFile">
         <button style="display:none;" id="disableEditing">Exit Edit Mode</button>
         <button style="display:none;" id="addText">Add Post</button>
         <button style="display:none;" id="addImage">Add Image</button>
