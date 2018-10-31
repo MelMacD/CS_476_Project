@@ -9,14 +9,14 @@ from werkzeug.utils import secure_filename
 def hello():
     if request.method == 'POST':
         APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-        UPLOAD_FOLDER = os.path.join(APP_ROOT, 'uploads/images')
+        UPLOAD_FOLDER = os.path.join(APP_ROOT, 'uploads\images')
         #ALLOWED_EXTENSIONS
         app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
         file = request.files['testFile']
         if file:
             filename = secure_filename(file.filename)
             path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            #file.save(path)
+            file.save(path)
             return str(path)
         else:
             return "Invalid file"
