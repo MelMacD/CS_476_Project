@@ -7,8 +7,10 @@ from flask import request
 
 def hello():
     if request.method == 'POST':
+        UPLOAD_FOLDER = os.path.basname('uploads')
+        app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
         file = request.files['testFile']
-        path = os.path.join(os.path.basename('uploads'), file.filename)
+        path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(path)
         return "Success"
     else:
