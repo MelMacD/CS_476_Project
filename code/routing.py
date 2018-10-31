@@ -15,8 +15,8 @@ def hello():
                 filename = secure_filename(file.filename)
                 block_blob_service = BlockBlobService(account_name='expressiveblob', account_key='F2G8lu/eZ6PduDIJFksWvuItZdhf+GONR2wgwgSsJMUO4s0mMdFI6PiC7K7ypcMSOH6m5kPhn2C9ketBRQiyKA==')
                 container = 'images'
-                #block_blob_service.set_container_acl(container, public_access=PublicAccess.Container)#necessary?
-                block_blob_service.create_blob_from_stream(container, filename, file)
+                block_blob_service.set_container_acl(container, public_access=PublicAccess.Container)#necessary?
+                #block_blob_service.create_blob_from_stream(container, filename, file)
                 ref =  'http://'+ 'expressiveblob' + '.blob.core.windows.net/' + container + '/' + filename
                 return '''<!doctype html><title>File Link</title><h1>Uploaded File Link</h1>
                               <p>''' + ref + '''</p>
