@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 
 def hello():
     if request.method == 'POST':
-        UPLOAD_FOLDER = 'uploads/images'
+        UPLOAD_FOLDER = '/uploads/images'
         #ALLOWED_EXTENSIONS
         app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
         file = request.files['testFile']
