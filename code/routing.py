@@ -1,11 +1,15 @@
 from code import app
+import os
+from flask import request
 
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 
 def hello():
-
-    return """
+    if request.method == 'POST':
+        return str(os.path)
+    else:
+        return """
 <head>
 <title>Test Page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -18,10 +22,15 @@ def hello():
 <body>
     <div id="buttons">
         <button id="enableEditing">Enable Edit Mode</button>
-        <input type="file" name="testFile">
         <button style="display:none;" id="disableEditing">Exit Edit Mode</button>
         <button style="display:none;" id="addText">Add Post</button>
         <button style="display:none;" id="addImage">Add Image</button>
         <button style="display:none;" id="addVideo">Add Video</button>
+    </div>
+    <div>
+        <form id="LogIn" method="post" enctype="multipart/form-data">
+            <input type="file" name="testFile">
+            <input type="submit" name="Login" value="Login"/>
+        </form>
     </div>
 </body>"""
