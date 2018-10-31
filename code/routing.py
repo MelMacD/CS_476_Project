@@ -15,7 +15,7 @@ def hello():
         if file:
             filename = secure_filename(file.filename)
             path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            file.save(path)
+            #file.save(path)
             return "Success"
         else:
             return "Invalid file"
