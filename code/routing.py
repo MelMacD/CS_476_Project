@@ -25,7 +25,7 @@ def hello():
 		return "Henlo"
             else:
                 return "Invalid file"
-        except Exception as e:
+        except:
             return "why"
     else:
         return """
