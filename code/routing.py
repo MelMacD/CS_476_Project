@@ -2,7 +2,7 @@ from code import app
 import os
 from flask import request
 from werkzeug.utils import secure_filename
-from azure.storage.blob import BlockBlobService, PublicAccess
+#from azure.storage.blob import BlockBlobService, PublicAccess
 
 
 @app.route("/", methods=['GET', 'POST'])
