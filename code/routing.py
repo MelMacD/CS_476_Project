@@ -19,7 +19,7 @@ def hello():
                 ref =  'https://'+ 'expressiveblob' + '.blob.core.windows.net/' + container + '/' + filename
                 return '<div class="draggable resizable">' +
                 '<iframe class="resizable" width="420" height="315"' +
-                'src="' + ref + '" </iframe></div>';
+                'src="' + ref + '" </iframe></div>'
             else:
                 return "Invalid file"
         except Exception as e:
