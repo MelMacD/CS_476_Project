@@ -26,7 +26,7 @@ def hello():
             else:
                 return "Invalid file"
         except Exception as e:
-            return str(e)
+            return "why"
     else:
         return """
 <head>
