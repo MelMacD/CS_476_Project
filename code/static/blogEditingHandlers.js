@@ -48,7 +48,7 @@ $(document).ready(function() {
     });
   
     $("#editPost").click(function() {
-        $("#exampleModal").modal("show");
+        //$("#exampleModal").modal("show");
     });
 });
 
