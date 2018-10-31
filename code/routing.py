@@ -41,10 +41,4 @@ def hello():
         <button style="display:none;" id="addImage">Add Image</button>
         <button style="display:none;" id="addVideo">Add Video</button>
     </div>
-    <div>
-        <form id="LogIn" method="post" enctype="multipart/form-data">
-            <input type="file" name="testFile">
-            <input type="submit" name="Login" value="Login"/>
-        </form>
-    </div>
 </body>"""
