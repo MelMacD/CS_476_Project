@@ -1,9 +1,5 @@
 var postHtml = '<div class="border border-dark rounded draggable resizable">' +
-               '<div id="postButtons">' +
-               '<button class="editText">Edit Text</button>' +
-               '<button class="postTextColor">Edit Text Colour</button>' +
-               '<button class="postBackgroundColor">Edit Background</button>' +
-               '</div>' +
+               '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit Post</button>' +
                '<h3>What is the title?</h3><p>What is the content?</p>' +
                '</div>';
 var imageHtml = '<div class="draggable">' +
