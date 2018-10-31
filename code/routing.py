@@ -13,7 +13,8 @@ def hello():
         file = request.files['testFile']
         if file:
             filename = secure_filename(file.filename)
-            path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            #path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            path = "uploads/images/" + filename
             file.save(path)
             return str(path)
     else:
