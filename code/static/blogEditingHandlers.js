@@ -95,16 +95,16 @@ $(document).ready(function() {
     $("#editPost").click(function() {
         $("div.modal-body").html(postEditHtml);
         $("div.modal").on("blur", "#postTitle", function() {
-            alert(this.val());
+            alert($(this).val());
         });
         $("#postContent").on("blur", function() {
-            alert(this.val());
+            alert($(this).val());
         });
         $("#postFontColor").on("change", function() {
-            alert(this.val());
+            alert($(this).val());
         });
         $("#postBackgroundColor").on("change", function() {
-            alert(this.val());
+            alert($(this).val());
         });
     });
   
