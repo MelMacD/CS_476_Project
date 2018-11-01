@@ -39,6 +39,12 @@ var imageEditHtml = `<form>
             <input type="text" class="form-control" id="imageUrl">
           </div>
           <div class="form-group">
+            <label for="message-text" class="col-form-label">Choose image from library:</label>
+            <select id="imageBlobSelector">
+              <option value="none">None</option>
+            </select>
+          </div>
+          <div class="form-group">
             <label for="message-text" class="col-form-label">Upload image from computer:</label>
             <input type="file" class="form-control" id="imageFile">
           </div>
@@ -127,7 +133,10 @@ $(document).ready(function() {
             $("#imagePreview").attr("src", $(this).val());
         });
         $.getJSON("/getBlobImages", function(data) {
-            console.log(data);
+            let i;
+            for (i = 0; i < data.length; i++) {
+              $("#imageBlobSelector").append( "<option value='" + data[i] + "'>" + data[i] + "</option>" );
+            }
         });
       // add stuff for image path
       // allow for preview of any sized image, maybe scale down if too big
