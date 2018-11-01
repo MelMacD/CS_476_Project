@@ -94,7 +94,7 @@ $(document).ready(function() {
   
     $("#editPost").click(function() {
         $("div.modal-body").html(postEditHtml);
-        $("#postTitle").on("blur", function() {
+        $("div.modal").on("blur", "#postTitle", function() {
             alert(this.val());
         });
         $("#postContent").on("blur", function() {
