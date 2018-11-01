@@ -73,7 +73,8 @@ var videoEditHtml = `<form>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Preview:</label>
             <div>
-              <iframe id="videoPreview" width="420" height="315" src="" </iframe>
+              <iframe id="youtubeVideoPreview" width="420" height="315" src="" </iframe>
+              <video id="libraryVideoPreview" style="display: none;"><source src="" type="video/mp4"></video>
             </div>
           </div>
         </form>`;
@@ -155,7 +156,9 @@ $(document).ready(function() {
         $("div.modal-body").html(videoEditHtml);
         $("#videoUrl").on("change", function() {
             let processedUrl = $(this).val().replace("watch?v=", "embed/");
-            $("#videoPreview").attr("src", processedUrl);
+            $("#youtubeVideoPreview").css("display", block);
+            $("#youtubeVideoPreview").attr("src", processedUrl);
+            $("#libraryVideoPreview").css("display", none);
         });
         $.getJSON("/getBlobVideos", function(data) {
             let i;
@@ -165,7 +168,9 @@ $(document).ready(function() {
         });
         $("#videoBlobSelector").on("change", function() {
             let url = 'https://expressiveblob.blob.core.windows.net/videos/' + $(this).val()
-            $("#videoPreview").attr("src", url);
+            $("#libraryVideoPreview").css("display", block);
+            $("#libraryVideoPreview").attr("src", url);
+            $("#youtubeVideoPreview").css("display", none);
         });
     });
 });
