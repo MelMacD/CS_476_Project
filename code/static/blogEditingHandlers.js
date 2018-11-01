@@ -134,7 +134,8 @@ $(document).ready(function() {
         $("div.modal-body").html(videoEditHtml);
         $("#videoUrl").on("change", function() {
             // probably need to modify the youtube link
-            $("#videoPreview").attr("src", $(this).val());
+            let processedUrl = $(this).val().replace("watch?v=", "embed/");
+            $("#videoPreview").attr("src", processedUrl);
         });
       // video path
     });
