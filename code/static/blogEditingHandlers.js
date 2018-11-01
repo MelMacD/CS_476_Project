@@ -1,13 +1,13 @@
-var postHtml = '<div class="border border-dark rounded draggable resizable">' +
-               //'<button type="button" data-toggle="modal" data-target="#exampleModal">Edit Post</button>' +
-               '<h3>What is the title?</h3><p>What is the content?</p>' +
-               '</div>';
-var imageHtml = '<div class="draggable">' +
-                '<img class="resizable" src="static/very_important.jpg" width="500" height="500">' +
-                '</div>';
-var videoHtml = '<div class="draggable resizable">' +
-                '<iframe class="resizable" width="420" height="315"' +
-                'src="https://www.youtube.com/embed/h2Lw9Zs98Gg" </iframe></div>';
+var postHtml = `<div class="border border-dark rounded draggable resizable" style="background-color: grey; opacity: 0.4; width: 350px; height: 400px;">
+               <button type="button" data-toggle="modal" data-target="#exampleModal">Edit Post</button>
+               <h3>What is the title?</h3><p>What is the content?</p>
+               </div>`;
+var imageHtml = `<div class="draggable">
+                <img class="resizable" src="static/very_important.jpg" width="500" height="500">
+                </div>`;
+var videoHtml = `<div class="draggable resizable">
+                <iframe class="resizable" width="420" height="315"
+                src="https://www.youtube.com/embed/h2Lw9Zs98Gg" </iframe></div>`;
 var postEditHtml = `<form>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Header:</label>
