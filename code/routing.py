@@ -51,7 +51,7 @@ def hello():
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Content</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -65,6 +65,14 @@ def hello():
           <div class="form-group">
             <label for="message-text" class="col-form-label">Content:</label>
             <textarea class="form-control" id="postContent"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Font Colour:</label>
+            <input type="color" class="form-control" id="postFontColor" value="#000000">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Background Colour:</label>
+            <input type="color" class="form-control" id="postBackgroundColor" value="#000000">
           </div>
         </form>
       </div>
