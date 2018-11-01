@@ -37,9 +37,6 @@ input[type=text], input[type=password] {
     background-color: white;
     }
     
-   
-    
-    
     .footer {
     background-color: #f1f1f1;
     padding: 10px;
@@ -195,9 +192,6 @@ span.psw {
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
-</div>
-<div class="footer">
-  <p>Footer</p>
 </div>
 <script>
 // Get the modal
