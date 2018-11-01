@@ -95,16 +95,17 @@ $(document).ready(function() {
     $("#editPost").click(function() {
         $("div.modal-body").html(postEditHtml);
         $("#postTitle").on("change", function() {
-            alert($(this).val());
+            $("#postPreviewTitle").text($(this).val());
         });
         $("#postContent").on("change", function() {
-            alert($(this).val());
+            $("#postPreviewContent").text($(this).val());
         });
         $("#postFontColor").on("change", function() {
-            alert($(this).val());
+            $("#postPreviewTitle").css("color", $(this).val());
+            $("#postPreviewContent").css("color", $(this).val());
         });
         $("#postBackgroundColor").on("change", function() {
-            alert($(this).val());
+            $("#postPreviewDiv").css("background-color", $(this).val();
         });
     });
   
