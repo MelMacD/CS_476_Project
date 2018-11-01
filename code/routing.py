@@ -1,13 +1,13 @@
 from code import app
 import os
-from flask import request
+from flask import request, jsonify
 from werkzeug.utils import secure_filename
 from azure.storage.blob import BlockBlobService, PublicAccess
 
 @app.route("/getBlobImages")
 
 def getBlobs():
-    return "hope this doesn't do anything"
+    return jsonify(blobs="listOfBlobs")
 
 @app.route("/", methods=['GET', 'POST'])
 
