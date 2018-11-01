@@ -105,7 +105,7 @@ $(document).ready(function() {
             $("#postPreviewContent").css("color", $(this).val());
         });
         $("#postBackgroundColor").on("change", function() {
-            $("#postPreviewDiv").css("background-color", $(this).val();
+            $("#postPreviewDiv").css("background-color", $(this).val());
         });
     });
   
