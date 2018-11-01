@@ -94,22 +94,18 @@ $(document).ready(function() {
   
     $("#editPost").click(function() {
         $("div.modal-body").html(postEditHtml);
-    });
-  
-    $("#postTitle").on("blur", function() {
-        alert(this.val());
-    });
-  
-    $("#postContent").on("blur", function() {
-        alert(this.val());
-    });
-  
-    $("#postFontColor").on("change", function() {
-        alert(this.val());
-    });
-    
-    $("#postBackgroundColor").on("change", function() {
-        alert(this.val());
+        $("#postTitle").on("blur", function() {
+            alert(this.val());
+        });
+        $("#postContent").on("blur", function() {
+            alert(this.val());
+        });
+        $("#postFontColor").on("change", function() {
+            alert(this.val());
+        });
+        $("#postBackgroundColor").on("change", function() {
+            alert(this.val());
+        });
     });
   
     $("#editImage").click(function() {
