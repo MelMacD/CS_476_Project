@@ -12,7 +12,7 @@ class Login:
         self.html = """
 <!DOCTYPE html>
 <html>
-/**<head>
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -31,6 +31,50 @@ input[type=text], input[type=password] {
     text-align: center;
     padding: 20px;
 }
+
+ .nav {
+    overflow: hidden;
+    background-color: white;
+    }
+    
+    /* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+}
+
+/* Left and right column */
+.column.side {
+    width: 25%;
+}
+
+/* Middle column */
+.column.middle {
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+        width: 100%;
+    }
+}
+    
+    
+    
+    
+    .footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+    
 
 /* Set a style for all buttons */
 button {
@@ -71,10 +115,7 @@ img.avatar {
 .container {
     padding: 16px;
 }
-    .nav {
-    overflow: hidden;
-    background-color: white;
-    }
+   
     
 span.psw {
     float: right;
@@ -156,9 +197,16 @@ span.psw {
     </div>
 <div class= "nav">
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-    
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
 </div>
+<div class="row">
+  <div class="column side">
+    <h2>Side</h2>
+    <p>SAMPLE wRITE SOMETHING HERE.</p>
+  </div>
+  <div class="column middle">
+    <h2>Main Content</h2>
+    <p> EXPRESS </p>
+    /div>
 <div id="id01" class="modal">
   
   <form class="modal-content animate" action="/action_page.php">
@@ -186,7 +234,9 @@ span.psw {
     </div>
   </form>
 </div>
-
+<div class="footer">
+  <p>Footer</p>
+</div>
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
