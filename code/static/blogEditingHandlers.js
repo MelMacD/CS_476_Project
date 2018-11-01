@@ -25,8 +25,27 @@ var postEditHtml = `<form>
             <label for="message-text" class="col-form-label">Background Colour:</label>
             <input type="color" class="form-control" id="postBackgroundColor" value="#000000">
           </div>
-        </form>
-`;
+        </form>`;
+var imageEditHtml = `<form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Get image from URL:</label>
+            <input type="text" class="form-control" id="imageUrl">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Upload image from computer:</label>
+            <input type="file" class="form-control" id="imageFile">
+          </div>
+        </form>`;
+var videoEditHtml = `<form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Get video from YouTube URL:</label>
+            <input type="text" class="form-control" id="videoUrl">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Upload video from computer:</label>
+            <input type="file" class="form-control" id="videoFile">
+          </div>
+        </form>`;
 
 // Need default media
 $(document).ready(function() {
@@ -68,6 +87,14 @@ $(document).ready(function() {
   
     $("#editPost").click(function() {
         $("div.modal-body").html(postEditHtml);
+    });
+  
+    $("#editImage").click(function() {
+        $("div.modal-body").html(imageEditHtml);
+    });
+  
+    $("#editVideo").click(function() {
+        $("div.modal-body").html(videoEditHtml);
     });
 });
 
