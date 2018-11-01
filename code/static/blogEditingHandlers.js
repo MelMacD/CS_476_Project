@@ -25,6 +25,13 @@ var postEditHtml = `<form>
             <label for="message-text" class="col-form-label">Background Colour:</label>
             <input type="color" class="form-control" id="postBackgroundColor" value="#000000">
           </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Preview:</label>
+            <div id="postPreviewDiv" class="border border-dark rounded">
+              <h3 id="postPreviewTitle">What is the title?</h3>
+              <p id="postPreviewContent">What is the content?</p>
+            </div>
+          </div>
         </form>`;
 var imageEditHtml = `<form>
           <div class="form-group">
