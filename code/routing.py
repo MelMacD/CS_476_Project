@@ -34,6 +34,7 @@ def hello():
 <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css"/>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 <script src="static/blogEditingHandlers.js"></script>
+<link rel="stylesheet" href="static/blogEditingStyle.css" />
 </head>
 <body>
     <div id="buttons">
