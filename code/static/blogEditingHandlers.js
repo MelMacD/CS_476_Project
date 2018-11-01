@@ -58,6 +58,12 @@ var videoEditHtml = `<form>
             <label for="message-text" class="col-form-label">Upload video from computer:</label>
             <input type="file" class="form-control" id="videoFile">
           </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Preview:</label>
+            <div>
+              <iframe id="videoPreview" width="420" height="315" src="" </iframe>
+            </div>
+          </div>
         </form>`;
 
 // Need default media
@@ -121,10 +127,16 @@ $(document).ready(function() {
             $("#imagePreview").attr("src", $(this).val());
         });
       // add stuff for image path
+      // allow for preview of any sized image, maybe scale down if too big
     });
   
     $("#editVideo").click(function() {
         $("div.modal-body").html(videoEditHtml);
+        $("#videoUrl").on("change", function() {
+            // probably need to modify the youtube link
+            $("#videoPreview").attr("src", $(this).val());
+        });
+      // video path
     });
 });
 
