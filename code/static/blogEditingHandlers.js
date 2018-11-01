@@ -42,6 +42,12 @@ var imageEditHtml = `<form>
             <label for="message-text" class="col-form-label">Upload image from computer:</label>
             <input type="file" class="form-control" id="imageFile">
           </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Preview:</label>
+            <div>
+              <img id="imagePreview" src="" width="300" height="300">
+            </div>
+          </div>
         </form>`;
 var videoEditHtml = `<form>
           <div class="form-group">
@@ -111,6 +117,10 @@ $(document).ready(function() {
   
     $("#editImage").click(function() {
         $("div.modal-body").html(imageEditHtml);
+        $("#imageUrl").on("change", function() {
+            $("#imagePreview").attr("src", $(this).val());
+        });
+      // add stuff for image path
     });
   
     $("#editVideo").click(function() {
