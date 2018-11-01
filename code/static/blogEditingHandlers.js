@@ -138,7 +138,10 @@ $(document).ready(function() {
               $("#imageBlobSelector").append( "<option value='" + data[i] + "'>" + data[i] + "</option>" );
             }
         });
-      // add stuff for image path
+        $("#imageBlobSelector").on("change", function() {
+            let url = 'https://expressiveblob.blob.core.windows.net/images/' + $(this).val()
+            $("#imagePreview").attr("src", url);
+        });
       // allow for preview of any sized image, maybe scale down if too big
     });
   
