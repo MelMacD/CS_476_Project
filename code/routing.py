@@ -15,6 +15,16 @@ def getBlobImages():
         blobList.append(blob.name)
     return json.dumps(blobList)
 
+@app.route("/getBlobVideos")
+
+def getBlobVideos():
+    block_blob_service = BlockBlobService(account_name='expressiveblob', account_key='F2G8lu/eZ6PduDIJFksWvuItZdhf+GONR2wgwgSsJMUO4s0mMdFI6PiC7K7ypcMSOH6m5kPhn2C9ketBRQiyKA==')
+    generator = block_blob_service.list_blobs('videos')
+    blobList = []
+    for blob in generator:
+        blobList.append(blob.name)
+    return json.dumps(blobList)
+
 @app.route("/", methods=['GET', 'POST'])
 
 def hello():
