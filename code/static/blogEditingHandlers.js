@@ -73,7 +73,9 @@ var videoEditHtml = `<form>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Preview:</label>
             <div>
-              <video id="libraryVideoPreview" style="display: none;"><source src="" type="video/mp4"></video>
+              <video id="libraryVideoPreview" style="display: none;" width="420" height="315" controls>
+                <source src="" type="video/mp4">
+              </video>
               <iframe id="youtubeVideoPreview" width="420" height="315" src="" </iframe>
              </div>
           </div>
