@@ -126,6 +126,9 @@ $(document).ready(function() {
         $("#imageUrl").on("change", function() {
             $("#imagePreview").attr("src", $(this).val());
         });
+        $.getJSON("/getBlobImages", function(data) {
+            console.log(data);
+        });
       // add stuff for image path
       // allow for preview of any sized image, maybe scale down if too big
     });
