@@ -10,7 +10,7 @@ from azure.storage.blob import BlockBlobService, PublicAccess
 def getBlobImages():
     block_blob_service = BlockBlobService(account_name='expressiveblob', account_key='F2G8lu/eZ6PduDIJFksWvuItZdhf+GONR2wgwgSsJMUO4s0mMdFI6PiC7K7ypcMSOH6m5kPhn2C9ketBRQiyKA==')
     blobList = block_blob_service.list_blobs('images')
-    return json.dumps(blobList)
+    return "hokay"#json.dumps(blobList)
 
 @app.route("/", methods=['GET', 'POST'])
 
