@@ -23,7 +23,7 @@ var postEditHtml = `<form>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Background Colour:</label>
-            <input type="color" class="form-control" id="postBackgroundColor" value="#000000">
+            <input type="color" class="form-control" id="postBackgroundColor" value="#ffffff">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Preview:</label>
