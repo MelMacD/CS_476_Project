@@ -28,8 +28,8 @@ var postEditHtml = `<form>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Preview:</label>
             <div id="postPreviewDiv" class="border border-dark rounded">
-              <h3 id="postPreviewTitle">What is the title?</h3>
-              <p id="postPreviewContent">What is the content?</p>
+              <h3 id="postPreviewTitle"></h3>
+              <p id="postPreviewContent"></p>
             </div>
           </div>
         </form>`;
