@@ -4,6 +4,10 @@ from flask import request
 from werkzeug.utils import secure_filename
 from azure.storage.blob import BlockBlobService, PublicAccess
 
+@app.route("/getBlobImages")
+
+def getBlobs():
+    return "hope this doesn't do anything"
 
 @app.route("/", methods=['GET', 'POST'])
 
