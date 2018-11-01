@@ -36,12 +36,7 @@ input[type=text], input[type=password] {
     overflow: hidden;
     background-color: white;
     }
-    
-    .footer {
-    background-color: #f1f1f1;
-    padding: 10px;
-    text-align: center;
-    
+   
 
 /* Set a style for all buttons */
 button {
