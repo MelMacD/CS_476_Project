@@ -94,10 +94,10 @@ $(document).ready(function() {
   
     $("#editPost").click(function() {
         $("div.modal-body").html(postEditHtml);
-        $("#postTitle").on("blur", function() {
+        $("#postTitle").on("change", function() {
             alert($(this).val());
         });
-        $("#postContent").on("blur", function() {
+        $("#postContent").on("change", function() {
             alert($(this).val());
         });
         $("#postFontColor").on("change", function() {
