@@ -61,6 +61,12 @@ var videoEditHtml = `<form>
             <input type="text" class="form-control" id="videoUrl">
           </div>
           <div class="form-group">
+            <label for="message-text" class="col-form-label">Choose image from library:</label>
+            <select id="videoBlobSelector">
+              <option value="none">None</option>
+            </select>
+          </div>
+          <div class="form-group">
             <label for="message-text" class="col-form-label">Upload video from computer:</label>
             <input type="file" class="form-control" id="videoFile">
           </div>
@@ -148,11 +154,19 @@ $(document).ready(function() {
     $("#editVideo").click(function() {
         $("div.modal-body").html(videoEditHtml);
         $("#videoUrl").on("change", function() {
-            // probably need to modify the youtube link
             let processedUrl = $(this).val().replace("watch?v=", "embed/");
             $("#videoPreview").attr("src", processedUrl);
         });
-      // video path
+        $.getJSON("/getBlobVideos", function(data) {
+            let i;
+            for (i = 0; i < data.length; i++) {
+              $("#videoBlobSelector").append( "<option value='" + data[i] + "'>" + data[i] + "</option>" );
+            }
+        });
+        $("#videoBlobSelector").on("change", function() {
+            let url = 'https://expressiveblob.blob.core.windows.net/videos/' + $(this).val()
+            $("#videoPreview").attr("src", url);
+        });
     });
 });
 
