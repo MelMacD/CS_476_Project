@@ -136,7 +136,8 @@ $(document).ready(function() {
         $("#postBackgroundColor").on("change", function() {
             $("#postPreviewDiv").css("background-color", $(this).val());
         });
-        $("#saveChanges").click(function () {
+        $("#saveChanges").off("click");
+        $("#saveChanges").on("click", function () {
             alert("Hello, I'll try to only execute for a text post");
         });
     });
@@ -157,7 +158,8 @@ $(document).ready(function() {
             $("#imagePreview").attr("src", url);
         });
       // allow for preview of any sized image, maybe scale down if too big
-        $("#saveChanges").click(function () {
+        $("#saveChanges").off("click");
+        $("#saveChanges").on("click", function () {
             alert("Hello, I'll try to only execute for an image");
         });
     });
@@ -182,7 +184,8 @@ $(document).ready(function() {
             $("#libraryVideoPreview").attr("src", url);
             $("#youtubeVideoPreview").css("display", "none");
         });
-        $("#saveChanges").click(function () {
+        $("#saveChanges").off("click");
+        $("#saveChanges").on("click", function () {
             alert("Hello, I'll try to only execute for a video");
         });
     });
