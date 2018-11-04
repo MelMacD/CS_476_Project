@@ -139,7 +139,10 @@ $(document).ready(function() {
         });
         $("#saveChanges").off("click");
         $("#saveChanges").on("click", function () {
-            alert(currentPost.parent().find("#originalContent h3").text());
+            currentPost.parent().find("#originalContent h3").text($("#postTitle").val());
+            currentPost.parent().find("#originalContent p").text($("#postContent").val());
+            currentPost.parent().find("#originalContent").css("color", $("#postFontColor").val());
+            currentPost.parent().find("#originalContent").css("background-color", $("#postBackgroundColor").val());
         });
     });
   
