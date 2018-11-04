@@ -94,7 +94,6 @@ var videoEditHtml = `<form>
           </div>
         </form>`;
 
-// Need default media
 $(document).ready(function() {
     $("#enableEditing").click(function () {
         $("#enableEditing").css("display", "none");
@@ -164,13 +163,14 @@ $(document).ready(function() {
         let url = '';
         $("div.modal-body").html(imageEditHtml);
       
-        // do handling for radio button here
         if ($("#useUrl").prop( "checked" )) {
+            alert("use url");
             $("#imageUrl").prop( "disabled", false );
             $("#imageBlobSelector").prop( "disabled", true );
             $("#imageFile").prop( "disabled", true );
         }
         else {
+            alert("use library");
             $("#imageUrl").prop( "disabled", true );
             $("#imageBlobSelector").prop( "disabled", false );
             $("#imageFile").prop( "disabled", false );
