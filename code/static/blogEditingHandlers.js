@@ -6,7 +6,7 @@ var postHtml = `<div id="mask" class="border border-dark rounded draggable resiz
                </div>`;
 var imageHtml = `<div class="draggable resizable" style="width: 300px; height: 300px;">
                    <button class="editImage" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
-                   <img src="">
+                   <img src="" style="width: 100%; height: 100%;">
                 </div>`;
 var videoHtml = `<div class="draggable resizable">
                 <iframe class="resizable" width="420" height="315"
