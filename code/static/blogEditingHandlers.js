@@ -165,7 +165,17 @@ $(document).ready(function() {
         $("div.modal-body").html(imageEditHtml);
       
         // do handling for radio button here
-      
+        if ($("#useUrl").prop( "checked" ) {
+            $("#imageUrl").prop( "disabled", false );
+            $("#imageBlobSelector").prop( "disabled", true );
+            $("#imageFile").prop( "disabled", true );
+        }
+        else {
+            $("#imageUrl").prop( "disabled", true );
+            $("#imageBlobSelector").prop( "disabled", false );
+            $("#imageFile").prop( "disabled", false );
+        }
+               
         $("#imageUrl").on("change", function() {
             url = $(this).val();
             $("#imagePreview").attr("src", url);
