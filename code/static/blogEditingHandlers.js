@@ -1,4 +1,4 @@
-var postHtml = `<div id="mask" class="border border-dark rounded draggable resizable" style="width: 350px; height: 400px;">
+var postHtml = `<div class="border border-dark rounded draggable resizable" style="width: 350px; height: 400px;">
                  <button class="editPost" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                  <div id="originalContent" style="width: 100%; height: 100%">
                    <h3>What is the title?</h3><p>What is the content?</p>
@@ -9,9 +9,10 @@ var imageHtml = `<div class="draggable resizable" style="width: 300px; height: 3
                    <img src="" style="width: 100%; height: 100%;">
                 </div>`;
 var videoHtml = `<div class="draggable resizable" style="width: 420; height: 315;">
-                <button class="editImage" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
-                <iframe class="resizable"
-                src="https://www.youtube.com/embed/h2Lw9Zs98Gg" </iframe></div>`;
+                   <button class="editVideo" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                   <div id="mask"></div>
+                   <iframe src="https://www.youtube.com/embed/h2Lw9Zs98Gg" </iframe>
+                 </div>`;
 var postEditHtml = `<form>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Header:</label>
@@ -175,7 +176,7 @@ $(document).ready(function() {
         });
     });
   
-    $("#editVideo").click(function() {
+    $("body").on("click", ".editVideo", function() {
         $("div.modal-body").html(videoEditHtml);
         $("#videoUrl").on("change", function() {
             let processedUrl = $(this).val().replace("watch?v=", "embed/");
@@ -206,7 +207,6 @@ function setupDraggableResizable() {
     $( ".draggable" ).draggable().click(function() {
         $(this).draggable({ 
             disabled: false,
-            iframeFix: true,
             snap: true,
             containment: "window",
             stack: ".draggable" });
