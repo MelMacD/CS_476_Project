@@ -143,6 +143,7 @@ $(document).ready(function() {
             currentPost.parent().find("#originalContent p").text($("#postContent").val());
             currentPost.parent().find("#originalContent").css("color", $("#postFontColor").val());
             currentPost.parent().find("#originalContent").css("background-color", $("#postBackgroundColor").val());
+            $("#exampleModal").modal("hide");
         });
     });
   
