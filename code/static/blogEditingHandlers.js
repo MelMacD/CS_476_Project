@@ -165,7 +165,7 @@ $(document).ready(function() {
         $("div.modal-body").html(imageEditHtml);
       
         // do handling for radio button here
-        if ($("#useUrl").prop( "checked" ) {
+        if ($("#useUrl").prop( "checked" )) {
             $("#imageUrl").prop( "disabled", false );
             $("#imageBlobSelector").prop( "disabled", true );
             $("#imageFile").prop( "disabled", true );
