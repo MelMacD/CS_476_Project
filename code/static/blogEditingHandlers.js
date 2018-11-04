@@ -177,6 +177,7 @@ $(document).ready(function() {
     });
   
     $("body").on("click", ".editVideo", function() {
+        let currentPost = $(this);
         $("div.modal-body").html(videoEditHtml);
         $("#videoUrl").on("change", function() {
             let processedUrl = $(this).val().replace("watch?v=", "embed/");
