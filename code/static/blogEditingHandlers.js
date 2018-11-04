@@ -40,23 +40,31 @@ var postEditHtml = `<form>
         </form>`;
 var imageEditHtml = `<form>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Get image from URL:</label>
-            <input type="text" class="form-control" id="imageUrl">
+            <label class="checkbox-inline">
+              <input type="checkbox" id="useUrl" value="url"> Get image from URL
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="useLibrary" value="library"> Get image from Library
+            </label>
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Choose image from library:</label>
-            <select id="imageBlobSelector">
+            <label for="recipient-name" class="col-form-label">Enter URL:</label>
+            <input type="text" class="form-control" id="imageUrl" disabled>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Choose image:</label>
+            <select id="imageBlobSelector" disabled>
               <option value="none">None</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Upload image from computer:</label>
-            <input type="file" class="form-control" id="imageFile">
+            <label for="message-text" class="col-form-label">Upload image to library:</label>
+            <input type="file" class="form-control" id="imageFile" disabled>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Preview:</label>
             <div>
-              <img id="imagePreview" src="" width="300" height="300">
+              <img id="imagePreview" src="/static/default.gif">
             </div>
           </div>
         </form>`;
