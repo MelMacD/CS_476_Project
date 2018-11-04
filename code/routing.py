@@ -62,7 +62,6 @@ def hello():
 <body>
     <div id="buttons">
         <button id="enableEditing">Enable Edit Mode</button>
-        <button id="editPost" type="button" data-toggle="modal" data-target="#exampleModal">Edit Post</button>
         <button id="editImage" type="button" data-toggle="modal" data-target="#exampleModal">Edit Image</button>
         <button id="editVideo" type="button" data-toggle="modal" data-target="#exampleModal">Edit Video</button>
         <button style="display:none;" id="disableEditing">Exit Edit Mode</button>
