@@ -1,5 +1,5 @@
-var postHtml = `<button type="button" style="position: relative;" data-toggle="modal" data-target="#exampleModal">Edit Post</button>
-                <div id="mask" class="border border-dark rounded draggable resizable" style="background-color: grey; opacity: 0.4; width: 350px; height: 400px;">
+var postHtml = `<div id="mask" class="border border-dark rounded draggable resizable" style="width: 350px; height: 400px;">
+                 <button type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit Post</button>
                  <div id="originalContent">
                    <h3>What is the title?</h3><p>What is the content?</p>
                  </div>
