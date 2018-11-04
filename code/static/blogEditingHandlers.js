@@ -41,10 +41,10 @@ var postEditHtml = `<form>
 var imageEditHtml = `<form>
           <div class="form-group">
             <label class="radio-inline">
-              <input type="radio" id="useUrl" value="url" checked> Get image from URL
+              <input type="radio" id="useUrl" name="optradio" checked> Get image from URL
             </label>
             <label class="radio-inline">
-              <input type="radio" id="useLibrary" value="library"> Get image from Library
+              <input type="radio" id="useLibrary" name="optradio" value="library"> Get image from Library
             </label>
           </div>
           <div class="form-group">
