@@ -121,7 +121,7 @@ $(document).ready(function() {
         setupDraggableResizable();
     });
   
-    $(".editPost").click(function() {
+    $("body").on("click", ".editPost", function() {
         $("div.modal-body").html(postEditHtml);
         $("#postTitle").on("change", function() {
             $("#postPreviewTitle").text($(this).val());
