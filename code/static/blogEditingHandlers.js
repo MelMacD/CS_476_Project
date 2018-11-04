@@ -163,18 +163,20 @@ $(document).ready(function() {
         let url = '';
         $("div.modal-body").html(imageEditHtml);
       
-        if ($("#useUrl").prop( "checked" )) {
-            alert("use url");
-            $("#imageUrl").prop( "disabled", false );
-            $("#imageBlobSelector").prop( "disabled", true );
-            $("#imageFile").prop( "disabled", true );
-        }
-        else {
-            alert("use library");
-            $("#imageUrl").prop( "disabled", true );
-            $("#imageBlobSelector").prop( "disabled", false );
-            $("#imageFile").prop( "disabled", false );
-        }
+        $("#useUrl").on("change", function () {
+            if ($("#useUrl").prop( "checked" )) {
+                alert("use url");
+                $("#imageUrl").prop( "disabled", false );
+                $("#imageBlobSelector").prop( "disabled", true );
+                $("#imageFile").prop( "disabled", true );
+            }
+            else {
+                alert("use library");
+                $("#imageUrl").prop( "disabled", true );
+                $("#imageBlobSelector").prop( "disabled", false );
+                $("#imageFile").prop( "disabled", false );
+            }
+        });
                
         $("#imageUrl").on("change", function() {
             url = $(this).val();
