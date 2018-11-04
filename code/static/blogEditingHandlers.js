@@ -1,12 +1,12 @@
 var postHtml = `<div id="mask" class="border border-dark rounded draggable resizable" style="width: 350px; height: 400px;">
-                 <button class="editPost" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit Post</button>
+                 <button class="editPost" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                  <div id="originalContent" style="width: 100%; height: 100%">
                    <h3>What is the title?</h3><p>What is the content?</p>
                  </div>
                </div>`;
-var imageHtml = `<div class="draggable">
-                   <button class="editImage" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit Post</button>
-                   <img class="resizable" src="" width="300" height="300">
+var imageHtml = `<div class="draggable resizable" style="width: 300px; height: 300px;">
+                   <button class="editImage" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                   <img src="">
                 </div>`;
 var videoHtml = `<div class="draggable resizable">
                 <iframe class="resizable" width="420" height="315"
