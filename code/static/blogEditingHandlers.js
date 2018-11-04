@@ -1,6 +1,6 @@
 var postHtml = `<div id="mask" class="border border-dark rounded draggable resizable" style="width: 350px; height: 400px;">
                  <button class="editPost" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit Post</button>
-                 <div id="originalContent">
+                 <div id="originalContent" style="width: 100%; height: 100%">
                    <h3>What is the title?</h3><p>What is the content?</p>
                  </div>
                </div>`;
@@ -122,6 +122,7 @@ $(document).ready(function() {
     });
   
     $("body").on("click", ".editPost", function() {
+        let currentPost = $(this);
         $("div.modal-body").html(postEditHtml);
         $("#postTitle").on("change", function() {
             $("#postPreviewTitle").text($(this).val());
@@ -138,7 +139,7 @@ $(document).ready(function() {
         });
         $("#saveChanges").off("click");
         $("#saveChanges").on("click", function () {
-            alert("Hello, I'll try to only execute for a text post");
+            alert(currentPost.parent().find("#originalContent h3").text());
         });
     });
   
