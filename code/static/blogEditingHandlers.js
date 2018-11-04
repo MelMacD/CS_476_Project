@@ -40,11 +40,11 @@ var postEditHtml = `<form>
         </form>`;
 var imageEditHtml = `<form>
           <div class="form-group">
-            <label class="checkbox-inline">
-              <input type="checkbox" id="useUrl" value="url"> Get image from URL
+            <label class="radio-inline">
+              <input type="radio" id="useUrl" value="url"> Get image from URL
             </label>
-            <label class="checkbox-inline">
-              <input type="checkbox" id="useLibrary" value="library"> Get image from Library
+            <label class="radio-inline">
+              <input type="radio" id="useLibrary" value="library"> Get image from Library
             </label>
           </div>
           <div class="form-group">
@@ -53,7 +53,7 @@ var imageEditHtml = `<form>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Choose image:</label>
-            <select id="imageBlobSelector" disabled>
+            <select id="imageBlobSelector" class="form-control" disabled>
               <option value="none">None</option>
             </select>
           </div>
