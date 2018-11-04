@@ -41,7 +41,7 @@ var postEditHtml = `<form>
 var imageEditHtml = `<form>
           <div class="form-group">
             <label class="radio-inline">
-              <input type="radio" id="useUrl" value="url"> Get image from URL
+              <input type="radio" id="useUrl" value="url" checked> Get image from URL
             </label>
             <label class="radio-inline">
               <input type="radio" id="useLibrary" value="library"> Get image from Library
@@ -49,7 +49,7 @@ var imageEditHtml = `<form>
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Enter URL:</label>
-            <input type="text" class="form-control" id="imageUrl" disabled>
+            <input type="text" class="form-control" id="imageUrl">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Choose image:</label>
@@ -135,6 +135,9 @@ $(document).ready(function() {
     $("body").on("click", ".editPost", function() {
         let currentPost = $(this);
         $("div.modal-body").html(postEditHtml);
+      
+        // do handling for radio button here
+      
         $("#postTitle").on("change", function() {
             $("#postPreviewTitle").text($(this).val());
         });
