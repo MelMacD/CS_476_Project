@@ -8,8 +8,9 @@ var imageHtml = `<div class="draggable resizable" style="width: 300px; height: 3
                    <button class="editImage" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <img src="" style="width: 100%; height: 100%;">
                 </div>`;
-var videoHtml = `<div class="draggable resizable">
-                <iframe class="resizable" width="420" height="315"
+var videoHtml = `<div class="draggable resizable" style="width: 420; height: 315;">
+                <button class="editImage" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                <iframe class="resizable"
                 src="https://www.youtube.com/embed/h2Lw9Zs98Gg" </iframe></div>`;
 var postEditHtml = `<form>
           <div class="form-group">
