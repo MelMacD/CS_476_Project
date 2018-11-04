@@ -136,8 +136,6 @@ $(document).ready(function() {
         let currentPost = $(this);
         $("div.modal-body").html(postEditHtml);
       
-        // do handling for radio button here
-      
         $("#postTitle").on("change", function() {
             $("#postPreviewTitle").text($(this).val());
         });
@@ -165,6 +163,9 @@ $(document).ready(function() {
         let currentPost = $(this);
         let url = '';
         $("div.modal-body").html(imageEditHtml);
+      
+        // do handling for radio button here
+      
         $("#imageUrl").on("change", function() {
             url = $(this).val();
             $("#imagePreview").attr("src", url);
