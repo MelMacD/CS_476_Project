@@ -5,7 +5,8 @@ var postHtml = `<div id="mask" class="border border-dark rounded draggable resiz
                  </div>
                </div>`;
 var imageHtml = `<div class="draggable">
-                <img class="resizable" src="static/very_important.jpg" width="500" height="500">
+                   <button class="editImage" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit Post</button>
+                   <img class="resizable" src="" width="300" height="300">
                 </div>`;
 var videoHtml = `<div class="draggable resizable">
                 <iframe class="resizable" width="420" height="315"
@@ -147,10 +148,13 @@ $(document).ready(function() {
         });
     });
   
-    $("#editImage").click(function() {
+    $("body").on("click", ".editImage", function() {
+        let currentPost = $(this);
+        let url = '';
         $("div.modal-body").html(imageEditHtml);
         $("#imageUrl").on("change", function() {
-            $("#imagePreview").attr("src", $(this).val());
+            url = $(this).val();
+            $("#imagePreview").attr("src", url);
         });
         $.getJSON("/getBlobImages", function(data) {
             let i;
@@ -159,13 +163,14 @@ $(document).ready(function() {
             }
         });
         $("#imageBlobSelector").on("change", function() {
-            let url = 'https://expressiveblob.blob.core.windows.net/images/' + $(this).val()
+            url = 'https://expressiveblob.blob.core.windows.net/images/' + $(this).val()
             $("#imagePreview").attr("src", url);
         });
       // allow for preview of any sized image, maybe scale down if too big
         $("#saveChanges").off("click");
         $("#saveChanges").on("click", function () {
-            alert("Hello, I'll try to only execute for an image");
+            currentPost.parent().find("img").attr("src", url);
+            $("#exampleModal").modal("hide");
         });
     });
   
