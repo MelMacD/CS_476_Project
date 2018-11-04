@@ -164,18 +164,15 @@ $(document).ready(function() {
         $("div.modal-body").html(imageEditHtml);
       
         $("#useUrl").on("change", function () {
-            if ($("#useUrl").prop( "checked" )) {
-                alert("use url");
-                $("#imageUrl").prop( "disabled", false );
-                $("#imageBlobSelector").prop( "disabled", true );
-                $("#imageFile").prop( "disabled", true );
-            }
-            else {
-                alert("use library");
-                $("#imageUrl").prop( "disabled", true );
-                $("#imageBlobSelector").prop( "disabled", false );
-                $("#imageFile").prop( "disabled", false );
-            }
+            $("#imageUrl").prop( "disabled", false );
+            $("#imageBlobSelector").prop( "disabled", true );
+            $("#imageFile").prop( "disabled", true );
+        });
+      
+        $("#useLibrary").on("change", function () {
+            $("#imageUrl").prop( "disabled", true );
+            $("#imageBlobSelector").prop( "disabled", false );
+            $("#imageFile").prop( "disabled", false );
         });
                
         $("#imageUrl").on("change", function() {
