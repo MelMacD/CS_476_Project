@@ -194,16 +194,15 @@ $(document).ready(function() {
         $("#saveChanges").off("click");
         $("#saveChanges").on("click", function () {
             let url = '';
-            if($("#imageUrl").prop( "checked" )) {
-              alert("this works dw");
+            if($("#useUrl").prop( "checked" )) {
               url = imageUrl;
             }
             else {
               url = libraryUrl;
             }
             currentPost.parent().find("img").attr("src", url);
-            currentPost.parent().find("img").width($("#imagePreview").width());
-            currentPost.parent().find("img").height($("#imagePreview").height());
+            currentPost.parent().width($("#imagePreview").width());
+            currentPost.parent().height($("#imagePreview").height());
             $("#exampleModal").modal("hide");
         });
     });
