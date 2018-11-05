@@ -62,8 +62,11 @@ var imageEditHtml = `<form>
             </select>
           </div>
           <div class="form-group">
+           <form id="uploadImage" method="post" enctype="multipart/form-data">
             <label for="message-text" class="col-form-label">Upload image to library:</label>
             <input type="file" class="form-control" id="imageFile" disabled>
+            <input id="submitImageUpload" type="submit" name="upload" value="image" disabled/>
+           </form>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Preview:</label>
@@ -92,8 +95,11 @@ var videoEditHtml = `<form>
             </select>
           </div>
           <div class="form-group">
+           <form id="uploadVideo" method="post" enctype="multipart/form-data">
             <label for="message-text" class="col-form-label">Upload video from computer:</label>
             <input type="file" class="form-control" id="videoFile" disabled>
+            <input id="submitVideoUpload" type="submit" name="upload" value="video" disabled/>
+           </form>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Preview:</label>
@@ -180,12 +186,14 @@ $(document).ready(function() {
             $("#imageUrl").prop( "disabled", false );
             $("#imageBlobSelector").prop( "disabled", true );
             $("#imageFile").prop( "disabled", true );
+            $("#submitImageUpload").prop( "disabled", true );
         });
       
         $("#useLibrary").on("change", function () {
             $("#imageUrl").prop( "disabled", true );
             $("#imageBlobSelector").prop( "disabled", false );
             $("#imageFile").prop( "disabled", false );
+            $("#submitImageUpload").prop( "disabled", false );
         });
                
         $("#imageUrl").on("change", function() {
@@ -229,12 +237,14 @@ $(document).ready(function() {
             $("#videoUrl").prop( "disabled", false );
             $("#videoBlobSelector").prop( "disabled", true );
             $("#videoFile").prop( "disabled", true );
+            $("#submitVideoUpload").prop( "disabled", true );
         });
       
         $("#useLibraryVideo").on("change", function () {
             $("#videoUrl").prop( "disabled", true );
             $("#videoBlobSelector").prop( "disabled", false );
             $("#videoFile").prop( "disabled", false );
+            $("#submitVideoUpload").prop( "disabled", true );
         });
       
         $("#videoUrl").on("change", function() {
