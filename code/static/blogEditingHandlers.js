@@ -200,6 +200,7 @@ $(document).ready(function() {
             else {
               url = libraryUrl;
             }
+            alert($("#imagePreview").width());
             currentPost.parent().find("img").attr("src", url);
             $("#exampleModal").modal("hide");
         });
