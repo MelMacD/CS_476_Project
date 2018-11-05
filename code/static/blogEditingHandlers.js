@@ -233,9 +233,7 @@ $(document).ready(function() {
             success: function() {
               alert("Upload successful.");
             },
-            error: function(xhr, status, error) {
-              let err = JSON.parse(xhr.responseText);
-              console.log(err);
+            error: function() {
               alert("An error occurred. Could not upload image.");
             }
           });
