@@ -11,10 +11,10 @@ var imageHtml = `<div class="draggable resizable" style="width: 300px; height: 3
 var videoHtml = `<div class="draggable resizable" style="width: 420; height: 315;">
                    <button class="editVideo" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <div id="mask"></div>
-                   <video id="libraryVideoPreview" style="display: none; width: 100%; height: 100%;"controls>
+                   <video id="libraryVideo" style="display: none; width: 100%; height: 100%;"controls>
                    <source src="" type="video/mp4">
                    </video>
-                   <iframe id="youtubeVideoPreview" allowFullScreen='allowFullScreen' src="" style="width: 100%; height: 100%;"</iframe>
+                   <iframe id="youtubeVideo" allowFullScreen='allowFullScreen' src="" style="width: 100%; height: 100%;"</iframe>
              </div>
                  </div>`;
 var postEditHtml = `<form>
@@ -257,17 +257,15 @@ $(document).ready(function() {
         });
         $("#saveChanges").off("click");
         $("#saveChanges").on("click", function () {
-            alert(youtubeUrl);
-            alert(libraryUrl);
             if ($("#useUrl").prop( "checked" )) {
-              currentPost.parent().find("#libraryVideoPreview").attr("src", libraryUrl);
-              currentPost.parent().find("#libraryVideoPreview").css("display", "block");
-              currentPost.parent().find("#youtubeVideoPreview").css("display", "none");
+              currentPost.parent().find("#libraryVideo").attr("src", libraryUrl);
+              currentPost.parent().find("#libraryVideo").css("display", "block");
+              currentPost.parent().find("#youtubeVideo").css("display", "none");
             }
             else {
-              currentPost.parent().find("#youtubeVideoPreview").attr("src", youtubeUrl);
-              currentPost.parent().find("#libraryVideoPreview").css("display", "none");
-              currentPost.parent().find("#youtubeVideoPreview").css("display", "block");
+              currentPost.parent().find("#youtubeVideo").attr("src", youtubeUrl);
+              currentPost.parent().find("#libraryVideo").css("display", "none");
+              currentPost.parent().find("#youtubeVideo").css("display", "block");
             }
             $("#exampleModal").modal("hide");
         });
