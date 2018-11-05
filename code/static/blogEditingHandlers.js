@@ -226,12 +226,13 @@ $(document).ready(function() {
       
         $("#uploadImage").submit( function (e) {
           e.preventDefault();
+          let formData = new FormData(this);
           $.ajax({
             url: "/uploadBlobImage",
             type: "post",
             data: $("#uploadImage").serialize(),
             success: function() {
-              console.log($("#uploadImage").serialize());
+              console.log(formData);
               alert("Upload successful.");
             },
             error: function() {
