@@ -223,6 +223,21 @@ $(document).ready(function() {
             currentPost.parent().height($("#imagePreview").height());
             $("#exampleModal").modal("hide");
         });
+      
+        $("#uploadImage").submit( function (e) {
+          e.preventDefault();
+          $.ajax({
+            url: "/uploadBlobImage",
+            type: "post",
+            data: $("#uploadImage").serialize(),
+            success: function() {
+              alert("yas");
+            },
+            error: function() {
+              alert("oh no");
+            }
+          });
+        });
     });
   
     $("body").on("click", ".editVideo", function() {
