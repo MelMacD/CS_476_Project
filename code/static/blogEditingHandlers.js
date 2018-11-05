@@ -87,13 +87,13 @@ var videoEditHtml = `<form>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Choose video:</label>
-            <select id="videoBlobSelector">
+            <select id="videoBlobSelector" disabled>
               <option value="none">None</option>
             </select>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Upload video from computer:</label>
-            <input type="file" class="form-control" id="videoFile">
+            <input type="file" class="form-control" id="videoFile" disabled>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Preview:</label>
@@ -202,7 +202,7 @@ $(document).ready(function() {
             libraryUrl = 'https://expressiveblob.blob.core.windows.net/images/' + $(this).val()
             $("#imagePreview").attr("src", libraryUrl);
         });
-      // allow for preview of any sized image, maybe scale down if too big
+
         $("#saveChanges").off("click");
         $("#saveChanges").on("click", function () {
             let url = '';
