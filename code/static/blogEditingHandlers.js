@@ -160,7 +160,8 @@ $(document).ready(function() {
   
     $("body").on("click", ".editImage", function() {
         let currentPost = $(this);
-        let url = '';
+        let imageUrl = '';
+        let libraryUrl = '';
         $("div.modal-body").html(imageEditHtml);
       
         $("#useUrl").on("change", function () {
@@ -176,8 +177,8 @@ $(document).ready(function() {
         });
                
         $("#imageUrl").on("change", function() {
-            url = $(this).val();
-            $("#imagePreview").attr("src", url);
+            imageUrl = $(this).val();
+            $("#imagePreview").attr("src", imageUrl);
         });
         $.getJSON("/getBlobImages", function(data) {
             let i;
@@ -186,12 +187,19 @@ $(document).ready(function() {
             }
         });
         $("#imageBlobSelector").on("change", function() {
-            url = 'https://expressiveblob.blob.core.windows.net/images/' + $(this).val()
-            $("#imagePreview").attr("src", url);
+            libraryUrl = 'https://expressiveblob.blob.core.windows.net/images/' + $(this).val()
+            $("#imagePreview").attr("src", libraryUrl);
         });
       // allow for preview of any sized image, maybe scale down if too big
         $("#saveChanges").off("click");
         $("#saveChanges").on("click", function () {
+            let url = '';
+            if($("#imageUrl").prop( "checked" )) {
+              url = imageUrl;
+            }
+            else {
+              url = libraryUrl;
+            }
             currentPost.parent().find("img").attr("src", url);
             $("#exampleModal").modal("hide");
         });
