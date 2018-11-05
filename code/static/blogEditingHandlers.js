@@ -195,13 +195,15 @@ $(document).ready(function() {
         $("#saveChanges").on("click", function () {
             let url = '';
             if($("#imageUrl").prop( "checked" )) {
+              alert("this works dw");
               url = imageUrl;
             }
             else {
               url = libraryUrl;
             }
-            alert($("#imagePreview").width());
             currentPost.parent().find("img").attr("src", url);
+            currentPost.parent().find("img").width($("#imagePreview").width());
+            currentPost.parent().find("img").height($("#imagePreview").height());
             $("#exampleModal").modal("hide");
         });
     });
