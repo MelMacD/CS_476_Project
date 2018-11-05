@@ -75,10 +75,10 @@ var imageEditHtml = `<form>
 var videoEditHtml = `<form>
           <div class="form-group">
             <label class="radio-inline">
-              <input type="radio" id="useUrl" name="optradio" checked> Get video from YouTube
+              <input type="radio" id="useUrlVideo" name="optradio" checked> Get video from YouTube
             </label>
             <label class="radio-inline">
-              <input type="radio" id="useLibrary" name="optradio" value="library"> Get video from Library
+              <input type="radio" id="useLibraryVideo" name="optradio" value="library"> Get video from Library
             </label>
           </div>
           <div class="form-group">
@@ -225,13 +225,13 @@ $(document).ready(function() {
         let libraryUrl = '';
         $("div.modal-body").html(videoEditHtml);
       
-        $("#useUrl").on("change", function () {
+        $("#useUrlVideo").on("change", function () {
             $("#videoUrl").prop( "disabled", false );
             $("#videoBlobSelector").prop( "disabled", true );
             $("#videoFile").prop( "disabled", true );
         });
       
-        $("#useLibrary").on("change", function () {
+        $("#useLibraryVideo").on("change", function () {
             $("#videoUrl").prop( "disabled", true );
             $("#videoBlobSelector").prop( "disabled", false );
             $("#videoFile").prop( "disabled", false );
@@ -257,8 +257,7 @@ $(document).ready(function() {
         });
         $("#saveChanges").off("click");
         $("#saveChanges").on("click", function () {
-            if ($("#useUrl").prop( "checked" )) {
-              alert("works");
+            if ($("#useLibraryVideo").prop( "checked" )) {
               currentPost.parent().find("#libraryVideo").attr("src", libraryUrl);
               currentPost.parent().find("#libraryVideo").css("display", "block");
               currentPost.parent().find("#youtubeVideo").css("display", "none");
