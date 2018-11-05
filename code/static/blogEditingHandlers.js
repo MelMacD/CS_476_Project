@@ -9,7 +9,7 @@ var imageHtml = `<div class="draggable resizable" style="width: 300px; height: 3
                    <img src="/static/default.gif" style="width: 100%; height: 100%;">
                 </div>`;
 var videoHtml = `<div class="draggable resizable" style="width: 420; height: 315;">
-                   <button class="editVideo" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                   <button class="editVideo" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <div id="mask"></div>
                    <video id="libraryVideoPreview" style="display: none; width: 100%; height: 100%;"controls>
                    <source src="" type="video/mp4">
@@ -87,7 +87,7 @@ var videoEditHtml = `<form>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Choose video:</label>
-            <select id="videoBlobSelector" disabled>
+            <select id="videoBlobSelector" class="form-control" disabled>
               <option value="none">None</option>
             </select>
           </div>
@@ -257,6 +257,8 @@ $(document).ready(function() {
         });
         $("#saveChanges").off("click");
         $("#saveChanges").on("click", function () {
+            alert(youtubeUrl);
+            alert(libraryUrl);
             if ($("#useUrl").prop( "checked" )) {
               currentPost.parent().find("#libraryVideoPreview").attr("src", libraryUrl);
               currentPost.parent().find("#libraryVideoPreview").css("display", "block");
@@ -267,6 +269,7 @@ $(document).ready(function() {
               currentPost.parent().find("#libraryVideoPreview").css("display", "none");
               currentPost.parent().find("#youtubeVideoPreview").css("display", "block");
             }
+            $("#exampleModal").modal("hide");
         });
     });
 });
