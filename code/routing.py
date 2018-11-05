@@ -29,6 +29,7 @@ def getBlobVideos():
 
 def hello():
     if request.method == 'POST':
+        return request.form.post['action']
         try:
             file = request.files['testFile']
             if file:
