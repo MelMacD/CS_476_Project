@@ -4,7 +4,7 @@ var postHtml = `<div class="border border-dark rounded draggable resizable" styl
                    <h3>What is the title?</h3><p>What is the content?</p>
                  </div>
                </div>`;
-var imageHtml = `<div class="draggable resizable" style="width: 300px; height: 300px;">
+var imageHtml = `<div class="draggable resizable">
                    <button class="editImage" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <img src="/static/default.gif" style="width: 100%; height: 100%;">
                 </div>`;
