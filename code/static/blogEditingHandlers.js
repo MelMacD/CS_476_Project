@@ -11,7 +11,11 @@ var imageHtml = `<div class="draggable resizable" style="width: 300px; height: 3
 var videoHtml = `<div class="draggable resizable" style="width: 420; height: 315;">
                    <button class="editVideo" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <div id="mask"></div>
-                   <iframe src="https://www.youtube.com/embed/h2Lw9Zs98Gg" style="width: 100%; height: 100%;"</iframe>
+                   <video id="libraryVideoPreview" style="display: none; width: 100%; height: 100%;"controls>
+                   <source src="" type="video/mp4">
+                   </video>
+                   <iframe id="youtubeVideoPreview" allowFullScreen='allowFullScreen' src="" style="width: 100%; height: 100%;"</iframe>
+             </div>
                  </div>`;
 var postEditHtml = `<form>
           <div class="form-group">
@@ -70,11 +74,19 @@ var imageEditHtml = `<form>
         </form>`;
 var videoEditHtml = `<form>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Get video from YouTube URL:</label>
+            <label class="radio-inline">
+              <input type="radio" id="useUrl" name="optradio" checked> Get video from YouTube
+            </label>
+            <label class="radio-inline">
+              <input type="radio" id="useLibrary" name="optradio" value="library"> Get video from Library
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Enter URL:</label>
             <input type="text" class="form-control" id="videoUrl">
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Choose image from library:</label>
+            <label for="message-text" class="col-form-label">Choose video:</label>
             <select id="videoBlobSelector">
               <option value="none">None</option>
             </select>
@@ -209,11 +221,26 @@ $(document).ready(function() {
   
     $("body").on("click", ".editVideo", function() {
         let currentPost = $(this);
+        let youtubeUrl = '';
+        let libraryUrl = '';
         $("div.modal-body").html(videoEditHtml);
+      
+        $("#useUrl").on("change", function () {
+            $("#videoUrl").prop( "disabled", false );
+            $("#videoBlobSelector").prop( "disabled", true );
+            $("#videoFile").prop( "disabled", true );
+        });
+      
+        $("#useLibrary").on("change", function () {
+            $("#videoUrl").prop( "disabled", true );
+            $("#videoBlobSelector").prop( "disabled", false );
+            $("#videoFile").prop( "disabled", false );
+        });
+      
         $("#videoUrl").on("change", function() {
-            let processedUrl = $(this).val().replace("watch?v=", "embed/");
+            youtubeUrl = $(this).val().replace("watch?v=", "embed/");
             $("#youtubeVideoPreview").css("display", "block");
-            $("#youtubeVideoPreview").attr("src", processedUrl);
+            $("#youtubeVideoPreview").attr("src", youtubeUrl);
             $("#libraryVideoPreview").css("display", "none");
         });
         $.getJSON("/getBlobVideos", function(data) {
@@ -223,14 +250,23 @@ $(document).ready(function() {
             }
         });
         $("#videoBlobSelector").on("change", function() {
-            let url = 'https://expressiveblob.blob.core.windows.net/videos/' + $(this).val()
+            libraryUrl = 'https://expressiveblob.blob.core.windows.net/videos/' + $(this).val()
             $("#libraryVideoPreview").css("display", "block");
-            $("#libraryVideoPreview").attr("src", url);
+            $("#libraryVideoPreview").attr("src", libraryUrl);
             $("#youtubeVideoPreview").css("display", "none");
         });
         $("#saveChanges").off("click");
         $("#saveChanges").on("click", function () {
-            alert("Hello, I'll try to only execute for a video");
+            if ($("#useUrl").prop( "checked" )) {
+              currentPost.parent().find("#libraryVideoPreview").attr("src", libraryUrl);
+              currentPost.parent().find("#libraryVideoPreview").css("display", "block");
+              currentPost.parent().find("#youtubeVideoPreview").css("display", "none");
+            }
+            else {
+              currentPost.parent().find("#youtubeVideoPreview").attr("src", youtubeUrl);
+              currentPost.parent().find("#libraryVideoPreview").css("display", "none");
+              currentPost.parent().find("#youtubeVideoPreview").css("display", "block");
+            }
         });
     });
 });
