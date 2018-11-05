@@ -258,6 +258,7 @@ $(document).ready(function() {
         $("#saveChanges").off("click");
         $("#saveChanges").on("click", function () {
             if ($("#useUrl").prop( "checked" )) {
+              alert("works");
               currentPost.parent().find("#libraryVideo").attr("src", libraryUrl);
               currentPost.parent().find("#libraryVideo").css("display", "block");
               currentPost.parent().find("#youtubeVideo").css("display", "none");
