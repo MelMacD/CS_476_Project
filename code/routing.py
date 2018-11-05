@@ -25,6 +25,14 @@ def getBlobVideos():
         blobList.append(blob.name)
     return json.dumps(blobList)
 
+@app.route("/uploadBlobImage", methods=['GET', 'POST'])
+
+def uploadBlobImage():
+    if request.method == 'POST':
+        return str(request.form)
+    else:
+        return "Error"
+
 @app.route("/", methods=['GET', 'POST'])
 
 def hello():
