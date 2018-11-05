@@ -42,7 +42,7 @@ var postEditHtml = `<form>
             </div>
           </div>
         </form>`;
-var imageEditHtml = `<form>
+var imageEditHtml = `<form id="uploadImage" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label class="radio-inline">
               <input type="radio" id="useUrl" name="optradio" checked> Get image from URL
@@ -62,11 +62,9 @@ var imageEditHtml = `<form>
             </select>
           </div>
           <div class="form-group">
-           <form id="uploadImage" method="post" enctype="multipart/form-data">
             <label for="message-text" class="col-form-label">Upload image to library:</label>
             <input type="file" class="form-control" id="imageFile" disabled>
             <input id="submitImageUpload" type="submit" name="upload" value="Upload Image" disabled/>
-           </form>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Preview:</label>
