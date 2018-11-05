@@ -231,6 +231,7 @@ $(document).ready(function() {
             type: "post",
             data: $("#uploadImage").serialize(),
             success: function() {
+              console.log($("#uploadImage").serialize());
               alert("Upload successful.");
             },
             error: function() {
