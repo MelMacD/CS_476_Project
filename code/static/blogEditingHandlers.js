@@ -231,10 +231,12 @@ $(document).ready(function() {
             type: "post",
             data: $("#uploadImage").serialize(),
             success: function() {
-              alert("yas");
+              alert("Upload successful.");
             },
-            error: function() {
-              alert("oh no");
+            error: function(xhr, status, error) {
+              let error = JSON.parse(xhr.responseText);
+              console.log(error);
+              alert("An error occurred. Could not upload image.");
             }
           });
         });
