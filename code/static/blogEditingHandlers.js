@@ -226,7 +226,7 @@ $(document).ready(function() {
       
         $("#uploadImage").submit( function (e) {
           e.preventDefault();
-          let formData = new FormData($("uploadImage")[0]);
+          let formData = $(this).serialize();
           $.ajax({
             url: "/uploadBlobImage",
             type: "post",
