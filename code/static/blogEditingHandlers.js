@@ -272,7 +272,7 @@ $(document).ready(function() {
             $("#videoUrl").prop( "disabled", true );
             $("#videoBlobSelector").prop( "disabled", false );
             $("#videoFile").prop( "disabled", false );
-            $("#submitVideoUpload").prop( "disabled", true );
+            $("#submitVideoUpload").prop( "disabled", false );
         });
       
         $("#videoUrl").on("change", function() {
