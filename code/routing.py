@@ -86,9 +86,9 @@ def hello():
 <link rel="stylesheet" href="static/blogEditingStyle.css" />
 </head>
 <body>
-    <div id="toolbar">
-      <h4>Toolbar</h4>
-      <form class="form-inline border border-dark rounded" style="background-color: light-gray;">
+    <div id="toolbar" class="border border-dark rounded">
+      <h5>Toolbar</h5>
+      <form class="form-inline" style="background-color: lightgray;">
         <button id="enableEditing" class="btn btn-default">Enable Edit Mode</button>
         <button style="display:none;" id="disableEditing" class="btn btn-default">Exit Edit Mode</button>
         <button style="display:none;" id="addText" class="btn btn-default">Add Post</button>
