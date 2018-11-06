@@ -86,12 +86,14 @@ def hello():
 <link rel="stylesheet" href="static/blogEditingStyle.css" />
 </head>
 <body>
-    <div id="buttons">
-        <button id="enableEditing">Enable Edit Mode</button>
-        <button style="display:none;" id="disableEditing">Exit Edit Mode</button>
-        <button style="display:none;" id="addText">Add Post</button>
-        <button style="display:none;" id="addImage">Add Image</button>
-        <button style="display:none;" id="addVideo">Add Video</button>
+    <div id="toolbar">
+      <h4>Toolbar</h4>
+      <form class="form-inline border border-dark rounded" style="background-color: light-gray;">
+        <button id="enableEditing" class="btn btn-default">Enable Edit Mode</button>
+        <button style="display:none;" id="disableEditing" class="btn btn-default">Exit Edit Mode</button>
+        <button style="display:none;" id="addText" class="btn btn-default">Add Post</button>
+        <button style="display:none;" id="addImage" class="btn btn-default">Add Image</button>
+        <button style="display:none;" id="addVideo" class="btn btn-default">Add Video</button>
         <input type="color" style="display:none;" class="form-control" id="changeBackground" value="#000000">
         <select id="changeFont" style="display:none;" class="form-control">
               <option style="font-family: Arial;" value="arial">Arial</option>
@@ -105,6 +107,7 @@ def hello():
               <option style="font-family: Arial Black;" value="arial black">Arial Black</option>
               <option style="font-family: Impact;" value="impact">Impact</option>
         </select>
+      </form>
     </div>
     
 <!-- Modal -->
