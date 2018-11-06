@@ -235,7 +235,7 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             success: function() {
-              console.log(formData.getAll());
+              console.log(formData);
               alert("Upload successful.");
             },
             error: function() {
