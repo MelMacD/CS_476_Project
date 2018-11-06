@@ -158,7 +158,7 @@ $(document).ready(function() {
     });
   
     $("#changeFont").on("change", function() {
-        $("body").css("font-family", $(this).val());// hopefully doesn't change font of font buttons too
+        $("body").css("font-family", $(this).val());
     });
   
     $("body").on("click", ".editPost", function() {
