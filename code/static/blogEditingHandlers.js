@@ -119,6 +119,8 @@ $(document).ready(function() {
         $("#addText").css("display", "inline");
         $("#addImage").css("display", "inline");
         $("#addVideo").css("display", "inline");
+        $("#changeBackground").css("display", "inline");
+        $("#changeFont").css("display", "inline");
         setupDraggableResizable();
         $("div[contenteditable]").attr("contenteditable", "true");
     });
@@ -129,6 +131,8 @@ $(document).ready(function() {
         $("#addText").css("display", "none");
         $("#addImage").css("display", "none");
         $("#addVideo").css("display", "none");
+        $("#changeBackground").css("display", "none");
+        $("#changeFont").css("display", "none");
         $( ".draggable" ).draggable({ disabled: true });
         $( ".resizable").resizable({ disabled: true });
         $("div[contenteditable]").attr("contenteditable", "false");
@@ -147,6 +151,14 @@ $(document).ready(function() {
     $("#addVideo").click(function() {
         $(document.body).append(videoHtml);
         setupDraggableResizable();
+    });
+  
+    $("#changeBackground").on("change", function() {
+        $("body").css("background-color", $(this).val());
+    });
+  
+    $("#changeFont").on("change", function() {
+        $("body").css("font-family", $(this).val());// hopefully doesn't change font of font buttons too
     });
   
     $("body").on("click", ".editPost", function() {
