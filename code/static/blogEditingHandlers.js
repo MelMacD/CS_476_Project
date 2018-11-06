@@ -4,11 +4,11 @@ var postHtml = `<div class="border border-dark rounded draggable resizable" styl
                    <h3>What is the title?</h3><p>What is the content?</p>
                  </div>
                </div>`;
-var imageHtml = `<div class="draggable resizable" style="width: 300px; height: 300px;">
+var imageHtml = `<div class="draggable resizableAspect" style="width: 300px; height: 300px;">
                    <button class="editImage" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <img src="/static/default.gif" style="width: 100%; height: 100%;">
                 </div>`;
-var videoHtml = `<div class="draggable resizable" style="width: 420; height: 315;">
+var videoHtml = `<div class="draggable resizableAspect" style="width: 420; height: 315;">
                    <button class="editVideo" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <div id="mask"></div>
                    <video id="libraryVideo" style="display: none; width: 100%; height: 100%;"controls>
