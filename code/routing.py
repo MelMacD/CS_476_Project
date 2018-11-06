@@ -29,19 +29,18 @@ def getBlobVideos():
 
 def uploadBlobImage():
     if request.method == 'POST':
-        return "Well okay"
-        #try:
-        #    file = request.files['imageFile']
-        #    if file:
-        #        filename = secure_filename(file.filename)
-        #        block_blob_service = BlockBlobService(account_name='expressiveblob', account_key='F2G8lu/eZ6PduDIJFksWvuItZdhf+GONR2wgwgSsJMUO4s0mMdFI6PiC7K7ypcMSOH6m5kPhn2C9ketBRQiyKA==')
-        #        container = 'images'
-        #        block_blob_service.create_blob_from_stream(container, filename, file)
-        #        return "Success"
-        #    else:
-        #        return "Invalid File"
-        #except Exception as e:
-        #    return e
+        try:
+            file = request.files['imageFile']
+            if file:
+                filename = secure_filename(file.filename)
+                block_blob_service = BlockBlobService(account_name='expressiveblob', account_key='F2G8lu/eZ6PduDIJFksWvuItZdhf+GONR2wgwgSsJMUO4s0mMdFI6PiC7K7ypcMSOH6m5kPhn2C9ketBRQiyKA==')
+                container = 'images'
+                block_blob_service.create_blob_from_stream(container, filename, file)
+                return "Success"
+            else:
+                return "Invalid File"
+        except Exception as e:
+            return e
     else:
         return "Error"
 
