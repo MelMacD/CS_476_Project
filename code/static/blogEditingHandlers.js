@@ -201,6 +201,8 @@ $(document).ready(function() {
         $.getJSON("/getBlobImages", function(data) {
             let i;
             for (i = 0; i < data.length; i++) {
+              $("#imageBlobSelector").empty();
+              $("#imageBlobSelector").append( "<option value='none'>None</option>" );
               $("#imageBlobSelector").append( "<option value='" + data[i] + "'>" + data[i] + "</option>" );
             }
         });
@@ -227,7 +229,6 @@ $(document).ready(function() {
         $("#uploadImage").submit( function (e) {
           e.preventDefault();
           let formData = new FormData(this);
-          alert($("#imageFile").attr("name"));
           formData.append("file", $("#imageFile").get(0).files[0]);
           $.ajax({
             url: "/uploadBlobImage",
@@ -237,6 +238,14 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             success: function() {
+              $.getJSON("/getBlobImages", function(data) {
+                  let i;
+                  for (i = 0; i < data.length; i++) {
+                      $("#imageBlobSelector").empty();
+                      $("#imageBlobSelector").append( "<option value='none'>None</option>" );
+                      $("#imageBlobSelector").append( "<option value='" + data[i] + "'>" + data[i] + "</option>" );
+                  }
+              });
               alert("Upload successful.");
             },
             error: function() {
