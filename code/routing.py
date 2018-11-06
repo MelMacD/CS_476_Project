@@ -63,7 +63,7 @@ def uploadBlobVideo():
     else:
         return "Error"
     
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/blogView", methods=['GET', 'POST'])
 
 def hello():
     if request.method == 'POST':
@@ -92,6 +92,8 @@ def hello():
         <button style="display:none;" id="addText">Add Post</button>
         <button style="display:none;" id="addImage">Add Image</button>
         <button style="display:none;" id="addVideo">Add Video</button>
+        <button style="display:none;" id="changeBackground">Change Background Color</button>
+        <button style="display:none;" id="changeFont">Change Page Font</button>
     </div>
     
 <!-- Modal -->
