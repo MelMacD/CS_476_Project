@@ -93,7 +93,18 @@ def hello():
         <button style="display:none;" id="addImage">Add Image</button>
         <button style="display:none;" id="addVideo">Add Video</button>
         <input type="color" style="display:none;" class="form-control" id="changeBackground" value="#000000">
-        <button style="display:none;" id="changeFont">Change Page Font</button>
+        <select id="changeFont" style="display:none;" class="form-control" disabled>
+              <option style="font-family: Arial;" value="arial">Arial</option>
+              <option style="font-family: Times;" value="timesNew">Times New Roman</option>
+              <option style="font-family: Courier New;" value="courierNew">Courier New</option>
+              <option style="font-family: Verdana;" value="verdana">Verdana</option>
+              <option style="font-family: Georgia;" value="georgia">Georgia</option>
+              <option style="font-family: Garamond;" value="garamond">Garamond</option>
+              <option style="font-family: Comic Sans MS;" value="comicSans">Comic Sans MS</option>
+              <option style="font-family: Trebuchet MS;" value="trebuchet">Trebuchet MS/option>
+              <option style="font-family: Arial Black;" value="arialBlack">Arial Black</option>
+              <option style="font-family: Impact;" value="impact">Impact</option>
+        </select>
     </div>
     
 <!-- Modal -->
