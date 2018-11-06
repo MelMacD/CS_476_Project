@@ -115,6 +115,4 @@ def hello():
   </div>
 </div>
 
-<!-- Loading GIF -->
-<iframe id="loading" src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen style="display: none;"></iframe>
 </body>"""
