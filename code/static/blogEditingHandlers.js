@@ -228,7 +228,7 @@ $(document).ready(function() {
           //e.preventDefault();
           let formData = new FormData(this);
           alert($("#imageFile").attr("name"));
-          formData.append("file", $("#imageFile").files[0]);
+          formData.append("file", $("#imageFile").get(0).files[0]);
           $.ajax({
             url: "/uploadBlobImage",
             type: "post",
