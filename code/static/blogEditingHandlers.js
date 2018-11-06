@@ -367,17 +367,15 @@ $(document).ready(function() {
 });
 
 function setupDraggableResizable() {
-    $( ".draggable" ).draggable().click(function() {
-        $(this).draggable({ 
-            disabled: false,
+    $( ".draggable" ).draggable({ 
             snap: true,
             containment: "window",
             stack: ".draggable" });
-    }).dblclick(function() {
-        $(this).draggable({ disabled: true });
-    });  
+    });
+    $( ".resizableAspect").resizable({
+        aspectRatio: true
+    });
     $( ".resizable").resizable({
-        aspectRatio: true,
-        grid: [ 10, 10 ]
+        aspectRatio: false
     });
 }
