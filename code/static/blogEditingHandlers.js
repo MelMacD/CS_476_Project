@@ -135,6 +135,7 @@ $(document).ready(function() {
         $("#changeFont").css("display", "none");
         $( ".draggable" ).draggable({ disabled: true });
         $( ".resizable").resizable({ disabled: true });
+        $( ".resizableAspect").resizable({ disabled: true });
         $("div[contenteditable]").attr("contenteditable", "false");
     });
     
