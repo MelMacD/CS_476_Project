@@ -93,7 +93,7 @@ def hello():
         <button style="display:none;" id="addImage">Add Image</button>
         <button style="display:none;" id="addVideo">Add Video</button>
         <input type="color" style="display:none;" class="form-control" id="changeBackground" value="#000000">
-        <select id="changeFont" style="display:none;" class="form-control" disabled>
+        <select id="changeFont" style="display:none;" class="form-control">
               <option style="font-family: Arial;" value="arial">Arial</option>
               <option style="font-family: Times;" value="times">Times New Roman</option>
               <option style="font-family: Courier New;" value="courier new">Courier New</option>
