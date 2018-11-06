@@ -225,7 +225,7 @@ $(document).ready(function() {
         });
       
         $("#uploadImage").submit( function (e) {
-          //e.preventDefault();
+          e.preventDefault();
           let formData = new FormData(this);
           alert($("#imageFile").attr("name"));
           formData.append("file", $("#imageFile").get(0).files[0]);
@@ -237,7 +237,6 @@ $(document).ready(function() {
             contentType: false,
             processData: false,
             success: function() {
-              console.log(formData);
               alert("Upload successful.");
             },
             error: function() {
