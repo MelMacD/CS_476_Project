@@ -101,7 +101,7 @@ def hello():
               <option style="font-family: Georgia;" value="georgia">Georgia</option>
               <option style="font-family: Garamond;" value="garamond">Garamond</option>
               <option style="font-family: Comic Sans MS;" value="comic sans ms">Comic Sans MS</option>
-              <option style="font-family: Trebuchet MS;" value="trebuchet ms">Trebuchet MS/option>
+              <option style="font-family: Trebuchet MS;" value="trebuchet ms">Trebuchet MS</option>
               <option style="font-family: Arial Black;" value="arial black">Arial Black</option>
               <option style="font-family: Impact;" value="impact">Impact</option>
         </select>
