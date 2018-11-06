@@ -226,7 +226,8 @@ $(document).ready(function() {
       
         $("#uploadImage").submit( function (e) {
           e.preventDefault();
-          let formData = $(this).serialize();
+          let formData = new FormData(this);
+          formData.append("file", $("#imageFile").val());
           $.ajax({
             url: "/uploadBlobImage",
             type: "post",
@@ -235,7 +236,7 @@ $(document).ready(function() {
             cache: false,
             data: formData,
             success: function() {
-              console.log(formData);
+              console.log(formData.entries());
               alert("Upload successful.");
             },
             error: function() {
