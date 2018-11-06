@@ -74,7 +74,7 @@ var imageEditHtml = `<form id="uploadImage" method="post" enctype="multipart/for
             </div>
           </div>
         </form>`;
-var videoEditHtml = `<form>
+var videoEditHtml = `<form id="uploadVideo" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label class="radio-inline">
               <input type="radio" id="useUrlVideo" name="optradio" checked> Get video from YouTube
@@ -94,11 +94,10 @@ var videoEditHtml = `<form>
             </select>
           </div>
           <div class="form-group">
-           <form id="uploadVideo" method="post" enctype="multipart/form-data">
             <label for="message-text" class="col-form-label">Upload video from computer:</label>
             <input type="file" class="form-control" id="videoFile" disabled>
+            </br>
             <input id="submitVideoUpload" type="submit" name="upload" value="Upload Video" disabled/>
-           </form>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Preview:</label>
@@ -284,6 +283,8 @@ $(document).ready(function() {
         });
         $.getJSON("/getBlobVideos", function(data) {
             let i;
+            $("#videoBlobSelector").empty();
+            $("#videoBlobSelector").append( "<option value='none'>None</option>" );
             for (i = 0; i < data.length; i++) {
               $("#videoBlobSelector").append( "<option value='" + data[i] + "'>" + data[i] + "</option>" );
             }
@@ -307,6 +308,34 @@ $(document).ready(function() {
               currentPost.parent().find("#youtubeVideo").css("display", "block");
             }
             $("#exampleModal").modal("hide");
+        });
+      
+        $("#uploadVideo").submit( function (e) {
+          e.preventDefault();
+          let formData = new FormData(this);
+          formData.append("file", $("#videoFile").get(0).files[0]);
+          $.ajax({
+            url: "/uploadBlobVideo",
+            type: "post",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function() {
+              $.getJSON("/getBlobVideos", function(data) {
+                  let i;
+                  $("#videoBlobSelector").empty();
+                  $("#videoBlobSelector").append( "<option value='none'>None</option>" );
+                  for (i = 0; i < data.length; i++) {
+                      $("#videoBlobSelector").append( "<option value='" + data[i] + "'>" + data[i] + "</option>" );
+                  }
+              });
+              alert("Upload successful.");
+            },
+            error: function() {
+              alert("An error occurred. Could not upload video.");
+            }
+          });
         });
     });
 });
