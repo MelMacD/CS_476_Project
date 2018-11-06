@@ -370,7 +370,7 @@ function setupDraggableResizable() {
     $( ".draggable" ).draggable({ 
             snap: true,
             containment: "window",
-            stack: ".draggable" });
+            stack: ".draggable"
     });
     $( ".resizableAspect").resizable({
         aspectRatio: true
