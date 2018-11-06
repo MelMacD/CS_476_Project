@@ -250,6 +250,12 @@ $(document).ready(function() {
             },
             error: function() {
               alert("An error occurred. Could not upload image.");
+            },
+            beforeSend: function() {
+              $("#loading").css("display", "block");
+            },
+            complete: function() {
+              $("#loading").css("display", "none");
             }
           });
         });
@@ -334,6 +340,12 @@ $(document).ready(function() {
             },
             error: function() {
               alert("An error occurred. Could not upload video.");
+            },
+            beforeSend: function() {
+              $("#loading").css("display", "block");
+            },
+            complete: function() {
+              $("#loading").css("display", "none");
             }
           });
         });
