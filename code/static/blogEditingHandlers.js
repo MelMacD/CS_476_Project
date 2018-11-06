@@ -225,7 +225,7 @@ $(document).ready(function() {
         });
       
         $("#uploadImage").submit( function (e) {
-          e.preventDefault();
+          //e.preventDefault();
           let formData = new FormData(this);
           $.ajax({
             url: "/uploadBlobImage",
