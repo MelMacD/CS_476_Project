@@ -200,9 +200,9 @@ $(document).ready(function() {
         });
         $.getJSON("/getBlobImages", function(data) {
             let i;
+            $("#imageBlobSelector").empty();
+            $("#imageBlobSelector").append( "<option value='none'>None</option>" );
             for (i = 0; i < data.length; i++) {
-              $("#imageBlobSelector").empty();
-              $("#imageBlobSelector").append( "<option value='none'>None</option>" );
               $("#imageBlobSelector").append( "<option value='" + data[i] + "'>" + data[i] + "</option>" );
             }
         });
@@ -240,9 +240,9 @@ $(document).ready(function() {
             success: function() {
               $.getJSON("/getBlobImages", function(data) {
                   let i;
+                  $("#imageBlobSelector").empty();
+                  $("#imageBlobSelector").append( "<option value='none'>None</option>" );
                   for (i = 0; i < data.length; i++) {
-                      $("#imageBlobSelector").empty();
-                      $("#imageBlobSelector").append( "<option value='none'>None</option>" );
                       $("#imageBlobSelector").append( "<option value='" + data[i] + "'>" + data[i] + "</option>" );
                   }
               });
