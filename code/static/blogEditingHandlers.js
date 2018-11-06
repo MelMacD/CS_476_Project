@@ -227,14 +227,13 @@ $(document).ready(function() {
         $("#uploadImage").submit( function (e) {
           e.preventDefault();
           let formData = new FormData(this);
-          formData.append("file", $("#imageFile").files()[0]);
           $.ajax({
             url: "/uploadBlobImage",
             type: "post",
-            processData: false,
-            contentType: false,
-            cache: false,
             data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
             success: function() {
               console.log(formData.getAll());
               alert("Upload successful.");
