@@ -95,14 +95,14 @@ def hello():
         <input type="color" style="display:none;" class="form-control" id="changeBackground" value="#000000">
         <select id="changeFont" style="display:none;" class="form-control" disabled>
               <option style="font-family: Arial;" value="arial">Arial</option>
-              <option style="font-family: Times;" value="timesNew">Times New Roman</option>
-              <option style="font-family: Courier New;" value="courierNew">Courier New</option>
+              <option style="font-family: Times;" value="times">Times New Roman</option>
+              <option style="font-family: Courier New;" value="courier new">Courier New</option>
               <option style="font-family: Verdana;" value="verdana">Verdana</option>
               <option style="font-family: Georgia;" value="georgia">Georgia</option>
               <option style="font-family: Garamond;" value="garamond">Garamond</option>
-              <option style="font-family: Comic Sans MS;" value="comicSans">Comic Sans MS</option>
-              <option style="font-family: Trebuchet MS;" value="trebuchet">Trebuchet MS/option>
-              <option style="font-family: Arial Black;" value="arialBlack">Arial Black</option>
+              <option style="font-family: Comic Sans MS;" value="comic sans ms">Comic Sans MS</option>
+              <option style="font-family: Trebuchet MS;" value="trebuchet ms">Trebuchet MS/option>
+              <option style="font-family: Arial Black;" value="arial black">Arial Black</option>
               <option style="font-family: Impact;" value="impact">Impact</option>
         </select>
     </div>
