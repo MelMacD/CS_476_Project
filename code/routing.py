@@ -92,7 +92,7 @@ def hello():
         <button style="display:none;" id="addText">Add Post</button>
         <button style="display:none;" id="addImage">Add Image</button>
         <button style="display:none;" id="addVideo">Add Video</button>
-        <button style="display:none;" id="changeBackground">Change Background Color</button>
+        <input type="color" style="display:none;" class="form-control" id="changeBackground" value="#000000">
         <button style="display:none;" id="changeFont">Change Page Font</button>
     </div>
     
