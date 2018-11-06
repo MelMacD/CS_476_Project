@@ -66,6 +66,7 @@ var imageEditHtml = `<form id="uploadImage" method="post" enctype="multipart/for
             <input type="file" name="imageFile" class="form-control" id="imageFile" disabled>
             </br>
             <input id="submitImageUpload" type="submit" name="upload" value="Upload Image" disabled/>
+            <p id="loading">Loading...</p>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Preview:</label>
@@ -98,6 +99,7 @@ var videoEditHtml = `<form id="uploadVideo" method="post" enctype="multipart/for
             <input type="file" class="form-control" id="videoFile" disabled>
             </br>
             <input id="submitVideoUpload" type="submit" name="upload" value="Upload Video" disabled/>
+            <p id="loading">Loading...</p>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Preview:</label>
