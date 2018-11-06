@@ -64,6 +64,7 @@ var imageEditHtml = `<form id="uploadImage" method="post" enctype="multipart/for
           <div class="form-group">
             <label for="message-text" class="col-form-label">Upload image to library:</label>
             <input type="file" name="imageFile" class="form-control" id="imageFile" disabled>
+            </br>
             <input id="submitImageUpload" type="submit" name="upload" value="Upload Image" disabled/>
           </div>
           <div class="form-group">
