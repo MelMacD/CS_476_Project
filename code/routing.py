@@ -49,7 +49,7 @@ def uploadBlobImage():
 
 def hello():
     if request.method == 'POST':
-        return str(request.form)
+        return str(request.files)
     else:
         return """
 <head>
