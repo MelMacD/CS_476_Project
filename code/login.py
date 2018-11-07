@@ -59,7 +59,7 @@ button:hover {
 <form id="LogIn" style="width:500px" method="post" enctype="multipart/form-data">
 
 <div class="imgcontainer">
-      <img src="code/img_avatar2.png" alt="Avatar" class="avatar">
+      <img src="https://github.com/MelMacD/CS_476_Project/blob/master/code/img_avatar2.png" alt="Avatar" class="avatar">
     </div>
 
   <div class="container">
