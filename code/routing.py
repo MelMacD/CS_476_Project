@@ -97,6 +97,7 @@ def hello():
             <button type="button" id="addImage" class="btn btn-default">Add Image</button>
             <button type="button" id="addVideo" class="btn btn-default">Add Video</button>
             </br>
+            </br>
             <label for="changeBackground">Page Background Colour: </label>
               <input type="color" class="form-control" id="changeBackground" value="#000000">
             </br>
