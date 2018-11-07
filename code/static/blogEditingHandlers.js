@@ -113,7 +113,10 @@ var videoEditHtml = `<form id="uploadVideo" method="post" enctype="multipart/for
         </form>`;
 
 $(document).ready(function() {
+    $(".edit").css("display", "none");
+  
     $("#enableEditing").click(function () {
+        $(".edit").css("display", "block");
         $("#enableEditing").css("display", "none");
         $("#disableEditing").css("display", "inline");
         $("#addText").css("display", "inline");
@@ -137,7 +140,7 @@ $(document).ready(function() {
         $( ".resizable").resizable({ disabled: true });
         $( ".resizableAspect").resizable({ disabled: true });
         $("div[contenteditable]").attr("contenteditable", "false");
-        $(".edit").css("display", "none"); // use this class for more elements
+        $(".edit").css("display", "none");
     });
     
     $("#addText").click(function() {
@@ -369,15 +372,18 @@ $(document).ready(function() {
 });
 
 function setupDraggableResizable() {
-    $( ".draggable" ).draggable({ 
+    $( ".draggable" ).draggable({
+            disabled: false,
             snap: true,
             containment: "window",
             stack: ".draggable"
     });
     $( ".resizableAspect").resizable({
+        disabled: false,
         aspectRatio: true
     });
     $( ".resizable").resizable({
+        disabled: false,
         aspectRatio: false
     });
 }
