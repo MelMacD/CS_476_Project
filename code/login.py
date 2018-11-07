@@ -43,12 +43,24 @@ button {
 button:hover {
     opacity: 0.8;
 }     
-         
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+         img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
         
     </style>
     <body>
 
 <form id="LogIn" style="width:500px" method="post" enctype="multipart/form-data">
+
+<div class="imgcontainer">
+      <img src="code/img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
 
   <div class="container">
   
