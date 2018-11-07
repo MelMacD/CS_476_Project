@@ -87,24 +87,19 @@ def hello():
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <form class="form-inline">
-          <div class="btn-toolbar">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Toolbar</button>
+      <div class="dropdown-menu">
+        <form class="px-4 py-3">
+          <div class="form-group">
             <button type="button" id="addText" class="btn btn-default">Add Post</button>
             <button type="button" id="addImage" class="btn btn-default">Add Image</button>
             <button type="button" id="addVideo" class="btn btn-default">Add Video</button>
-          </div>
-        </form>
-        <label for="message-text" class="col-sm-2 control-label">Page Background Colour: </label>
-        <div class="col-sm-10">
-          <input type="color" class="form-control" id="changeBackground" value="#000000">
-        </div>
-        <label for="message-text" class="col-sm-2 control-label">Page Font: </label>
-        <div class="col-sm-10">
-        <select id="changeFont" class="form-control">
+            <label for="changeBackground">Page Background Colour: </label>
+              <input type="color" class="form-control" id="changeBackground" value="#000000">
+            <label for="changeFont">Page Font: </label>
+            <select id="changeFont" class="form-control">
               <option style="font-family: Arial;" value="arial">Arial</option>
               <option style="font-family: Times;" value="times">Times New Roman</option>
               <option style="font-family: Courier New;" value="courier new">Courier New</option>
@@ -115,8 +110,10 @@ def hello():
               <option style="font-family: Trebuchet MS;" value="trebuchet ms">Trebuchet MS</option>
               <option style="font-family: Arial Black;" value="arial black">Arial Black</option>
               <option style="font-family: Impact;" value="impact">Impact</option>
-        </select>
-        </div>
+            </select>
+          </div>
+        </form>
+      </div>
       </div>
     </nav>
     <div id="blogBody">
