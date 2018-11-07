@@ -92,16 +92,18 @@ def hello():
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <form class="form-inline">
-            <button type="button" id="addText" class="btn btn-default col-sm-2">Add Post</button>
-            <button type="button" id="addImage" class="btn btn-default col-sm-2">Add Image</button>
-            <button type="button" id="addVideo" class="btn btn-default col-sm-2">Add Video</button>
+          <div class="btn-toolbar">
+            <button type="button" id="addText" class="btn btn-default">Add Post</button>
+            <button type="button" id="addImage" class="btn btn-default">Add Image</button>
+            <button type="button" id="addVideo" class="btn btn-default">Add Video</button>
+          </div>
         </form>
         <label for="message-text" class="col-sm-2 control-label">Page Background Colour: </label>
-        <div class="col-sm-10>
+        <div class="col-sm-10">
           <input type="color" class="form-control" id="changeBackground" value="#000000">
         </div>
         <label for="message-text" class="col-sm-2 control-label">Page Font: </label>
-        <div class="col-sm-10>
+        <div class="col-sm-10">
         <select id="changeFont" class="form-control">
               <option style="font-family: Arial;" value="arial">Arial</option>
               <option style="font-family: Times;" value="times">Times New Roman</option>
