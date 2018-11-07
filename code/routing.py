@@ -90,14 +90,16 @@ def hello():
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="dropdown edit">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Toolbar</button>
-      <div class="dropdown-menu">
+      <div class="dropdown-menu" style="min-width: 30rem;">
         <form class="px-4 py-3">
           <div class="form-group">
             <button type="button" id="addText" class="btn btn-default">Add Post</button>
             <button type="button" id="addImage" class="btn btn-default">Add Image</button>
             <button type="button" id="addVideo" class="btn btn-default">Add Video</button>
+            </br>
             <label for="changeBackground">Page Background Colour: </label>
               <input type="color" class="form-control" id="changeBackground" value="#000000">
+            </br>
             <label for="changeFont">Page Font: </label>
             <select id="changeFont" class="form-control">
               <option style="font-family: Arial;" value="arial">Arial</option>
