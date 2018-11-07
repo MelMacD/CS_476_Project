@@ -135,23 +135,27 @@ body {font-family: "Lato", sans-serif}
           
            <p>Please fill in this form to create an account.</p>
       <hr>
-          <label for="username"><b>Username</b></label>
-          <input class="w3-input w3-border" type="text" placeholder="Enter Username">
+          <label><b>Username</b></label>
+    <label id="username_msg" class="err_msg"></label>
+          <input class="w3-input w3-border" id="username" type="text" placeholder="Enter Username" size="30" name="username">
           
-      <label for="email"><b>Email</b></label>
-      <input class="w3-input w3-border" type="text" placeholder="Enter Email" name="email" required>
+      <label><b>Email</b></label>
+    <label id="email_msg" class="err_msg"></label>
+      <input class="w3-input w3-border" id="email" type="text" placeholder="Enter Email" size="30" name="email" required>
+       
+      <label><b>Password</b></label>
+      <input class="w3-input w3-border" type="password" placeholder="Enter Password" size="30" name="pwd" required>
 
-      <label for="psw"><b>Password</b></label>
-      <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
-
-      <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input class="w3-input w3-border" type="password" placeholder="Repeat Password" name="psw-repeat" required>
+       <label><b>Re-enter Password</b></label>
+     <label id="reEnter_msg" class="err_msg"></label>
+        
+      <input class="w3-input w3-border" type="password" placeholder="Re-enter Password" size="30"   name="pwd2" required>
       
     
         
-        <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">Signup <i class="fa fa-check"></i></button>
+        <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right"  type="submit"  class="signup" name="Signup" value="Signup">Signup <i class="fa fa-check"></i></button>
         <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
-          <a class="dropdown-item" href="sample.html">Already have an account? Sign in</a>
+          <a class="dropdown-item" href="login.py">Already have an account? Sign in</a>
         <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
       </div>
     </div>
