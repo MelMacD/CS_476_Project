@@ -91,32 +91,13 @@ def hello():
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="#">Hidden brand</a>
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-        </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button type="button" id="addText" class="btn btn-default">Add Post</button>
+            <button type="button" id="addImage" class="btn btn-default">Add Image</button>
+            <button type="button" id="addVideo" class="btn btn-default">Add Video</button>
         </form>
-      </div>
-    </nav>
-    <div id="toolbar" class="border border-dark rounded" style="background-color: lightgray;">
-      <h5>Toolbar</h5>
-      <form class="form-inline">
-        <button type="button" style="display:none;" id="addText" class="btn btn-default">Add Post</button>
-        <button type="button" style="display:none;" id="addImage" class="btn btn-default">Add Image</button>
-        <button type="button" style="display:none;" id="addVideo" class="btn btn-default">Add Video</button>
-        <input type="color" style="display:none;" class="form-control" id="changeBackground" value="#000000">
-        <select id="changeFont" style="display:none;" class="form-control">
+        <input type="color" class="form-control" id="changeBackground" value="#000000">
+        <select id="changeFont" class="form-control">
               <option style="font-family: Arial;" value="arial">Arial</option>
               <option style="font-family: Times;" value="times">Times New Roman</option>
               <option style="font-family: Courier New;" value="courier new">Courier New</option>
@@ -128,6 +109,12 @@ def hello():
               <option style="font-family: Arial Black;" value="arial black">Arial Black</option>
               <option style="font-family: Impact;" value="impact">Impact</option>
         </select>
+      </div>
+    </nav>
+    <div id="toolbar" class="border border-dark rounded" style="background-color: lightgray;">
+      <h5>Toolbar</h5>
+      <form class="form-inline">
+
       </form>
     </div>
     <div id="blogBody">
