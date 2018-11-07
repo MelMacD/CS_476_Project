@@ -1,16 +1,16 @@
 var postHtml = `<div class="border border-dark rounded draggable resizable" style="width: 350px; height: 400px;">
-                 <button class="editPost" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                 <button class="editPost edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                  <div id="originalContent" style="width: 100%; height: 100%; background-color: white;">
                    <h3>What is the title?</h3><p>What is the content?</p>
                  </div>
                </div>`;
 var imageHtml = `<div class="draggable resizableAspect" style="width: 300px; height: 300px;">
-                   <button class="editImage" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                   <button class="editImage edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <img src="/static/default.gif" style="width: 100%; height: 100%;">
                 </div>`;
 var videoHtml = `<div class="draggable resizableAspect" style="width: 420; height: 315;">
-                   <button class="editVideo" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
-                   <div id="mask"></div>
+                   <button class="editVideo edit" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                   <div id="mask" class="edit"></div>
                    <video id="libraryVideo" style="display: none; width: 100%; height: 100%;"controls>
                    <source src="" type="video/mp4">
                    </video>
@@ -137,6 +137,7 @@ $(document).ready(function() {
         $( ".resizable").resizable({ disabled: true });
         $( ".resizableAspect").resizable({ disabled: true });
         $("div[contenteditable]").attr("contenteditable", "false");
+        $(".edit").css("display", "none"); // use this class for more elements
     });
     
     $("#addText").click(function() {
