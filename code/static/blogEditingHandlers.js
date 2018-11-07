@@ -141,17 +141,17 @@ $(document).ready(function() {
     });
     
     $("#addText").click(function() {
-        $(document.body).append(postHtml);
+        $("#blogBody").prepend(postHtml);
         setupDraggableResizable();
     });
   
     $("#addImage").click(function() {
-        $(document.body).append(imageHtml);
+        $("#blogBody").prepend(imageHtml);
         setupDraggableResizable();
     });
   
     $("#addVideo").click(function() {
-        $(document.body).append(videoHtml);
+        $("#blogBody").prepend(videoHtml);
         setupDraggableResizable();
     });
   
@@ -160,7 +160,7 @@ $(document).ready(function() {
     });
   
     $("#changeFont").on("change", function() {
-        $("body").css("font-family", $(this).val());
+        $("#blogBody").css("font-family", $(this).val());
     });
   
     $("body").on("click", ".editPost", function() {
