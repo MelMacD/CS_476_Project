@@ -48,7 +48,7 @@ button:hover {
     margin: 24px 0 12px 0;
     position: relative;
 }
-         img.avatar {
+         img.avatar2 {
     width: 40%;
     border-radius: 50%;
 }
