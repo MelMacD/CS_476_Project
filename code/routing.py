@@ -91,12 +91,17 @@ def hello():
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <form class="form-inline my-2 my-lg-0">
-            <button type="button" id="addText" class="btn btn-default">Add Post</button>
-            <button type="button" id="addImage" class="btn btn-default">Add Image</button>
-            <button type="button" id="addVideo" class="btn btn-default">Add Video</button>
+        <form class="form-inline">
+            <button type="button" id="addText" class="btn btn-default col-sm-2">Add Post</button>
+            <button type="button" id="addImage" class="btn btn-default col-sm-2">Add Image</button>
+            <button type="button" id="addVideo" class="btn btn-default col-sm-2">Add Video</button>
         </form>
-        <input type="color" class="form-control" id="changeBackground" value="#000000">
+        <label for="message-text" class="col-sm-2 control-label">Page Background Colour: </label>
+        <div class="col-sm-10>
+          <input type="color" class="form-control" id="changeBackground" value="#000000">
+        </div>
+        <label for="message-text" class="col-sm-2 control-label">Page Font: </label>
+        <div class="col-sm-10>
         <select id="changeFont" class="form-control">
               <option style="font-family: Arial;" value="arial">Arial</option>
               <option style="font-family: Times;" value="times">Times New Roman</option>
@@ -109,14 +114,9 @@ def hello():
               <option style="font-family: Arial Black;" value="arial black">Arial Black</option>
               <option style="font-family: Impact;" value="impact">Impact</option>
         </select>
+        </div>
       </div>
     </nav>
-    <div id="toolbar" class="border border-dark rounded" style="background-color: lightgray;">
-      <h5>Toolbar</h5>
-      <form class="form-inline">
-
-      </form>
-    </div>
     <div id="blogBody">
     </div>
     
