@@ -48,25 +48,39 @@ button:hover {
     </style>
     <body>
 
+<form id="LogIn" style="width:500px" method="post" enctype="multipart/form-data">
 
   <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+  
+  <label><b>Email</b></label>
+    <label id="email_msg" class="err_msg"></label>
+    <input id="email" type="text" placeholder="Enter Email" size="30" name="email" required>
+    </br>
+  
+ 
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <label><b>Password</b></label>
+     <label id="pswd_msg" class="err_msg"></label>
+    <input  type="password" placeholder="Enter Password" size="30" name="pwd" required>
 
-    <button type="submit">Login</button>
+    <button type="submit" name="Login" value="Login" >Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
+    <a class="dropdown-item" href="/signup">Don't have an account? Sign up</a>
+    </br>
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
+   
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
-
+  </form>
+  
+<script>
+document.getElementById("LogIn").addEventListener("submit", LogInForm, false);
+window.onload=document.getElementById("name").value= "";
+</script>
     
     </body>
     
