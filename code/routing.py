@@ -89,8 +89,6 @@ def hello():
     <div id="toolbar" class="border border-dark rounded" style="background-color: lightgray;">
       <h5>Toolbar</h5>
       <form class="form-inline">
-        <button type="button" id="enableEditing" class="btn btn-default">Enable Edit Mode</button>
-        <button type="button" style="display:none;" id="disableEditing" class="btn btn-default">Exit Edit Mode</button>
         <button type="button" style="display:none;" id="addText" class="btn btn-default">Add Post</button>
         <button type="button" style="display:none;" id="addImage" class="btn btn-default">Add Image</button>
         <button type="button" style="display:none;" id="addVideo" class="btn btn-default">Add Video</button>
@@ -108,6 +106,8 @@ def hello():
               <option style="font-family: Impact;" value="impact">Impact</option>
         </select>
       </form>
+    </div>
+    <div id="blogBody">
     </div>
     
 <!-- Modal -->
@@ -131,4 +131,8 @@ def hello():
   </div>
 </div>
 
+<footer>
+    <button type="button" id="enableEditing" class="btn btn-default">Enable Edit Mode</button>
+    <button type="button" style="display:none;" id="disableEditing" class="btn btn-default">Exit Edit Mode</button>
+</footer
 </body>"""
