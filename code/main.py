@@ -1,15 +1,13 @@
 from code import app
 from flask import request
-
     
 @app.route("/", methods=['GET', 'POST'])
 
 def hello():
     if request.method == 'POST':
-        return str(request.files)
+        return "nothing"
     else:
         return """
-
 <!DOCTYPE html>
 <html lang="en">
 <title>Express Yourself</title>
