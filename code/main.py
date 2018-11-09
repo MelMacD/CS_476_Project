@@ -180,8 +180,8 @@ body {font-family: "Lato", sans-serif}
     <p class="w3-opacity w3-center"><i> Drop a note!</i></p>
     <div class="w3-row w3-padding-32">
       <div class="w3-col m6 w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker" style="width:30px"></i> Chicago, US<br>
-        <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+        <i class="fa fa-map-marker" style="width:30px"></i> Regina, Canada<br>
+        <i class="fa fa-phone" style="width:30px"></i> Phone: +3605551792<br>
         <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
       </div>
       <div class="w3-col m6">
@@ -203,9 +203,6 @@ body {font-family: "Lato", sans-serif}
   
 <!-- End Page Content -->
 </div>
-
-<!-- Image of location/map -->
-<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%">
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
