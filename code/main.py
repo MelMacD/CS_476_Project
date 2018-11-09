@@ -27,9 +27,9 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="sample.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
-    <a href="sample.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Login</a>
-    <a href="sample2.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign-up</a>
+    <a href="main.py" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a href="login.py" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Login</a>
+    <a href="signup.py" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign-up</a>
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contact</a>
     
     </div>
@@ -50,21 +50,21 @@ body {font-family: "Lato", sans-serif}
 
   <!-- Automatic Slideshow Images -->
   <div class="mySlides w3-display-container w3-center">
-    <img src="picture1.jpg" style="width:100%">
+    <img src="static/picture1.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Create the Website You want</h3>
       <p><b>Write Something</b></p>   
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
-    <img src="picture2.jpg" style="width:100%">
+    <img src="static/picture2.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Express Yourself in Your Own Blog</h3>
       <p><b>Write Something</b></p>    
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
-    <img src="picture3.jpg" style="width:100%">
+    <img src="static/picture3.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>View professional Website and Blog</h3>
       <p><b>Write something</b></p>    
@@ -78,16 +78,16 @@ body {font-family: "Lato", sans-serif}
     <p class="w3-justify">We have created an easy way of creating your blog. We believe that anything is possible the right website or blog builder. Whether you are cbegginner at creating your website or a pro, we have got you covered. </p>
     <div class="w3-row w3-padding-32">
       <div class="w3-third">
-        <p>Name</p>
-        <img src="tea.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+        <p>Write something</p>
+        <img src="static/tea.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
       </div>
       <div class="w3-third">
-        <p>Name</p>
-        <img src="holiday.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+        <p>Creative Blog</p>
+        <img src="static/holiday.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
       </div>
       <div class="w3-third">
-        <p>Name</p>
-        <img src="travel.jpg" class="w3-round" alt="Random Name" style="width:60%">
+        <p>Own Your Website</p>
+        <img src="static/travel.jpg" class="w3-round" alt="Random Name" style="width:60%">
       </div>
     </div>
   </div>
@@ -101,7 +101,7 @@ body {font-family: "Lato", sans-serif}
 
       <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
         <div class="w3-third w3-margin-bottom">
-          <img src="art.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">
+          <img src="static/art.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">
           <div class="w3-container w3-white">
             <p><b>PROFFESIONAL WEBSITE</b></p>
             <p class="w3-opacity">BEGINNING</p>
@@ -110,7 +110,7 @@ body {font-family: "Lato", sans-serif}
           </div>
         </div>
         <div class="w3-third w3-margin-bottom">
-          <img src="picture4.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+          <img src="static/picture4.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
           <div class="w3-container w3-white">
             <p><b>CREATIVE BLOG</b></p>
             <p class="w3-opacity">BEGINNING</p>
@@ -119,7 +119,7 @@ body {font-family: "Lato", sans-serif}
           </div>
         </div>
         <div class="w3-third w3-margin-bottom">
-          <img src="forest.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">
+          <img src="static/forest.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">
           <div class="w3-container w3-white">
             <p><b>VIEW BLOG LIST</b></p>
             <p class="w3-opacity">WELCOME</p>
