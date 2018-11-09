@@ -5,3 +5,4 @@ app = Flask(__name__)
 import code.login
 import code.signup
 import code.blogView
+import code.main
