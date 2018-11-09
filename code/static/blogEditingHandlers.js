@@ -8,7 +8,7 @@ var imageHtml = `<div class="draggable resizableAspect" style="width: 300px; hei
                    <button class="editImage edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <img src="/static/default.gif" style="width: 100%; height: 100%;">
                 </div>`;
-var videoHtml = `<div class="draggable resizableAspect" style="width: 420; height: 315;">
+var videoHtml = `<div class="draggable resizableAspect" style="width: 420; height: 283;">
                    <button class="editVideo edit" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <div id="mask" class="edit"></div>
                    <video id="libraryVideo" style="display: none; width: 100%; height: 100%;"controls>
