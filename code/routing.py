@@ -120,7 +120,7 @@ def hello():
       </div>
     </nav>
     <div id="blogBody">
-      <div class="draggable resizableAspect" style="width: 420px; height: 315px; position: absolute; z-index: 0;">
+      <div class="draggable resizableAspect" style="width: 420px; height: 283px; position: absolute; z-index: 0;">
                    <button class="editVideo edit" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <div id="mask" class="edit"></div>
                    <video id="libraryVideo" style="display: block; width: 100%; height: 100%;" controls="" src="https://expressiveblob.blob.core.windows.net/videos/sample.mp4">
