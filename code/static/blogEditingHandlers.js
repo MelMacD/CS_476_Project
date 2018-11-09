@@ -386,4 +386,5 @@ function setupDraggableResizable() {
         disabled: false,
         aspectRatio: false
     });
+    $( ".draggable" ).css("position", "absolute");
 }
