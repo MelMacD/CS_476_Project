@@ -12,7 +12,6 @@ class BlobStorage:
 
     def makeService(self):
         return BlockBlobService(account_name=self.accountName, account_key=self.accountKey)
-#could implement more in the class
 
 @app.route("/getBlobImages")
 
