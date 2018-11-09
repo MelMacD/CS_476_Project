@@ -8,7 +8,7 @@ def hello():
     if request.method == 'POST':
         return str(request.files)
     else:
-return """
+            return """
 
 <!DOCTYPE html>
 <html lang="en">
