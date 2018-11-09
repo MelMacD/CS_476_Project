@@ -1,9 +1,5 @@
 from code import app
-import os
-import json
 from flask import request
-from werkzeug.utils import secure_filename
-from azure.storage.blob import BlockBlobService, PublicAccess
     
 @app.route("/blogView", methods=['GET', 'POST'])
 
