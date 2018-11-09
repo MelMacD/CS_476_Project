@@ -1,3 +1,16 @@
+from code import app
+import os
+import json
+
+    
+@app.route("/main", methods=['GET', 'POST'])
+
+def hello():
+    if request.method == 'POST':
+        return str(request.files)
+    else:
+return """
+
 <!DOCTYPE html>
 <html lang="en">
 <title>Express Yourself</title>
