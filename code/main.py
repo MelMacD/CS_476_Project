@@ -39,8 +39,8 @@ body {font-family: "Lato", sans-serif}
 
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="sample.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Login</a>
-  <a href="sample2.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Sign-up</a>
+  <a href="login.py" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Login</a>
+  <a href="signup.py" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Sign-up</a>
   <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
 
 </div>
@@ -78,7 +78,7 @@ body {font-family: "Lato", sans-serif}
     <p class="w3-justify">We have created an easy way of creating your blog. We believe that anything is possible the right website or blog builder. Whether you are cbegginner at creating your website or a pro, we have got you covered. </p>
     <div class="w3-row w3-padding-32">
       <div class="w3-third">
-        <p>Write something</p>
+        <p>Freedom of Thought</p>
         <img src="static/tea.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
       </div>
       <div class="w3-third">
