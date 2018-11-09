@@ -2,13 +2,13 @@ from code import app
 from flask import request
 
     
-@app.route("/main", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 
 def hello():
     if request.method == 'POST':
         return str(request.files)
     else:
-            return """
+        return """
 
 <!DOCTYPE html>
 <html lang="en">
@@ -265,3 +265,4 @@ window.onclick = function(event) {
 
 </body>
 </html>
+"""
