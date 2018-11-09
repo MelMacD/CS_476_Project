@@ -3,7 +3,7 @@ from flask import request
     
 @app.route("/", methods=['GET', 'POST'])
 
-def hello():
+def main():
     if request.method == 'POST':
         return "nothing"
     else:
