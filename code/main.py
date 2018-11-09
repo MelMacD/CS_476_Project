@@ -1,6 +1,5 @@
 from code import app
-import os
-import json
+from flask import request
 
     
 @app.route("/main", methods=['GET', 'POST'])
