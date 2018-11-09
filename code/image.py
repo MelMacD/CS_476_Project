@@ -4,6 +4,7 @@ class Image:
         #setLocation(row.get("top"), row.get("left"))
         #setSize(row.get("width"), row.get("height"))
         #setDepth(row.get("depth"));
+        #setImage(row.get("imageSource"));
 
     #@override
     def buildHtml(self):
