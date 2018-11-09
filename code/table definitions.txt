@@ -1,0 +1,21 @@
+create table users (
+username varchar(15) not null,
+email varchar(30) not null,
+pwd varchar(15) not null,
+blogOwner bit not null,
+blogName varchar(20),
+primary key (email),
+unique (email),
+unique (username),
+unique (blogName)
+);
+
+create table blog (
+username varchar(15) not null,
+blogName varchar(20) not null,
+imageSource varchar(30),
+descr varchar(300),
+primary key (blogName),
+unique (username),
+unique (blogName)
+);
