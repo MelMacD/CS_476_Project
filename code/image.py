@@ -9,7 +9,7 @@ class Image:
     #@override
     def buildHtml(self):
         return """
-<div class="draggable resizableAspect" style="width: {width}px; height: {height}px; position: absolute; z-index: {depth}; left: {left}px; top: {top}px;">
+<div class="draggable resizableAspect image" style="width: {width}px; height: {height}px; position: absolute; z-index: {depth}; left: {left}px; top: {top}px;">
     <button class="editImage edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
     <img src="{src}" style="width: 100%; height: 100%;">
 </div>"""
