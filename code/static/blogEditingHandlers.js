@@ -152,9 +152,8 @@ $(document).ready(function() {
         $.ajax({
             url: "/blogView",
             type: "post",
-            data: JSON.stringify(/*hiddenFormData*/{}),
+            data: JSON.stringify({}),
             contentType: "application/json",
-            dataType: "json",
             success: function(data) {
               alert("Changes saved.");
               console.log(data)
