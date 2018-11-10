@@ -6,7 +6,7 @@ from flask import request
 def hello():
     if request.method == 'POST':
         requestData = request.get_json()#this is a dictionary
-        return str(requestData.get("post0", "why"))
+        return str(requestData)
     else:
         return """
 <head>
