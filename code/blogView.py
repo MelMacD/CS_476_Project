@@ -1,5 +1,6 @@
 from code import app
 from flask import request
+import json
     
 @app.route("/blogView", methods=['GET', 'POST'])
 
