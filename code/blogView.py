@@ -7,7 +7,7 @@ import json
 def hello():
     if request.method == 'POST':
         jsonRequest = request.get_json(silent=True)
-        jsonDict = json.loads(str(jsonRequest))
+        jsonDict = json.loads("{'post0': {'width': 0, 'height': 0, 'top': 0, 'left': 0, 'depth': 0, 'title': 'text', 'content': 'text', 'backgroundColor': 'color', 'fontColor': 'color'}}")
         return str(jsonRequest)
     else:
         return """
