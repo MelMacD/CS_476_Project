@@ -102,11 +102,15 @@ def hello():
     </div>
   </div>
 </div>
-
+<div id="hiddenForm" style="display:none;">
+  <form>
+  </form>
+</div>
 <footer class="footer">
   <div class="container">
     <button type="button" id="enableEditing" class="btn btn-default">Enable Edit Mode</button>
     <button type="button" style="display:none;" id="disableEditing" class="btn btn-default">Exit Edit Mode</button>
+    <button type="button" style="display:none," id="saveChanges" class="btn btn-success">Save Changes</button>
   </div>
 </footer
 </body>"""
