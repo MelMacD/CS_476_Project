@@ -6,9 +6,9 @@ import json
 
 def hello():
     if request.method == 'POST':
-        jsonRequest = request.get_json(silent=True)
+        jsonRequest = request.json
         test = '{"post0" : { "id": 0, "username":"XYZ", "group":{"id": "XXXX"}}}'
-        jsonDict = json.loads({"post0" : "hi!"})
+        jsonDict = json.loads({})
         return str(jsonRequest)
     else:
         return """
