@@ -6,7 +6,7 @@ from flask import request
 def hello():
     if request.method == 'POST':
         jsonRequest = request.get_json()
-        return str(jsonRequest)
+        return str(jsonRequest["post0"])
     else:
         return """
 <head>
