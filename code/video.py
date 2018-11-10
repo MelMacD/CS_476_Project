@@ -10,7 +10,7 @@ class Video:
     def buildHtml(self, src):
         if "youtube" not in src:
             return """
-<div class="draggable resizableAspect" style="width: {width}px; height: {height}px; position: absolute; z-index: {depth}; left: {left}px; top: {top}px;">
+<div class="draggable resizableAspect video" style="width: {width}px; height: {height}px; position: absolute; z-index: {depth}; left: {left}px; top: {top}px;">
     <button class="editVideo edit" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
     <div id="mask" class="edit"></div>
     <video id="libraryVideo" style="display: block; width: 100%; height: 100%;" controls="" src="{src}">
