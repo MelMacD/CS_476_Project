@@ -135,7 +135,7 @@ $(document).ready(function() {
             backgroundColor: "color",
             fontColor: "color"
         }
-        console.log(formData);
+        console.log(hiddenFormData);
         // parse out values
     });
     $(".image").each(function( index ) {
