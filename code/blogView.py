@@ -5,7 +5,7 @@ from flask import request
 
 def hello():
     if request.method == 'POST':
-        return "henlo"
+        return str(request)
     else:
         return """
 <head>
