@@ -1,11 +1,11 @@
 from code import app
-from flask import request
+from flask import request, response
     
 @app.route("/blogView", methods=['GET', 'POST'])
 
 def hello():
     if request.method == 'POST':
-        return "Henlo"
+        return "henlo"
     else:
         return """
 <head>
