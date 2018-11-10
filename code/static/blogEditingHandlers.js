@@ -155,11 +155,14 @@ $(document).ready(function() {
             data: JSON.stringify(/*hiddenFormData*/{}),
             contentType: "application/json",
             dataType: "json",
-            success: function() {
+            success: function(data) {
               alert("Changes saved.");
+              console.log(data)
             },
-            error: function() {
+            error: function(xhr, ajaxOptions, thrownError) {
               alert("An error occurred. Could not save changes.");
+              console.log(xhr.status);
+              console.log(thrownError);
             },
         });
     });
