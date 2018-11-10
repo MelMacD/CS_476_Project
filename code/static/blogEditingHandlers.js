@@ -1,14 +1,14 @@
-var postHtml = `<div class="border border-dark rounded draggable resizable" style="width: 350px; height: 400px;">
+var postHtml = `<div class="border border-dark rounded draggable resizable post" style="width: 350px; height: 400px;">
                  <button class="editPost edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                  <div id="originalContent" style="width: 100%; height: 100%; background-color: white;">
                    <h3>What is the title?</h3><p>What is the content?</p>
                  </div>
                </div>`;
-var imageHtml = `<div class="draggable resizableAspect" style="width: 300px; height: 300px;">
+var imageHtml = `<div class="draggable resizableAspect image" style="width: 300px; height: 300px;">
                    <button class="editImage edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <img src="/static/default.gif" style="width: 100%; height: 100%;">
                 </div>`;
-var videoHtml = `<div class="draggable resizableAspect" style="width: 420; height: 283;">
+var videoHtml = `<div class="draggable resizableAspect video" style="width: 420; height: 283;">
                    <button class="editVideo edit" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <div id="mask" class="edit"></div>
                    <video id="libraryVideo" style="display: none; width: 100%; height: 100%;"controls>
@@ -112,8 +112,40 @@ var videoEditHtml = `<form id="uploadVideo" method="post" enctype="multipart/for
           </div>
         </form>`;
 
+let postId = 0;
+let imageId = 0;
+let videoId = 0;
+let formData = {};
+
 $(document).ready(function() {
     $(".edit").css("display", "none");
+  
+    // setup hidden form with preexisting elements
+    // find all posts/images/videos
+    $(".post").each(function( index ) {
+        // generate form items, or create object for ajax request, dictionary?
+        formData["post" + index] = {
+            width: 0,
+            height: 0,
+            top: 0,
+            left: 0,
+            depth: 0,
+            title: "text",
+            content: "text",
+            backgroundColor: "color",
+            fontColor: "color"
+        }
+        console.log(formData);
+        // parse out values
+    });
+    $(".image").each(function( index ) {
+        // generate form items
+        // parse out values
+    });
+    $(".video").each(function( index ) {
+        // generate form items
+        // parse out values
+    });
   
     $("#enableEditing").click(function () {
         $(".edit").css("display", "block");
