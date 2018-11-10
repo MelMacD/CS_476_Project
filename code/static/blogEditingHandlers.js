@@ -115,7 +115,7 @@ var videoEditHtml = `<form id="uploadVideo" method="post" enctype="multipart/for
 let postId = 0;
 let imageId = 0;
 let videoId = 0;
-let formData = {};
+let hiddenFormData = {};
 
 $(document).ready(function() {
     $(".edit").css("display", "none");
@@ -124,7 +124,7 @@ $(document).ready(function() {
     // find all posts/images/videos
     $(".post").each(function( index ) {
         // generate form items, or create object for ajax request, dictionary?
-        formData["post" + index] = {
+        hiddenFormData["post" + index] = {
             width: 0,
             height: 0,
             top: 0,
@@ -147,8 +147,21 @@ $(document).ready(function() {
         // parse out values
     });
   
-    $("#saveChanges").click(function() {
+    $("#save").click(function() {
         alert("clicked");
+        $.ajax({
+            url: "/blogView",
+            type: "post",
+            data: JSON.stringify(hiddenFormData),
+            contentType: "application/json",
+            dataType: "json",
+            success: function() {
+              alert("Changes saved.");
+            },
+            error: function() {
+              alert("An error occurred. Could not save changes.");
+            },
+        });
     });
   
     $("#enableEditing").click(function () {
