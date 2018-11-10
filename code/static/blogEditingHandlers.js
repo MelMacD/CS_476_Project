@@ -126,6 +126,7 @@ $(document).ready(function() {
         $("#changeFont").css("display", "inline");
         setupDraggableResizable();
         $("div[contenteditable]").attr("contenteditable", "true");
+        $("#saveChanges").css("display", "inline");
     });
     
     $("#disableEditing").click(function() {
@@ -141,6 +142,7 @@ $(document).ready(function() {
         $( ".resizableAspect").resizable({ disabled: true });
         $("div[contenteditable]").attr("contenteditable", "false");
         $(".edit").css("display", "none");
+        $("#saveChanges").css("display", "none");
     });
     
     $("#addText").click(function() {
