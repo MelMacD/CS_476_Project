@@ -1,12 +1,13 @@
 from code import app
 from flask import request
+from json import loads
     
 @app.route("/blogView", methods=['GET', 'POST'])
 
 def hello():
     if request.method == 'POST':
-        
-        return str(json.loads(request.get_json(silent=True))[0].get("post0", "error"))
+        json = request.get_json(silent=True)
+        return str(loads(json).get("post0", "error"))
     else:
         return """
 <head>
