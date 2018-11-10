@@ -110,7 +110,7 @@ def hello():
   <div class="container">
     <button type="button" id="enableEditing" class="btn btn-default">Enable Edit Mode</button>
     <button type="button" style="display:none;" id="disableEditing" class="btn btn-default">Exit Edit Mode</button>
-    <button type="button" style="display:none;" id="saveChanges" class="btn btn-success edit">Save Changes</button>
+    <button type="button" style="display:inline;" id="saveChanges" class="btn btn-default">Save Changes</button>
   </div>
 </footer
 </body>"""
