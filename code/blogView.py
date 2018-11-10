@@ -1,5 +1,5 @@
 from code import app
-from flask import request, response
+from flask import request
     
 @app.route("/blogView", methods=['GET', 'POST'])
 
