@@ -1,14 +1,11 @@
 from code import app
 from flask import request
-import json
     
 @app.route("/blogView", methods=['GET', 'POST'])
 
 def hello():
     if request.method == 'POST':
-        jsonRequest = request.json
-        test = '{"post0" : { "id": 0, "username":"XYZ", "group":{"id": "XXXX"}}}'
-        jsonDict = json.loads({})
+        jsonRequest = request.get_json()
         return str(jsonRequest)
     else:
         return """
