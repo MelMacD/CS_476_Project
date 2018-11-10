@@ -6,8 +6,8 @@ from json import loads
 
 def hello():
     if request.method == 'POST':
-        json = request.get_json(silent=True)
-        return str(loads(json).get("post0", "error"))
+        jsonRequest = request.get_json(silent=True)
+        return str(loads(jsonRequest))
     else:
         return """
 <head>
