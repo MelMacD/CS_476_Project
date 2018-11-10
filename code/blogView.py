@@ -8,7 +8,7 @@ def hello():
     if request.method == 'POST':
         jsonRequest = request.get_json(silent=True)
         jsonDict = json.loads('{"id":"XXXX", "name": "xyz", "user" : { "id": "XXXX", "username":"XYZ", "group":{"id": "XXXX"}}}')
-        return str("Hi")
+        return str(jsonRequest)
     else:
         return """
 <head>
