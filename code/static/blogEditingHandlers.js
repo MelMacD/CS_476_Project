@@ -147,6 +147,10 @@ $(document).ready(function() {
         // parse out values
     });
   
+    $("#saveChanges").click(function() {
+        alert("clicked");
+    });
+  
     $("#enableEditing").click(function () {
         $(".edit").css("display", "block");
         $("#enableEditing").css("display", "none");
