@@ -58,7 +58,7 @@ def hello():
       </div>
     </nav>
     <div id="blogBody">
-      <div class="draggable resizableAspect" style="width: 420px; height: 283px; position: absolute; z-index: 0;">
+      <div class="draggable resizableAspect video" style="width: 420px; height: 283px; position: absolute; z-index: 0;">
                    <button class="editVideo edit" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <div id="mask" class="edit"></div>
                    <video id="libraryVideo" style="display: block; width: 100%; height: 100%;" controls="" src="https://expressiveblob.blob.core.windows.net/videos/sample.mp4">
@@ -69,14 +69,14 @@ def hello():
                  </div></iframe>
       </div>
       
-      <div class="border border-dark rounded draggable resizable" style="width: 422px; height: 225px; position: absolute; z-index: 3; left: 0px; top: 369px;">
+      <div class="border border-dark rounded draggable resizable post" style="width: 422px; height: 225px; position: absolute; z-index: 3; left: 0px; top: 369px;">
                  <button class="editPost edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                  <div id="originalContent" style="width: 100%; height: 100%; background-color: rgb(0, 64, 64); color: rgb(192, 192, 192);">
                    <h3>This is a Test</h3><p>This scene should be recreated from the database, saved written from, and be created from python</p>
                  </div>
       </div>
       
-      <div class="draggable resizableAspect" style="width: 279px; height: 384px; position: absolute; z-index: 2; left: 420px; top: 54px;">
+      <div class="draggable resizableAspect image" style="width: 279px; height: 384px; position: absolute; z-index: 2; left: 420px; top: 54px;">
                    <button class="editImage edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <img src="https://expressiveblob.blob.core.windows.net/images/305529-chocobo.jpg" style="width: 100%; height: 100%;">
       </div>
