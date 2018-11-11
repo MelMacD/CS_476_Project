@@ -17,20 +17,20 @@ class Image:
       
     #@override
     def setId(self, id):
-         return self.html.format(id=id)
+        self.html.format(id=id)
         
     #@override
     def setLocation(self, top, left):
-         return self.html.format(top=top, left=left)
+        self.html.format(top=top, left=left)
      
     #@override
     def setSize(self, width, height):
-         return self.html.format(width=width, height=height)
+        self.html.format(width=width, height=height)
      
     #@override
     def setDepth(self, depth):
-        return self.html.format(depth=depth)
+        self.html.format(depth=depth)
       
     def setImage(self, source):
-        return self.html.format(src=source)
+        self.html.format(src=source)
          
