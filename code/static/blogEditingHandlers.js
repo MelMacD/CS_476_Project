@@ -200,7 +200,7 @@ function logContent( update ) {
             id = $(this).attr("id")
         }
         else {
-            id = postId;
+            id = "post" + postId;
             postId++;
         }
         hiddenFormData[id] = buildPost($(this), update);
@@ -212,7 +212,7 @@ function logContent( update ) {
             id = $(this).attr("id")
         }
         else {
-            id = imageId;
+            id = "image" + imageId;
             imageId++;
         }
         hiddenFormData[id] = buildImage($(this), update);
@@ -223,7 +223,7 @@ function logContent( update ) {
             id = $(this).attr("id")
         }
         else {
-            id = videoId;
+            id = "video" + videoId;
             videoId++;
         }
         hiddenFormData[id] = buildVideo($(this), update);
@@ -249,7 +249,7 @@ $(document).ready(function() {
             success: function(data) {
               alert("Changes saved.");
               console.log(data)
-              location.reload();
+              //location.reload();
             },
             error: function(xhr, ajaxOptions, thrownError) {
               alert("An error occurred. Could not save changes.");
