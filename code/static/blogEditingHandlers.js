@@ -1,14 +1,14 @@
-var postHtml = `<div class="border border-dark rounded draggable resizable post" style="width: 350px; height: 400px;">
+var postHtml = `<div class="border border-dark rounded draggable resizable newPost" style="width: 350px; height: 400px;">
                  <button class="editPost edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                  <div id="originalContent" style="width: 100%; height: 100%; background-color: white;">
                    <h3>What is the title?</h3><p>What is the content?</p>
                  </div>
                </div>`;
-var imageHtml = `<div class="draggable resizableAspect image" style="width: 300px; height: 300px;">
+var imageHtml = `<div class="draggable resizableAspect newImage" style="width: 300px; height: 300px;">
                    <button class="editImage edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <img src="/static/default.gif" style="width: 100%; height: 100%;">
                 </div>`;
-var videoHtml = `<div class="draggable resizableAspect video" style="width: 420; height: 283;">
+var videoHtml = `<div class="draggable resizableAspect newVideo" style="width: 420; height: 283;">
                    <button class="editVideo edit" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <div id="mask" class="edit"></div>
                    <video id="libraryVideo" style="display: none; width: 100%; height: 100%;"controls>
@@ -171,19 +171,27 @@ function buildVideo( video, update ) {
     }
 }
 
-function logAlreadyExistingContent() {
+function logContent( selector, update) {
    // use different selector for new posts and already existing posts
-    $(".post").each(function( index ) {
-        hiddenFormData["post" + index] = buildPost($(this), true);
+    let postSelector = $(".post");
+    let imageSelector = $(".image");
+    let videoSelector = $(".video");
+    if (selector === "new") {
+        postSelector = $(".newPost");
+        imageSelector = $(".newImage");
+        videoSelector = $(".newVideo");
+    }
+    postSelector.each(function( index ) {
+        hiddenFormData["post" + index] = buildPost($(this), update);
         postId++;
     });
   
-    $(".image").each(function( index ) {
-        hiddenFormData["image" + index] = buildImage($(this), true);
+    imageSelector.each(function( index ) {
+        hiddenFormData["image" + index] = buildImage($(this), update);
         imageId++;
     });
-    $(".video").each(function( index ) {
-        hiddenFormData["video" + index] = buildVideo($(this), true);
+    videoSelector.each(function( index ) {
+        hiddenFormData["video" + index] = buildVideo($(this), update);
         videoId++;
     });
     console.log(hiddenFormData);
@@ -192,9 +200,10 @@ function logAlreadyExistingContent() {
 $(document).ready(function() {
     $(".edit").css("display", "none");
   
-    logAlreadyExistingContent();
+    logContent("update", true);
   
     $("#save").click(function() {
+        logContent("new", false);
         $.ajax({
             url: "/blogView",
             type: "post",
