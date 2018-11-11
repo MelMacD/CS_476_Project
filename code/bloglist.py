@@ -2,7 +2,7 @@
 from code import app
 from flask import request
     
-@app.route("/blogView", methods=['GET', 'POST'])
+@app.route("/bloglist", methods=['GET', 'POST'])
 
 def hello():
     if request.method == 'POST':
