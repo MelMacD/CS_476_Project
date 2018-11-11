@@ -117,7 +117,7 @@ let imageId = 0;
 let videoId = 0;
 let hiddenFormData = {};
 
-function buildPost( post ) {
+function buildPost( post, update ) {
     return {
         // parameter "10" implies decimal radix, as 0 could be treated as hex
         width: parseInt(post.css("width"), 10),
@@ -128,7 +128,8 @@ function buildPost( post ) {
         title: post.find("h3").text(),
         content: post.find("p").text(),
         backgroundColor: post.find("div").css("background-color"),
-        fontColor: post.find("div").css("color")
+        fontColor: post.find("div").css("color"),
+        isUpdate: update
     }
 }
 
@@ -140,7 +141,8 @@ function buildImage( image ) {
         top: parseInt(image.css("top"), 10),
         left: parseInt(image.css("left"), 10),
         depth: parseInt(image.css("z-index"), 10),
-        source: image.find("img").attr("src")
+        source: image.find("img").attr("src"),
+        isUpdate: update
     }
 }
 
@@ -164,31 +166,32 @@ function buildVideo( video ) {
         top: parseInt(video.css("top"), 10),
         left: parseInt(video.css("left"), 10),
         depth: parseInt(video.css("z-index"), 10),
-        source: setSource
+        source: setSource,
+        isUpdate: update
     }
+}
+
+function logAlreadyExistingContent() {
+    $(".post").each(function( index ) {
+        hiddenFormData["post" + index] = buildPost($(this), true);
+        postId++;
+    });
+  
+    $(".image").each(function( index ) {
+        hiddenFormData["image" + index] = buildImage($(this), true);
+        imageId++;
+    });
+    $(".video").each(function( index ) {
+        hiddenFormData["video" + index] = buildVideo($(this), true);
+        videoId++;
+    });
+    console.log(hiddenFormData);
 }
 
 $(document).ready(function() {
     $(".edit").css("display", "none");
   
-    // setup hidden form with preexisting elements
-    // find all posts/images/videos
-    $(".post").each(function( index ) {
-        hiddenFormData["post" + index] = buildPost($(this));
-        console.log(hiddenFormData);
-        postId++;
-    });
-  
-    $(".image").each(function( index ) {
-        hiddenFormData["image" + index] = buildImage($(this));
-        console.log(hiddenFormData);
-        imageId++;
-    });
-    $(".video").each(function( index ) {
-        hiddenFormData["video" + index] = buildVideo($(this));
-        console.log(hiddenFormData);
-        videoId++;
-    });
+    logAlreadyExistingContent();
   
     $("#save").click(function() {
         $.ajax({
