@@ -171,27 +171,27 @@ function buildVideo( video, update ) {
     }
 }
 
-function logContent( selector, update) {
+function logContent( update) {
    // use different selector for new posts and already existing posts
     let postSelector = $(".post");
     let imageSelector = $(".image");
     let videoSelector = $(".video");
-    if (selector === "new") {
+    if (!update) {
         postSelector = $(".newPost");
         imageSelector = $(".newImage");
         videoSelector = $(".newVideo");
     }
-    postSelector.each(function( index ) {
-        hiddenFormData["post" + index] = buildPost($(this), update);
+    postSelector.each(function() {
+        hiddenFormData["post" + postId] = buildPost($(this), update);
         postId++;
     });
   
-    imageSelector.each(function( index ) {
-        hiddenFormData["image" + index] = buildImage($(this), update);
+    imageSelector.each(function() {
+        hiddenFormData["image" + imageId] = buildImage($(this), update);
         imageId++;
     });
-    videoSelector.each(function( index ) {
-        hiddenFormData["video" + index] = buildVideo($(this), update);
+    videoSelector.each(function() {
+        hiddenFormData["video" + videoId] = buildVideo($(this), update);
         videoId++;
     });
     console.log(hiddenFormData);
@@ -200,10 +200,10 @@ function logContent( selector, update) {
 $(document).ready(function() {
     $(".edit").css("display", "none");
   
-    logContent("update", true);
+    logContent(true);
   
     $("#save").click(function() {
-        logContent("new", false);
+        logContent(false);
         $.ajax({
             url: "/blogView",
             type: "post",
