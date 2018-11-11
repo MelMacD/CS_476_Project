@@ -144,6 +144,30 @@ function buildImage( image ) {
     }
 }
 
+function buildVideo( video ) {
+    let videoSource = image.find("video").attr("src")
+    let youtubeSource = image.find("iframe").attr("src")
+    let setSource = "";
+    if (videoSource == "" && youtubeSource != "") {
+        alert("is youtube");
+        setSource = youtubeSource;
+    }
+    if (youtubeSource == "" && videoSource != "") {
+        alert("is video");
+        setSource = videoSource;
+    }
+    // otherwise, alert error
+    return {
+        // parameter "10" implies decimal radix, as 0 could be treated as hex
+        width: parseInt(video.css("width"), 10),
+        height: parseInt(video.css("height"), 10),
+        top: parseInt(video.css("top"), 10),
+        left: parseInt(video.css("left"), 10),
+        depth: parseInt(video.css("z-index"), 10),
+        source: setSource
+    }
+}
+
 $(document).ready(function() {
     $(".edit").css("display", "none");
   
@@ -161,8 +185,9 @@ $(document).ready(function() {
         imageId++;
     });
     $(".video").each(function( index ) {
-        // generate form items
-        // parse out values
+        hiddenFormData["video" + index] = buildVideo($(this));
+        console.log(hiddenFormData);
+        videoId++;
     });
   
     $("#save").click(function() {
