@@ -21,3 +21,42 @@ primary key (blogName),
 unique (username),
 unique (blogName)
 );
+
+create table posts (
+blogName varchar(20) not null,
+id varchar(10),
+topVal int,
+leftVal int,
+width int,
+height int,
+depth int,
+title varchar(50),
+body varchar(1000),
+backgroundColor varchar(15),
+fontColor varchar(15),
+foreign key (blogName) references blog(blogName)
+);
+
+create table images (
+blogName varchar(20) not null,
+id varchar(10),
+topVal int,
+leftVal int,
+width int,
+height int,
+depth int,
+imageSource varchar(40),
+foreign key (blogName) references blog(blogName)
+);
+
+create table videos (
+blogName varchar(20) not null,
+id varchar(10),
+topVal int,
+leftVal int,
+width int,
+height int,
+depth int,
+videoSource varchar(40),
+foreign key (blogName) references blog(blogName)
+);
