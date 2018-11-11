@@ -2,17 +2,17 @@ let postId = 0;
 let imageId = 0;
 let videoId = 0;
 
-var postHtml = `<div id="post${postId}" class="border border-dark rounded draggable resizable newPost" style="width: 350px; height: 400px;">
+var postHtml = `<div class="border border-dark rounded draggable resizable newPost" style="width: 350px; height: 400px;">
                  <button class="editPost edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                  <div id="originalContent" style="width: 100%; height: 100%; background-color: white;">
                    <h3>What is the title?</h3><p>What is the content?</p>
                  </div>
                </div>`;
-var imageHtml = `<div id="image${imageId}" class="draggable resizableAspect newImage" style="width: 300px; height: 300px;">
+var imageHtml = `<div class="draggable resizableAspect newImage" style="width: 300px; height: 300px;">
                    <button class="editImage edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <img src="/static/default.gif" style="width: 100%; height: 100%;">
                 </div>`;
-var videoHtml = `<div id="video${videoId}" class="draggable resizableAspect newVideo" style="width: 420; height: 283;">
+var videoHtml = `<div class="draggable resizableAspect newVideo" style="width: 420; height: 283;">
                    <button class="editVideo edit" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <div id="mask" class="edit"></div>
                    <video id="libraryVideo" style="display: none; width: 100%; height: 100%;"controls>
@@ -181,7 +181,6 @@ function getNewElementId( selector ) {
     });
     //increment by 1 so new id is unique if post already exists
     maxId += 1;
-    alert(selector + " " + maxId);
     return maxId;
 }
 
@@ -196,14 +195,38 @@ function logContent( update ) {
         videoSelector = $(".newVideo");
     }
     postSelector.each(function() {
-        hiddenFormData[$(this).attr("id")] = buildPost($(this), update);
+        let id;
+        if (update) {
+            id = $(this).attr("id")
+        }
+        else {
+            id = postId;
+            postId++;
+        }
+        hiddenFormData[id] = buildPost($(this), update);
     });
   
     imageSelector.each(function() {
-        hiddenFormData[$(this).attr("id")] = buildImage($(this), update);
+        let id;
+        if (update) {
+            id = $(this).attr("id")
+        }
+        else {
+            id = imageId;
+            imageId++;
+        }
+        hiddenFormData[id] = buildImage($(this), update);
     });
     videoSelector.each(function() {
-        hiddenFormData[$(this).attr("id")] = buildVideo($(this), update);
+        let id;
+        if (update) {
+            id = $(this).attr("id")
+        }
+        else {
+            id = videoId;
+            videoId++;
+        }
+        hiddenFormData[id] = buildVideo($(this), update);
     });
     console.log(hiddenFormData);
 }
@@ -226,6 +249,7 @@ $(document).ready(function() {
             success: function(data) {
               alert("Changes saved.");
               console.log(data)
+              location.reload();
             },
             error: function(xhr, ajaxOptions, thrownError) {
               alert("An error occurred. Could not save changes.");
@@ -265,23 +289,17 @@ $(document).ready(function() {
     
     $("#addText").click(function() {
         $("#blogBody").prepend(postHtml);
-        alert(postId);
         setupDraggableResizable();
-        postId++;
     });
   
     $("#addImage").click(function() {
         $("#blogBody").prepend(imageHtml);
-        alert(imageId);
         setupDraggableResizable();
-        imageId++;
     });
   
     $("#addVideo").click(function() {
         $("#blogBody").prepend(videoHtml);
-        alert(videoId);
         setupDraggableResizable();
-        videoId++;
     });
   
     $("#changeBackground").on("change", function() {
