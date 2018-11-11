@@ -119,15 +119,28 @@ let hiddenFormData = {};
 
 function buildPost( post ) {
     return {
+        // parameter "10" implies decimal radix, as 0 could be treated as hex
         width: parseInt(post.css("width"), 10),
         height: parseInt(post.css("height"), 10),
         top: parseInt(post.css("top"), 10),
         left: parseInt(post.css("left"), 10),
-        depth: post.css("z-index"),
+        depth: parseInt(post.css("z-index"), 10),
         title: post.find("h3").text(),
         content: post.find("p").text(),
         backgroundColor: post.find("div").css("background-color"),
         fontColor: post.find("div").css("color")
+    }
+}
+
+function buildImage( image ) {
+    return {
+        // parameter "10" implies decimal radix, as 0 could be treated as hex
+        width: parseInt(image.css("width"), 10),
+        height: parseInt(image.css("height"), 10),
+        top: parseInt(image.css("top"), 10),
+        left: parseInt(image.css("left"), 10),
+        depth: parseInt(image.css("z-index"), 10),
+        source: image.find("img").attr("src")
     }
 }
 
@@ -143,8 +156,9 @@ $(document).ready(function() {
     });
   
     $(".image").each(function( index ) {
-        // generate form items
-        // parse out values
+        hiddenFormData["image" + index] = buildImage($(this));
+        console.log(hiddenFormData);
+        imageId++;
     });
     $(".video").each(function( index ) {
         // generate form items
