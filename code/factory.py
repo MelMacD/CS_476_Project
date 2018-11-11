@@ -10,6 +10,10 @@
          pass
      
      @abc.abstractmethod
+     def setId(self):
+         pass
+     
+     @abc.abstractmethod
      def setLocation(self):
          pass
      
