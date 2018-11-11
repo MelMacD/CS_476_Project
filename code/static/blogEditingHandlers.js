@@ -149,14 +149,14 @@ function buildVideo( video ) {
     let youtubeSource = video.find("iframe").attr("src")
     let setSource = "";
     if (videoSource == "" && youtubeSource != "") {
-        alert("is youtube");
         setSource = youtubeSource;
     }
-    if (youtubeSource == "" && videoSource != "") {
-        alert("is video");
+    else if (youtubeSource == "" && videoSource != "") {
         setSource = videoSource;
     }
-    // otherwise, alert error
+    else {
+        alert("Cannot submit a video without a source defined.");
+    }
     return {
         // parameter "10" implies decimal radix, as 0 could be treated as hex
         width: parseInt(video.css("width"), 10),
