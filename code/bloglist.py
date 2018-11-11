@@ -1,3 +1,18 @@
+
+from code import app
+from flask import request
+    
+@app.route("/blogView", methods=['GET', 'POST'])
+
+def hello():
+    if request.method == 'POST':
+        requestData = request.get_json()#this is a dictionary
+        return str(requestData)
+    else:
+return """
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
