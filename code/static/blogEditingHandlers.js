@@ -145,8 +145,8 @@ function buildImage( image ) {
 }
 
 function buildVideo( video ) {
-    let videoSource = image.find("video").attr("src")
-    let youtubeSource = image.find("iframe").attr("src")
+    let videoSource = video.find("video").attr("src")
+    let youtubeSource = video.find("iframe").attr("src")
     let setSource = "";
     if (videoSource == "" && youtubeSource != "") {
         alert("is youtube");
