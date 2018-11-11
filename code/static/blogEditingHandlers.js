@@ -117,7 +117,10 @@ let imageId = 0;
 let videoId = 0;
 let hiddenFormData = {};
 
-function buildPost() {
+function buildPost( post ) {
+    alert(parseInt(post.css("width"), 10));
+    alert(post.find("div").css("background-color"));
+    alert(post.find("h3").text());
     return {
         width: 0,
         height: 0,
@@ -138,20 +141,7 @@ $(document).ready(function() {
     // find all posts/images/videos
     $(".post").each(function( index ) {
         // generate form items, or create object for ajax request, dictionary?
-        alert($(this).css("width"));
-        alert($(this).find("div").css("background-color"));
-        alert($(this).find("h3").text());
-        hiddenFormData["post" + index] = {
-            width: 0,
-            height: 0,
-            top: 0,
-            left: 0,
-            depth: 0,
-            title: "text",
-            content: "text",
-            backgroundColor: "color",
-            fontColor: "color"
-        }
+        hiddenFormData["post" + index] = buildPost($(this));
         console.log(hiddenFormData);
         // parse out values
     });
