@@ -1,6 +1,7 @@
 class Post:
     def __init__(self, row):
         self.html = self.buildHtml()
+        #setId(row.get("id"));
         #setLocation(row.get("top"), row.get("left"))
         #setSize(row.get("width"), row.get("height"))
         #setDepth(row.get("depth"));
@@ -12,7 +13,7 @@ class Post:
     #@override
     def buildHtml(self):
         return """
-<div class="border border-dark rounded draggable resizable post" style="width: {width}px; height: {height}px; position: absolute; z-index: {depth}; left: {left}px; top: {top}px;">
+<div id="{id}" class="border border-dark rounded draggable resizable post" style="width: {width}px; height: {height}px; position: absolute; z-index: {depth}; left: {left}px; top: {top}px;">
     <button class="editPost edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
     <div id="originalContent" style="width: 100%; height: 100%; background-color: {backgroundColor}; color: {fontColor};">
         <h3>{title}</h3>
@@ -20,6 +21,10 @@ class Post:
     </div>
 </div>"""
       
+    #@override
+    def setId(self, id):
+         return self.html.format(id=id)
+        
     #@override
     def setLocation(self, top, left):
          return self.html.format(top=top, left=left)
