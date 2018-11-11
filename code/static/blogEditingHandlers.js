@@ -133,7 +133,7 @@ function buildPost( post, update ) {
     }
 }
 
-function buildImage( image ) {
+function buildImage( image, update ) {
     return {
         // parameter "10" implies decimal radix, as 0 could be treated as hex
         width: parseInt(image.css("width"), 10),
@@ -146,7 +146,7 @@ function buildImage( image ) {
     }
 }
 
-function buildVideo( video ) {
+function buildVideo( video, update ) {
     let videoSource = video.find("video").attr("src")
     let youtubeSource = video.find("iframe").attr("src")
     let setSource = "";
@@ -172,6 +172,7 @@ function buildVideo( video ) {
 }
 
 function logAlreadyExistingContent() {
+   // use different selector for new posts and already existing posts
     $(".post").each(function( index ) {
         hiddenFormData["post" + index] = buildPost($(this), true);
         postId++;
