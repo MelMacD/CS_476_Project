@@ -265,18 +265,21 @@ $(document).ready(function() {
     
     $("#addText").click(function() {
         $("#blogBody").prepend(postHtml);
+        alert(postId);
         setupDraggableResizable();
         postId++;
     });
   
     $("#addImage").click(function() {
         $("#blogBody").prepend(imageHtml);
+        alert(imageId);
         setupDraggableResizable();
         imageId++;
     });
   
     $("#addVideo").click(function() {
         $("#blogBody").prepend(videoHtml);
+        alert(videoId);
         setupDraggableResizable();
         videoId++;
     });
