@@ -118,19 +118,16 @@ let videoId = 0;
 let hiddenFormData = {};
 
 function buildPost( post ) {
-    alert(parseInt(post.css("width"), 10));
-    alert(post.find("div").css("background-color"));
-    alert(post.find("h3").text());
     return {
-        width: 0,
-        height: 0,
-        top: 0,
-        left: 0,
-        depth: 0,
-        title: "text",
-        content: "text",
-        backgroundColor: "color",
-        fontColor: "color"
+        width: parseInt(post.css("width"), 10),
+        height: parseInt(post.css("height"), 10),
+        top: parseInt(post.css("top"), 10),
+        left: parseInt(post.css("left"), 10),
+        depth: post.css("z-index"),
+        title: post.find("h3").text(),
+        content: post.find("p").text(),
+        backgroundColor: post.find("div").css("background-color"),
+        fontColor: post.find("div").css("color")
     }
 }
 
@@ -140,10 +137,9 @@ $(document).ready(function() {
     // setup hidden form with preexisting elements
     // find all posts/images/videos
     $(".post").each(function( index ) {
-        // generate form items, or create object for ajax request, dictionary?
         hiddenFormData["post" + index] = buildPost($(this));
         console.log(hiddenFormData);
-        // parse out values
+        postId++;
     });
   
     $(".image").each(function( index ) {
@@ -156,7 +152,6 @@ $(document).ready(function() {
     });
   
     $("#save").click(function() {
-        alert("clicked");
         $.ajax({
             url: "/blogView",
             type: "post",
