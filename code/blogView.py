@@ -15,10 +15,10 @@ def hello():
                 elif "image" in key:
                     queryBuilder = query("images")
                     return "okay"
-                   # queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
-                   #                 id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                   #                 height=value.get("height"), depth=value.get("depth"), source=value.get("source")))
-                    #return queryString
+                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
+                                    id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source")))
+                    return queryString
                 elif "video" in key:
                     return "video"
                 else:
