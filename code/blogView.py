@@ -130,4 +130,4 @@ def buildBlogContent():
     db = database()
     queryString = queryBuilder.selectAllFilter("blogName='test'")
     db.execute(True, queryString)
-    return "<p>" + db.getRowCount() + "</p>"
+    return "<p>" + "ohno" + "</p>"
