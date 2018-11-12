@@ -9,7 +9,7 @@ def hello():
     if request.method == 'POST':
         requestData = request.get_json()#this is a dictionary
         for key, value in requestData.items():
-            #db = database()
+            db = database()
             if value.get("isUpdate") is False:
                 if "post" in key:
                     #queryBuilder = query("posts")
