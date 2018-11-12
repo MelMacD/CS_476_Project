@@ -89,6 +89,7 @@ def hello():
       </div>
     </nav>
     <div id="blogBody">
+      {blogContent}
     </div>
     
 <!-- Modal -->
@@ -122,4 +123,8 @@ def hello():
     <button type="button" style="display:inline;" id="save" class="btn btn-success">Save Changes</button>
   </div>
 </footer
-</body>"""
+</body>""".format(blogContent=buildBlogContent())
+
+def buildBlogContent():
+    return "<p>test</p>"
+    
