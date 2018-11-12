@@ -7,10 +7,9 @@ var postHtml = `<div class="border border-dark rounded draggable resizable newPo
                     <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0;" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</button>
                     <div class="dropdown-menu" style="min-width: 10rem;">
                       <form class="px-2 py-3">
-                        <div class="form-group">
-                          <button class="editPost btn btn-default" type="button" data-toggle="modal" data-target="#exampleModal">Edit</button>
-                          <button type="button" id="addImage" class="btn btn-default">Add Image</button>
-                          <button type="button" id="addVideo" class="btn btn-default">Add Video</button>
+                        <button class="editPost btn btn-default" type="button" data-toggle="modal" data-target="#exampleModal">Change Content</button>
+                        <button type="button" class="btn btn-default addThread">Add Thread</button>
+                        <button type="button" class="btn btn-default deletePost">Delete</button>
                         </div>
                       </form>
                     </div>
