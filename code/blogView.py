@@ -130,29 +130,28 @@ def hello():
 
 def buildBlogContent():
     db = database()
-    buildElement(db, "posts")
+    content = ""
+    content += buildElement(db, "posts")
     return content
 
 def buildElement(db, tableName):
+    content = ""
     queryBuilder = query(tableName)
     queryString = queryBuilder.selectAllFilter("blogName='test'")
     result = db.execute(False, queryString)
-    content = ""
     if result == []:
-        result = ""
+        return ""
     else:
         for row in result:
             if tableName == "posts":
                 currentElement = post(row)
                 content += currentElement.buildHtml()
-                return content
             elif tableName == "images":
                 currentElement = image(row)
                 content += currentElement.buildHtml()
-                return content
             elif tableName == "videos":
                 currentElement = video(row)
                 content += currentElement.buildHtml()
-                return content
             else:
-                return "error"
+                content += "error"
+        return content
