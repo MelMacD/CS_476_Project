@@ -1,14 +1,14 @@
 class Post:
     def __init__(self, row):
         self.html = self.buildHtml()
-        setId(row[1]);
-        setLocation(row[2], row[3])
-        setSize(row[4], row[5])
-        setDepth(row[6]);
-        setTitle(row[7]);
-        setBody(row[8]);
-        setBackground(row[9]);
-        setFontColor(row[10]);
+        #setId(row[1]);
+        #setLocation(row[2], row[3])
+        #setSize(row[4], row[5])
+        #setDepth(row[6]);
+        #setTitle(row[7]);
+        #setBody(row[8]);
+        #setBackground(row[9]);
+        #setFontColor(row[10]);
 
     #@override
     def buildHtml(self):
