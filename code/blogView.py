@@ -36,8 +36,30 @@ def hello():
                 else:
                     return "error"
             else:
-                #update
-                return "update"
+                if "post" in key:
+                    queryBuilder = query("posts")
+                    queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, title='{title}', body='{body}', backgroundColor='{backgroundColor}', fontColor='{fontColor}'".format(
+                                    top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                                    height=value.get("height"), depth=value.get("depth"), title=value.get("title"),
+                                    body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor")),
+                                                     "blogName='test' AND id='{id}'".format(id=key))
+                    db.execute(True, queryString)
+                elif "image" in key:
+                    queryBuilder = query("images")
+                    queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, imageSource='{source}'".format(
+                                    top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source")),
+                                                     "blogName='test' AND id='{id}'".format(id=key))
+                    db.execute(True, queryString)
+                elif "video" in key:
+                    queryBuilder = query("videos")
+                    queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, videoSource='{source}'".format(
+                                    top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source")),
+                                                     "blogName='test' AND id='{id}'".format(id=key))
+                    db.execute(True, queryString)
+                else:
+                    return "error"
         db.disconnect()
         return str(requestData)
     else:
