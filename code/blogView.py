@@ -9,7 +9,12 @@ def hello():
         requestData = request.get_json()#this is a dictionary
         #implement insert into table
         for key, value in requestData.items():
-            print("hi")
+            if value.get("isUpdate") is False:
+                #insert
+                return "insert"
+            else
+                #update
+                return "update"
         return str(requestData)
     else:
         return """
