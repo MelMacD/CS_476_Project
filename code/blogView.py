@@ -127,7 +127,7 @@ def hello():
 </body>""".format(blogContent=buildBlogContent())
 
 def buildBlogContent():
-    queryBuilder = query("posts")
+    queryBuilder = query("images")
     db = database()
     queryString = queryBuilder.selectAllFilter("blogName='test'")
     result = db.execute(False, queryString)
