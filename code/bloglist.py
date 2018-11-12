@@ -5,7 +5,7 @@ from flask import request
 @app.route("/bloglist", methods=['GET', 'POST'])
 
 def bloglist():
-    if request.method == 'POST'
+    if request.method == 'POST':
         return str(requestData)
     else:
         return """
