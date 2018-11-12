@@ -126,5 +126,8 @@ def hello():
 </body>""".format(blogContent=buildBlogContent())
 
 def buildBlogContent():
-    return "<p>test</p>"
+    queryBuilder = query("posts")
+    db = database()
+    queryString = queryBuilder.selectAllFilter("blogName='test'")
+    return "<p>" + queryString + "</p>"
     
