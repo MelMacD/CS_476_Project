@@ -128,7 +128,7 @@ def hello():
 def buildBlogContent():
     queryBuilder = query("posts")
     db = database()
-    queryString = queryBuilder.selectAllFilter("blogName='testFake'")
+    queryString = queryBuilder.selectAllFilter("blogName='test'")
     result = db.execute(False, queryString)
     if result == []:
         result = ""
