@@ -175,17 +175,12 @@ function buildVideo( video, update ) {
 function getNewElementId( selector ) {
     maxId = 0;
     selector.each(function() {
-        alert("found post");
-        alert($(this).attr("id"));
-        alert(parseInt($(this).attr("id").match(/(\d+)$/)[0], 10));
-        if (parseInt($(this).attr("id"), 10) > maxId) {
+        if (parseInt($(this).attr("id").match(/(\d+)$/)[0], 10) > maxId) {
             maxId = parseInt($(this).attr("id"), 10)
-            alert(maxId);
         }
     });
     //increment by 1 so new id is unique if post already exists
     maxId += 1;
-    alert(maxId);
     return maxId;
 }
 
