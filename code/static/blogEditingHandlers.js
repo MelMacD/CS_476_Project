@@ -3,7 +3,7 @@ let imageId = 0;
 let videoId = 0;
 
 var postHtml = `<div class="border border-dark rounded draggable resizable newPost" style="width: 350px; height: 400px; z-index: 0;">
-                  <div class="dropdown edit">
+                  <div class="dropleft edit">
                     <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0;" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
                       <button class="editPost dropdown-item" type="button" data-toggle="modal" data-target="#exampleModal">Change Content</button>
