@@ -176,6 +176,8 @@ function getNewElementId( selector ) {
     maxId = 0;
     selector.each(function() {
         alert("found post");
+        alert($(this).attr("id"));
+        alert(parseInt($(this).attr("id"), 10));
         if (parseInt($(this).attr("id"), 10) > maxId) {
             maxId = parseInt($(this).attr("id"), 10)
             alert(maxId);
