@@ -17,7 +17,6 @@ def hello():
                                     id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
                                     height=value.get("height"), depth=value.get("depth"), title=value.get("title"),
                                     body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor")))
-                    return queryString
                     db.execute(True, queryString)
                 elif "image" in key:
                     queryBuilder = query("images")
