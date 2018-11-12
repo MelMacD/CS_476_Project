@@ -17,6 +17,7 @@ def hello():
                     queryBuilder = query("images")
                     try:
                         db = database("images")
+                        db.connect()
                     except Exception as e:
                         return e
                     return "here"
