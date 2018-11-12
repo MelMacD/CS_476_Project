@@ -5,13 +5,10 @@ let videoId = 0;
 var postHtml = `<div class="border border-dark rounded draggable resizable newPost" style="width: 350px; height: 400px; z-index: 0;">
                   <div class="dropdown edit">
                     <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0;" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</button>
-                    <div class="dropdown-menu" style="min-width: 10rem;">
-                      <form class="px-2 py-3">
-                        <button class="editPost btn btn-default" type="button" data-toggle="modal" data-target="#exampleModal">Change Content</button>
-                        <button type="button" class="btn btn-default addThread">Add Thread</button>
-                        <button type="button" class="btn btn-default deletePost">Delete</button>
-                        </div>
-                      </form>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                      <button class="editPost dropdown-item" type="button" data-toggle="modal" data-target="#exampleModal">Change Content</button>
+                      <button type="button" class="dropdown-item addThread">Add Thread</button>
+                      <button type="button" class="dropdown-item deletePost">Delete</button>
                     </div>
                   </div>
                  <div id="originalContent" style="width: 100%; height: 100%; background-color: white;">
