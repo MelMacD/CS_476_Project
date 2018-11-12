@@ -5,8 +5,7 @@ from flask import request
 @app.route("/bloglist", methods=['GET', 'POST'])
 
 def bloglist():
-    if request.method == 'POST':
-        requestData = request.get_json()#this is a dictionary
+    if request.method == 'POST'
         return str(requestData)
     else:
         return """
