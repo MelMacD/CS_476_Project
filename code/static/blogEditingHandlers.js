@@ -249,7 +249,7 @@ $(document).ready(function() {
             success: function(data) {
               alert("Changes saved.");
               console.log(data)
-              location.reload();
+              //location.reload();
             },
             error: function(xhr, ajaxOptions, thrownError) {
               alert("An error occurred. Could not save changes.");
