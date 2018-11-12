@@ -10,8 +10,16 @@ def hello():
         #implement insert into table
         for key, value in requestData.items():
             if value.get("isUpdate") is False:
-                #insert
-                return "insert"
+                if "post" in key:
+                    return "post"
+                elif "image" in key:
+                    return "image"
+                elif "video" in key:
+                    return "video"
+                else:
+                    return "error"
+                #queryBuilder = query("images")
+                #queryString = query.insertRow("")
             else:
                 #update
                 return "update"
