@@ -130,10 +130,11 @@ def buildBlogContent():
     db = database()
     queryString = queryBuilder.selectAllFilter("blogName='test'")
     result = db.execute(False, queryString)
+    content = ""
     if result == []:
         result = ""
     else:
         for row in data:
-            result += row[0]
+            result = str(result) + row[0]
     value = db.getRowCount()
     return "<p>" + str(result) + "</p>"
