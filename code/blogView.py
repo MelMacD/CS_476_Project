@@ -8,8 +8,8 @@ from code.database import Database as database
 def hello():
     if request.method == 'POST':
         requestData = request.get_json()#this is a dictionary
+        db = database()
         for key, value in requestData.items():
-            db = database()#close the connection?
             if value.get("isUpdate") is False:
                 if "post" in key:
                     #queryBuilder = query("posts")
@@ -38,6 +38,7 @@ def hello():
             else:
                 #update
                 return "update"
+        db.disconnect()
         return str(requestData)
     else:
         return """
