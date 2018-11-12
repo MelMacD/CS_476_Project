@@ -130,5 +130,7 @@ def buildBlogContent():
     db = database()
     queryString = queryBuilder.selectAllFilter("blogName='testFake'")
     result = db.execute(False, queryString)
+    if result == []:
+        result = ""
     value = db.getRowCount()
     return "<p>" + str(result) + "</p>"
