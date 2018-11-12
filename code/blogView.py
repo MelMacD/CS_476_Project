@@ -13,13 +13,15 @@ def hello():
                 if "post" in key:
                     return "post"
                 elif "image" in key:
-                    return "image"
+                    queryBuilder = query("images")
+                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
+                                    id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source")))
+                    return queryString
                 elif "video" in key:
                     return "video"
                 else:
                     return "error"
-                #queryBuilder = query("images")
-                #queryString = query.insertRow("")
             else:
                 #update
                 return "update"
