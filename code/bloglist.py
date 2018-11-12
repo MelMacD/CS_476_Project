@@ -6,7 +6,7 @@ from flask import request
 
 def bloglist():
     if request.method == 'POST':
-        return str(requestData)
+        return ""
     else:
         return """
 
