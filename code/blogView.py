@@ -8,20 +8,30 @@ from code.database import Database as database
 def hello():
     if request.method == 'POST':
         requestData = request.get_json()#this is a dictionary
-        #implement insert into table
         for key, value in requestData.items():
             if value.get("isUpdate") is False:
                 if "post" in key:
-                    return "post"
+                    queryBuilder = query("posts")
+                    db = database("posts")
+                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
+                                    id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source")))
+                    return db.execute(True, queryString)
                 elif "image" in key:
                     queryBuilder = query("images")
                     db = database("images")
-                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
+                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{title}', '{body}', '{backgroundColor}', '{fontColor}'".format(
                                     id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                                    height=value.get("height"), depth=value.get("depth", 0), source=value.get("source")))
+                                    height=value.get("height"), depth=value.get("depth"), title=value.get("title"),
+                                    body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor")))
                     return db.execute(True, queryString)
                 elif "video" in key:
-                    return "video"
+                    queryBuilder = query("videos")
+                    db = database("videos")
+                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
+                                    id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source")))
+                    return db.execute(True, queryString)
                 else:
                     return "error"
             else:
