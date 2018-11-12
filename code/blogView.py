@@ -3,6 +3,8 @@ from flask import request
 from code.sql_query_builder import SQLQueryBuilder as query
 from code.database import Database as database
 from code.post import Post as post
+from code.image import Image as image
+from code.video import Video as video
     
 @app.route("/blogView", methods=['GET', 'POST'])
 
@@ -127,8 +129,12 @@ def hello():
 </body>""".format(blogContent=buildBlogContent())
 
 def buildBlogContent():
-    queryBuilder = query("posts")
     db = database()
+    buildElement(db, "posts")
+    return content
+
+def buildElement(db, tableName):
+    queryBuilder = query(tableName)
     queryString = queryBuilder.selectAllFilter("blogName='test'")
     result = db.execute(False, queryString)
     content = ""
@@ -136,6 +142,17 @@ def buildBlogContent():
         result = ""
     else:
         for row in result:
-            currentPost = post(row)
-            content += currentPost.buildHtml()
-    return content
+            if tableName == "posts":
+                currentElement = post(row)
+                content += currentElement.buildHtml()
+                return content
+            elif tableName == "images":
+                currentElement = image(row)
+                content += currentElement.buildHtml()
+                return content
+            elif tableName == "videos":
+                currentElement = video(row)
+                content += currentElement.buildHtml()
+                return content
+            else:
+                return "error"
