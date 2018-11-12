@@ -3,7 +3,18 @@ let imageId = 0;
 let videoId = 0;
 
 var postHtml = `<div class="border border-dark rounded draggable resizable newPost" style="width: 350px; height: 400px; z-index: 0;">
-                 <button class="editPost edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                  <div class="dropdown edit">
+                    <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0;" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</button>
+                    <div class="dropdown-menu" style="min-width: 10rem;">
+                      <form class="px-2 py-3">
+                        <div class="form-group">
+                          <button class="editPost btn btn-default" type="button" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                          <button type="button" id="addImage" class="btn btn-default">Add Image</button>
+                          <button type="button" id="addVideo" class="btn btn-default">Add Video</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
                  <div id="originalContent" style="width: 100%; height: 100%; background-color: white;">
                    <h3>What is the title?</h3><p>What is the content?</p>
                  </div>
