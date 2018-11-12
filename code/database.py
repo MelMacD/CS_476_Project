@@ -24,3 +24,7 @@ class Database:
         except pyodbc.Error as e:
             sqlstate = ex.args[1]
             return sqlstate
+
+    def disconnect(self):
+        self.connection.close()
+        
