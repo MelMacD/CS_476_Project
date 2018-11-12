@@ -12,11 +12,12 @@ def hello():
             db = database()
             if value.get("isUpdate") is False:
                 if "post" in key:
-                    queryBuilder = query("posts")
-                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
-                                    id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source")))
-                    db.execute(True, queryString)
+                    #queryBuilder = query("posts")
+                    #queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
+                    #                id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                    #                height=value.get("height"), depth=value.get("depth"), source=value.get("source")))
+                    #db.execute(True, queryString)
+                    return "post"
                 elif "image" in key:
                     queryBuilder = query("images")
                     queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{title}', '{body}', '{backgroundColor}', '{fontColor}'".format(
@@ -25,11 +26,12 @@ def hello():
                                     body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor")))
                     db.execute(True, queryString)
                 elif "video" in key:
-                    queryBuilder = query("videos")
-                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
-                                    id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source")))
-                    db.execute(True, queryString)
+                    #queryBuilder = query("videos")
+                    #queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
+                    #                id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                    #                height=value.get("height"), depth=value.get("depth"), source=value.get("source")))
+                    #db.execute(True, queryString)
+                    return "video"
                 else:
                     return "error"
             else:
