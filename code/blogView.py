@@ -15,17 +15,11 @@ def hello():
                     return "post"
                 elif "image" in key:
                     queryBuilder = query("images")
-                    try:
-                        db = database("images")
-                        db.connect()
-                    except Exception as e:
-                        return e
-                    return "here"
+                    db = database("images")
                     queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
                                     id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
                                     height=value.get("height"), depth=value.get("depth"), source=value.get("source")))
-                    #db.connect()
-                    #return db.execute(True, queryString)
+                    return db.execute(True, queryString)
                 elif "video" in key:
                     return "video"
                 else:
