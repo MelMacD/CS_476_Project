@@ -135,6 +135,6 @@ def buildBlogContent():
         result = ""
     else:
         for row in data:
-            result = str(result)
+            result = str(row)
     value = db.getRowCount()
     return "<p>" + str(result) + "</p>"
