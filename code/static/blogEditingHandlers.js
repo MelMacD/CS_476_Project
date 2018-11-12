@@ -2,17 +2,17 @@ let postId = 0;
 let imageId = 0;
 let videoId = 0;
 
-var postHtml = `<div class="border border-dark rounded draggable resizable newPost" style="width: 350px; height: 400px;">
+var postHtml = `<div class="border border-dark rounded draggable resizable newPost" style="width: 350px; height: 400px; z-index: 0;">
                  <button class="editPost edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                  <div id="originalContent" style="width: 100%; height: 100%; background-color: white;">
                    <h3>What is the title?</h3><p>What is the content?</p>
                  </div>
                </div>`;
-var imageHtml = `<div class="draggable resizableAspect newImage" style="width: 300px; height: 300px;">
+var imageHtml = `<div class="draggable resizableAspect newImage" style="width: 300px; height: 300px; z-index: 0;">
                    <button class="editImage edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <img src="/static/default.gif" style="width: 100%; height: 100%;">
                 </div>`;
-var videoHtml = `<div class="draggable resizableAspect newVideo" style="width: 420; height: 283;">
+var videoHtml = `<div class="draggable resizableAspect newVideo" style="width: 420; height: 283; z-index: 0;">
                    <button class="editVideo edit" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
                    <div id="mask" class="edit"></div>
                    <video id="libraryVideo" style="display: none; width: 100%; height: 100%;"controls>
