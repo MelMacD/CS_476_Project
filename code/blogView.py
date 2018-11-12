@@ -15,7 +15,10 @@ def hello():
                     return "post"
                 elif "image" in key:
                     queryBuilder = query("images")
-                    db = database("images")
+                    try:
+                        db = database("images")
+                    except Exception as e:
+                        return e
                     return "here"
                     queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
                                     id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
