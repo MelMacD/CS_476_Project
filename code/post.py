@@ -5,11 +5,11 @@ class Post:
         self.left = setLeft(row)#inherit base attributes with super
         self.width = setWidth(row)
         self.height = setHeight(row)
-        self.depth = setDepth(row[6]);
-        self.title = setTitle(row[7]);
-        self.body = setBody(row[8]);
-        self.background = setBackground(row[9]);
-        self.fontColor = setFontColor(row[10]);
+        self.depth = setDepth(row);
+        self.title = setTitle(row);
+        self.body = setBody(row);
+        self.background = setBackground(row);
+        self.fontColor = setFontColor(row);
 
     #@override
     def buildHtml(self):
