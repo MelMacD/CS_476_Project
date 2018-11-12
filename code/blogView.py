@@ -137,5 +137,5 @@ def buildBlogContent():
     else:
         for row in result:
             currentPost = post(row)
-            #content += currentPost.buildHtml()
+            content += currentPost.buildHtml()
     return content
