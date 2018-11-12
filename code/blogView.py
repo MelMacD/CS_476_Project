@@ -1,7 +1,7 @@
 from code import app
 from flask import request
 from code.sql_query_builder import SQLQueryBuilder as query
-from code.database import Database
+from code.database import Database as database
     
 @app.route("/blogView", methods=['GET', 'POST'])
 
@@ -15,7 +15,7 @@ def hello():
                     return "post"
                 elif "image" in key:
                     queryBuilder = query("images")
-                    db = Database("images")
+                    db = database("images")
                     return "here"
                     queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
                                     id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
