@@ -1,15 +1,15 @@
 class Post:
     def __init__(self, row):
-        self.id = setId(row)
-        self.top = setTop(row)
-        self.left = setLeft(row)#inherit base attributes with super
-        self.width = setWidth(row)
-        self.height = setHeight(row)
-        self.depth = setDepth(row)
-        self.title = setTitle(row)
-        self.body = setBody(row)
-        self.background = setBackground(row)
-        self.fontColor = setFontColor(row)
+        self.id = self.setId(row)
+        #self.top = setTop(row)
+        #self.left = setLeft(row)#inherit base attributes with super
+        #self.width = setWidth(row)
+        #self.height = setHeight(row)
+        #self.depth = setDepth(row)
+        #self.title = setTitle(row)
+        #self.body = setBody(row)
+        #self.background = setBackground(row)
+        #self.fontColor = setFontColor(row)
 
     #@override
     def buildHtml(self):
