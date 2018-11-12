@@ -234,7 +234,6 @@ function logContent( update ) {
 $(document).ready(function() {
     $(".edit").css("display", "none");
   
-    //logContent(true);
     postId = getNewElementId( $(".post") );
     imageId = getNewElementId( $(".image") );
     videoId = getNewElementId( $(".video") );
@@ -250,7 +249,7 @@ $(document).ready(function() {
             success: function(data) {
               alert("Changes saved.");
               console.log(data)
-              //location.reload();
+              location.reload();
             },
             error: function(xhr, ajaxOptions, thrownError) {
               alert("An error occurred. Could not save changes.");
