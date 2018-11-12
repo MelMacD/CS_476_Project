@@ -1,8 +1,7 @@
 import pyodbc
 
 class Database:
-    def __init__(self, tableName):
-        self.table = tableName
+    def __init__(self):
         self.server = 'tcp:expressyourself.database.windows.net'
         self.database = 'expressyourself'
         self.username = 'cs476'
