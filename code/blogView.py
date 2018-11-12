@@ -132,5 +132,8 @@ def buildBlogContent():
     result = db.execute(False, queryString)
     if result == []:
         result = ""
+    else:
+        for row in data:
+            result += row[0]
     value = db.getRowCount()
     return "<p>" + str(result) + "</p>"
