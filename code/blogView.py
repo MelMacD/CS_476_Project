@@ -2,6 +2,7 @@ from code import app
 from flask import request
 from code.sql_query_builder import SQLQueryBuilder as query
 from code.database import Database as database
+from code.post import Post as post
     
 @app.route("/blogView", methods=['GET', 'POST'])
 
@@ -135,6 +136,5 @@ def buildBlogContent():
         result = ""
     else:
         for row in result:
-            content += str(row)
-            content += row[0]
-    return "<p>" + str(content) + "</p>"
+            content += post(row).buildHtml()
+    return content
