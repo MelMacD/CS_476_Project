@@ -9,7 +9,7 @@ def hello():
     if request.method == 'POST':
         requestData = request.get_json()#this is a dictionary
         for key, value in requestData.items():
-            db = database()
+            #db = database()
             if value.get("isUpdate") is False:
                 if "post" in key:
                     #queryBuilder = query("posts")
@@ -19,12 +19,13 @@ def hello():
                     #db.execute(True, queryString)
                     return "post"
                 elif "image" in key:
-                    queryBuilder = query("images")
-                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{title}', '{body}', '{backgroundColor}', '{fontColor}'".format(
-                                    id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                                    height=value.get("height"), depth=value.get("depth"), title=value.get("title"),
-                                    body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor")))
-                    db.execute(True, queryString)
+                    #queryBuilder = query("images")
+                    #queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{title}', '{body}', '{backgroundColor}', '{fontColor}'".format(
+                    #                id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                    #                height=value.get("height"), depth=value.get("depth"), title=value.get("title"),
+                    #                body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor")))
+                    #db.execute(True, queryString)
+                    return "post"
                 elif "video" in key:
                     #queryBuilder = query("videos")
                     #queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
