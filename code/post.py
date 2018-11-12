@@ -13,11 +13,11 @@ class Post:
     #@override
     def buildHtml(self):
         return """
-<div id="{id}" class="border border-dark rounded draggable resizable post" style="width: {width}px; height: {height}px; position: absolute; z-index: {depth}; left: {left}px; top: {top}px;">
+<div id="{id}" class="border border-dark rounded draggable resizable post" style="width: {{width}}px; height: {{height}}px; position: absolute; z-index: {{depth}}; left: {{left}}px; top: {{top}}px;">
     <button class="editPost edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
-    <div id="originalContent" style="width: 100%; height: 100%; background-color: {backgroundColor}; color: {fontColor};">
-        <h3>{title}</h3>
-        <p>{content}</p>
+    <div id="originalContent" style="width: 100%; height: 100%; background-color: {{backgroundColor}}; color: {{fontColor}};">
+        <h3>{{title}}</h3>
+        <p>{{content}}</p>
     </div>
 </div>"""
       
