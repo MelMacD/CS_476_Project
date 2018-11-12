@@ -24,7 +24,7 @@ def hello():
                     queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
                                     id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
                                     height=value.get("height"), depth=value.get("depth"), source=value.get("source")))
-                    db.execute(True, queryString)
+                    #db.execute(True, queryString)
                     return queryString
                 elif "video" in key:
                     #queryBuilder = query("videos")
