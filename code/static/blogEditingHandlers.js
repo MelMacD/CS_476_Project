@@ -234,13 +234,14 @@ function logContent( update ) {
 $(document).ready(function() {
     $(".edit").css("display", "none");
   
-    logContent(true);
+    //logContent(true);
     postId = getNewElementId( $(".post") );
     imageId = getNewElementId( $(".image") );
     videoId = getNewElementId( $(".video") );
   
     $("#save").click(function() {
         logContent(false);
+        logContent(true);
         $.ajax({
             url: "/blogView",
             type: "post",
