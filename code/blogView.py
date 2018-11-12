@@ -133,6 +133,7 @@ def buildBlogContent():
     content = ""
     content += buildElement(db, "posts")
     content += buildElement(db, "images")
+    content += buildElement(db, "videos")
     return content
 
 def buildElement(db, tableName):
