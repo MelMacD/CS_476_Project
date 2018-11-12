@@ -1,11 +1,12 @@
 class Video:
     def __init__(self, row):
-        self.html = self.buildHtml(row.get("videoSource"))
-        #setId(row.get("id"));
-        #setLocation(row.get("top"), row.get("left"))
-        #setSize(row.get("width"), row.get("height"))
-        #setDepth(row.get("depth"))
-        #setVideo(row.get("videoSource"))
+        self.id = self.setId(row)
+        self.top = self.setTop(row)
+        self.left = self.setLeft(row)#inherit base attributes with super
+        self.width = self.setWidth(row)
+        self.height = self.setHeight(row)
+        self.depth = self.setDepth(row)
+        self.video = self.setVideo(row)
 
     #@override
     def buildHtml(self, src):
@@ -21,7 +22,8 @@ class Video:
         </div>
         </div>
     </iframe>
-</div>"""
+</div>""".format(id=self.id, top=self.top, left=self.left, width=self.width, height=self.height, depth=self.depth,
+                src=self.video)
         else:
             return """
 <div id="{id}" class="draggable resizableAspect" style="width: {width}px; height: {height}px; position: absolute; z-index: {depth}; left: {left}px; top: {top}px;">
@@ -34,24 +36,33 @@ class Video:
         </div>
         </div>
     </iframe>
-</div>"""
+</div>""".format(id=self.id, top=self.top, left=self.left, width=self.width, height=self.height, depth=self.depth,
+                src=self.video)
       
     #@override
-    def setId(self, id):
-        self.html.format(id=id)
+    def setId(self, row):
+        return row[1]
+        
+    #@override
+    def setTop(self, row):
+        return row[2]
+     
+    #@override
+    def setLeft(self, row):
+        return row[3]
     
     #@override
-    def setLocation(self, top, left):
-        self.html.format(top=top, left=left)
+    def setWidth(self, row):
+        return row[4]
      
     #@override
-    def setSize(self, width, height):
-        self.html.format(width=width, height=height)
-     
+    def setHeight(self, row):
+        return row[5]
+    
     #@override
-    def setDepth(self, depth):
-        self.html.format(depth=depth)
+    def setDepth(self, row):
+        return row[6]
       
-    def setVideo(self, source):
-        self.html.format(src=source)
+    def setVideo(self, row):
+        return row[7]
          
