@@ -6,7 +6,7 @@ class Video:
         self.width = self.setWidth(row)
         self.height = self.setHeight(row)
         self.depth = self.setDepth(row)
-        self.video = self.setVideo(row)
+        #self.video = self.setVideo(row)
 
     #@override
     def buildHtml(self, src):
@@ -23,7 +23,7 @@ class Video:
         </div>
     </iframe>
 </div>""".format(id=self.id, top=self.top, left=self.left, width=self.width, height=self.height, depth=self.depth,
-                src=self.video)
+                src="")
         else:
             return """
 <div id="{id}" class="draggable resizableAspect" style="width: {width}px; height: {height}px; position: absolute; z-index: {depth}; left: {left}px; top: {top}px;">
@@ -37,7 +37,7 @@ class Video:
         </div>
     </iframe>
 </div>""".format(id=self.id, top=self.top, left=self.left, width=self.width, height=self.height, depth=self.depth,
-                src=self.video)
+                src="")
       
     #@override
     def setId(self, row):
