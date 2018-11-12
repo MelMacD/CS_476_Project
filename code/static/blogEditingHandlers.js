@@ -176,7 +176,7 @@ function getNewElementId( selector ) {
     maxId = 0;
     selector.each(function() {
         if (parseInt($(this).attr("id").match(/(\d+)$/)[0], 10) > maxId) {
-            maxId = parseInt($(this).attr("id"), 10)
+            maxId = parseInt($(this).attr("id").match(/(\d+)$/)[0], 10)
         }
     });
     //increment by 1 so new id is unique if post already exists
