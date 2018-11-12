@@ -1,6 +1,6 @@
 from code import app
 from flask import request
-from sql_query_builder import SQLQueryBuilder as query
+from code.sql_query_builder import SQLQueryBuilder as query
     
 @app.route("/blogView", methods=['GET', 'POST'])
 
