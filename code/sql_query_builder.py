@@ -18,14 +18,10 @@ class SQLQueryBuilder:
                                                                                    tableName=self.table,
                                                                                    fieldName=condition)
     
-    def insertRow(self, tableName, values):#one of these might be unnecessary
+    def insertRow(self, values):
         return "INSERT INTO {tableName} VALUES ({values})".format(tableName=self.table,
                                                                   values=values)
-
-    def insertCols(self, tableName, columns, values):#one of these might be unnecessary
-        return "INSERT INTO {tableName} ({columns}) VALUES ({values})".format(tableName=self.table,
-                                                                              values=values,
-                                                                              columns=columns)
+    
     def update(self, keyValuePairs, condition):
         return "UPDATE {tableName} SET {keyValuePairs} WHERE {condition}".format(tableName=self.table,
                                                                                  keyValuePairs=keyValuePairs,
