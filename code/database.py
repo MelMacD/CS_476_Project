@@ -8,7 +8,7 @@ class Database:
         self.username = 'cs476'
         self.password = '$up3rSecret'
         self.driver = '{ODBC Driver 13 for SQL Server}'
-        self.connection = connect()
+        #self.connection = connect()
       
     def connect(self):
         try:
