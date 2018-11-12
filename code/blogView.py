@@ -12,7 +12,7 @@ def hello():
             if value.get("isUpdate") is False:
                 #insert
                 return "insert"
-            else
+            else:
                 #update
                 return "update"
         return str(requestData)
