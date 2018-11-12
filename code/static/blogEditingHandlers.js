@@ -201,7 +201,6 @@ function logContent( update ) {
         }
         else {
             id = "post" + postId;
-            alert(id);
             postId++;
         }
         hiddenFormData[id] = buildPost($(this), update);
