@@ -16,9 +16,6 @@ def hello():
                 elif "image" in key:
                     queryBuilder = query("images")
                     db = database("images")
-                    return "'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
-                                    id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                                    height=value.get("height"), depth=value.get("depth", 0), source=value.get("source"))
                     queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
                                     id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
                                     height=value.get("height"), depth=value.get("depth", 0), source=value.get("source")))
