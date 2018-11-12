@@ -6,11 +6,11 @@ class Video:
         self.width = self.setWidth(row)
         self.height = self.setHeight(row)
         self.depth = self.setDepth(row)
-        #self.video = self.setVideo(row)
+        self.video = self.setVideo(row)
 
     #@override
-    def buildHtml(self, src):
-        if "youtube" not in src:
+    def buildHtml(self):
+        if "youtube" not in self.video:
             return """
 <div id="{id}" class="draggable resizableAspect video" style="width: {width}px; height: {height}px; position: absolute; z-index: {depth}; left: {left}px; top: {top}px;">
     <button class="editVideo edit" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
@@ -23,7 +23,7 @@ class Video:
         </div>
     </iframe>
 </div>""".format(id=self.id, top=self.top, left=self.left, width=self.width, height=self.height, depth=self.depth,
-                src="")
+                src=self.video)
         else:
             return """
 <div id="{id}" class="draggable resizableAspect" style="width: {width}px; height: {height}px; position: absolute; z-index: {depth}; left: {left}px; top: {top}px;">
@@ -37,7 +37,7 @@ class Video:
         </div>
     </iframe>
 </div>""".format(id=self.id, top=self.top, left=self.left, width=self.width, height=self.height, depth=self.depth,
-                src="")
+                src=self.video)
       
     #@override
     def setId(self, row):
