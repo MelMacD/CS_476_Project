@@ -186,11 +186,15 @@ def buildBlogSpecs():
     queryString = queryBuilder.selectAllFilter("blogName='test'")
     result = db.execute(False, queryString)
     if result == []:
+        global blogColor
         blogColor = "rgb(255, 255, 255)"
+        global blogFont
         blogFont = "arial"
     else:
         for row in result:
+            global blogColor
             blogColor = row[4]
+            global blogFont
             blogFont = row[5]
  
 def buildBlogContent():
