@@ -280,8 +280,7 @@ $(document).ready(function() {
     $("#save").click(function() {
         logContent("insert");
         logContent("update");
-        console.log(hiddenFormData);
-        /*$.ajax({
+        $.ajax({
             url: "/blogView",
             type: "post",
             data: JSON.stringify(hiddenFormData),
@@ -296,7 +295,7 @@ $(document).ready(function() {
               console.log(xhr.status);
               console.log(thrownError);
             },
-        });*/
+        });
     });
   
     $("#enableEditing").click(function () {
