@@ -250,7 +250,6 @@ function logContent( action ) {
     videoSelector.each(function() {
         let id;
         if (action == "update") {
-            alert("happens");
             id = $(this).attr("id")
         }
         else if (action == "insert") {
@@ -286,7 +285,7 @@ $(document).ready(function() {
             font: $("#blogBody").css("font-family")
         };
         console.log(hiddenFormData);
-        /*$.ajax({
+        $.ajax({
             url: "/blogView",
             type: "post",
             data: JSON.stringify(hiddenFormData),
@@ -301,7 +300,7 @@ $(document).ready(function() {
               console.log(xhr.status);
               console.log(thrownError);
             },
-        });*/
+        });
     });
   
     $("#enableEditing").click(function () {
