@@ -5,7 +5,10 @@ from code.database import Database as database
 from code.post import Post as post
 from code.image import Image as image
 from code.video import Video as video
-    
+
+blogColor = ""
+blogFont = ""
+
 @app.route("/blogView", methods=['GET', 'POST'])
 
 def hello():
@@ -87,6 +90,7 @@ def hello():
         db.disconnect()
         return str(requestData)
     else:
+        buildBlogSpecs()
         return """
 <head>
 <title>Test Page</title>
@@ -173,9 +177,22 @@ def hello():
   </div>
 </footer
 </body>""".format(blogContent=buildBlogContent(),
-                  backgroundColor="rgb(255, 255, 255)",
-                  font="arial")
+                  backgroundColor=blogColor,
+                  font=blogFont)
 
+def buildBlogSpecs():
+    db = database()
+    queryBuilder = query("blog")
+    queryString = queryBuilder.selectAllFilter("blogName='test'")
+    result = db.execute(False, queryString)
+    if result == []:
+        blogColor = "rgb(255, 255, 255)"
+        blogFont = "arial"
+    else:
+        for row in result:
+            blogColor = row[4]
+            blogFont = row[5]
+ 
 def buildBlogContent():
     db = database()
     content = ""
