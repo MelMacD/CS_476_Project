@@ -3,9 +3,9 @@ let imageId = 0;
 let videoId = 0;
 
 var postHtml = `<div class="border border-dark rounded draggable resizable newPost" style="width: 350px; height: 400px; z-index: 0;">
-                  <div class="dropleft edit">
-                    <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0;" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                  <div class="dropdown edit">
+                    <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</button>
+                    <div class="dropdown-menu">
                       <button class="editPost dropdown-item" type="button" data-toggle="modal" data-target="#exampleModal">Change Content</button>
                       <button type="button" class="dropdown-item addThread">Add Thread</button>
                       <button type="button" class="dropdown-item deletePost">Delete</button>
@@ -16,11 +16,25 @@ var postHtml = `<div class="border border-dark rounded draggable resizable newPo
                  </div>
                </div>`;
 var imageHtml = `<div class="draggable resizableAspect newImage" style="width: 300px; height: 300px; z-index: 0;">
-                   <button class="editImage edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
-                   <img src="/static/default.gif" style="width: 100%; height: 100%;">
+                   <div class="dropdown edit">
+                     <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</button>
+                     <div class="dropdown-menu">
+                       <button class="editImage edit" type="button" data-toggle="modal" data-target="#exampleModal">Change Content</button>
+                       <button type="button" class="dropdown-item addThread">Add Thread</button>
+                       <button type="button" class="dropdown-item deletePost">Delete</button>
+                     </div>
+                   </div>
+                    <img src="/static/default.gif" style="width: 100%; height: 100%;">
                 </div>`;
 var videoHtml = `<div class="draggable resizableAspect newVideo" style="width: 420; height: 283; z-index: 0;">
-                   <button class="editVideo edit" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                   <div class="dropdown edit">
+                     <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0; z-index: 1;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</button>
+                     <div class="dropdown-menu">
+                       <button class="editVideo edit" type="button" data-toggle="modal" data-target="#exampleModal">Change Content</button>
+                       <button type="button" class="dropdown-item addThread">Add Thread</button>
+                       <button type="button" class="dropdown-item deletePost">Delete</button>
+                     </div>
+                   </div>
                    <div id="mask" class="edit"></div>
                    <video id="libraryVideo" style="display: none; width: 100%; height: 100%;"controls>
                    <source src="" type="video/mp4">
