@@ -193,8 +193,7 @@ def buildBlogSpecs():
     else:
         for row in result:
             blogColor = row[4]
-            blogFont = "trebuchet ms"#row[5]
-            #blogFont.replace('"', '')
+            blogFont = row[5].replace('"', '')
  
 def buildBlogContent():
     db = database()
