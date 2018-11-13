@@ -4,11 +4,7 @@ from flask import request
     
 @app.route("/bloglist", methods=['GET', 'POST'])
 
-def bloglist():
-    if request.method == 'POST':
-        return ""
-    else:
-        return """
+
 
 import mysql.connector
 from mysql.connector import Error
@@ -36,3 +32,8 @@ finally:
         connection.close()
         print("MySQL connection is closed")
 
+def bloglist():
+    if request.method == 'POST':
+        return ""
+    else:
+        return """
