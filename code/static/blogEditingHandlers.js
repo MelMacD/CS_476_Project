@@ -378,10 +378,13 @@ $(document).ready(function() {
     });
   
     $("body").on("click", ".editImage", function() {
-        let currentPost = $(this);
+        let currentPost = $(this).parent().parent().parent();
         let imageUrl = '';
         let libraryUrl = '';
         $("div.modal-body").html(imageEditHtml);
+      
+        // initialize values on modal and preview according to previous values
+        $("#imagePreview").attr("src", currentPost.find("img").attr("src"));
       
         $("#useUrl").on("change", function () {
             $("#imageUrl").prop( "disabled", false );
@@ -423,9 +426,9 @@ $(document).ready(function() {
             else {
               url = libraryUrl;
             }
-            currentPost.parent().find("img").attr("src", url);
-            currentPost.parent().width($("#imagePreview").width());
-            currentPost.parent().height($("#imagePreview").height());
+            currentPost.find("img").attr("src", url);
+            currentPost.width($("#imagePreview").width());
+            currentPost.height($("#imagePreview").height());
             $("#exampleModal").modal("hide");
         });
       
