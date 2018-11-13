@@ -13,6 +13,9 @@ def hello():
         requestData = request.get_json()#this is a dictionary
         db = database()
         for key, value in requestData.items():
+            #check if action is present, if not, continue
+            if "not present" in value.get("action", "not present"):
+                return "it happened"
             if "insert" in value.get("action"):
                 if "post" in key:
                     queryBuilder = query("posts")
