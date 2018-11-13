@@ -468,10 +468,19 @@ $(document).ready(function() {
     });
   
     $("body").on("click", ".editVideo", function() {
-        let currentPost = $(this);
+        let currentPost = $(this).parent().parent().parent();
         let youtubeUrl = '';
         let libraryUrl = '';
         $("div.modal-body").html(videoEditHtml);
+      
+        // initialize values on modal and preview according to previous values
+        if (currentPost.find("#libraryVideo").attr("src") != "" && currentPost.find("#youtubeVideo").attr("src") == "") {
+            $("#libraryVideoPreview").css("display", "block");
+            $("#libraryVideoPreview").attr("src", currentPost.find("#libraryVideo").attr("src"));
+        }
+        else if (currentPost.find("#libraryVideo").attr("src") == "" && currentPost.find("#youtubeVideo").attr("src") != "") {
+            $("#youtubeVideoPreview").attr("src", currentPost.find("#youtubeVideo").attr("src"));
+        }
       
         $("#useUrlVideo").on("change", function () {
             $("#videoUrl").prop( "disabled", false );
@@ -510,14 +519,14 @@ $(document).ready(function() {
         $("#saveChanges").off("click");
         $("#saveChanges").on("click", function () {
             if ($("#useLibraryVideo").prop( "checked" )) {
-              currentPost.parent().find("#libraryVideo").attr("src", libraryUrl);
-              currentPost.parent().find("#libraryVideo").css("display", "block");
-              currentPost.parent().find("#youtubeVideo").css("display", "none");
+              currentPost.find("#libraryVideo").attr("src", libraryUrl);
+              currentPost.find("#libraryVideo").css("display", "block");
+              currentPost.find("#youtubeVideo").css("display", "none");
             }
             else {
-              currentPost.parent().find("#youtubeVideo").attr("src", youtubeUrl);
-              currentPost.parent().find("#libraryVideo").css("display", "none");
-              currentPost.parent().find("#youtubeVideo").css("display", "block");
+              currentPost.find("#youtubeVideo").attr("src", youtubeUrl);
+              currentPost.find("#libraryVideo").css("display", "none");
+              currentPost.find("#youtubeVideo").css("display", "block");
             }
             $("#exampleModal").modal("hide");
         });
