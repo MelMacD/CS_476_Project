@@ -573,6 +573,7 @@ $(document).ready(function() {
         // need to update their formData so that there is a flag setting them to be deleted, could
         alert(currentPost.attr("id"));
         console.log(hiddenFormData);
+    });
 });
 
 function setupDraggableResizable() {
