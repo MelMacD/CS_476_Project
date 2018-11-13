@@ -140,6 +140,11 @@ var videoEditHtml = `<form id="uploadVideo" method="post" enctype="multipart/for
 let hiddenFormData = {};
 
 function buildPost( post, action ) {
+    alert(post.attr("delete"));
+    alert(post.attr("nonexistant"));
+    if (post.attr("delete") == "true") {
+        action = "delete"
+    }
     return {
         // parameter "10" implies decimal radix, as 0 could be treated as hex
         width: parseInt(post.css("width"), 10),
@@ -156,6 +161,9 @@ function buildPost( post, action ) {
 }
 
 function buildImage( image, action ) {
+    if (post.attr("delete") == "true") {
+        action = "delete"
+    }
     return {
         // parameter "10" implies decimal radix, as 0 could be treated as hex
         width: parseInt(image.css("width"), 10),
@@ -169,6 +177,9 @@ function buildImage( image, action ) {
 }
 
 function buildVideo( video, action ) {
+    if (post.attr("delete") == "true") {
+        action = "delete"
+    }
     let videoSource = video.find("video").attr("src")
     let youtubeSource = video.find("iframe").attr("src")
     let setSource = "";
@@ -270,7 +281,8 @@ $(document).ready(function() {
     $("#save").click(function() {
         logContent("insert");
         logContent("update");
-        $.ajax({
+        console.log(hiddenFormData);
+        /*$.ajax({
             url: "/blogView",
             type: "post",
             data: JSON.stringify(hiddenFormData),
@@ -285,7 +297,7 @@ $(document).ready(function() {
               console.log(xhr.status);
               console.log(thrownError);
             },
-        });
+        });*/
     });
   
     $("#enableEditing").click(function () {
@@ -574,7 +586,6 @@ $(document).ready(function() {
             currentPost.css("display", "none");
         }
         else {
-            alert("new");
             currentPost.remove();
         }
     });
