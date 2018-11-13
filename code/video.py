@@ -13,7 +13,14 @@ class Video:
         if "youtube" not in self.video:
             return """
 <div id="{id}" class="draggable resizableAspect video" style="width: {width}px; height: {height}px; position: absolute; z-index: {depth}; left: {left}px; top: {top}px;">
-    <button class="editVideo edit" type="button" style="position: absolute; top: 0; right: 0; z-index: 1;" data-toggle="modal" data-target="#exampleModal">Edit</button>
+    <div class="dropdown edit">
+        <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0; z-index: 1;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</button>
+            <div class="dropdown-menu">
+                <button class="editVideo dropdown-item" type="button" data-toggle="modal" data-target="#exampleModal">Change Content</button>
+                <button type="button" class="dropdown-item addThread">Add Thread</button>
+                <button type="button" class="dropdown-item deletePost">Delete</button>
+            </div>
+    </div>
     <div id="mask" class="edit"></div>
     <video id="libraryVideo" style="display: block; width: 100%; height: 100%;" controls="" src="{src}">
         <source src="" type="video/mp4">
