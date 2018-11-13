@@ -252,6 +252,14 @@ function logContent( update ) {
     console.log(hiddenFormData);
 }
 
+function rgbToHex(rgb) {
+  let a = rgb.split("(")[1].split(")")[0].split(",");
+  return "#" + a.map(function(x) {
+    x = parseInt(x).toString(16);
+    return (x.length == 1) ? "0"+x : x;
+  }).join("");
+}
+
 $(document).ready(function() {
     $(".edit").css("display", "none");
   
@@ -338,9 +346,8 @@ $(document).ready(function() {
         // initialize values on modal and preview according to previous values
         $("#postTitle").val(currentPost.find("#originalContent h3").text());
         $("#postContent").val(currentPost.find("#originalContent p").text());
-        $("#postFontColor").val(currentPost.find("#originalContent").css("color"));
-        $("#postBackgroundColor").val(currentPost.find("#originalContent").css("background-color"));
-        alert(currentPost.find("#originalContent").css("background-color"));
+        $("#postFontColor").val(rgbToHex(currentPost.find("#originalContent").css("color")));
+        $("#postBackgroundColor").val(rgbToHex(currentPost.find("#originalContent").css("background-color")));
         $("#postPreviewTitle").text(currentPost.find("#originalContent h3").text());
         $("#postPreviewContent").text(currentPost.find("#originalContent p").text());
         $("#postPreviewTitle").css("color", currentPost.find("#originalContent").css("color"));
@@ -365,7 +372,6 @@ $(document).ready(function() {
             currentPost.find("#originalContent h3").text($("#postTitle").val());
             currentPost.find("#originalContent p").text($("#postContent").val());
             currentPost.find("#originalContent").css("color", $("#postFontColor").val());
-            alert($("#postBackgroundColor").val());
             currentPost.find("#originalContent").css("background-color", $("#postBackgroundColor").val());
             $("#exampleModal").modal("hide");
         });
