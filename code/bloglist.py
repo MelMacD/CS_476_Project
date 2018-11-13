@@ -25,9 +25,4 @@ def bloglist():
   </html>
   """
         
-       def buildBlogContent():
-    db = database()
-    content = ""
-    content += buildElement(db, "blog")
-    return content
-
+  
