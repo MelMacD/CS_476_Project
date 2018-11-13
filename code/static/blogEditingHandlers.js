@@ -280,7 +280,13 @@ $(document).ready(function() {
     $("#save").click(function() {
         logContent("insert");
         logContent("update");
-        $.ajax({
+        // add to the hiddenFormData the blog information
+        hiddenFormData["blog"] = {
+            backgroundColor: $("body").css("background-color"),
+            font: $("#blogBody").css("font-family")
+        };
+        console.log(hiddenFormData);
+        /*$.ajax({
             url: "/blogView",
             type: "post",
             data: JSON.stringify(hiddenFormData),
@@ -295,7 +301,7 @@ $(document).ready(function() {
               console.log(xhr.status);
               console.log(thrownError);
             },
-        });
+        });*/
     });
   
     $("#enableEditing").click(function () {
