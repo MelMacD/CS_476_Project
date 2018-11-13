@@ -13,7 +13,7 @@ def hello():
         requestData = request.get_json()#this is a dictionary
         db = database()
         for key, value in requestData.items():
-            if value.get("isUpdate") is False:
+            if "insert" in value.get("action"):
                 if "post" in key:
                     queryBuilder = query("posts")
                     queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{title}', '{body}', '{backgroundColor}', '{fontColor}'".format(
@@ -35,7 +35,7 @@ def hello():
                     db.execute(True, queryString)
                 else:
                     return "error"
-            else:
+            elif "update" in value.get("action"):
                 if "post" in key:
                     queryBuilder = query("posts")
                     queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, title='{title}', body='{body}', backgroundColor='{backgroundColor}', fontColor='{fontColor}'".format(
@@ -60,6 +60,23 @@ def hello():
                     db.execute(True, queryString)
                 else:
                     return "error"
+            elif "delete" in value.get("action"):
+                if "post" in key:
+                    queryBuilder = query("posts")
+                    queryString = queryBuilder.delete("blogName='test' AND id='{id}'".format(id=key))
+                    db.execute(True, queryString)
+                elif "image" in key:
+                    queryBuilder = query("images")
+                    queryString = queryBuilder.delete("blogName='test' AND id='{id}'".format(id=key))
+                    db.execute(True, queryString)
+                elif "video" in key:
+                    queryBuilder = query("videos")
+                    queryString = queryBuilder.delete("blogName='test' AND id='{id}'".format(id=key))
+                    db.execute(True, queryString)
+                else:
+                    return "error"
+            else:
+                return "error"
         db.disconnect()
         return str(requestData)
     else:
