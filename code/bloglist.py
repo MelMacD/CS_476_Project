@@ -3,6 +3,7 @@ from code import app
 from flask import request
 from code.sql_query_builder import SQLQueryBuilder as query
 from code.database import Database as database
+
     
 @app.route("/bloglist", methods=['GET', 'POST'])
 
@@ -12,40 +13,39 @@ def bloglist():
         return ""
     else:
         return """
-<!DOCTYPE html>
+ 
+ <!DOCTYPE html>
 <html>
 <head>
-</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Blog List</title>
 <style>
 </style>
-<body>
-<?php
-$server = "tcp:expressyourself.database.windows.net";
-$username = "cs476";
-$password = "$up3rSecret";
-$dbname = "expressyourself";
+  </head>
+  <body>
+  </body>
+  """.format(blogContent=buildBlogContent())
+        
+        
+def buildBlogContent():
+    db = database()
+    content = ""
+    content += buildElement(db, "blog")
+return content
 
-$conn = new mysqli($server, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-$sql = "SELECT username, blogName, imageSource, descr FROM blog";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<br> Username: ". $row["username"]. " - Blog-Name: ". $row["blogName"]. " " . $row["descr"] . "<br>";
-    }
-} else {
-    echo "0 results";
-}
-
-$conn->close();
-?>
-</body>
-</html>
-
-"""
+def buildElement(db, tableName):
+    content = ""
+    queryBuilder = query(tableName)
+    queryString = queryBuilder.selectAllFilter("blogName='test'")
+    result = db.execute(False, queryString)
+    if result == []:
+        return ""
+    else:
+        for row in result:
+            if tableName == "blog":
+                currentElement = blog(row)
+                content += currentElement.buildHtml()
+            else:
+                content += "error"
+return content
