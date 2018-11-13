@@ -139,7 +139,7 @@ var videoEditHtml = `<form id="uploadVideo" method="post" enctype="multipart/for
 
 let hiddenFormData = {};
 
-function buildPost( post, update ) {
+function buildPost( post, action ) {
     return {
         // parameter "10" implies decimal radix, as 0 could be treated as hex
         width: parseInt(post.css("width"), 10),
@@ -151,11 +151,11 @@ function buildPost( post, update ) {
         content: post.find("p").text(),
         backgroundColor: post.find("#originalContent").css("background-color"),
         fontColor: post.find("#originalContent").css("color"),
-        isUpdate: update
+        action: action
     }
 }
 
-function buildImage( image, update ) {
+function buildImage( image, action ) {
     return {
         // parameter "10" implies decimal radix, as 0 could be treated as hex
         width: parseInt(image.css("width"), 10),
@@ -164,11 +164,11 @@ function buildImage( image, update ) {
         left: parseInt(image.css("left"), 10),
         depth: parseInt(image.css("z-index"), 10),
         source: image.find("img").attr("src"),
-        isUpdate: update
+        action: action
     }
 }
 
-function buildVideo( video, update ) {
+function buildVideo( video, action ) {
     let videoSource = video.find("video").attr("src")
     let youtubeSource = video.find("iframe").attr("src")
     let setSource = "";
@@ -189,7 +189,7 @@ function buildVideo( video, update ) {
         left: parseInt(video.css("left"), 10),
         depth: parseInt(video.css("z-index"), 10),
         source: setSource,
-        isUpdate: update
+        action: action
     }
 }
 
@@ -205,49 +205,49 @@ function getNewElementId( selector ) {
     return maxId;
 }
 
-function logContent( update ) {
+function logContent( action ) {
    // use different selector for new posts and already existing posts
     let postSelector = $(".post");
     let imageSelector = $(".image");
     let videoSelector = $(".video");
-    if (!update) {
+    if (action == "insert") {
         postSelector = $(".newPost");
         imageSelector = $(".newImage");
         videoSelector = $(".newVideo");
     }
     postSelector.each(function() {
         let id;
-        if (update) {
+        if (action == "update") {
             id = $(this).attr("id")
         }
-        else {
+        else if (action == "insert"){
             id = "post" + postId;
             postId++;
         }
-        hiddenFormData[id] = buildPost($(this), update);
+        hiddenFormData[id] = buildPost($(this), action);
     });
   
     imageSelector.each(function() {
         let id;
-        if (update) {
+        if (action == "update") {
             id = $(this).attr("id")
         }
-        else {
+        else if (action == "insert") {
             id = "image" + imageId;
             imageId++;
         }
-        hiddenFormData[id] = buildImage($(this), update);
+        hiddenFormData[id] = buildImage($(this), action);
     });
     videoSelector.each(function() {
         let id;
-        if (update) {
+        if (action == "update") {
             id = $(this).attr("id")
         }
-        else {
+        else if (action == "insert") {
             id = "video" + videoId;
             videoId++;
         }
-        hiddenFormData[id] = buildVideo($(this), update);
+        hiddenFormData[id] = buildVideo($(this), action);
     });
     console.log(hiddenFormData);
 }
@@ -268,8 +268,8 @@ $(document).ready(function() {
     videoId = getNewElementId( $(".video") );
   
     $("#save").click(function() {
-        logContent(false);
-        logContent(true);
+        logContent("insert");
+        logContent("update");
         $.ajax({
             url: "/blogView",
             type: "post",
@@ -567,6 +567,12 @@ $(document).ready(function() {
           });
         });
     });
+    $("body").on("click", ".deletePost", function() {
+        let currentPost = $(this).parent().parent().parent();
+        // only for pre-existing posts, not for new ones that haven't been saved yet
+        // need to update their formData so that there is a flag setting them to be deleted, could
+        alert(currentPost.attr("id"));
+        console.log(hiddenFormData);
 });
 
 function setupDraggableResizable() {
