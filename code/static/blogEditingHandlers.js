@@ -340,6 +340,7 @@ $(document).ready(function() {
         $("#postContent").val(currentPost.find("#originalContent p").text());
         $("#postFontColor").val(currentPost.find("#originalContent").css("color"));
         $("#postBackgroundColor").val(currentPost.find("#originalContent").css("background-color"));
+        alert(currentPost.find("#originalContent").css("background-color"));
         $("#postPreviewTitle").text(currentPost.find("#originalContent h3").text());
         $("#postPreviewContent").text(currentPost.find("#originalContent p").text());
         $("#postPreviewTitle").css("color", currentPost.find("#originalContent").css("color"));
