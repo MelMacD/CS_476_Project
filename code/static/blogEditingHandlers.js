@@ -522,10 +522,12 @@ $(document).ready(function() {
               currentPost.find("#libraryVideo").attr("src", libraryUrl);
               currentPost.find("#libraryVideo").css("display", "block");
               currentPost.find("#youtubeVideo").css("display", "none");
+              currentPost.find("#youtubeVideo").attr("src", "");
             }
             else {
               currentPost.find("#youtubeVideo").attr("src", youtubeUrl);
               currentPost.find("#libraryVideo").css("display", "none");
+              currentPost.find("#libraryVideo").attr("src", "");
               currentPost.find("#youtubeVideo").css("display", "block");
             }
             $("#exampleModal").modal("hide");
