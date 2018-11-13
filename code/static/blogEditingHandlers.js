@@ -332,14 +332,14 @@ $(document).ready(function() {
     });
   
     $("body").on("click", ".editPost", function() {
-        let currentPost = $(this);
+        let currentPost = $(this).parent().parent().parent();
         $("div.modal-body").html(postEditHtml);
       
         // need to initialize values
-        $("#postTitle").val(currentPost.parent().find("#originalContent h3").text());
-        $("#postContent").val(currentPost.parent().find("#originalContent p").text());
-        $("#postFontColor").val(currentPost.parent().find("#originalContent").css("color"));
-        $("#postBackgroundColor").val(currentPost.parent().find("#originalContent").css("background-color"));
+        $("#postTitle").val(currentPost.find("#originalContent h3").text());
+        $("#postContent").val(currentPost.find("#originalContent p").text());
+        $("#postFontColor").val(currentPost.find("#originalContent").css("color"));
+        $("#postBackgroundColor").val(currentPost.find("#originalContent").css("background-color"));
       
         $("#postTitle").on("change", function() {
             $("#postPreviewTitle").text($(this).val());
@@ -356,10 +356,10 @@ $(document).ready(function() {
         });
         $("#saveChanges").off("click");
         $("#saveChanges").on("click", function () {
-            currentPost.parent().find("#originalContent h3").text($("#postTitle").val());
-            currentPost.parent().find("#originalContent p").text($("#postContent").val());
-            currentPost.parent().find("#originalContent").css("color", $("#postFontColor").val());
-            currentPost.parent().find("#originalContent").css("background-color", $("#postBackgroundColor").val());
+            currentPost.find("#originalContent h3").text($("#postTitle").val());
+            currentPost.find("#originalContent p").text($("#postContent").val());
+            currentPost.find("#originalContent").css("color", $("#postFontColor").val());
+            currentPost.find("#originalContent").css("background-color", $("#postBackgroundColor").val());
             $("#exampleModal").modal("hide");
         });
     });
