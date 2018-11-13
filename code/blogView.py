@@ -194,6 +194,7 @@ def buildBlogSpecs():
         for row in result:
             blogColor = row[4]
             blogFont = row[5]
+            blogFont.replace(' ', '', 1)
  
 def buildBlogContent():
     db = database()
