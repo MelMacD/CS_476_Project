@@ -32,7 +32,7 @@ def buildBlogContent():
     db = database()
     content = ""
     content += buildElement(db, "blog")
-return content
+    return content
 
 
 def buildElement(db, tableName):
