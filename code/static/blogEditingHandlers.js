@@ -140,8 +140,6 @@ var videoEditHtml = `<form id="uploadVideo" method="post" enctype="multipart/for
 let hiddenFormData = {};
 
 function buildPost( post, action ) {
-    alert(post.attr("delete"));
-    alert(post.attr("nonexistant"));
     if (post.attr("delete") == "true") {
         action = "delete"
     }
@@ -252,6 +250,7 @@ function logContent( action ) {
     videoSelector.each(function() {
         let id;
         if (action == "update") {
+            alert("happens");
             id = $(this).attr("id")
         }
         else if (action == "insert") {
