@@ -12,7 +12,14 @@ class Image:
     def buildHtml(self):
         return """
 <div id="{id}" class="draggable resizableAspect image" style="width: {width}px; height: {height}px; position: absolute; z-index: {depth}; left: {left}px; top: {top}px;">
-    <button class="editImage edit" type="button" style="position: absolute; top: 0; right: 0;" data-toggle="modal" data-target="#exampleModal">Edit</button>
+    <div class="dropdown edit">
+        <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</button>
+        <div class="dropdown-menu">
+            <button class="editImage dropdown-item" type="button" data-toggle="modal" data-target="#exampleModal">Change Content</button>
+            <button type="button" class="dropdown-item addThread">Add Thread</button>
+            <button type="button" class="dropdown-item deletePost">Delete</button>
+        </div>
+    </div>
     <img src="{src}" style="width: 100%; height: 100%;">
 </div>""".format(id=self.id, top=self.top, left=self.left, width=self.width, height=self.height, depth=self.depth,
                 src=self.image)
