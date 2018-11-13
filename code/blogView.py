@@ -97,7 +97,7 @@ def hello():
 <script src="static/blogEditingHandlers.js"></script>
 <link rel="stylesheet" href="static/blogEditingStyle.css" />
 </head>
-<body>
+<body style="background-color: {backgroundColor};">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="dropdown edit">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Toolbar</button>
@@ -130,7 +130,7 @@ def hello():
       </div>
       </div>
     </nav>
-    <div id="blogBody">
+    <div id="blogBody" style="font-family: {font};">
       {blogContent}
     </div>
     
@@ -165,7 +165,9 @@ def hello():
     <button type="button" style="display:inline;" id="save" class="btn btn-success">Save Changes</button>
   </div>
 </footer
-</body>""".format(blogContent=buildBlogContent())
+</body>""".format(blogContent=buildBlogContent(),
+                  backgroundColor="rgb(255, 255, 255)",
+                  font="arial")
 
 def buildBlogContent():
     db = database()
