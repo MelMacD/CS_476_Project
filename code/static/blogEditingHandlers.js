@@ -161,7 +161,7 @@ function buildPost( post, action ) {
 }
 
 function buildImage( image, action ) {
-    if (post.attr("delete") == "true") {
+    if (image.attr("delete") == "true") {
         action = "delete"
     }
     return {
@@ -177,7 +177,7 @@ function buildImage( image, action ) {
 }
 
 function buildVideo( video, action ) {
-    if (post.attr("delete") == "true") {
+    if (video.attr("delete") == "true") {
         action = "delete"
     }
     let videoSource = video.find("video").attr("src")
