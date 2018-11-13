@@ -364,6 +364,7 @@ $(document).ready(function() {
             currentPost.find("#originalContent h3").text($("#postTitle").val());
             currentPost.find("#originalContent p").text($("#postContent").val());
             currentPost.find("#originalContent").css("color", $("#postFontColor").val());
+            alert($("#postBackgroundColor").val());
             currentPost.find("#originalContent").css("background-color", $("#postBackgroundColor").val());
             $("#exampleModal").modal("hide");
         });
