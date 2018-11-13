@@ -4,36 +4,43 @@ from flask import request
     
 @app.route("/bloglist", methods=['GET', 'POST'])
 
-
-
-import mysql.connector
-from mysql.connector import Error
-try:
-   mySQLconnection = mysql.connector.connect(host='tcp:expressyourself.database.windows.net',
-                             database='expressyourself',
-                             username='cs476',
-                             password='$up3rSecret')
-   sql_select_Query = "select * from blog"
-   cursor = mySQLconnection .cursor()
-   cursor.execute(sql_select_Query)
-   records = cursor.fetchall()
-   print("Total number of rows in blog is - ", cursor.rowcount)
-   print ("Printing each row's column values i.e.  blog records")
-   for row in records:
-       print("username = ", row[0], )
-       print("blogName = ", row[1])
-       print("descr  = ", row[2], "\n")
-   cursor.close()
-except Error as e :
-    print ("Error while connecting to MySQL", e)
-finally:
-    #closing database connection.
-    if(mySQLconnection .is_connected()):
-        connection.close()
-        print("MySQL connection is closed")
-
 def bloglist():
     if request.method == 'POST':
         return ""
     else:
         return """
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<style>
+</style>
+<body>
+<?php
+$server = "tcp:expressyourself.database.windows.net";
+$username = "cs476";
+$password = "$up3rSecret";
+$dbname = "expressyourself";
+
+$conn = new mysqli($server, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT username, blogName, imageSource, descr FROM blog";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<br> Username: ". $row["username"]. " - Blog-Name: ". $row["blogName"]. " " . $row["descr"] . "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?>
+</body>
+</html>
