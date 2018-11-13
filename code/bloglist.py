@@ -9,7 +9,6 @@ from code.database import Database as database
 
 def bloglist():
     if request.method == 'POST':
-        
         return ""
     else:
         return """
@@ -49,4 +48,4 @@ def buildElement(db, tableName):
                 content += currentElement.buildHtml()
             else:
                 content += "error"
-return content
+    return content
