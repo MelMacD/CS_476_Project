@@ -335,11 +335,16 @@ $(document).ready(function() {
         let currentPost = $(this).parent().parent().parent();
         $("div.modal-body").html(postEditHtml);
       
-        // need to initialize values
+        // initialize values on modal and preview according to previous values
         $("#postTitle").val(currentPost.find("#originalContent h3").text());
         $("#postContent").val(currentPost.find("#originalContent p").text());
         $("#postFontColor").val(currentPost.find("#originalContent").css("color"));
         $("#postBackgroundColor").val(currentPost.find("#originalContent").css("background-color"));
+        $("#postPreviewTitle").text(currentPost.find("#originalContent h3").text());
+        $("#postPreviewContent").text(currentPost.find("#originalContent p").text());
+        $("#postPreviewTitle").css("color", currentPost.find("#originalContent").css("color"));
+        $("#postPreviewContent").css("color", currentPost.find("#originalContent").css("color"));
+        $("#postPreviewDiv").css("background-color", currentPost.find("#originalContent").css("background-color"));
       
         $("#postTitle").on("change", function() {
             $("#postPreviewTitle").text($(this).val());
