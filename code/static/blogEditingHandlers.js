@@ -569,10 +569,14 @@ $(document).ready(function() {
     });
     $("body").on("click", ".deletePost", function() {
         let currentPost = $(this).parent().parent().parent();
-        // only for pre-existing posts, not for new ones that haven't been saved yet
-        // need to update their formData so that there is a flag setting them to be deleted, could
-        alert(currentPost.attr("id"));
-        console.log(hiddenFormData);
+        if (currentPost.hasClass("post") || currentPost.hasClass("image") || currentPost.hasClass("video")) {
+            currentPost.attr("delete", "true");
+            currentPost.css("display", "none");
+        }
+        else {
+            alert("new");
+            currentPost.remove();
+        }
     });
 });
 
