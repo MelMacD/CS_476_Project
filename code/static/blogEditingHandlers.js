@@ -149,8 +149,8 @@ function buildPost( post, update ) {
         depth: parseInt(post.css("z-index"), 10),
         title: post.find("h3").text(),
         content: post.find("p").text(),
-        backgroundColor: post.find("div").css("background-color"),
-        fontColor: post.find("div").css("color"),
+        backgroundColor: post.find("#originalContent").css("background-color"),
+        fontColor: post.find("#originalContent").css("color"),
         isUpdate: update
     }
 }
@@ -334,6 +334,12 @@ $(document).ready(function() {
     $("body").on("click", ".editPost", function() {
         let currentPost = $(this);
         $("div.modal-body").html(postEditHtml);
+      
+        // need to initialize values
+        $("#postTitle").val(currentPost.parent().find("#originalContent h3").text());
+        $("#postContent").val(currentPost.parent().find("#originalContent p").text());
+        $("#postFontColor").val(currentPost.parent().find("#originalContent").css("color"));
+        $("#postBackgroundColor").val(currentPost.parent().find("#originalContent").css("background-color"));
       
         $("#postTitle").on("change", function() {
             $("#postPreviewTitle").text($(this).val());
