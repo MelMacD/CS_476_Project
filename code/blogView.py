@@ -13,10 +13,14 @@ def hello():
         requestData = request.get_json()#this is a dictionary
         db = database()
         for key, value in requestData.items():
-            #check if action is present, if not, continue
+            #check if action is present, if not, must be blog update
             if "not present" in value.get("action", "not present"):
-                return "it happened"
-            if "insert" in value.get("action"):
+                queryBuilder = query("blog")
+                queryString = queryBuilder.update("backgroundColor='{color}', font='{font}'".format(
+                    color=value.get("backgroundColor"), font=value.get("font")),
+                                                  "blogName='test'")
+                db.execute(True, queryString)
+            elif "insert" in value.get("action"):
                 if "post" in key:
                     queryBuilder = query("posts")
                     queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{title}', '{body}', '{backgroundColor}', '{fontColor}'".format(
