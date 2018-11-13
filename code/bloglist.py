@@ -1,11 +1,14 @@
 
 from code import app
 from flask import request
+from code.sql_query_builder import SQLQueryBuilder as query
+from code.database import Database as database
     
 @app.route("/bloglist", methods=['GET', 'POST'])
 
 def bloglist():
     if request.method == 'POST':
+        
         return ""
     else:
         return """
