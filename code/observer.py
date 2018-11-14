@@ -40,3 +40,17 @@ class Observer(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def update(self, arg):
         pass
+class Statistics view(Observer):
+
+    def update(self, arg):
+        self._observer_state = arg
+        # ...
+        
+class Generic BlogView(Observer):
+    def update(self, arg):
+        self._observer_state = arg
+        
+        
+class BlogList view(Observer):
+    def update(self, arg):
+        self._observer_state = arg
