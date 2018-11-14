@@ -27,6 +27,7 @@ class Post:
         <h3>{title}</h3>
         <p>{content}</p>
     </div>
+    {{thread}}
 </div>""".format(id=self.id, top=self.top, left=self.left, width=self.width, height=self.height, depth=self.depth,
                 title=self.title, content=self.body, backgroundColor=self.background, fontColor=self.fontColor)
       
