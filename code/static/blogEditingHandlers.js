@@ -637,6 +637,29 @@ $(document).ready(function() {
         $(this).addClass("addThread");
         $(this).text("Add Thread");
     });
+  
+    $("body").on("click", ".submitComment", function() {
+        let current = $(this).parent().parent().parent().parent();
+        formData["comment"] = {
+            attachedToId: current.attr("id"),
+            comment: current.find("input").val()
+        };
+        $.ajax({
+            url: "/uploadComment",
+            type: "post",
+            data: JSON.stringify(formData),
+            contentType: "application/json",
+            success: function(data) {
+              alert("Comment upload successful");
+              console.log(data);
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+              alert("An error occurred. Could not upload comment.");
+              console.log(xhr.status);
+              console.log(thrownError);
+            }
+        });
+    });
 });
 
 function setupDraggableResizable() {
