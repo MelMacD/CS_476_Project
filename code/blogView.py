@@ -10,6 +10,11 @@ from code.thread import Thread as thread
 blogColor = ""
 blogFont = ""
 
+@app.route("/uploadComment")
+
+def uploadComment():
+    return "hokay"
+
 @app.route("/blogView", methods=['GET', 'POST'])
 
 def hello():
