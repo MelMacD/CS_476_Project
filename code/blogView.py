@@ -10,10 +10,13 @@ from code.thread import Thread as thread
 blogColor = ""
 blogFont = ""
 
-@app.route("/uploadComment")
+@app.route("/uploadComment", methods=['GET', 'POST'])
 
 def uploadComment():
-    return "hokay"
+    if request.method == 'POST':
+        return request.get_json()
+    else:
+        return "error"
 
 @app.route("/blogView", methods=['GET', 'POST'])
 
