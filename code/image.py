@@ -21,6 +21,7 @@ class Image:
         </div>
     </div>
     <img src="{src}" style="width: 100%; height: 100%;">
+    {{thread}}
 </div>""".format(id=self.id, top=self.top, left=self.left, width=self.width, height=self.height, depth=self.depth,
                 src=self.image)
       
