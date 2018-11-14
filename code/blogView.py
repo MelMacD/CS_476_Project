@@ -14,7 +14,13 @@ blogFont = ""
 
 def uploadComment():
     if request.method == 'POST':
-        return str(request.get_json())
+        requestData = request.get_json()
+        db = database()
+        queryBuilder = query("comments")
+        queryString = queryBuilder.insertRow("'test', '{attachedToId}', 'test', '{comment}'".format(
+                attachedToId=requestData.get("attachedToId"), comment=requestData.get("comment")))
+        db.execute(True, queryString)
+        return str(requestData)
     else:
         return "error"
 
