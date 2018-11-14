@@ -5,6 +5,7 @@ from code.database import Database as database
 from code.post import Post as post
 from code.image import Image as image
 from code.video import Video as video
+from code.thread import Thread as thread
 
 blogColor = ""
 blogFont = ""
@@ -204,6 +205,7 @@ def buildBlogContent():
     return content
 
 def buildElement(db, tableName):
+    hasThread = false #change later
     content = ""
     queryBuilder = query(tableName)
     queryString = queryBuilder.selectAllFilter("blogName='test'")
@@ -214,13 +216,30 @@ def buildElement(db, tableName):
         for row in result:
             if tableName == "posts":
                 currentElement = post(row)
-                content += currentElement.buildHtml()
+                #if has thread, format with content, otherwise ""
+                if hasThread:
+                    content += currentElement.buildHtml().format(thread=buildThread(db, row[1]))
+                else:
+                    content += currentElement.buildHtml().format(thread="")
             elif tableName == "images":
                 currentElement = image(row)
-                content += currentElement.buildHtml()
+                if hasThread:
+                    content += currentElement.buildHtml().format(thread=buildThread(db, row[1]))
+                else:
+                    content += currentElement.buildHtml().format(thread="")
             elif tableName == "videos":
                 currentElement = video(row)
-                content += currentElement.buildHtml()
+                if hasThread:
+                    content += currentElement.buildHtml().format(thread=buildThread(db, row[1]))
+                else:
+                    content += currentElement.buildHtml().format(thread="")
             else:
                 content += "error"
         return content
+
+def buildThread(db, key):
+    queryBuilder = query("comments")
+    queryString = queryBuilder.selectAllFilter("blogName='test' and attachedToId='{elementId}'".format(elementId=key))
+    result = db.execute(False, queryString)
+    obj = thread(result)
+    return obj.buildHtml()
