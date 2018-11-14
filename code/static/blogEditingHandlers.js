@@ -640,7 +640,7 @@ $(document).ready(function() {
   
     $("body").on("click", ".submitComment", function() {
         let current = $(this).parent().parent().parent().parent();
-        formData["comment"] = {
+        formData = {
             attachedToId: current.attr("id"),
             comment: current.find("input").val()
         };
