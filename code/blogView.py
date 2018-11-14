@@ -14,7 +14,8 @@ blogFont = ""
 
 def uploadComment():
     if request.method == 'POST':
-        return request.get_json()
+        return "henlo"
+        #return request.get_json()
     else:
         return "error"
 
