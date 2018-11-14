@@ -42,6 +42,26 @@ var videoHtml = `<div class="draggable resizableAspect newVideo" style="width: 4
                    <iframe id="youtubeVideo" allowFullScreen='allowFullScreen' src="" style="width: 100%; height: 100%;"</iframe>
              </div>
                  </div>`;
+var threadHtml = `<div class="newThread">
+                    <div style="">
+                      <ul class="list-group">
+                        <li class="list-group-item">sample: this is a comment</li>
+                        <li class="list-group-item">sample: this is a comment</li>
+                        <li class="list-group-item">sample: this is a comment</li>
+                        <li class="list-group-item">sample: this is a comment</li>
+                        <li class="list-group-item">sample: this is a comment</li>
+                        <li class="list-group-item">sample: this is a comment</li>
+                        <li class="list-group-item">sample: this is a comment</li>
+                        <li class="list-group-item">sample: this is a comment</li>
+                      </ul>
+                    </div>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Enter a comment">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button">Enter</button>
+                      </div>
+                    </div>
+                  </div>`;
 var postEditHtml = `<form>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Header:</label>
@@ -591,6 +611,12 @@ $(document).ready(function() {
         else {
             currentPost.remove();
         }
+    });
+  
+    $("body").on("click", ".addThread", function() {
+        let current = $(this).parent().parent().parent();
+        current.append(threadHtml);
+        // change add thread button to remove thread, and implement that
     });
 });
 
