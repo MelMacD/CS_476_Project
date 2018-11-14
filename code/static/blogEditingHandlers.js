@@ -152,12 +152,12 @@ var videoEditHtml = `<form id="uploadVideo" method="post" enctype="multipart/for
 let hiddenFormData = {};
 
 function buildPost( post, action ) {
-    hasThread = false;
+    hasThread = 0;
     if (post.find(".newThread") !== 0) {
-        hasThread = true;
+        hasThread = 1;
     }
     if (post.attr("delete") == "true") {
-        action = "delete"
+        action = "delete";
     }
     return {
         // parameter "10" implies decimal radix, as 0 could be treated as hex
@@ -176,12 +176,12 @@ function buildPost( post, action ) {
 }
 
 function buildImage( image, action ) {
-    hasThread = false;
+    hasThread = 0;
     if (image.find(".newThread") !== 0) {
-        hasThread = true;
+        hasThread = 1;
     }
     if (image.attr("delete") == "true") {
-        action = "delete"
+        action = "delete";
     }
     return {
         // parameter "10" implies decimal radix, as 0 could be treated as hex
@@ -197,15 +197,15 @@ function buildImage( image, action ) {
 }
 
 function buildVideo( video, action ) {
-    hasThread = false;
+    hasThread = 0;
     if (video.find(".newThread") !== 0) {
-        hasThread = true;
+        hasThread = 1;
     }
     if (video.attr("delete") == "true") {
-        action = "delete"
+        action = "delete";
     }
-    let videoSource = video.find("video").attr("src")
-    let youtubeSource = video.find("iframe").attr("src")
+    let videoSource = video.find("video").attr("src");
+    let youtubeSource = video.find("iframe").attr("src");
     let setSource = "";
     if (videoSource == "" && youtubeSource != "") {
         setSource = youtubeSource;
@@ -254,7 +254,7 @@ function logContent( action ) {
     postSelector.each(function() {
         let id;
         if (action == "update") {
-            id = $(this).attr("id")
+            id = $(this).attr("id");
         }
         else if (action == "insert"){
             id = "post" + postId;
@@ -266,7 +266,7 @@ function logContent( action ) {
     imageSelector.each(function() {
         let id;
         if (action == "update") {
-            id = $(this).attr("id")
+            id = $(this).attr("id");
         }
         else if (action == "insert") {
             id = "image" + imageId;
@@ -277,7 +277,7 @@ function logContent( action ) {
     videoSelector.each(function() {
         let id;
         if (action == "update") {
-            id = $(this).attr("id")
+            id = $(this).attr("id");
         }
         else if (action == "insert") {
             id = "video" + videoId;
@@ -318,8 +318,8 @@ $(document).ready(function() {
             data: JSON.stringify(hiddenFormData),
             contentType: "application/json",
             success: function(data) {
-              alert("Changes saved.");
-              console.log(data)
+              alert("Changes saved");
+              console.log(data);
               location.reload();
             },
             error: function(xhr, ajaxOptions, thrownError) {
