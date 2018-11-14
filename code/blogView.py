@@ -27,46 +27,46 @@ def hello():
             elif "insert" in value.get("action"):
                 if "post" in key:
                     queryBuilder = query("posts")
-                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{title}', '{body}', '{backgroundColor}', '{fontColor}'".format(
+                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{title}', '{body}', '{backgroundColor}', '{fontColor}', {hasThread}".format(
                                     id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
                                     height=value.get("height"), depth=value.get("depth"), title=value.get("title"),
-                                    body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor")))
+                                    body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor"), hasThread=value.get("hasThread")))
                     db.execute(True, queryString)
                 elif "image" in key:
                     queryBuilder = query("images")
-                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
+                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}', {hasThread}".format(
                                     id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source")))
+                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")))
                     db.execute(True, queryString)
                 elif "video" in key:
                     queryBuilder = query("videos")
-                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}'".format(
+                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}', {hasThread}".format(
                                     id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source")))
+                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")))
                     db.execute(True, queryString)
                 else:
                     return "error"
             elif "update" in value.get("action"):
                 if "post" in key:
                     queryBuilder = query("posts")
-                    queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, title='{title}', body='{body}', backgroundColor='{backgroundColor}', fontColor='{fontColor}'".format(
+                    queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, title='{title}', body='{body}', backgroundColor='{backgroundColor}', fontColor='{fontColor}', hasThread={hasThread}".format(
                                     top=value.get("top"), left=value.get("left"), width=value.get("width"),
                                     height=value.get("height"), depth=value.get("depth"), title=value.get("title"),
-                                    body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor")),
+                                    body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor"), hasThread=value.get("hasThread")),
                                                      "blogName='test' AND id='{id}'".format(id=key))
                     db.execute(True, queryString)
                 elif "image" in key:
                     queryBuilder = query("images")
-                    queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, imageSource='{source}'".format(
+                    queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, imageSource='{source}', hasThread={hasThread}".format(
                                     top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source")),
+                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")),
                                                      "blogName='test' AND id='{id}'".format(id=key))
                     db.execute(True, queryString)
                 elif "video" in key:
                     queryBuilder = query("videos")
-                    queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, videoSource='{source}'".format(
+                    queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, videoSource='{source}', hasThread={hasThread}".format(
                                     top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source")),
+                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")),
                                                      "blogName='test' AND id='{id}'".format(id=key))
                     db.execute(True, queryString)
                 else:
@@ -205,7 +205,6 @@ def buildBlogContent():
     return content
 
 def buildElement(db, tableName):
-    hasThread = True #change later
     content = ""
     queryBuilder = query(tableName)
     queryString = queryBuilder.selectAllFilter("blogName='test'")
@@ -217,19 +216,19 @@ def buildElement(db, tableName):
             if tableName == "posts":
                 currentElement = post(row)
                 #if has thread, format with content, otherwise ""
-                if hasThread:
+                if row[11] == 1:
                     content += currentElement.buildHtml().format(thread=buildThread(db, row[1]))
                 else:
                     content += currentElement.buildHtml().format(thread="")
             elif tableName == "images":
                 currentElement = image(row)
-                if hasThread:
+                if row[8] == 1:
                     content += currentElement.buildHtml().format(thread=buildThread(db, row[1]))
                 else:
                     content += currentElement.buildHtml().format(thread="")
             elif tableName == "videos":
                 currentElement = video(row)
-                if hasThread:
+                if row[8] == 1:
                     content += currentElement.buildHtml().format(thread=buildThread(db, row[1]))
                 else:
                     content += currentElement.buildHtml().format(thread="")
