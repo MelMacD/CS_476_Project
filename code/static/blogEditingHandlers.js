@@ -177,7 +177,7 @@ function buildPost( post, action ) {
 
 function buildImage( image, action ) {
     hasThread = false;
-    if (post.find(".newThread") !== 0) {
+    if (image.find(".newThread") !== 0) {
         hasThread = true;
     }
     if (image.attr("delete") == "true") {
@@ -198,7 +198,7 @@ function buildImage( image, action ) {
 
 function buildVideo( video, action ) {
     hasThread = false;
-    if (post.find(".newThread") !== 0) {
+    if (video.find(".newThread") !== 0) {
         hasThread = true;
         alert(hasThread);
     }
