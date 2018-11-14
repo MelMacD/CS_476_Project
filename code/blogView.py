@@ -24,6 +24,11 @@ def uploadComment():
     else:
         return "error"
 
+@app.route("/getComments")
+
+def getComments():
+    return "test"
+    
 @app.route("/blogView", methods=['GET', 'POST'])
 
 def hello():
