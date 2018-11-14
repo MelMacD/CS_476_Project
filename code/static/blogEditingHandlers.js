@@ -152,6 +152,10 @@ var videoEditHtml = `<form id="uploadVideo" method="post" enctype="multipart/for
 let hiddenFormData = {};
 
 function buildPost( post, action ) {
+    hasThread = false;
+    if (post.find(".newThread") !== 0) {
+        hasThread = true;
+    }
     if (post.attr("delete") == "true") {
         action = "delete"
     }
@@ -166,11 +170,16 @@ function buildPost( post, action ) {
         content: post.find("p").text(),
         backgroundColor: post.find("#originalContent").css("background-color"),
         fontColor: post.find("#originalContent").css("color"),
-        action: action
+        action: action,
+        hasThread: hasThread
     }
 }
 
 function buildImage( image, action ) {
+    hasThread = false;
+    if (post.find(".newThread") !== 0) {
+        hasThread = true;
+    }
     if (image.attr("delete") == "true") {
         action = "delete"
     }
@@ -182,11 +191,17 @@ function buildImage( image, action ) {
         left: parseInt(image.css("left"), 10),
         depth: parseInt(image.css("z-index"), 10),
         source: image.find("img").attr("src"),
-        action: action
+        action: action,
+        hasThread: hasThread
     }
 }
 
 function buildVideo( video, action ) {
+    hasThread = false;
+    if (post.find(".newThread") !== 0) {
+        hasThread = true;
+        alert(hasThread);
+    }
     if (video.attr("delete") == "true") {
         action = "delete"
     }
@@ -210,7 +225,8 @@ function buildVideo( video, action ) {
         left: parseInt(video.css("left"), 10),
         depth: parseInt(video.css("z-index"), 10),
         source: setSource,
-        action: action
+        action: action,
+        hasThread: hasThread
     }
 }
 
