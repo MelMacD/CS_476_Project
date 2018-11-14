@@ -205,7 +205,7 @@ def buildBlogContent():
     return content
 
 def buildElement(db, tableName):
-    hasThread = False #change later
+    hasThread = True #change later
     content = ""
     queryBuilder = query(tableName)
     queryString = queryBuilder.selectAllFilter("blogName='test'")
