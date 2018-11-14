@@ -24,6 +24,6 @@ class Thread:
         commentBlock = ""
         for row in values:
             commentBlock += """
-                <li class="list-group-item">{username}: {comment}</li>
-            """.format(username=row[0], comment=row[1])#change this later
+                <li class="list-group-item"><b>{username}:</b>    {comment}</li>
+            """.format(username=row[2], comment=row[3])
         return commentBlock
