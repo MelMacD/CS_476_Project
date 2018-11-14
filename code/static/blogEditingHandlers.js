@@ -43,9 +43,9 @@ var videoHtml = `<div class="draggable resizableAspect newVideo" style="width: 4
              </div>
                  </div>`;
 var threadHtml = `<div class="newThread">
-                    <div style="">
-                      <ul class="list-group">
-                        <li class="list-group-item">sample: this is a comment</li>
+                    <div style="height: 200px; overflow-y: scroll;">
+                      <ul class="list-group" style="font-size: 14px;">
+                        <li class="list-group-item">the assumption is that the user will not want to type anything that is too large or it will have difficulties being entered into the database or read from it</li>
                         <li class="list-group-item">sample: this is a comment</li>
                         <li class="list-group-item">sample: this is a comment</li>
                         <li class="list-group-item">sample: this is a comment</li>
@@ -58,7 +58,7 @@ var threadHtml = `<div class="newThread">
                     <div class="input-group">
                       <input type="text" class="form-control" placeholder="Enter a comment">
                       <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">Enter</button>
+                        <button class="btn btn-outline-secondary submitComment" type="button" style="background-color: darkgray;">Enter</button>
                       </div>
                     </div>
                   </div>`;
