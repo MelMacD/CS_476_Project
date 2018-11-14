@@ -20,7 +20,7 @@ class Thread:
 </div>
 """.format(commentHtml=self.comments)
       
-    def buildComments(values):
+    def buildComments(self, values):
         commentBlock = ""
         #for row in values:
         #    commentBlock += """
