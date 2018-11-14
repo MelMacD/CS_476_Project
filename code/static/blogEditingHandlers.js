@@ -153,7 +153,7 @@ let hiddenFormData = {};
 
 function buildPost( post, action ) {
     hasThread = 0;
-    if (post.find(".newThread") !== 0) {
+    if (post.find(".newThread").length !== 0) {
         hasThread = 1;
     }
     if (post.attr("delete") == "true") {
@@ -177,10 +177,10 @@ function buildPost( post, action ) {
 
 function buildImage( image, action ) {
     hasThread = 0;
-    if (image.find(".newThread") !== 0) {
+    if (image.find(".newThread").length !== 0) {
         hasThread = 1;
     }
-    alert(image.find(".newThread"));
+    alert(image.find(".newThread").length);
     if (image.attr("delete") == "true") {
         action = "delete";
     }
@@ -199,7 +199,7 @@ function buildImage( image, action ) {
 
 function buildVideo( video, action ) {
     hasThread = 0;
-    if (video.find(".newThread") !== 0) {
+    if (video.find(".newThread").length !== 0) {
         hasThread = 1;
     }
     if (video.attr("delete") == "true") {
