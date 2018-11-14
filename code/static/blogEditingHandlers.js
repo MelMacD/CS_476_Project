@@ -621,6 +621,15 @@ $(document).ready(function() {
         $(this).addClass("removeThread");
         $(this).text("Remove Thread");
     });
+  
+    $("body").on("click", ".removeThread", function() {
+        let current = $(this).parent().parent().parent();
+        current.find(".newThread .thread").remove();
+        // change remove thread button to add thread
+        $(this).removeClass("removeThread");
+        $(this).addClass("addThread");
+        $(this).text("Add Thread");
+    });
 });
 
 function setupDraggableResizable() {
