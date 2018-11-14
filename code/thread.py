@@ -22,8 +22,8 @@ class Thread:
       
     def buildComments(values):
         commentBlock = ""
-        for row in values:
-            commentBlock += """
-                <li class="list-group-item"><b>{username}:</b>    {comment}</li>
-            """.format(username=row[2], comment=row[3])
+        #for row in values:
+        #    commentBlock += """
+        #        <li class="list-group-item"><b>{username}:</b>    {comment}</li>
+        #    """.format(username=row[2], comment=row[3])
         return commentBlock
