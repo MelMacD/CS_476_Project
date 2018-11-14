@@ -616,7 +616,10 @@ $(document).ready(function() {
     $("body").on("click", ".addThread", function() {
         let current = $(this).parent().parent().parent();
         current.append(threadHtml);
-        // change add thread button to remove thread, and implement that
+        // change add thread button to remove thread
+        $(this).removeClass("addThread");
+        $(this).addClass("removeThread");
+        $(this).text("Remove Thread");
     });
 });
 
