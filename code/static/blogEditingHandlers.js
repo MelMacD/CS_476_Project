@@ -180,6 +180,7 @@ function buildImage( image, action ) {
     if (image.find(".newThread") !== 0) {
         hasThread = 1;
     }
+    alert(image.find(".newThread"));
     if (image.attr("delete") == "true") {
         action = "delete";
     }
