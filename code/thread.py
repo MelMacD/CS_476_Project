@@ -1,6 +1,6 @@
 class Thread:
     def __init__(self, values):
-        self.comments = buildComments(values)
+        self.comments = self.buildComments(values)
 
     #@override
     def buildHtml(self):
@@ -20,7 +20,7 @@ class Thread:
 </div>
 """.format(commentHtml=self.comments)
       
-    buildComments(values):
+    def buildComments(values):
         commentBlock = ""
         for row in values:
             commentBlock += """
