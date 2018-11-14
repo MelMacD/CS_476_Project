@@ -205,7 +205,7 @@ def buildBlogContent():
     return content
 
 def buildElement(db, tableName):
-    hasThread = false #change later
+    hasThread = False #change later
     content = ""
     queryBuilder = query(tableName)
     queryString = queryBuilder.selectAllFilter("blogName='test'")
@@ -220,19 +220,19 @@ def buildElement(db, tableName):
                 if hasThread:
                     content += currentElement.buildHtml().format(thread=buildThread(db, row[1]))
                 else:
-                    content += currentElement.buildHtml().format(thread="")
+                    content += currentElement.buildHtml()#.format(thread="")
             elif tableName == "images":
                 currentElement = image(row)
                 if hasThread:
                     content += currentElement.buildHtml().format(thread=buildThread(db, row[1]))
                 else:
-                    content += currentElement.buildHtml().format(thread="")
+                    content += currentElement.buildHtml()#.format(thread="")
             elif tableName == "videos":
                 currentElement = video(row)
                 if hasThread:
                     content += currentElement.buildHtml().format(thread=buildThread(db, row[1]))
                 else:
-                    content += currentElement.buildHtml().format(thread="")
+                    content += currentElement.buildHtml()#.format(thread="")
             else:
                 content += "error"
         return content
