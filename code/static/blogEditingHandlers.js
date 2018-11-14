@@ -200,7 +200,6 @@ function buildVideo( video, action ) {
     hasThread = false;
     if (video.find(".newThread") !== 0) {
         hasThread = true;
-        alert(hasThread);
     }
     if (video.attr("delete") == "true") {
         action = "delete"
