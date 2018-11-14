@@ -242,5 +242,4 @@ def buildThread(db, key):
     queryString = queryBuilder.selectAllFilter("blogName='test' and attachedToId='{elementId}'".format(elementId=key))
     result = db.execute(False, queryString)
     obj = thread(result)
-    #return obj.buildHtml()
-    return "test"
+    return obj.buildHtml()
