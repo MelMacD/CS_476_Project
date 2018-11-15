@@ -14,8 +14,7 @@ def bloglist():
  
         queryBuilder = query("blog")
         queryString = queryBuilder.selectAllFilter("blogName='test'")
-        result = db.execute(False, queryString)
-        if result == []
+        db.execute(False, queryString)
              return str(requestData)
     else:
             return "error"
