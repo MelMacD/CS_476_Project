@@ -341,6 +341,9 @@ $(document).ready(function() {
         $("#changeFont").css("display", "inline");
         setupDraggableResizable();
         $("div[contenteditable]").attr("contenteditable", "true");
+        $(".submitComment").each( function() {
+            $(this).prop("disabled", true);
+        });
     });
     
     $("#disableEditing").click(function() {
@@ -356,6 +359,9 @@ $(document).ready(function() {
         $( ".resizableAspect").resizable({ disabled: true });
         $("div[contenteditable]").attr("contenteditable", "false");
         $(".edit").css("display", "none");
+        $(".submitComment").each( function() {
+            $(this).prop("disabled", false);
+        });
     });
     
     $("#addText").click(function() {
