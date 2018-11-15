@@ -119,5 +119,5 @@ def buildElement(db, tableName):
            
             else:
                 content += "error"
-return content
+    return content
 
