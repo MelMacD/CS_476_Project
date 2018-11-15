@@ -36,7 +36,7 @@ def getComments():
         result = db.execute(False, queryString)
         obj = thread(result)
         return obj.buildComments(result)
-    else
+    else:
         return "error"
     
 @app.route("/blogView", methods=['GET', 'POST'])
