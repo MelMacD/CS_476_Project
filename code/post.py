@@ -19,7 +19,7 @@ class Post:
         <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</button>
         <div class="dropdown-menu">
             <button class="editPost dropdown-item" type="button" data-toggle="modal" data-target="#exampleModal">Change Content</button>
-            <button type="button" class="dropdown-item addThread">Add Thread</button>
+            {{addRemoveThread}}
             <button type="button" class="dropdown-item deletePost">Delete</button>
         </div>
     </div>
