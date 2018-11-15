@@ -93,3 +93,9 @@ html {
   """
         
   
+def buildBloglistContent():
+    db = database()
+    content = ""
+    content += buildElement(db, "blog")
+ 
+
