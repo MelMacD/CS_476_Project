@@ -2,6 +2,14 @@ let postId = 0;
 let imageId = 0;
 let videoId = 0;
 
+var reactHtml = `<div class="reactBar" style="height: 50px; background-color: black; position: absolute; width: 100%; bottom: 0px;">
+                   <div class="dropdown">
+                     <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0; z-index: 1;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">React</button>
+                     <div class="dropdown-menu">
+                       <button class="dropdown-item" type="button"> </button>
+                     </div>
+                   </div>
+                 </div>`;
 var postHtml = `<div class="border border-dark rounded draggable resizable newPost" style="width: 350px; height: 400px; z-index: 0;">
                   <div class="dropdown edit">
                     <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</button>
@@ -14,6 +22,7 @@ var postHtml = `<div class="border border-dark rounded draggable resizable newPo
                  <div id="originalContent" style="width: 100%; height: 100%; background-color: white;">
                    <h3>What is the title?</h3><p>What is the content?</p>
                  </div>
+                 ${reactHtml}
                </div>`;
 var imageHtml = `<div class="draggable resizableAspect newImage" style="width: 300px; height: 300px; z-index: 0;">
                    <div class="dropdown edit">
@@ -54,6 +63,7 @@ var threadHtml = `<div class="newThread">
                       </div>
                     </div>
                   </div>`;
+
 var postEditHtml = `<form>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Header:</label>
