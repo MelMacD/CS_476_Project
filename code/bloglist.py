@@ -9,11 +9,12 @@ from code.database import Database as database
 
 def bloglist():
     if request.method == 'POST':
-             return""
+             return ""
     else:
             return "error"
  
-html = """ <!DOCTYPE html>
+html = """ 
+<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
