@@ -235,8 +235,8 @@ def buildBlogContent():
 
 def buildElement(db, tableName):
     content = ""
-    addThreadButton = """<button type="button" class="dropdown-item addThread">Add Thread</button>"""
-    removeThreadButton = """<button type="button" class="dropdown-item removeThread">Remove Thread</button>"""
+    addThreadButton = """<button type="button" class="dropdown-item addThread" disabled>Add Thread</button>"""
+    removeThreadButton = """<button type="button" class="dropdown-item removeThread" disabled>Remove Thread</button>"""
     queryBuilder = query(tableName)
     queryString = queryBuilder.selectAllFilter("blogName='test'")
     result = db.execute(False, queryString)
