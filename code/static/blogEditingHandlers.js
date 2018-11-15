@@ -64,6 +64,7 @@ var videoHtml = `<div class="draggable resizableAspect newVideo" style="width: 4
                    <source src="" type="video/mp4">
                    </video>
                    <iframe id="youtubeVideo" allowFullScreen='allowFullScreen' src="" style="width: 100%; height: 100%;"</iframe>
+                   </div>
                    ${reactHtml}
                  </div>`;
 var threadHtml = `<div class="newThread">
