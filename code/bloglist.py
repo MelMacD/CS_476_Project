@@ -8,13 +8,7 @@ from code.database import Database as database
 @app.route("/bloglist", methods=['GET', 'POST'])
 
 def bloglist():
-    if request.method == 'POST':
-       
-        db = database()
- 
-        queryBuilder = query("blog")
-        queryString = queryBuilder.selectAllFilter("blogName='test'")
-        db.execute(False, queryString)
+    if request.method == 'POST'
              return""
     else:
             return "error"
@@ -109,31 +103,5 @@ html {
   """
         
   
-def buildBloglistContent():
-    db = database()
-    content = ""
-    content += buildElement(db, "blog")
-    
 
- 
-def buildElement(db, tableName):
-    content = ""
-    queryBuilder = query(tableName)
-    queryString = queryBuilder.selectAllFilter("blogName='test'")
-    result = db.execute(False, queryString)
-    if result == []:
-        return ""
-    else:
-        for row in result:
-            if tableName == "blog":
-                currentElement = blog(row)
-                #if has thread, format with content, otherwise ""
-                if row[11] == 1:
-                    content += currentElement.buildHtml().format(thread=buildThread(db, row[1]))
-                else:
-                    content += currentElement.buildHtml().format(thread="")
-           
-            else:
-                content += "error"
-    return content
 
