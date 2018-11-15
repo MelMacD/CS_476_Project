@@ -4,7 +4,7 @@ let videoId = 0;
 
 var reactHtml = `<div class="reactBar" style="height: 38px; background-color: lightgray; position: absolute; width: 100%; bottom: 0px;">
                    <div class="dropdown">
-                     <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0; z-index: 1;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">React</button>
+                     <button class="btn btn-secondary dropdown-toggle react" style="position: absolute; top: 0; right: 0; z-index: 1;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">React</button>
                      <div class="dropdown-menu">
                        <div style="margin-left: 13px;">
                          <button class="reactLike" type="button"><i class="em em---1"></i></button>
@@ -369,6 +369,9 @@ $(document).ready(function() {
         $(".submitComment").each( function() {
             $(this).prop("disabled", true);
         });
+        $(".react").each( function() {
+            $(this).prop("disabled", true);
+        });
     });
     
     $("#disableEditing").click(function() {
@@ -385,6 +388,9 @@ $(document).ready(function() {
         $("div[contenteditable]").attr("contenteditable", "false");
         $(".edit").css("display", "none");
         $(".submitComment").each( function() {
+            $(this).prop("disabled", false);
+        });
+        $(".react").each( function() {
             $(this).prop("disabled", false);
         });
     });
