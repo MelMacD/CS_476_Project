@@ -6,7 +6,7 @@ var reactHtml = `<div class="reactBar" style="height: 50px; background-color: bl
                    <div class="dropdown">
                      <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0; z-index: 1;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">React</button>
                      <div class="dropdown-menu">
-                       <button class="dropdown-item" type="button"> </button>
+                       <button class="dropdown-item" type="button"><i class="em em---1"></i></button>
                      </div>
                    </div>
                  </div>`;
