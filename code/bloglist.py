@@ -97,5 +97,27 @@ def buildBloglistContent():
     db = database()
     content = ""
     content += buildElement(db, "blog")
+    
+
  
+def buildElement(db, tableName):
+    content = ""
+    queryBuilder = query(tableName)
+    queryString = queryBuilder.selectAllFilter("blogName='test'")
+    result = db.execute(False, queryString)
+    if result == []:
+        return ""
+    else:
+        for row in result:
+            if tableName == "blog":
+                currentElement = blog(row)
+                #if has thread, format with content, otherwise ""
+                if row[11] == 1:
+                    content += currentElement.buildHtml().format(thread=buildThread(db, row[1]))
+                else:
+                    content += currentElement.buildHtml().format(thread="")
+           
+            else:
+                content += "error"
+return content
 
