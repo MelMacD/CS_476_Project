@@ -30,3 +30,8 @@ p {
    width: 100%;
    background-color: lightgray;
 }
+
+.smallEmoji {
+    width: 15px;
+    height: 15px;
+}
