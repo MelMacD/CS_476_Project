@@ -48,6 +48,7 @@ var imageHtml = `<div class="draggable resizableAspect newImage" style="width: 3
                      </div>
                    </div>
                     <img src="/static/default.gif" style="width: 100%; height: 100%;">
+                   ${reactHtml}
                 </div>`;
 var videoHtml = `<div class="draggable resizableAspect newVideo" style="width: 420; height: 283; z-index: 0;">
                    <div class="dropdown edit">
@@ -63,7 +64,7 @@ var videoHtml = `<div class="draggable resizableAspect newVideo" style="width: 4
                    <source src="" type="video/mp4">
                    </video>
                    <iframe id="youtubeVideo" allowFullScreen='allowFullScreen' src="" style="width: 100%; height: 100%;"</iframe>
-             </div>
+                   ${reactHtml}
                  </div>`;
 var threadHtml = `<div class="newThread">
                     <div style="height: 200px; overflow-y: scroll; background-color: white;">
