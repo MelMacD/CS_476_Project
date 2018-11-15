@@ -692,6 +692,33 @@ $(document).ready(function() {
             }
         });
     });
+    $("body").on("click", ".reactLike", function() {
+        alert("Like");
+    });
+    $("body").on("click", ".reactDislike", function() {
+        alert("Dislike");
+    });
+    $("body").on("click", ".reactClap", function() {
+        alert("Clap");
+    });
+    $("body").on("click", ".reactHeart", function() {
+        alert("Heart");
+    });
+    $("body").on("click", ".reactSmile", function() {
+        alert("Smile");
+    });
+    $("body").on("click", ".reactCry", function() {
+        alert("Cry");
+    });
+    $("body").on("click", ".reactSilly", function() {
+        alert("Silly");
+    });
+    $("body").on("click", ".reactAngry", function() {
+        alert("Angry");
+    });
+    $("body").on("click", ".reactShock", function() {
+        alert("Shock");
+    });
 });
 
 function setupDraggableResizable() {
