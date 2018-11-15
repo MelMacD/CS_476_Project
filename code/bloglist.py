@@ -13,7 +13,7 @@ def bloglist():
          #querying the database and checking ""
         queryBuilder = query("blog")
         queryString = queryBuilder.selectAllFilter("blogName='test'")
-        db.execute(True, queryString)
+        db.execute(False, queryString)
         return ""
     else:
         return "error"
