@@ -76,6 +76,10 @@ def hello():
                 else:
                     return "error"
             elif "update" in value.get("action"):
+                if value.get("hasThread") == 0:
+                    queryBuilder = query("comments")
+                    queryString = queryBuilder.delete("blogName='test' AND attachedToId='{id}'".format(id=key))
+                    db.execute(True, queryString)
                 if "post" in key:
                     queryBuilder = query("posts")
                     queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, title='{title}', body='{body}', backgroundColor='{backgroundColor}', fontColor='{fontColor}', hasThread={hasThread}".format(
