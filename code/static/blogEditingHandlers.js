@@ -7,6 +7,14 @@ var reactHtml = `<div class="reactBar" style="height: 50px; background-color: bl
                      <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0; z-index: 1;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">React</button>
                      <div class="dropdown-menu">
                        <button class="dropdown-item" type="button"><i class="em em---1"></i></button>
+                       <button class="dropdown-item" type="button"><i class="em em--1"></i></button>
+                       <button class="dropdown-item" type="button"><i class="em em-clap"></i></button>
+                       <button class="dropdown-item" type="button"><i class="em em-heart"></i></button>
+                       <button class="dropdown-item" type="button"><i class="em em-smile"></i></button>
+                       <button class="dropdown-item" type="button"><i class="em em-sob"></i></button>
+                       <button class="dropdown-item" type="button"><i class="em em-stuck_out_tongue_winking_eye"></i>></button>
+                       <button class="dropdown-item" type="button"><i class="em em-angry"></i></button>
+                       <button class="dropdown-item" type="button"><i class="em em-scream"></i></button>
                      </div>
                    </div>
                  </div>`;
