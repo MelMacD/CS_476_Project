@@ -6,6 +6,7 @@ from code.post import Post as post
 from code.image import Image as image
 from code.video import Video as video
 from code.thread import Thread as thread
+from code.react import React as react
 
 blogColor = ""
 blogFont = ""
@@ -259,31 +260,31 @@ def buildElement(db, tableName):
                 if row[11] == 1:
                     content += currentElement.buildHtml().format(thread=buildThread(db, row[1]),
                                                                  addRemoveThread=removeThreadButton,
-                                                                 react="")
+                                                                 react=buildReactions(db, row[1]))
                 else:
                     content += currentElement.buildHtml().format(thread="",
                                                                  addRemoveThread=addThreadButton,
-                                                                 react="")
+                                                                 react=buildReactions(db, row[1]))
             elif tableName == "images":
                 currentElement = image(row)
                 if row[8] == 1:
                     content += currentElement.buildHtml().format(thread=buildThread(db, row[1]),
                                                                  addRemoveThread=removeThreadButton,
-                                                                 react="")
+                                                                 react=buildReactions(db, row[1]))
                 else:
                     content += currentElement.buildHtml().format(thread="",
                                                                  addRemoveThread=addThreadButton,
-                                                                 react="")
+                                                                 react=buildReactions(db, row[1]))
             elif tableName == "videos":
                 currentElement = video(row)
                 if row[8] == 1:
                     content += currentElement.buildHtml().format(thread=buildThread(db, row[1]),
                                                                  addRemoveThread=removeThreadButton,
-                                                                 react="")
+                                                                 react=buildReactions(db, row[1]))
                 else:
                     content += currentElement.buildHtml().format(thread="",
                                                                  addRemoveThread=addThreadButton,
-                                                                 react="")
+                                                                 react=buildReactions(db, row[1]))
             else:
                 content += "error"
         return content
@@ -293,4 +294,11 @@ def buildThread(db, key):
     queryString = queryBuilder.selectAllFilter("blogName='test' and attachedToId='{elementId}'".format(elementId=key))
     result = db.execute(False, queryString)
     obj = thread(result)
+    return obj.buildHtml()
+
+def buildReactions(db, key):
+    #queryBuilder = query("reactions")
+    #queryString = queryBuilder.selectAllFilter("blogName='test' and attachedToId='{elementId}'".format(elementId=key))
+    #result = db.execute(False, queryString)
+    obj = react("")#switch for result var later
     return obj.buildHtml()
