@@ -652,6 +652,7 @@ $(document).ready(function() {
             success: function(data) {
               alert("Comment upload successful");
               console.log(data);
+              location.reload();
             },
             error: function(xhr, ajaxOptions, thrownError) {
               alert("An error occurred. Could not upload comment.");
