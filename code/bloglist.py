@@ -81,10 +81,20 @@ html {
   <div class="row">
   <div class="column">
     <div class="card">
-  <img src="">  
-  
+ <tr>
+  <td>Username</td>
+  <td>Blog-Name</td>
+  <td>Image</td>
+  <td>Description</td>
+  </tr>
     
-    <p><button class="button">View</button></p>
+    {% for item in blog %}
+<tr>
+    <td>{{item[0]}}</td>
+    <td>{{item[1]}}</td>
+    ...
+</tr>
+{% endfor %}
     </div>
     </div>
         </div>
