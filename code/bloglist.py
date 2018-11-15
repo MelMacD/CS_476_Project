@@ -8,7 +8,7 @@ from code.database import Database as database
 @app.route("/bloglist", methods=['GET', 'POST'])
 
 def bloglist():
-    if request.method == 'POST'
+    if request.method == 'POST':
              return""
     else:
             return "error"
