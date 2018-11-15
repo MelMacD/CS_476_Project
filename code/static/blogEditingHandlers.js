@@ -398,16 +398,25 @@ $(document).ready(function() {
     $("#addText").click(function() {
         $("#blogBody").prepend(postHtml);
         setupDraggableResizable();
+        $(".react").each( function() {
+            $(this).prop("disabled", true);
+        });
     });
   
     $("#addImage").click(function() {
         $("#blogBody").prepend(imageHtml);
         setupDraggableResizable();
+        $(".react").each( function() {
+            $(this).prop("disabled", true);
+        });
     });
   
     $("#addVideo").click(function() {
         $("#blogBody").prepend(videoHtml);
         setupDraggableResizable();
+        $(".react").each( function() {
+            $(this).prop("disabled", true);
+        });
     });
   
     $("#changeBackground").on("change", function() {
@@ -664,6 +673,9 @@ $(document).ready(function() {
         $(this).removeClass("addThread");
         $(this).addClass("removeThread");
         $(this).text("Remove Thread");
+        $(".submitComment").each( function() {
+            $(this).prop("disabled", true);
+        });
     });
   
     $("body").on("click", ".removeThread", function() {
