@@ -9,13 +9,13 @@ from code.database import Database as database
 
 def bloglist():
     if request.method == 'POST':
-        requestData = request.get_json()
+       
         db = database()
  
         queryBuilder = query("blog")
         queryString = queryBuilder.selectAllFilter("blogName='test'")
         db.execute(False, queryString)
-             return str(requestData)
+             return""
     else:
             return "error"
  
