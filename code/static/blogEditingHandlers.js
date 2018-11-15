@@ -710,6 +710,8 @@ $(document).ready(function() {
             }
         });
     });
+    // Each of the following should trigger a post request to insert or modify the reaction
+    // Do insert first; then modify as an extra
     $("body").on("click", ".reactLike", function() {
         alert("Like");
     });
