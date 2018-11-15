@@ -24,10 +24,20 @@ def uploadComment():
     else:
         return "error"
 
-@app.route("/getComments")
+#won't use for now, unless have the time to
+@app.route("/getComments", methods=['GET', 'POST'])
 
 def getComments():
-    return "test"
+    if request.method == 'POST':
+        requestData = request.get_json()
+        db = database()
+        queryBuilder = query("comments")
+        queryString = queryBuilder.selectAllFilter("blogName='test' and attachedToId='{elementId}'".format(elementId=requestData.get("id")))
+        result = db.execute(False, queryString)
+        obj = thread(result)
+        return obj.buildComments(result)
+    else
+        return "error"
     
 @app.route("/blogView", methods=['GET', 'POST'])
 
