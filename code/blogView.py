@@ -235,6 +235,8 @@ def buildBlogContent():
 
 def buildElement(db, tableName):
     content = ""
+    addThreadButton = """<button type="button" class="dropdown-item addThread">Add Thread</button>"""
+    removeThreadButton = """<button type="button" class="dropdown-item removeThread">Remove Thread</button>"""
     queryBuilder = query(tableName)
     queryString = queryBuilder.selectAllFilter("blogName='test'")
     result = db.execute(False, queryString)
@@ -246,21 +248,27 @@ def buildElement(db, tableName):
                 currentElement = post(row)
                 #if has thread, format with content, otherwise ""
                 if row[11] == 1:
-                    content += currentElement.buildHtml().format(thread=buildThread(db, row[1]))
+                    content += currentElement.buildHtml().format(thread=buildThread(db, row[1]),
+                                                                 addRemoveThread=removeThreadButton)
                 else:
-                    content += currentElement.buildHtml().format(thread="")
+                    content += currentElement.buildHtml().format(thread="",
+                                                                 addRemoveThread=addThreadButton)
             elif tableName == "images":
                 currentElement = image(row)
                 if row[8] == 1:
-                    content += currentElement.buildHtml().format(thread=buildThread(db, row[1]))
+                    content += currentElement.buildHtml().format(thread=buildThread(db, row[1]),
+                                                                 addRemoveThread=removeThreadButton)
                 else:
-                    content += currentElement.buildHtml().format(thread="")
+                    content += currentElement.buildHtml().format(thread="",
+                                                                 addRemoveThread=addThreadButton)
             elif tableName == "videos":
                 currentElement = video(row)
                 if row[8] == 1:
-                    content += currentElement.buildHtml().format(thread=buildThread(db, row[1]))
+                    content += currentElement.buildHtml().format(thread=buildThread(db, row[1]),
+                                                                 addRemoveThread=removeThreadButton)
                 else:
-                    content += currentElement.buildHtml().format(thread="")
+                    content += currentElement.buildHtml().format(thread="",
+                                                                 addRemoveThread=addThreadButton)
             else:
                 content += "error"
         return content
