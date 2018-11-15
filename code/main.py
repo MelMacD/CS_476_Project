@@ -124,7 +124,7 @@ body {font-family: "Lato", sans-serif}
             <p><b>VIEW BLOG LIST</b></p>
             <p class="w3-opacity">WELCOME</p>
             <p>WRITE SOMETHING</p>
-<a href="bloglist.html" class="w3-button w3-black w3-margin-bottom">VIEW </a>
+<a href="bloglist.py" class="w3-button w3-black w3-margin-bottom">VIEW </a>
           </div>
         
         </div>
