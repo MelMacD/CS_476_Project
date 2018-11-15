@@ -6,6 +6,9 @@ class React:
     def buildHtml(self):
         return """
         <div class="reactBar" style="height: 38px; background-color: lightgray; position: absolute; width: 100%; bottom: 0px;">
+            <i class="em em---1"></i>
+            <i class="em em--1"></i>
+            <i class="em em-clap"></i>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle react" style="position: absolute; top: 0; right: 0; z-index: 1;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">React</button>
                 <div class="dropdown-menu">
