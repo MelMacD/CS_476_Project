@@ -101,6 +101,10 @@ def hello():
                 else:
                     return "error"
             elif "delete" in value.get("action"):
+                if value.get("hasThread") == 1:
+                    queryBuilder = query("comments")
+                    queryString = queryBuilder.delete("blogName='test' AND attachedToId='{id}'".format(id=key))
+                    db.execute(True, queryString)
                 if "post" in key:
                     queryBuilder = query("posts")
                     queryString = queryBuilder.delete("blogName='test' AND id='{id}'".format(id=key))
