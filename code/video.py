@@ -29,6 +29,7 @@ class Video:
         </div>
         </div>
     </iframe>
+    {{react}}
     {{thread}}
 </div>""".format(id=self.id, top=self.top, left=self.left, width=self.width, height=self.height, depth=self.depth,
                 src=self.video)
@@ -51,6 +52,7 @@ class Video:
         </div>
         </div>
     </iframe>
+    {{react}}
     {{thread}}
 </div>""".format(id=self.id, top=self.top, left=self.left, width=self.width, height=self.height, depth=self.depth,
                 src=self.video)
