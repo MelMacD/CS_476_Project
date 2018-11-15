@@ -258,26 +258,32 @@ def buildElement(db, tableName):
                 #if has thread, format with content, otherwise ""
                 if row[11] == 1:
                     content += currentElement.buildHtml().format(thread=buildThread(db, row[1]),
-                                                                 addRemoveThread=removeThreadButton)
+                                                                 addRemoveThread=removeThreadButton,
+                                                                 react="")
                 else:
                     content += currentElement.buildHtml().format(thread="",
-                                                                 addRemoveThread=addThreadButton)
+                                                                 addRemoveThread=addThreadButton,
+                                                                 react="")
             elif tableName == "images":
                 currentElement = image(row)
                 if row[8] == 1:
                     content += currentElement.buildHtml().format(thread=buildThread(db, row[1]),
-                                                                 addRemoveThread=removeThreadButton)
+                                                                 addRemoveThread=removeThreadButton,
+                                                                 react="")
                 else:
                     content += currentElement.buildHtml().format(thread="",
-                                                                 addRemoveThread=addThreadButton)
+                                                                 addRemoveThread=addThreadButton,
+                                                                 react="")
             elif tableName == "videos":
                 currentElement = video(row)
                 if row[8] == 1:
                     content += currentElement.buildHtml().format(thread=buildThread(db, row[1]),
-                                                                 addRemoveThread=removeThreadButton)
+                                                                 addRemoveThread=removeThreadButton,
+                                                                 react="")
                 else:
                     content += currentElement.buildHtml().format(thread="",
-                                                                 addRemoveThread=addThreadButton)
+                                                                 addRemoveThread=addThreadButton,
+                                                                 react="")
             else:
                 content += "error"
         return content
