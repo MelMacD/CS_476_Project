@@ -112,7 +112,7 @@ def login():
             #self.errorMessage = """
             #    <p style="color: red; font-size: 15px;">The email or password was incorrect</p>"""
             #loginHTML.setHTML()
-            return logHTML.getHTML()
+            return loginHTML.getHTML()
         else:
             redirectTo = redirect('/')
             resp = make_response(redirectTo)
