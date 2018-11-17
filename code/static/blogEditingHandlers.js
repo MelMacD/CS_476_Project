@@ -710,34 +710,57 @@ $(document).ready(function() {
             }
         });
     });
-    // Each of the following should trigger a post request to insert or modify the reaction
-    // Do insert first; then modify as an extra
+
+    function uploadReaction(element, emoji) {
+        let current = element.parent().parent().parent().parent().parent();
+        formData = {
+            attachedToId: current.attr("id"),
+            emote: emoji
+        };
+        $.ajax({
+            url: "/uploadReaction",
+            type: "post",
+            data: JSON.stringify(formData),
+            contentType: "application/json",
+            success: function(data) {
+              alert("Reaction successful");
+              console.log(data);
+              location.reload();
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+              alert("An error occurred. Could not react.");
+              console.log(xhr.status);
+              console.log(thrownError);
+            }
+        });
+    }
+  
     $("body").on("click", ".reactLike", function() {
-        alert("Like");
+        uploadReaction($(this), "em---1");
     });
     $("body").on("click", ".reactDislike", function() {
-        alert("Dislike");
+        uploadReaction($(this), "em--1");
     });
     $("body").on("click", ".reactClap", function() {
-        alert("Clap");
+        uploadReaction($(this), "em-clap");
     });
     $("body").on("click", ".reactHeart", function() {
-        alert("Heart");
+        uploadReaction($(this), "em-heart");
     });
     $("body").on("click", ".reactSmile", function() {
-        alert("Smile");
+        uploadReaction($(this), "em-smile");
     });
     $("body").on("click", ".reactCry", function() {
-        alert("Cry");
+        uploadReaction($(this), "em-sob");
     });
     $("body").on("click", ".reactSilly", function() {
-        alert("Silly");
+        uploadReaction($(this), "em-stuck_out_tongue_winking_eye");
     });
     $("body").on("click", ".reactAngry", function() {
-        alert("Angry");
+        uploadReaction($(this), "em-angry");
     });
     $("body").on("click", ".reactShock", function() {
-        alert("Shock");
+        uploadReaction($(this), "em-scream");
     });
 });
 
