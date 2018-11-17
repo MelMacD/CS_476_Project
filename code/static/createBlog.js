@@ -31,7 +31,18 @@ $(document).ready(function() {
         window.location.href = "https://expressyourself.azurewebsites.net/";
     });
     
-    $(".submitForm").on("click", function() {
-        alert("will try to submit");
+    $(".submitForm").on("click", function() {// prevent default, change to form on submit
+        $.ajax({
+            url: "/createBlog",
+            type: "post",
+            data: formData,
+            success: function() {
+                alert("Blog created.");
+                //window.location.href = "https://expressyourself.azurewebsites.net/";
+            },
+            error: function() {
+                alert("An error occurred. Could not create blog.");
+            }
+        });
     });
 });
