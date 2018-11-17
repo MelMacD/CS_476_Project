@@ -96,7 +96,7 @@ window.onload=document.getElementById("name").value= "";
     
 </html>
 
-"""#.format(errorMessage="none")#self.errorMessage)
+"""
 
 @app.route("/login", methods=['GET', 'POST'])
 
@@ -123,4 +123,4 @@ def login():
     else:
         loginHTML = Login()
         loginHTML.setHTML()
-        return loginHTML.getHTML()
+        return loginHTML.getHTML().format(errorMessage="string")
