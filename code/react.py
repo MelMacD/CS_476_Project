@@ -6,7 +6,7 @@ class React:
     def buildHtml(self):
         return """
         <div class="reactBar" style="height: 38px; background-color: lightgray; position: absolute; width: 100%; bottom: 0px;">
-            <div class="reactions" style="position: absolute; left: 0px; width: 65%; font-size: 12px;">
+            <div class="reactions" style="position: absolute; left: 0px; width: 69%; font-size: 12px;">
                 <i class="em em---1 smallEmoji" style="position: relative; margin-left: 14px;">
                     <p style="position: absolute; left: -14px;">0</p>
                 </i>
