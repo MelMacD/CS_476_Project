@@ -5,8 +5,8 @@ class React:
     #@override
     def buildHtml(self):
         return """
-        <div class="reactBar" style="height: 38px; background-color: lightgray; position: absolute; width: 80%; bottom: 0px;">
-            <div class="reactions">
+        <div class="reactBar" style="height: 38px; background-color: lightgray; position: absolute; width: 100%; bottom: 0px;">
+            <div class="reactions" style="position: absolute; left: 0px; width: 80%;">
                 <i class="em em---1 smallEmoji"></i>
                 <i class="em em--1 smallEmoji"></i>
                 <i class="em em-clap smallEmoji"></i>
@@ -17,11 +17,8 @@ class React:
                 <i class="em em-angry smallEmoji"></i>
                 <i class="em em-scream smallEmoji"></i>
             </div>
-            <div class="reactionsCount">
-                0 0 0 0 0 0 0 0 0
-            </div>
             <div class="dropdown" style="position: absolute; top: 0px; right: 0px;">
-                <button class="btn btn-secondary dropdown-toggle react" style="width: 100%; position: absolute; top: 0; right: 0; z-index: 1;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">React</button>
+                <button class="btn btn-secondary dropdown-toggle react" style="width: 20%; position: absolute; top: 0; right: 0; z-index: 1;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">React</button>
                 <div class="dropdown-menu">
                     <div style="margin-left: 13px;">
                         <button class="reactLike" type="button"><i class="em em---1"></i></button>
