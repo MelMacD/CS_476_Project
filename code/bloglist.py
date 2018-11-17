@@ -20,7 +20,7 @@ def bloglist():
  
   html = """ 
 
-  """
+
  
   <!DOCTYPE html>
 <html>
