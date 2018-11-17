@@ -27,7 +27,7 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="main" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
     <a href="login" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Login</a>
     <a href="signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign-up</a>
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contact</a>
