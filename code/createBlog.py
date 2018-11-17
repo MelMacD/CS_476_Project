@@ -110,13 +110,13 @@ button:hover {
             <label for="recipient-name" class="col-form-label">Enter URL:</label>
             <input type="text" class="form-control" id="imageUrl">
           </div>
-          <div class="form-group imageChange">
+          <div class="form-group imageChange" style="display: none;">
             <label for="message-text" class="col-form-label">Choose image:</label>
             <select id="imageBlobSelector" class="form-control">
               <option value="none">None</option>
             </select>
           </div>
-          <div class="form-group imageChange">
+          <div class="form-group imageChange" style="display: none;">
             <label for="message-text" class="col-form-label">Upload image to library:</label>
             <input type="file" name="imageFile" class="form-control" id="imageFile">
             </br>
