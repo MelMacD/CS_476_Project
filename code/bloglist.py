@@ -18,10 +18,7 @@ def bloglist():
     else:
         return "error"
  
-  html = """ 
-
-
- 
+  html = """
   <!DOCTYPE html>
 <html>
 <head>
@@ -100,6 +97,4 @@ html {
         </div>
   </body>
 </html>
-
-
 """
