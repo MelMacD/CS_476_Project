@@ -26,4 +26,8 @@ $(document).ready(function() {
         libraryUrl = 'https://expressiveblob.blob.core.windows.net/images/' + $(this).val()
         $("#imagePreview").attr("src", libraryUrl);
     });
+    
+    $(".cancelButton").on("click", function() {
+        window.location.href = "https://expressyourself.azurewebsites.net/";
+    });
 });
