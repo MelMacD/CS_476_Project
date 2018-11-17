@@ -32,8 +32,16 @@ def uploadReaction():
         requestData = request.get_json()
         db = database()
         queryBuilder = query("reactions")
-        queryString = queryBuilder.insertRow("'test', '{attachedToId}', 'test', '{emote}'".format(
-                attachedToId=requestData.get("attachedToId"), emote=requestData.get("emote")))
+        #need to check if user has reacted to that element before; if so, update instead of insert
+        queryString = queryBuilder.selectCountFilter("blogName='test' and attachedToId='{id}' and username='test'".format(
+                id=requestData.get("attachedToId")));
+        result = db.execute(False, queryString);
+        if result[0][0] == 0:
+            queryString = queryBuilder.insertRow("'test', '{attachedToId}', 'test', '{emote}'".format(
+                    attachedToId=requestData.get("attachedToId"), emote=requestData.get("emote")))
+        else:
+            queryString = queryBuilder.update("emote='{emote}'".format(emote=requestData.get("emote")),
+                                              "blogName='test' and attachedToId='{id}' and username='test'".format(id=requestData.get("attachedToId")))
         db.execute(True, queryString)
         return str(requestData)
     else:
