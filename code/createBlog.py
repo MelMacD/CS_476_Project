@@ -114,7 +114,7 @@ button:hover {
           </div>
           <div class="form-group urlChange">
             <label for="recipient-name" class="col-form-label">Enter URL:</label>
-            <input type="text" class="form-control" id="imageUrl">
+            <input type="text" class="form-control" id="imageUrl" placeholder="Link an image">
           </div>
           <div class="form-group imageChange" style="display: none;">
             <label for="message-text" class="col-form-label">Choose image:</label>
