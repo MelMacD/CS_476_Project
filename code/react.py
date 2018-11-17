@@ -6,7 +6,7 @@ class React:
     def buildHtml(self):
         return """
         <div class="reactBar" style="height: 38px; background-color: lightgray; position: absolute; width: 100%; bottom: 0px;">
-            <div class="reactions" style="position: absolute; left: 0px; width: 70%;">
+            <div class="reactions" style="position: absolute; left: 0px; width: 70%; font-size: 11px;">
                 <span>0<i class="em em---1 smallEmoji"></i></span>
                 0<i class="em em--1 smallEmoji"></i>
                 0<i class="em em-clap smallEmoji"></i>
@@ -15,7 +15,7 @@ class React:
                 0<i class="em em-sob smallEmoji"></i>
                 0<i class="em em-stuck_out_tongue_winking_eye smallEmoji"></i>
                 0<i class="em em-angry smallEmoji"></i>
-                0<i class="em em-scream smallEmoji"></i>
+                <span>0<i class="em em-scream smallEmoji"></i></span>
             </div>
             <div class="dropdown" style="position: absolute; top: 0px; right: 0px;">
                 <button class="btn btn-secondary dropdown-toggle react" style="position: absolute; top: 0; right: 0; z-index: 1;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">React</button>
