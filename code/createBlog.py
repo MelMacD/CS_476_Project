@@ -44,7 +44,7 @@ body {font-family: "Lato", sans-serif}
   border: none;
   background: #f1f1f1;
 }
-input[type=text]:focus, input[type=password]:focus, textarea {
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
   background-color: #ddd;
   outline: none;
 }
