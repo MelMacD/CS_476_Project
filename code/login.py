@@ -118,7 +118,7 @@ def login():
         else:
             redirectTo = redirect('/')
             resp = make_response(redirectTo)
-            resp.set_cookie('userId', result[0][0])
+            resp.set_cookie('userId', 'test')#result[0][0])
             return str(request.cookies.get('userId'))
             #return resp
     else:
