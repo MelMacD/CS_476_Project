@@ -6,7 +6,6 @@ from code.database import Database as database
 class Login:
     def __init__(self):
         self.html = "Log In"
-        #self.errorMessage = ""
         
     def getHTML(self):
         return self.html
@@ -66,7 +65,6 @@ button:hover {
     </div>
 
   <div class="container">
-  {errorMessage}
   <label><b>Email</b></label>
     <label id="email_msg" class="err_msg"></label>
     <input id="email" type="text" placeholder="Enter Email" size="30" name="email" required>
@@ -109,12 +107,11 @@ def login():
                 email=request.form.get("email"), password=request.form.get("pwd")))
         result = db.execute(False, queryString)
         if result == []:
-            #self.errorMessage = """
-            #    <p style="color: red; font-size: 15px;">The email or password was incorrect</p>"""
-            #loginHTML = Login()
-            #loginHTML.setHTML()
-            #return loginHTML.getHTML()
-            return "hm"
+            errorMessage = """
+                <p style="color: red; font-size: 15px;">The email or password was incorrect</p>"""
+            loginHTML = Login()
+            loginHTML.setHTML()
+            return errorMessage + loginHTML.getHTML()
         else:
             redirectTo = redirect('/')
             resp = make_response(redirectTo)
@@ -123,4 +120,4 @@ def login():
     else:
         loginHTML = Login()
         loginHTML.setHTML()
-        return loginHTML.getHTML().format(errorMessage="string")
+        return loginHTML.getHTML()
