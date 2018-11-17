@@ -27,9 +27,9 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="main.py" class="w3-bar-item w3-button w3-padding-large">Home</a>
-    <a href="login.py" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Login</a>
-    <a href="signup.py" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign-up</a>
+    <a href="main" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a href="login" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Login</a>
+    <a href="signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign-up</a>
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contact</a>
     
     </div>
@@ -39,8 +39,8 @@ body {font-family: "Lato", sans-serif}
 
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="login.py" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Login</a>
-  <a href="signup.py" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Sign-up</a>
+  <a href="login" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Login</a>
+  <a href="signup" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Sign-up</a>
   <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
 
 </div>
@@ -124,7 +124,7 @@ body {font-family: "Lato", sans-serif}
             <p><b>VIEW BLOG LIST</b></p>
             <p class="w3-opacity">WELCOME</p>
             <p>WRITE SOMETHING</p>
-<a href="bloglist.py" class="w3-button w3-black w3-margin-bottom">VIEW </a>
+<a href="bloglist" class="w3-button w3-black w3-margin-bottom">VIEW </a>
           </div>
         
         </div>
@@ -165,7 +165,7 @@ body {font-family: "Lato", sans-serif}
         
         <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right"  type="submit"  class="signup" name="Signup" value="Signup">Signup <i class="fa fa-check"></i></button>
         <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
-          <a class="dropdown-item" href="login.py">Already have an account? Sign in</a>
+          <a class="dropdown-item" href="login">Already have an account? Sign in</a>
         <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
       </div>
     </div>
