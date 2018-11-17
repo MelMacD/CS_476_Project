@@ -14,8 +14,8 @@ class React:
                 0<i class="em em-smile smallEmoji"></i>
                 0<i class="em em-sob smallEmoji"></i>
                 0<i class="em em-stuck_out_tongue_winking_eye smallEmoji"></i>
-                0<i class="em em-angry smallEmoji"></i>
-                <i class="em em-scream smallEmoji"><p>0</p></i>
+                <i class="em em-angry smallEmoji"></i>
+                <i class="em em-scream smallEmoji" style="position: absolute; margin-left: 14px;"><p style="position: absolute; left: -14px;">0</p></i>
             </div>
             <div class="dropdown" style="position: absolute; top: 0px; right: 0px;">
                 <button class="btn btn-secondary dropdown-toggle react" style="position: absolute; top: 0; right: 0; z-index: 1;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">React</button>
