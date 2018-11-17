@@ -41,7 +41,7 @@ class React:
             result = db.execute(False, queryString)
             if result != 0:
                 content += """
-                <i class="em em---1 smallEmoji" style="position: relative; margin-left: 14px;">
+                <i class="em {emote} smallEmoji" style="position: relative; margin-left: 14px;">
                     <p style="position: absolute; left: -14px;">{count}</p>
-                </i>""".format(count=result)
+                </i>""".format(count=result[0], emote=emote)
         return content
