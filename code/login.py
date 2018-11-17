@@ -109,9 +109,9 @@ def login():
                 email=request.form.get("email"), password=request.form.get("pwd")))
         result = db.execute(False, queryString)
         if result == []:
-            self.errorMessage = """
-                <p style="color: red; font-size: 15px;">The email or password was incorrect</p>"""
-            loginHTML.setHTML()
+            #self.errorMessage = """
+            #    <p style="color: red; font-size: 15px;">The email or password was incorrect</p>"""
+            #loginHTML.setHTML()
             return logHTML.getHTML()
         else:
             redirectTo = redirect('/')
