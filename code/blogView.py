@@ -18,8 +18,8 @@ def uploadComment():
         requestData = request.get_json()
         db = database()
         queryBuilder = query("comments")
-        queryString = queryBuilder.insertRow("'test', '{attachedToId}', 'test', '{comment}'".format(
-                attachedToId=requestData.get("attachedToId"), comment=requestData.get("comment")))
+        queryString = queryBuilder.insertRow("'test', '{attachedToId}', '{currentUser}', '{comment}'".format(
+                attachedToId=requestData.get("attachedToId"), currentUser=request.cookies.get('userId'), comment=requestData.get("comment")))
         db.execute(True, queryString)
         return str(requestData)
     else:
@@ -33,15 +33,15 @@ def uploadReaction():
         db = database()
         queryBuilder = query("reactions")
         #need to check if user has reacted to that element before; if so, update instead of insert
-        queryString = queryBuilder.selectCountFilter("blogName='test' and attachedToId='{id}' and username='test'".format(
-                id=requestData.get("attachedToId")));
+        queryString = queryBuilder.selectCountFilter("blogName='test' and attachedToId='{id}' and username='{currentUser}'".format(
+                id=requestData.get("attachedToId"), currentUser=request.cookies.get('userId')));
         result = db.execute(False, queryString);
         if result[0][0] == 0:
-            queryString = queryBuilder.insertRow("'test', '{attachedToId}', 'test', '{emote}'".format(
-                    attachedToId=requestData.get("attachedToId"), emote=requestData.get("emote")))
+            queryString = queryBuilder.insertRow("'test', '{attachedToId}', '{currentUser}', '{emote}'".format(
+                    attachedToId=requestData.get("attachedToId"), currentUser=request.cookies.get('userId'), emote=requestData.get("emote")))
         else:
             queryString = queryBuilder.update("emote='{emote}'".format(emote=requestData.get("emote")),
-                                              "blogName='test' and attachedToId='{id}' and username='test'".format(id=requestData.get("attachedToId")))
+                                              "blogName='test' and attachedToId='{id}' and username='{currentUser}'".format(id=requestData.get("attachedToId"), currentUser=request.cookies.get('userId')))
         db.execute(True, queryString)
         return str(requestData)
     else:
