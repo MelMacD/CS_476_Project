@@ -6,7 +6,7 @@ from code.database import Database as database
 class Login:
     def __init__(self):
         self.html = "Log In"
-        self.errorMessage = ""
+        #self.errorMessage = ""
         
     def getHTML(self):
         return self.html
@@ -111,9 +111,10 @@ def login():
         if result == []:
             #self.errorMessage = """
             #    <p style="color: red; font-size: 15px;">The email or password was incorrect</p>"""
-            loginHTML = Login()
+            #loginHTML = Login()
             #loginHTML.setHTML()
-            return loginHTML.getHTML()
+            #return loginHTML.getHTML()
+            return "hm"
         else:
             redirectTo = redirect('/')
             resp = make_response(redirectTo)
