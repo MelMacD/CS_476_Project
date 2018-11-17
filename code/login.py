@@ -1,5 +1,7 @@
 from code import app
 from flask import request
+from code.sql_query_builder import SQLQueryBuilder as query
+from code.database import Database as database
 
 class Login:
     def __init__(self):
@@ -104,7 +106,17 @@ window.onload=document.getElementById("name").value= "";
 
 def login():
     if request.method == 'POST':
-        return str(request.form.get("email") + " " + request.form.get("pwd"))
+        #need to select from users table, check if there's a match, then set the cookie, return to main
+        #if not successful, append error message to page
+        db = database()
+        queryBuilder = query("users")
+        queryString = queryBuilder.selectAllFilter("email='{email}' and pwd='{password}'".format(
+                email=request.form.get("email"), password=request.form.get("pwd")))
+        result = db.execute(False, queryString)
+        if result == []:
+            return "Email or password incorrect"
+        else:
+            return "Success"
     else:
         loginHTML = Login()
         loginHTML.setHTML()
