@@ -25,6 +25,20 @@ def uploadComment():
     else:
         return "error"
 
+@app.route("/uploadReaction", methods=['GET', 'POST'])
+
+def uploadReaction():
+    if request.method == 'POST':
+        requestData = request.get_json()
+        db = database()
+        queryBuilder = query("reactions")
+        queryString = queryBuilder.insertRow("'test', '{attachedToId}', 'test', '{emote}'".format(
+                attachedToId=requestData.get("attachedToId"), emote=requestData.get("emote")))
+        db.execute(True, queryString)
+        return str(requestData)
+    else:
+        return "error"
+    
 #won't use for now, unless have the time to
 @app.route("/getComments", methods=['GET', 'POST'])
 
