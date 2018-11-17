@@ -95,30 +95,52 @@ button:hover {
     <div class="w3-container">
  
             
-           <p>Please fill in this form to create an account.</p>
+           <p>Please fill in this form to create a blog.</p>
       <hr>
-          <label><b>Username</b></label>
+          <label><b>Blog Name</b></label>
     <label id="username_msg" class="err_msg"></label>
-     <input class="w3-input w3-border" id="username" type="text" placeholder="Enter Username" size="30" name="username">
+     <input class="w3-input w3-border" id="username" type="text" placeholder="Enter a unique name for your blog" size="30" name="username">
           
-      <label><b>Email</b></label>
-    <label id="email_msg" class="err_msg"></label>
-      <input class="w3-input w3-border" id="email" type="text" placeholder="Enter Email" size="30" name="email" required>
-      <label><b>Password</b></label>
+    <form id="uploadImage" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <label class="radio-inline">
+              <input type="radio" id="useUrl" name="optradio" checked> Get image from URL
+            </label>
+            <label class="radio-inline">
+              <input type="radio" id="useLibrary" name="optradio" value="library"> Get image from Library
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Enter URL:</label>
+            <input type="text" class="form-control" id="imageUrl">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Choose image:</label>
+            <select id="imageBlobSelector" class="form-control" disabled>
+              <option value="none">None</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Upload image to library:</label>
+            <input type="file" name="imageFile" class="form-control" id="imageFile" disabled>
+            </br>
+            <input id="submitImageUpload" type="submit" name="upload" value="Upload Image" disabled/>
+            <p id="loading" style="display:none;">Uploading...</p>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Preview:</label>
+            <div>
+              <img id="imagePreview" src="/static/default.gif">
+            </div>
+          </div>
+        </form>
+      <label><b>Description</b></label>
      <label id="pswd_msg" class="err_msg"></label>
-        
-      <input class="w3-input w3-border" type="password" placeholder="Enter Password" size="30" name="pwd" required>
-      <label><b>Re-enter Password</b></label>
-     <label id="reEnter_msg" class="err_msg"></label>
-        
-      <input class="w3-input w3-border" type="password" placeholder="Re-enter Password" size="30"   name="pwd2" required>
-    
+      <textarea class="w3-input w3-border" type="text" placeholder="Enter a brief description about the subject matter of your blog" size="120" name="pwd" required>
      <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit"  class="signup" name="Signup" value="Signup">Sign-up</button>
+      <button type="submit"  class="signup" name="Signup" value="submit">Submit</button>
         </div>
-          <a class="dropdown-item" href="login.py">Already have an account? Sign in</a>
-        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
       </div>
   
 </form>
