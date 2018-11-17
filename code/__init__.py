@@ -8,4 +8,4 @@ import code.blogView
 import code.main
 import code.blobStorage
 import code.bloglist
-import code.statistics.py
+import code.statistics
