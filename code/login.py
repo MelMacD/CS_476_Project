@@ -56,7 +56,7 @@ button:hover {
     </style>
     <body>
 
-<form id="LogIn" style="width:500px" method="post" enctype="multipart/form-data">
+<form id="LogIn" style="width:500px; margin-left: 35%;" method="post" enctype="multipart/form-data">
 
 <div class="imgcontainer">
       <img src="static/img_avatar2.png" alt="Avatar" class="avatar">
