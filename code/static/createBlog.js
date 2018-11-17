@@ -2,15 +2,11 @@
 $(document).ready(function() {
     $("#useUrl").on("change", function () {
         $("#imageUrl").css( "display", "block" );
-        $("#imageBlobSelector").prop( "display", "none" );
-        $("#imageFile").prop( "display", "none" );
-        $("#submitImageUpload").prop( "display", "none" );
+        $(".imageChange").css( "display", "none" );
     });
     $("#useLibrary").on("change", function () {
         $("#imageUrl").prop( "display", "none" );
-        $("#imageBlobSelector").prop( "display", "block" );
-        $("#imageFile").prop( "display", "block" );
-        $("#submitImageUpload").prop( "display", "block" );
+        $(".imageChange").css( "display", "block" );
     });
   
     $("#imageUrl").on("change", function() {
