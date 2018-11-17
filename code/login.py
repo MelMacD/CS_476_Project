@@ -108,7 +108,7 @@ def login():
         result = db.execute(False, queryString)
         if result == []:
             errorMessage = """
-                <p style="color: red; font-size: 15px;">The email or password was incorrect</p>"""
+                <p style="color: red; font-size: 15px; margin-left: 35%;">The email or password was incorrect</p>"""
             loginHTML = Login()
             loginHTML.setHTML()
             return errorMessage + loginHTML.getHTML()
