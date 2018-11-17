@@ -33,5 +33,5 @@ $(document).ready(function() {
     
     $(".submitForm").on("click", function() {
         alert("will try to submit");
-    };
+    });
 });
