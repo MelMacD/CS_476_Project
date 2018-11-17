@@ -1,11 +1,11 @@
 // TODO: Enforce validation on input fields
 $(document).ready(function() {
     $("#useUrl").on("change", function () {
-        $("#imageUrl").css( "display", "block" );
+        $(".urlChange").css( "display", "block" );
         $(".imageChange").css( "display", "none" );
     });
     $("#useLibrary").on("change", function () {
-        $("#imageUrl").prop( "display", "none" );
+        $(".urlChange").css( "display", "none" );
         $(".imageChange").css( "display", "block" );
     });
   
