@@ -43,5 +43,5 @@ class React:
                 content += """
                 <i class="em {emote} smallEmoji" style="position: relative; margin-left: 14px;">
                     <p style="position: absolute; left: -14px;">{count}</p>
-                </i>""".format(count=result[0], emote=emote)
+                </i>""".format(count=result.keys(), emote=emote)
         return content
