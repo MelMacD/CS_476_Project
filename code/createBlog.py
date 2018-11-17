@@ -111,15 +111,15 @@ button:hover {
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Choose image:</label>
-            <select id="imageBlobSelector" class="form-control" disabled>
+            <select id="imageBlobSelector" class="form-control" style="display: none;">
               <option value="none">None</option>
             </select>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Upload image to library:</label>
-            <input type="file" name="imageFile" class="form-control" id="imageFile" disabled>
+            <input type="file" name="imageFile" class="form-control" id="imageFile" style="display: none;">
             </br>
-            <input id="submitImageUpload" type="submit" name="upload" value="Upload Image" disabled/>
+            <input id="submitImageUpload" type="submit" name="upload" value="Upload Image" style="display: none;"/>
             <p id="loading" style="display:none;">Uploading...</p>
           </div>
           <div class="form-group">
