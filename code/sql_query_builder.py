@@ -10,6 +10,10 @@ class SQLQueryBuilder:
         return "SELECT * FROM {tableName} WHERE {condition}".format(tableName=self.table,
                                                                     condition=condition)
     
+    def selectCountFilter(self, condition):
+        return "SELECT COUNT(*) FROM {tableName} WHERE {condition}".format(tableName=self.table,
+                                                                    condition=condition)
+    
     def selectColumn(self, column):
         return "SELECT {column} FROM {tableName}".format(column=column, tableName=self.table)
     
