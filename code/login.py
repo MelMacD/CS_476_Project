@@ -111,6 +111,7 @@ def login():
         if result == []:
             #self.errorMessage = """
             #    <p style="color: red; font-size: 15px;">The email or password was incorrect</p>"""
+            loginHTML = Login()
             #loginHTML.setHTML()
             return loginHTML.getHTML()
         else:
