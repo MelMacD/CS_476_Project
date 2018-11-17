@@ -65,7 +65,7 @@ button:hover {
     </div>
 
   <div class="container">
-  
+  <p style="font: red; font-size: 15px;">The email or password was incorrect</p>
   <label><b>Email</b></label>
     <label id="email_msg" class="err_msg"></label>
     <input id="email" type="text" placeholder="Enter Email" size="30" name="email" required>
@@ -101,7 +101,6 @@ window.onload=document.getElementById("name").value= "";
 
 def login():
     if request.method == 'POST':
-        #need to select from users table, check if there's a match, then set the cookie, return to main
         #if not successful, append error message to page
         db = database()
         queryBuilder = query("users")
