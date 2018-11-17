@@ -83,18 +83,11 @@ button:hover {
     width: 100%;
   }
 }
-    
-    
 </style>
+
 <body>
 <form id="SignUp" style="width:500px" method="post" enctype="multipart/form-data">
- 
-    
-     
-    
     <div class="w3-container">
- 
-            
            <p>Please fill in this form to create a blog.</p>
       <hr>
           <label><b>Blog Name</b></label>
@@ -136,7 +129,7 @@ button:hover {
         </form>
       <label><b>Description</b></label>
      <label id="pswd_msg" class="err_msg"></label>
-      <textarea class="w3-input w3-border" type="text" placeholder="Enter a brief description about the subject matter of your blog" size="120" name="pwd"</textarea>
+      <textarea class="form-control" type="text" placeholder="Enter a brief description about the subject matter of your blog" size="120" name="pwd"</textarea>
      <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
       <button type="submit"  class="signup" name="Signup" value="submit">Submit</button>
