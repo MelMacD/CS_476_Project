@@ -138,7 +138,7 @@ button:hover {
         </form>
       <label><b>Description</b></label>
      <div class="form-group">
-         <textarea class="form-control" style="height: 200px;" id="description" placeholder="Enter the subject matter of your blog"></textarea>
+         <textarea style="height: 200px;" id="description" placeholder="Enter the subject matter of your blog"></textarea>
      </div>
      <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
