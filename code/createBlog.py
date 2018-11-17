@@ -94,7 +94,7 @@ button:hover {
       <hr>
           <label><b>Blog Name</b></label>
     <label id="username_msg" class="err_msg"></label>
-     <input class="w3-input w3-border" id="username" type="text" placeholder="Enter a unique name for your blog" size="30" name="username">
+     <input id="username" type="text" placeholder="Enter a unique name for your blog" size="30" name="username">
     <label><b>Identifying Picture</b></label> 
     <form id="uploadImage" method="post" enctype="multipart/form-data">
           <div class="form-group">
@@ -131,7 +131,7 @@ button:hover {
         </form>
       <label><b>Description</b></label>
      <div class="form-group">
-         <textarea class="form-control" style="height: 200px;" id="description"></textarea>
+         <textarea class="form-control" style="height: 200px;" id="description" placeholder="Enter the subject matter of your blog"></textarea>
      </div>
      <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
