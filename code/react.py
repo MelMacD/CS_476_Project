@@ -1,39 +1,13 @@
 class React:
-    def __init__(self, values):
-        self.reactions = self.buildReactions(values)
+    def __init__(self, db, queryBuilder, attachedToId):
+        self.reactions = self.buildReactions(db, queryBuilder, attachedToId)
     
     #@override
     def buildHtml(self):
         return """
         <div class="reactBar" style="height: 38px; background-color: lightgray; position: absolute; width: 100%; bottom: 0px;">
             <div class="reactions" style="position: absolute; left: 0px; width: 69%; font-size: 12px;">
-                <i class="em em---1 smallEmoji" style="position: relative; margin-left: 14px;">
-                    <p style="position: absolute; left: -14px;">0</p>
-                </i>
-                <i class="em em--1 smallEmoji" style="position: relative; margin-left: 14px;">
-                    <p style="position: absolute; left: -14px;">0</p>
-                </i>
-                <i class="em em-clap smallEmoji" style="position: relative; margin-left: 14px;">
-                    <p style="position: absolute; left: -14px;">0</p>
-                </i>
-                <i class="em em-heart smallEmoji" style="position: relative; margin-left: 14px;">
-                    <p style="position: absolute; left: -14px;">0</p>
-                </i>
-                <i class="em em-smile smallEmoji" style="position: relative; margin-left: 14px;">
-                    <p style="position: absolute; left: -14px;">0</p>
-                </i>
-                <i class="em em-sob smallEmoji" style="position: relative; margin-left: 14px;">
-                    <p style="position: absolute; left: -14px;">0</p>
-               </i>
-                <i class="em em-stuck_out_tongue_winking_eye smallEmoji" style="position: relative; margin-left: 14px;">
-                    <p style="position: absolute; left: -14px;">0</p>
-                </i>
-                <i class="em em-angry smallEmoji" style="position: relative; margin-left: 14px;">
-                    <p style="position: absolute; left: -14px;">0</p>
-                </i>
-                <i class="em em-scream smallEmoji" style="position: relative; margin-left: 14px;">
-                    <p style="position: absolute; left: -14px;">0</p>
-                </i>
+                {reactions}
             </div>
             <div class="dropdown" style="position: absolute; top: 0px; right: 0px;">
                 <button class="btn btn-secondary dropdown-toggle react" style="position: absolute; top: 0; right: 0; z-index: 1;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">React</button>
@@ -56,7 +30,18 @@ class React:
                 </div>
             </div>
         </div>
-"""
+""".format(reactions=self.reactions)
 
-    def buildReactions(self, values):
-        return ""
+    def buildReactions(self, db, queryBuilder, attachedToId):
+        emotes = ['em---1', 'em--1', 'em-clap', 'em-heart', 'em-smile', 'em-sob', 'em-stuck_out_tongue_winking_eye', 'em-angry', 'em-scream']
+        content = ""
+        # get count for each type of reaction, only build emoji if count is not 0
+        for emote in emotes:
+            queryString = queryBuilder.selectCountFilter("blogName='test' and attachedToId='{id}' and emote='{emote}'".format(id=attachedToId, emote=emote))
+            result = db.execute(False, queryString)
+            if result != 0:
+                content += """
+                <i class="em em---1 smallEmoji" style="position: relative; margin-left: 14px;">
+                    <p style="position: absolute; left: -14px;">{count}</p>
+                </i>""".format(count=result)
+        return content
