@@ -36,7 +36,7 @@ body {font-family: "Lato", sans-serif}
      {box-sizing: border-box
 }
     /* Full-width input fields */
-  input[type=text], input[type=password] {
+  input[type=text], input[type=password], textarea {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -44,7 +44,7 @@ body {font-family: "Lato", sans-serif}
   border: none;
   background: #f1f1f1;
 }
-input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus, input[type=password]:focus, textarea {
   background-color: #ddd;
   outline: none;
 }
