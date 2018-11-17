@@ -96,7 +96,7 @@ window.onload=document.getElementById("name").value= "";
     
 </html>
 
-""".format(errorMessage="none")#self.errorMessage)
+"""#.format(errorMessage="none")#self.errorMessage)
 
 @app.route("/login", methods=['GET', 'POST'])
 
