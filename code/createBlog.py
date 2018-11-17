@@ -130,8 +130,9 @@ button:hover {
           </div>
         </form>
       <label><b>Description</b></label>
-     <label id="pswd_msg" class="err_msg"></label>
-      <textarea class="form-control" type="text" placeholder="Enter a brief description about the subject matter of your blog" size="120" name="pwd"</textarea>
+     <div class="form-group">
+         <textarea class="form-control" id="description"></textarea>
+     </div>
      <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
       <button type="submit"  class="signup" name="Signup" value="submit">Submit</button>
