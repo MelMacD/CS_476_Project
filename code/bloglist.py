@@ -8,7 +8,7 @@ from code.database import Database as database
 @app.route("/bloglist", methods=['GET', 'POST'])
 
 def bloglist():
-    if request.method == 'POST':
+    if request.method == 'GET':
         db = database()
          #querying the database and checking ""
         queryBuilder = query("blog")
