@@ -84,11 +84,6 @@ button:hover {
     <a class="dropdown-item" href="/signup">Don't have an account? Sign up</a>
     </br>
   </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-   
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
   </form>
   
 <script>
