@@ -14,7 +14,7 @@ def bloglist():
         queryBuilder = query("blog")
         queryString = queryBuilder.selectAllFilter("blogName='test'")
         db.execute(False, queryString)
-        return ""
+        return "html"
     
  
 html = """
