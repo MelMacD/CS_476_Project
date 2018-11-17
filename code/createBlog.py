@@ -112,7 +112,7 @@ button:hover {
               <input type="radio" id="useLibrary" name="optradio" value="library"> Get image from Library
             </label>
           </div>
-          <div class="form-group">
+          <div class="form-group urlChange">
             <label for="recipient-name" class="col-form-label">Enter URL:</label>
             <input type="text" class="form-control" id="imageUrl">
           </div>
