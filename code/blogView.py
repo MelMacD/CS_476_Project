@@ -136,13 +136,25 @@ def hello():
                     queryBuilder = query("posts")
                     queryString = queryBuilder.delete("blogName='test' AND id='{id}'".format(id=key))
                     db.execute(True, queryString)
+                    #delete all comments for a deleted element
+                    queryBuilder = query("reactions")
+                    queryString = queryBuilder.delete("blogName='test' AND attachedToId='{id}'".format(id=key))
+                    db.execute(True, queryString)
                 elif "image" in key:
                     queryBuilder = query("images")
                     queryString = queryBuilder.delete("blogName='test' AND id='{id}'".format(id=key))
                     db.execute(True, queryString)
+                    #delete all comments for a deleted element
+                    queryBuilder = query("reactions")
+                    queryString = queryBuilder.delete("blogName='test' AND attachedToId='{id}'".format(id=key))
+                    db.execute(True, queryString)
                 elif "video" in key:
                     queryBuilder = query("videos")
                     queryString = queryBuilder.delete("blogName='test' AND id='{id}'".format(id=key))
+                    db.execute(True, queryString)
+                    #delete all comments for a deleted element
+                    queryBuilder = query("reactions")
+                    queryString = queryBuilder.delete("blogName='test' AND attachedToId='{id}'".format(id=key))
                     db.execute(True, queryString)
                 else:
                     return "error"
@@ -263,6 +275,7 @@ def buildBlogContent():
     content += buildElement(db, "posts")
     content += buildElement(db, "images")
     content += buildElement(db, "videos")
+    db.disconnect()
     return content
 
 def buildElement(db, tableName):
