@@ -297,8 +297,6 @@ def buildThread(db, key):
     return obj.buildHtml()
 
 def buildReactions(db, key):
-    #queryBuilder = query("reactions")
-    #queryString = queryBuilder.selectAllFilter("blogName='test' and attachedToId='{elementId}'".format(elementId=key))
-    #result = db.execute(False, queryString)
-    obj = react("")#switch for result var later
+    queryBuilder = query("reactions")
+    obj = react(db, queryBuilder, key)
     return obj.buildHtml()
