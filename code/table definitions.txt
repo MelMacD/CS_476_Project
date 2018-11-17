@@ -68,3 +68,11 @@ username varchar(15) not null,
 comment varchar(300) not null,
 foreign key (blogName) references blog(blogName)
 );
+
+create table reactions (
+blogName varchar(20) not null,
+attachedToId varchar(10) not null,
+username varchar(15) not null,
+emote varchar(30) not null,
+foreign key (blogName) references blog(blogName)
+);
