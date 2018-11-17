@@ -39,7 +39,7 @@ class React:
         for emote in emotes:
             queryString = queryBuilder.selectCountFilter("blogName='test' and attachedToId='{id}' and emote='{emote}'".format(id=attachedToId, emote=emote))
             result = db.execute(False, queryString)
-            if result != 0:
+            if result[0][0] != 0:
                 content += """
                 <i class="em {emote} smallEmoji" style="position: relative; margin-left: 14px;">
                     <p style="position: absolute; left: -14px;">{count}</p>
