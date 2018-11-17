@@ -116,7 +116,11 @@ def login():
         if result == []:
             return "Email or password incorrect"
         else:
-            return "Success"
+            redirectTo = redirect('/')
+            resp = make_response(redirectTo)
+            resp.set_cookie('userId', result[0][0])
+            return str(request.cookies.get('userId'))
+            #return resp
     else:
         loginHTML = Login()
         loginHTML.setHTML()
