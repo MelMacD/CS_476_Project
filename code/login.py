@@ -64,7 +64,6 @@ button:hover {
     <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
     <a href="login" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Login</a>
     <a href="signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign-up</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contact</a>
     
     </div>
     <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
@@ -75,7 +74,6 @@ button:hover {
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
   <a href="login" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Login</a>
   <a href="signup" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Sign-up</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
 
 </div>
 
