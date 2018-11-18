@@ -155,7 +155,7 @@ button:hover {
 
 def createBlog():
     if request.method == 'POST':
-        return "error"
+        return str(requestData)
     else:
         form = CreateBlog()
         return form.getHtml()
