@@ -129,7 +129,6 @@ button:hover {
         </div>
 
           <a class="dropdown-item" href="login.py">Already have an account? Sign in</a>
-        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
       </div>
   
 </form>
