@@ -98,11 +98,8 @@ button:hover {
 
 <body>
 
-<form id="SignUp" style="width:500px" method="post" enctype="multipart/form-data">
- 
-    
-     
-    
+<form id="SignUp" style="width:700px; margin-left: 450px;" method="post" enctype="multipart/form-data">
+    <h3 style="text-align: center;">Sign Up and Start Creating Today!</h3>
     <div class="w3-container">
  
             
