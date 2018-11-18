@@ -99,11 +99,6 @@ button:hover {
     </br>
   </div>
   </form>
-  
-<script>
-document.getElementById("LogIn").addEventListener("submit", LogInForm, false);
-window.onload=document.getElementById("name").value= "";
-</script>
     
     </body>
     
