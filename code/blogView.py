@@ -261,36 +261,6 @@ def hello():
 <footer class="footer">
   <div class="container">
     <button type="button" id="enableEditing" class="btn btn-default">Enable Edit Mode</button>
-    <div class="dropup edit">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Toolbar</button>
-      <div class="dropdown-menu" style="min-width: 30rem;">
-        <form class="px-4 py-3">
-          <div class="form-group">
-            <button type="button" id="addText" class="btn btn-default">Add Post</button>
-            <button type="button" id="addImage" class="btn btn-default">Add Image</button>
-            <button type="button" id="addVideo" class="btn btn-default">Add Video</button>
-            </br>
-            </br>
-            <label for="changeBackground">Page Background Colour: </label>
-              <input type="color" class="form-control" id="changeBackground" value="#000000">
-            </br>
-            <label for="changeFont">Page Font: </label>
-            <select id="changeFont" class="form-control">
-              <option style="font-family: Arial;" value="arial">Arial</option>
-              <option style="font-family: Times;" value="times">Times New Roman</option>
-              <option style="font-family: Courier New;" value="courier new">Courier New</option>
-              <option style="font-family: Verdana;" value="verdana">Verdana</option>
-              <option style="font-family: Georgia;" value="georgia">Georgia</option>
-              <option style="font-family: Garamond;" value="garamond">Garamond</option>
-              <option style="font-family: Comic Sans MS;" value="comic sans ms">Comic Sans MS</option>
-              <option style="font-family: Trebuchet MS;" value="trebuchet ms">Trebuchet MS</option>
-              <option style="font-family: Arial Black;" value="arial black">Arial Black</option>
-              <option style="font-family: Impact;" value="impact">Impact</option>
-            </select>
-          </div>
-        </form>
-      </div>
-      </div>
     <button type="button" style="display:none;" id="disableEditing" class="btn btn-default">Exit Edit Mode</button>
     <button type="button" style="display:inline;" id="save" class="btn btn-success">Save Changes</button>
   </div>
