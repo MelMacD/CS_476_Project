@@ -95,7 +95,7 @@ button:hover {
 </style>
 
 <body>
-<form id="SignUp" style="width:500px" method="post" enctype="multipart/form-data">
+<form id="create" style="width:500px" method="post" enctype="multipart/form-data">
     <div class="w3-container">
            <p>Please fill in this form to create a blog.</p>
       <hr>
