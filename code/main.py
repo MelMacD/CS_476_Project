@@ -30,10 +30,8 @@ body {font-family: "Lato", sans-serif}
     <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
     <a href="login" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Login</a>
     <a href="signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign-up</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contact</a>
     
     </div>
-    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
   </div>
 </div>
 
@@ -41,7 +39,6 @@ body {font-family: "Lato", sans-serif}
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
   <a href="login" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Login</a>
   <a href="signup" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Sign-up</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
 
 </div>
 
@@ -170,36 +167,6 @@ body {font-family: "Lato", sans-serif}
       </div>
     </div>
   </div>
-
-    
-
-          
-  <!-- The Contact Section -->
-  <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
-    <h2 class="w3-wide w3-center">CONTACT</h2>
-    <p class="w3-opacity w3-center"><i> Drop a note!</i></p>
-    <div class="w3-row w3-padding-32">
-      <div class="w3-col m6 w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker" style="width:30px"></i> Regina, Canada<br>
-        <i class="fa fa-phone" style="width:30px"></i> Phone: +3605551792<br>
-        <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
-      </div>
-      <div class="w3-col m6">
-        <form action="/action_page.php" target="_blank">
-          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-            <div class="w3-half">
-              <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-            </div>
-            <div class="w3-half">
-              <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
-            </div>
-          </div>
-          <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-          <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
-        </form>
-      </div>
-    </div>
-  </div>
   
 <!-- End Page Content -->
 </div>
@@ -213,7 +180,7 @@ body {font-family: "Lato", sans-serif}
   <i class="fa fa-twitter w3-hover-opacity"></i>
   <i class="fa fa-linkedin w3-hover-opacity"></i>
   <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-    <p> Created by MEl & IYANU</p>
+    <p> Created by MEL & IYANU</p>
 </footer>
 
 <script>
