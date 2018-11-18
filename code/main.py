@@ -27,8 +27,8 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
-    <a href="login" class="w3-bar-item w3-button w3-padding-large w3-hide-small login">Login</a>
-    <a href="signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small signup">Sign-up</a>
+    <a href="login" class="w3-bar-item w3-button w3-padding-large login">Login</a>
+    <a href="signup" class="w3-bar-item w3-button w3-padding-large signup">Sign-up</a>
   </div>
 </div>
 
