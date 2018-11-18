@@ -44,6 +44,7 @@ $(document).ready(function() {
             url: "/createBlog",
             type: "post",
             data: formData,
+            contentType: "application/json",
             success: function(data) {
                 console.log(data);
                 alert("Blog created.");
