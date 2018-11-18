@@ -1,4 +1,5 @@
 // TODO: Enforce validation on input fields
+// TODO: Get upload image working
 $(document).ready(function() {
     $("#useUrl").on("change", function () {
         $(".urlChange").css( "display", "block" );
@@ -31,15 +32,21 @@ $(document).ready(function() {
         window.location.href = "https://expressyourself.azurewebsites.net/";
     });
     
-    $("#create").submit(function(e) {// prevent default, change to form on submit
+    $("#create").submit(function(e) {
         e.preventDefault();
+        formData = {
+            blogName: $("#username").val(),
+            imageSource: $("#imagePreview").attr("src"),
+            description: $("#description").val()
+        }
         $.ajax({
             url: "/createBlog",
             type: "post",
-            data: "",
-            success: function() {
+            data: formData,
+            success: function(data) {
+                console.log(data);
                 alert("Blog created.");
-                //window.location.href = "https://expressyourself.azurewebsites.net/";
+                window.location.href = "https://expressyourself.azurewebsites.net/";
             },
             error: function() {
                 alert("An error occurred. Could not create blog.");
