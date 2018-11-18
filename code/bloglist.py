@@ -64,6 +64,10 @@ html {
   <div class="row">
   <div class="column">
     <div class="card">
+    <img src=>
+    <div class ="container">
+  <h2> </h2> 
+  
  <tr>
   <td>Username</td>
   <td>Blog-Name</td>
