@@ -31,11 +31,12 @@ $(document).ready(function() {
         window.location.href = "https://expressyourself.azurewebsites.net/";
     });
     
-    $(".submitForm").on("click", function() {// prevent default, change to form on submit
+    $("#create").submit(function(e) {// prevent default, change to form on submit
+        e.preventDefault();
         $.ajax({
             url: "/createBlog",
             type: "post",
-            data: formData,
+            data: "",
             success: function() {
                 alert("Blog created.");
                 //window.location.href = "https://expressyourself.azurewebsites.net/";
