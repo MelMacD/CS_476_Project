@@ -43,15 +43,17 @@ $(document).ready(function() {
         $.ajax({
             url: "/createBlog",
             type: "post",
-            data: formData,
+            data: JSON.stringify(formData),
             contentType: "application/json",
             success: function(data) {
                 console.log(data);
                 alert("Blog created.");
                 //window.location.href = "https://expressyourself.azurewebsites.net/";
             },
-            error: function() {
+            error: function(xhr, ajaxOptions, thrownError) {
                 alert("An error occurred. Could not create blog.");
+                console.log(xhr.status);
+                console.log(thrownError);
             }
         });
     });
