@@ -48,7 +48,7 @@ $(document).ready(function() {
             success: function(data) {
                 console.log(data);
                 alert("Blog created.");
-                //window.location.href = "https://expressyourself.azurewebsites.net/";
+                window.location.href = "https://expressyourself.azurewebsites.net/";
             },
             error: function(xhr, ajaxOptions, thrownError) {
                 alert("An error occurred. Could not create blog.");
