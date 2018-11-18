@@ -38,7 +38,8 @@ $(document).ready(function() {
             blogName: $("#username").val(),
             imageSource: $("#imagePreview").attr("src"),
             description: $("#description").val()
-        }
+        };
+        console.log(formData);
         $.ajax({
             url: "/createBlog",
             type: "post",
@@ -46,7 +47,7 @@ $(document).ready(function() {
             success: function(data) {
                 console.log(data);
                 alert("Blog created.");
-                window.location.href = "https://expressyourself.azurewebsites.net/";
+                //window.location.href = "https://expressyourself.azurewebsites.net/";
             },
             error: function() {
                 alert("An error occurred. Could not create blog.");
