@@ -183,6 +183,20 @@ def hello():
 <link rel="stylesheet" href="static/blogEditingStyle.css" />
 </head>
 <body style="background-color: {backgroundColor};">
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+            <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
+            <a href="login" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Login</a>
+            <a href="signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign-up</a>
+        </div>
+        <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+        <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+            <a href="login" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Login</a>
+            <a href="signup" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Sign-up</a>
+        </div>
+    </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="dropdown edit">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Toolbar</button>
