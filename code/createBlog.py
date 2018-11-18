@@ -160,9 +160,9 @@ def createBlog():
         requestData = request.get_json()
         db = database()
         queryBuilder = query("blog")
-        #queryString = queryBuilder.insertRow("'{username}', '{blogName}', '{imageSource}', '{description}', 'rgb(255, 255, 255)', 'arial'".format(
-        #        username=request.cookies.get('userId'), blogName=requestData.get("blogName"), imageSource=requestData.get("imageSource"), description=requestData.get("description")))
-        #db.execute(True, queryString)
+        queryString = queryBuilder.insertRow("'{username}', '{blogName}', '{imageSource}', '{description}', 'rgb(255, 255, 255)', 'arial'".format(
+                username=request.cookies.get('userId'), blogName=requestData.get("blogName"), imageSource=requestData.get("imageSource"), description=requestData.get("description")))
+        db.execute(True, queryString)
         db.disconnect()
         return str(requestData)
     else:
