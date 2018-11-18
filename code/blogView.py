@@ -193,8 +193,37 @@ def hello():
             <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
             <a href="login" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Login</a>
             <a href="signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign-up</a>
-          
         </div>
+        <div class="dropdown edit">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Toolbar</button>
+      <div class="dropdown-menu" style="min-width: 30rem;">
+        <form class="px-4 py-3">
+          <div class="form-group">
+            <button type="button" id="addText" class="btn btn-default">Add Post</button>
+            <button type="button" id="addImage" class="btn btn-default">Add Image</button>
+            <button type="button" id="addVideo" class="btn btn-default">Add Video</button>
+            </br>
+            </br>
+            <label for="changeBackground">Page Background Colour: </label>
+              <input type="color" class="form-control" id="changeBackground" value="#000000">
+            </br>
+            <label for="changeFont">Page Font: </label>
+            <select id="changeFont" class="form-control">
+              <option style="font-family: Arial;" value="arial">Arial</option>
+              <option style="font-family: Times;" value="times">Times New Roman</option>
+              <option style="font-family: Courier New;" value="courier new">Courier New</option>
+              <option style="font-family: Verdana;" value="verdana">Verdana</option>
+              <option style="font-family: Georgia;" value="georgia">Georgia</option>
+              <option style="font-family: Garamond;" value="garamond">Garamond</option>
+              <option style="font-family: Comic Sans MS;" value="comic sans ms">Comic Sans MS</option>
+              <option style="font-family: Trebuchet MS;" value="trebuchet ms">Trebuchet MS</option>
+              <option style="font-family: Arial Black;" value="arial black">Arial Black</option>
+              <option style="font-family: Impact;" value="impact">Impact</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      </div>
         <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
         <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
             <a href="login" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Login</a>
