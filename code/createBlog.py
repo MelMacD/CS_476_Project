@@ -98,7 +98,7 @@ button:hover {
 
 <body>
 <form id="create" style="width:700px; margin-left: 450px;" method="post" enctype="multipart/form-data">
-    <h3>Create Your Own Blog!</h3>
+    <h3 style="text-align: center;">Create Your Own Blog!</h3>
     <div class="w3-container">
            <p>Please fill in this form to create a blog.</p>
       <hr>
