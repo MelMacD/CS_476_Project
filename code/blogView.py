@@ -171,6 +171,9 @@ def hello():
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
 <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -190,16 +193,8 @@ def hello():
             <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
             <a href="login" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Login</a>
             <a href="signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign-up</a>
-        </div>
-        <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
-        <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-            <a href="login" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Login</a>
-            <a href="signup" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Sign-up</a>
-        </div>
-    </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="dropdown edit">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Toolbar</button>
+            <div class="dropdown edit">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Toolbar</button>
       <div class="dropdown-menu" style="min-width: 30rem;">
         <form class="px-4 py-3">
           <div class="form-group">
@@ -228,7 +223,13 @@ def hello():
         </form>
       </div>
       </div>
-    </nav>
+        </div>
+        <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+        <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+            <a href="login" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Login</a>
+            <a href="signup" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Sign-up</a>
+        </div>
+    </div>
     <div id="blogBody" style="font-family: {font};">
       {blogContent}
     </div>
