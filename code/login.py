@@ -72,6 +72,7 @@ button:hover {
   <a href="signup" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Sign-up</a>
 
 </div>
+</div>
 
 <form id="LogIn" style="width:500px; margin-left: 35%;" method="post" enctype="multipart/form-data">
 
