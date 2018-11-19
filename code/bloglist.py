@@ -95,9 +95,6 @@ html {
 def bloglist():
     if request.method == 'GET':
         db = database()
-         #querying the database and checking ""
-        queryBuilder = query("blog")
-        queryString = queryBuilder.selectAllFilter("blogName='test'")
-        db.execute(False, queryString)
+         blog= blog.query.all()
         return html
     
