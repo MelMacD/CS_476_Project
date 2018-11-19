@@ -98,6 +98,6 @@ def bloglist():
         db = database()
         queryBuilder = query("blog")
         queryString = queryBuilder.selectAllFilter("blogName='test'")
-        result = db.execute(False, queryString)
+        result = []
         return html
     
