@@ -2,29 +2,33 @@
  
  class Factory(metaclass=abc.ABCMeta):
      def __init__(self):
-         self.html = self.appendReaction
-         #db values?
+         self.html = ""
      
      @abc.abstractmethod
      def buildHtml(self):
          pass
      
      @abc.abstractmethod
-     def setId(self):
+     def setId(self, row):
          pass
      
      @abc.abstractmethod
-     def setLocation(self):
+     def setTop(self, row):
          pass
      
      @abc.abstractmethod
-     def setSize(self):
+     def setLeft(self, row):
          pass
+      
+     @abc.abstractmethod
+     def setWidth(self, row):
+         pass 
      
-     def buildReaction(self):
+     @abc.abstractmethod
+     def setHeight(self, row):
          pass
-         #this might actually be implemented here
-     
-     def appendReaction(self):
-         return self.buildHtml() + self.buildReaction()
-     
+
+     @abc.abstractmethod
+     def setDepth(self, row):
+         pass
+      
