@@ -99,5 +99,5 @@ def bloglist():
         queryBuilder = query("blog")
         queryString = queryBuilder.selectAllFilter("blogName='test'")
         result = db.execute(False, queryString)
-        return result
+        return html
     
