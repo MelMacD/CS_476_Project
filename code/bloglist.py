@@ -94,7 +94,10 @@ html {
 
 def bloglist():
     if request.method == 'GET':
+        requestData = request.get_json()
         db = database()
-         blog= blog.query.all()
-        return html
+        queryBuilder = query("comments")
+        queryString = queryBuilder.selectAllFilter("blogName='test' and attachedToId='{elementId}'".format(elementId=requestData.get("id")))
+        result = db.execute(False, queryString)
+        return result
     
