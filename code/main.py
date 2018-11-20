@@ -91,8 +91,8 @@ body {font-family: "Lato", sans-serif}
         <div class="w3-third w3-margin-bottom">
           <img src="static/picture4.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
           <div class="w3-container w3-white">
-            <p id="blogEditOrCreate"><b>CREATE BLOG</b></p>
-            <button id="buttonEditOrCreate" class="w3-button w3-black w3-margin-bottom">Get Started</button>
+            <p><b>CREATE BLOG</b></p>
+            <button id="createBlog" class="w3-button w3-black w3-margin-bottom">Get Started</button>
           </div>
         </div>
         <div class="w3-third w3-margin-bottom">
