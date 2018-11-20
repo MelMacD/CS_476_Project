@@ -156,8 +156,8 @@ def hello():
         db.disconnect()
         return str(requestData)
     else:
-        blogUrlName = request.args.get("blogName", "error")
         buildBlogSpecs()
+        blogUrlName = request.args.get("blogName", "error")
         return """
 <head>
 <title>{blogName}</title>
@@ -274,6 +274,7 @@ def buildBlogSpecs():
     queryBuilder = query("blog")
     queryString = queryBuilder.selectAllFilter("blogName='{blogName}'".format(blogName=blogUrlName))
     result = db.execute(False, queryString)
+    db.disconnect()
     if result == []:
         blogColor = "rgb(255, 255, 255)"
         blogFont = "arial"
@@ -300,6 +301,7 @@ def buildElement(db, tableName):
     queryString = queryBuilder.selectAllFilter("blogName='{blogName}'".format(blogName=blogUrlName))
     result = db.execute(False, queryString)
     if result == []:
+        db.disconnect()
         return ""
     else:
         for row in result:
@@ -336,6 +338,7 @@ def buildElement(db, tableName):
                                                                  react=buildReactions(db, row[1]))
             else:
                 content += "error"
+        db.disconnect()
         return content
 
 def buildThread(db, key):
