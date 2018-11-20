@@ -57,7 +57,7 @@ class BlogList:
             results += self.createElement(row)
         return """
 <ul class="list-group" style="width: 800px; margin: auto;">
-    
+    <input type="text" id="search" placeholder="Search by blog name">
     {blogs}
 </ul>
 """.format(blogs=results)
