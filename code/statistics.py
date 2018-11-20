@@ -69,7 +69,7 @@ class Statistics:
     <h1>Number of Users Commented: {numCommenters}</h1>
     <h1>Number of Reactions: {numReactions}</h1>
 </div>
-""".format(blogName=[0][1], owner=[0][0], numComments="", numCommenters="", numReactions="")
+""".format(blogName="", owner="", numComments="", numCommenters="", numReactions="")
         
     def generateTable(self):
         tableRows = ""
