@@ -17,4 +17,8 @@ $(document).ready(function() {
         document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         location.reload();
     });
+    
+    $("#createBlog").on("click", function() {
+        window.location = "https://expressyourself.azurewebsites.net/createBlog";
+    });
 });
