@@ -76,8 +76,8 @@ class Statistics:
     <td id="{id}">{blogName}</td>
     <td>{owner}</td>
     <td>{numComments}</td>
-    <td>{numCommenters}</td>
-    <td>{numReactions}</td>
+    <td class="commenters">{numCommenters}</td>
+    <td class="reactions">{numReactions}</td>
     <td class="ranking"></td>
 </tr>""".format(id=row[1], blogName=row[1], owner=row[0], numComments=numComments[0][0],
                 numCommenters=distinctNumComments[0][0], numReactions=numReactions[0][0])
