@@ -45,22 +45,19 @@ body {font-family: "Lato", sans-serif}
   <div class="mySlides w3-display-container w3-center">
     <img src="static/picture1.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Create the Website You want</h3>
-      <p><b>Write Something</b></p>   
+      <h3>Create your own Personal Space</h3>
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
     <img src="static/picture2.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Express Yourself in Your Own Blog</h3>
-      <p><b>Write Something</b></p>    
+      <h3>Express Yourself in Your Own Blog</h3>  
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
     <img src="static/picture3.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>View professional Website and Blog</h3>
-      <p><b>Write something</b></p>    
+      <h3>View Content Created by Others</h3>  
     </div>
   </div>
 
@@ -68,7 +65,7 @@ body {font-family: "Lato", sans-serif}
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
     <h2 class="w3-wide">Express Yourself </h2>
     <p class="w3-opacity"><i>We love the freedom of you expressing your thought in own way</i></p>
-    <p class="w3-justify">We have created an easy way of creating your blog. We believe that anything is possible the right website or blog builder. Whether you are cbegginner at creating your website or a pro, we have got you covered. </p>
+    <p class="w3-justify">We have created an easy way of creating your blog. We believe that anything is possible the right blog builder. Whether you are a begginner at creating your website or a pro, we have got you covered. </p>
     <div class="w3-row w3-padding-32">
       <div class="w3-third">
         <p>Freedom of Thought</p>
@@ -79,7 +76,7 @@ body {font-family: "Lato", sans-serif}
         <img src="static/holiday.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
       </div>
       <div class="w3-third">
-        <p>Own Your Website</p>
+        <p>Own Your Webpage</p>
         <img src="static/travel.jpg" class="w3-round" alt="Random Name" style="width:60%">
       </div>
     </div>
@@ -89,19 +86,8 @@ body {font-family: "Lato", sans-serif}
   <div class="w3-black" id="tour">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
       <h2 class="w3-wide w3-center">CREATE YOUR OWN BLOG</h2>
-      <p class="w3-opacity w3-center"><i>WRITE SOMETHING</i></p><br>
-
 
       <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-        <div class="w3-third w3-margin-bottom">
-          <img src="static/art.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b>PROFFESIONAL WEBSITE</b></p>
-            <p class="w3-opacity">BEGINNING</p>
-            <p>WRITE SOMETHING</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Get Started</button>
-          </div>
-        </div>
         <div class="w3-third w3-margin-bottom">
           <img src="static/picture4.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
           <div class="w3-container w3-white">
