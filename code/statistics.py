@@ -44,7 +44,7 @@ class Statistics:
         </div>
     </div>
     <div id="blogList" style="margin-top: 50px;">
-        <h3 style="text-align: center;">Statistics for Blog {blogName}</h3>
+        <h3 style="text-align: center;">Statistics for Blog "{blogName}"</h3>
         {info}
         <h3 style="text-align: center; margin-top: 50px;">Global Statistics</h3>
         {table}
