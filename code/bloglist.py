@@ -5,6 +5,7 @@ from code.database import Database as database
 
 class BlogList:
     def __init__(self):
+        self.blogContent = self.displayBlogs()
         self.html = self.buildContent()
       
     #abstract, inherited
@@ -43,14 +44,16 @@ class BlogList:
         {blogsListed}
     </div>
 </div>
-</body>"""
+</body>""".format(blogsListed=self.blogContent)
     
     def displayBlogs(self):
+        results = ""
         db = database()
         queryBuilder = query("blog")
         queryString = queryBuilder.selectAll()
         for row in result:
-            return str(row)
+            results += str(row)
+        return results
     
     def createElement(self):
         return
