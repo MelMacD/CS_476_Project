@@ -5,12 +5,14 @@ from code.database import Database as database
 
 class Statistics:
     def __init__(self):
+        self.blogName = ""
         self.info = self.displayCurrentInfo()
         self.table = self.generateTable()
         self.html = self.buildContent()
         
     #abstract, inherited
     def buildContent(self):
+        self.blogName = request.args.get("blogName", "error")
         return """
 <head>
 <title>Statistics</title>
@@ -50,7 +52,7 @@ class Statistics:
         {table}
     </div>
 </div>
-</body>""".format(blogName="test", info=self.info, table=self.table)
+</body>""".format(blogName=self.blogName, info=self.info, table=self.table)
 
     def displayCurrentInfo(self):
         db = database()
