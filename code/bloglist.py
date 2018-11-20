@@ -62,7 +62,7 @@ class BlogList:
     
     def createElement(self, row):
         return """
-<li class="list-group-item">
+<li class="list-group-item list-group-item-action">
     <img src="{image}" style="height: 150px; width: 150px;">
     <h1 style="position: absolute; left: 175px; top: 0px; width: 600px;">{blogName}</h1>
     <p style="position: absolute; left: 175px; top: 70px; width: 600px; height: 100px;"">
