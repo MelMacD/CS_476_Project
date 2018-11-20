@@ -1,6 +1,6 @@
 class React:
-    def __init__(self, db, queryBuilder, attachedToId):
-        self.reactions = self.buildReactions(db, queryBuilder, attachedToId)
+    def __init__(self, db, queryBuilder, blogName, attachedToId):
+        self.reactions = self.buildReactions(db, queryBuilder, blogName, attachedToId)
     
     #@override
     def buildHtml(self):
@@ -32,12 +32,12 @@ class React:
         </div>
 """.format(reactions=self.reactions)
 
-    def buildReactions(self, db, queryBuilder, attachedToId):
+    def buildReactions(self, db, queryBuilder, blogName, attachedToId):
         emotes = ['em---1', 'em--1', 'em-clap', 'em-heart', 'em-smile', 'em-sob', 'em-stuck_out_tongue_winking_eye', 'em-angry', 'em-scream']
         content = ""
         # get count for each type of reaction, only build emoji if count is not 0
         for emote in emotes:
-            queryString = queryBuilder.selectCountFilter("blogName='test' and attachedToId='{id}' and emote='{emote}'".format(id=attachedToId, emote=emote))
+            queryString = queryBuilder.selectCountFilter("blogName='{blogName}' and attachedToId='{id}' and emote='{emote}'".format(blogName=blogUrlName, id=attachedToId, emote=emote))
             result = db.execute(False, queryString)
             if result[0][0] != 0:
                 content += """
