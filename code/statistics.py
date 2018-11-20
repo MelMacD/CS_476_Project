@@ -57,11 +57,20 @@ class Statistics:
         queryBuilder = query("blog")
         queryString = queryBuilder.selectAllFilter("blogName='test'")
         result = db.execute(False, queryString)
-        db.disconnect()
         if result == []:
+            db.disconnect()
             return "error"
         else:
             for row in result:
+                queryBuilder = query("comments")
+                queryString = queryBuilder.selectCountFilter("blogName='{blog}'".format(blog="test"))
+                numComments = db.execute(False, queryString)
+                queryString = queryBuilder.selectCountDistinctFilter("username", "blogName='{blog}'".format(blog="test"))
+                distinctNumComments = db.execute(False, queryString)
+                queryBuilder = query("reactions")
+                queryString = queryBuilder.selectCountFilter("blogName='{blog}'".format(blog="test"))
+                numReactions = db.execute(False, queryString)
+                db.disconnect()
                 return """
 <div id="currentBlog" style="font-weight:bold; margin-left: 30px;">
     </br>
@@ -71,7 +80,8 @@ class Statistics:
     <label>Number of Users Commented: {numCommenters}</label></br>
     <label>Number of Reactions: {numReactions}</label></br>
 </div>
-""".format(blogName=row[1], owner=row[0], numComments="", numCommenters="", numReactions="")
+""".format(blogName=row[1], owner=row[0], numComments=numComments[0][0],
+           numCommenters=distinctNumComments[0][0], numReactions=numReactions[0][0])
         
     def generateTable(self):
         tableRows = ""
