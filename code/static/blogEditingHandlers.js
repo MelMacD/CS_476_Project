@@ -323,6 +323,7 @@ function rgbToHex(rgb) {
 
 $(document).ready(function() {
     $(".edit").css("display", "none");
+    $("#save").css("display", "none");
   
     postId = getNewElementId( $(".post") );
     imageId = getNewElementId( $(".image") );
@@ -357,6 +358,7 @@ $(document).ready(function() {
   
     $("#enableEditing").click(function () {
         $(".edit").css("display", "block");
+        $("#save").css("display", "inline");
         $("#enableEditing").css("display", "none");
         $("#disableEditing").css("display", "inline");
         $("#addText").css("display", "inline");
@@ -387,6 +389,7 @@ $(document).ready(function() {
         $( ".resizableAspect").resizable({ disabled: true });
         $("div[contenteditable]").attr("contenteditable", "false");
         $(".edit").css("display", "none");
+        $("#save").css("display", "none");
         $(".submitComment").each( function() {
             $(this).prop("disabled", false);
         });
