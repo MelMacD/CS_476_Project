@@ -268,7 +268,7 @@ def hello():
     <button type="button" style="display:inline;" id="save" class="btn btn-success">Save Changes</button>
   </div>
 </footer
-</body>""".format(blogName=blogUrlName(),
+</body>""".format(blogName=blogUrlName,
                   blogContent=buildBlogContent(),
                   backgroundColor=blogColor,
                   font=blogFont)
