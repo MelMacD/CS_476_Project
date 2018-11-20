@@ -72,7 +72,7 @@ class Statistics:
             queryString = queryBuilder.selectCountFilter("blogName='{blog}'".format(blog=row[1]))
             numReactions = db.execute(False, queryString)
             tableRows += """
-<tr>
+<tr class="dataRow">
     <td id="{id}">{blogName}</td>
     <td>{owner}</td>
     <td>{numComments}</td>
