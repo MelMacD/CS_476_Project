@@ -67,26 +67,26 @@ def hello():
                 queryBuilder = query("blog")
                 queryString = queryBuilder.update("backgroundColor='{color}', font='{font}'".format(
                     color=value.get("backgroundColor"), font=value.get("font")),
-                                                  "blogName='test'")
+                                                  "blogName='{blogName}'".format(blogName=blogUrlName))
                 db.execute(True, queryString)
             elif "insert" in value.get("action"):
                 if "post" in key:
                     queryBuilder = query("posts")
-                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{title}', '{body}', '{backgroundColor}', '{fontColor}', {hasThread}".format(
-                                    id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                    queryString = queryBuilder.insertRow("'{blogName}', '{id}', {top}, {left}, {width}, {height}, {depth}, '{title}', '{body}', '{backgroundColor}', '{fontColor}', {hasThread}".format(
+                                    blogName=blogUrlName, id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
                                     height=value.get("height"), depth=value.get("depth"), title=value.get("title"),
                                     body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor"), hasThread=value.get("hasThread")))
                     db.execute(True, queryString)
                 elif "image" in key:
                     queryBuilder = query("images")
-                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}', {hasThread}".format(
-                                    id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                    queryString = queryBuilder.insertRow("'{blogName}', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}', {hasThread}".format(
+                                    blogName=blogUrlName, id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
                                     height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")))
                     db.execute(True, queryString)
                 elif "video" in key:
                     queryBuilder = query("videos")
-                    queryString = queryBuilder.insertRow("'test', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}', {hasThread}".format(
-                                    id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                    queryString = queryBuilder.insertRow("'{blogName}', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}', {hasThread}".format(
+                                    blogName=blogUrlName, id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
                                     height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")))
                     db.execute(True, queryString)
                 else:
@@ -94,7 +94,7 @@ def hello():
             elif "update" in value.get("action"):
                 if value.get("hasThread") == 0:
                     queryBuilder = query("comments")
-                    queryString = queryBuilder.delete("blogName='test' AND attachedToId='{id}'".format(id=key))
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND attachedToId='{id}'".format(blogName=blogUrlName, id=key))
                     db.execute(True, queryString)
                 if "post" in key:
                     queryBuilder = query("posts")
@@ -102,52 +102,52 @@ def hello():
                                     top=value.get("top"), left=value.get("left"), width=value.get("width"),
                                     height=value.get("height"), depth=value.get("depth"), title=value.get("title"),
                                     body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor"), hasThread=value.get("hasThread")),
-                                                     "blogName='test' AND id='{id}'".format(id=key))
+                                                     "blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
                     db.execute(True, queryString)
                 elif "image" in key:
                     queryBuilder = query("images")
                     queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, imageSource='{source}', hasThread={hasThread}".format(
                                     top=value.get("top"), left=value.get("left"), width=value.get("width"),
                                     height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")),
-                                                     "blogName='test' AND id='{id}'".format(id=key))
+                                                     "blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
                     db.execute(True, queryString)
                 elif "video" in key:
                     queryBuilder = query("videos")
                     queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, videoSource='{source}', hasThread={hasThread}".format(
                                     top=value.get("top"), left=value.get("left"), width=value.get("width"),
                                     height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")),
-                                                     "blogName='test' AND id='{id}'".format(id=key))
+                                                     "blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
                     db.execute(True, queryString)
                 else:
                     return "error"
             elif "delete" in value.get("action"):
                 if value.get("hasThread") == 1:
                     queryBuilder = query("comments")
-                    queryString = queryBuilder.delete("blogName='test' AND attachedToId='{id}'".format(id=key))
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND attachedToId='{id}'".format(blogName=blogUrlName, id=key))
                     db.execute(True, queryString)
                 if "post" in key:
                     queryBuilder = query("posts")
-                    queryString = queryBuilder.delete("blogName='test' AND id='{id}'".format(id=key))
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
                     db.execute(True, queryString)
                     #delete all comments for a deleted element
                     queryBuilder = query("reactions")
-                    queryString = queryBuilder.delete("blogName='test' AND attachedToId='{id}'".format(id=key))
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND attachedToId='{id}'".format(blogName=blogUrlName, id=key))
                     db.execute(True, queryString)
                 elif "image" in key:
                     queryBuilder = query("images")
-                    queryString = queryBuilder.delete("blogName='test' AND id='{id}'".format(id=key))
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
                     db.execute(True, queryString)
                     #delete all comments for a deleted element
                     queryBuilder = query("reactions")
-                    queryString = queryBuilder.delete("blogName='test' AND attachedToId='{id}'".format(id=key))
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND attachedToId='{id}'".format(blogName=blogUrlName, id=key))
                     db.execute(True, queryString)
                 elif "video" in key:
                     queryBuilder = query("videos")
-                    queryString = queryBuilder.delete("blogName='test' AND id='{id}'".format(id=key))
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
                     db.execute(True, queryString)
                     #delete all comments for a deleted element
                     queryBuilder = query("reactions")
-                    queryString = queryBuilder.delete("blogName='test' AND attachedToId='{id}'".format(id=key))
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND attachedToId='{id}'".format(blogName=blogUrlName, id=key))
                     db.execute(True, queryString)
                 else:
                     return "error"
