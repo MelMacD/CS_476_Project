@@ -55,8 +55,6 @@ class Statistics:
         
     def generateTable(self):
         db = database()
-        queryBuilder = query("threads")
-        queryBuilder = query("reactions")
         return """
 <table id="statsTable" class="display" style="width:100%">
     <thead>
