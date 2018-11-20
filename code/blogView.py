@@ -36,15 +36,15 @@ def uploadReaction():
         db = database()
         queryBuilder = query("reactions")
         #need to check if user has reacted to that element before; if so, update instead of insert
-        queryString = queryBuilder.selectCountFilter("blogName='test' and attachedToId='{id}' and username='{currentUser}'".format(
-                id=requestData.get("attachedToId"), currentUser=request.cookies.get('userId')));
+        queryString = queryBuilder.selectCountFilter("blogName='{blogName}' and attachedToId='{id}' and username='{currentUser}'".format(
+                blogName=blogUrlName, id=requestData.get("attachedToId"), currentUser=request.cookies.get('userId')));
         result = db.execute(False, queryString);
         if result[0][0] == 0:
-            queryString = queryBuilder.insertRow("'test', '{attachedToId}', '{currentUser}', '{emote}'".format(
-                    attachedToId=requestData.get("attachedToId"), currentUser=request.cookies.get('userId'), emote=requestData.get("emote")))
+            queryString = queryBuilder.insertRow("'{blogName}', '{attachedToId}', '{currentUser}', '{emote}'".format(
+                    blogName=blogUrlName, attachedToId=requestData.get("attachedToId"), currentUser=request.cookies.get('userId'), emote=requestData.get("emote")))
         else:
             queryString = queryBuilder.update("emote='{emote}'".format(emote=requestData.get("emote")),
-                                              "blogName='test' and attachedToId='{id}' and username='{currentUser}'".format(id=requestData.get("attachedToId"), currentUser=request.cookies.get('userId')))
+                                              "blogName='{blogName}' and attachedToId='{id}' and username='{currentUser}'".format(blogName=blogUrlName, id=requestData.get("attachedToId"), currentUser=request.cookies.get('userId')))
         db.execute(True, queryString)
         return str(requestData)
     else:
