@@ -37,7 +37,7 @@ class React:
         content = ""
         # get count for each type of reaction, only build emoji if count is not 0
         for emote in emotes:
-            queryString = queryBuilder.selectCountFilter("blogName='{blogName}' and attachedToId='{id}' and emote='{emote}'".format(blogName=blogUrlName, id=attachedToId, emote=emote))
+            queryString = queryBuilder.selectCountFilter("blogName='{blogName}' and attachedToId='{id}' and emote='{emote}'".format(blogName=blogName, id=attachedToId, emote=emote))
             result = db.execute(False, queryString)
             if result[0][0] != 0:
                 content += """
