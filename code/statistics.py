@@ -72,7 +72,7 @@ class Statistics:
     <td>{blogName}</td>
     <td>{owner}</td>
     <td>{numComments}</td>
-    <td>(numCommenters)</td>
+    <td>{numCommenters}</td>
     <td>Number of Reactions</td>
     <td class="ranking"></td>
 </tr>""".format(blogName=row[1], owner=row[0], numComments=numComments[0][0],
