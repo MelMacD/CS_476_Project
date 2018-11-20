@@ -53,7 +53,23 @@ class Statistics:
 </body>""".format(blogName="test", info=self.info, table=self.table)
 
     def displayCurrentInfo(self):
-        return ""
+        db = database()
+        queryBuilder = query("blog")
+        queryString = queryBuilder.selectAllFilter("blogName='test'")
+        result = db.execute(False, queryString)
+        db.disconnect()
+        if result = []:
+            return "error"
+        else:
+            return """
+<div id="currentBlog">
+    <h1>Blog Name: {blogName}</h1>
+    <h1>Owner: {owner}</h1>
+    <h1>Number of Comments: {numComments}</h1>
+    <h1>Number of Users Commented: {numCommenters}</h1>
+    <h1>Number of Reactions: {numReactions}</h1>
+</div>
+""".format(blogName=[0][1], owner=[0][0], numComments="", numCommenters="", numReactions="")
         
     def generateTable(self):
         tableRows = ""
