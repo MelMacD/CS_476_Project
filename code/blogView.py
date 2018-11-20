@@ -26,6 +26,7 @@ def uploadComment():
         db.disconnect()
         return str(requestData)
     else:
+        db.disconnect()
         return "error"
 
 @app.route("/uploadReaction", methods=['GET', 'POST'])
@@ -50,6 +51,7 @@ def uploadReaction():
         db.disconnect()
         return str(requestData)
     else:
+        db.disconnect()
         return "error"
     
 @app.route("/blogView", methods=['GET', 'POST'])
