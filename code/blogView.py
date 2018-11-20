@@ -270,7 +270,7 @@ def buildBlogSpecs():
     global blogFont
     db = database()
     queryBuilder = query("blog")
-    queryString = queryBuilder.selectAllFilter("blogName='test'")
+    queryString = queryBuilder.selectAllFilter("blogName='{blogName}'".format(blogName=blogUrlName))
     result = db.execute(False, queryString)
     if result == []:
         blogColor = "rgb(255, 255, 255)"
@@ -295,7 +295,7 @@ def buildElement(db, tableName):
     addThreadButton = """<button type="button" class="dropdown-item addThread">Add Thread</button>"""
     removeThreadButton = """<button type="button" class="dropdown-item removeThread">Remove Thread</button>"""
     queryBuilder = query(tableName)
-    queryString = queryBuilder.selectAllFilter("blogName='test'")
+    queryString = queryBuilder.selectAllFilter("blogName='{blogName}'".format(blogName=blogUrlName))
     result = db.execute(False, queryString)
     if result == []:
         return ""
@@ -339,12 +339,13 @@ def buildElement(db, tableName):
 def buildThread(db, key):
     global blogUrlName
     queryBuilder = query("comments")
-    queryString = queryBuilder.selectAllFilter("blogName='test' and attachedToId='{elementId}'".format(elementId=key))
+    queryString = queryBuilder.selectAllFilter("blogName='{blogName}' and attachedToId='{elementId}'".format(blogName=blogUrlName, elementId=key))
     result = db.execute(False, queryString)
     obj = thread(result)
     return obj.buildHtml()
 
 def buildReactions(db, key):
+    global blogUrlName
     queryBuilder = query("reactions")
-    obj = react(db, queryBuilder, key)
+    obj = react(db, queryBuilder, blogUrlName, key)
     return obj.buildHtml()
