@@ -6,7 +6,17 @@ $(document).ready(function() {
         //values[1] is the user id
         $(".login").css("display", "none");
         $(".signup").css("display", "none");
+        $(".logout").css("display", "block");
     }
+    else {
+        $(".login").css("display", "block");
+        $(".signup").css("display", "block");
+        $(".logout").css("display", "none");
+    }
+    
+    $(".logout").on("click", function() {
+        alert("logout");
+    });
     // read cookie
     // if hit logout, remove cookie
 });
