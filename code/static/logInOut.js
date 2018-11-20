@@ -15,5 +15,6 @@ $(document).ready(function() {
     
     $(".logout").on("click", function() {
         document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        location.reload();
     });
 });
