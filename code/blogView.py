@@ -257,7 +257,7 @@ def hello():
     <button type="button" id="enableEditing" class="btn btn-default">Enable Edit Mode</button>
     <button type="button" style="display:none;" id="disableEditing" class="btn btn-default">Exit Edit Mode</button>
     <a href="https://expressyourself.azurewebsites.net/statistics?blogName={blog}" id="seeStatistics" class="btn btn-default" role="button">Statistics</a>
-    <button type="button" style="display:inline;" id="save" class="btn btn-success edit">Save Changes</button>
+    <button type="button" style="display:inline;" id="save" class="btn btn-success">Save Changes</button>
   </div>
 </footer
 </body>""".format(blogName=blogUrlName,
