@@ -10,6 +10,7 @@ from code.react import React as react
 
 blogColor = ""
 blogFont = ""
+blogUrlName = ""
 
 @app.route("/uploadComment", methods=['GET', 'POST'])
 
@@ -21,7 +22,7 @@ def uploadComment():
         queryString = queryBuilder.insertRow("'test', '{attachedToId}', '{currentUser}', '{comment}'".format(
                 attachedToId=requestData.get("attachedToId"), currentUser=request.cookies.get('userId'), comment=requestData.get("comment")))
         db.execute(True, queryString)
-        return request.args.get("blogName", "error")
+        return str(requestData)
     else:
         return "error"
 
@@ -163,7 +164,9 @@ def hello():
         db.disconnect()
         return str(requestData)
     else:
+        global blogUrlName
         buildBlogSpecs()
+        blogUrlName = request.args.get("blogName", "error")
         return """
 <head>
 <title>Test Page</title>
