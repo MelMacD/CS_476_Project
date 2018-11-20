@@ -7,6 +7,6 @@ $(document).ready(function() {
     // store as json, then iterate through and set ranking and display accordingly
     let values = {};
     $("tr").each( function( ) {
-        alert($(this).find(".commenters").text());
+        alert($(this).find("td.commenters").text());
     });
 });
