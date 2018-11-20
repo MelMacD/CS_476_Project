@@ -5,14 +5,13 @@ from code.database import Database as database
 
 class Statistics:
     def __init__(self):
-        self.blogName = ""
+        self.blogName = request.args.get("blogName", "error")
         self.info = self.displayCurrentInfo()
         self.table = self.generateTable()
         self.html = self.buildContent()
         
     #abstract, inherited
     def buildContent(self):
-        self.blogName = request.args.get("blogName", "error")
         return """
 <head>
 <title>Statistics</title>
@@ -57,7 +56,7 @@ class Statistics:
     def displayCurrentInfo(self):
         db = database()
         queryBuilder = query("blog")
-        queryString = queryBuilder.selectAllFilter("blogName='test'")
+        queryString = queryBuilder.selectAllFilter("blogName='{blogName}'".format(blogName=self.blogName))
         result = db.execute(False, queryString)
         if result == []:
             db.disconnect()
@@ -65,12 +64,12 @@ class Statistics:
         else:
             for row in result:
                 queryBuilder = query("comments")
-                queryString = queryBuilder.selectCountFilter("blogName='{blog}'".format(blog="test"))
+                queryString = queryBuilder.selectCountFilter("blogName='{blog}'".format(blog=self.blogName))
                 numComments = db.execute(False, queryString)
-                queryString = queryBuilder.selectCountDistinctFilter("username", "blogName='{blog}'".format(blog="test"))
+                queryString = queryBuilder.selectCountDistinctFilter("username", "blogName='{blog}'".format(blog=self.blogName))
                 distinctNumComments = db.execute(False, queryString)
                 queryBuilder = query("reactions")
-                queryString = queryBuilder.selectCountFilter("blogName='{blog}'".format(blog="test"))
+                queryString = queryBuilder.selectCountFilter("blogName='{blog}'".format(blog=self.blogName))
                 numReactions = db.execute(False, queryString)
                 db.disconnect()
                 return """
