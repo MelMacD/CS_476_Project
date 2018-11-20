@@ -62,6 +62,8 @@ class BlogList:
 """.format(blogs=results)
     
     def createElement(self, row):
+        if row[2] is None or row[2] == "None":
+            row[2] = "static/default.js"
         return """
 <li class="list-group-item list-group-item-action">
     <img src="{image}" style="height: 150px; width: 150px;">
