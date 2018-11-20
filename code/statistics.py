@@ -82,7 +82,7 @@ class Statistics:
                 numCommenters=distinctNumComments[0][0], numReactions=numReactions[0][0])
         db.disconnect()
         return """
-<table id="statsTable" class="display" style="width:100%">
+<table id="statsTable" class="display" style="width:100%; text-align: center;">
     <thead>
         <tr>
             <th>Blog Name</th>
