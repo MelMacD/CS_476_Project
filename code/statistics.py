@@ -73,13 +73,13 @@ class Statistics:
             numReactions = db.execute(False, queryString)
             tableRows += """
 <tr>
-    <td>{blogName}</td>
+    <td id="{id}">{blogName}</td>
     <td>{owner}</td>
     <td>{numComments}</td>
     <td>{numCommenters}</td>
     <td>{numReactions}</td>
     <td class="ranking"></td>
-</tr>""".format(blogName=row[1], owner=row[0], numComments=numComments[0][0],
+</tr>""".format(id=row[1], blogName=row[1], owner=row[0], numComments=numComments[0][0],
                 numCommenters=distinctNumComments[0][0], numReactions=numReactions[0][0])
         db.disconnect()
         return """
