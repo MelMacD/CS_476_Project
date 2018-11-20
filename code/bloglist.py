@@ -52,17 +52,21 @@ class BlogList:
         queryBuilder = query("blog")
         queryString = queryBuilder.selectAll()
         result = db.execute(False, queryString)
-        for row in result:
-            createElement(row)
-            results += str(row)
+        #for row in result:
+        #    createElement(row)
+        #    results += str(row)
         return results
     
     def createElement(self, row):
         return """
 <div class="blogEntry">
-    
+    <img src="{image}" style="height: 200px; width: 200px;">
+    <h1>{blogName}</h1>
+    <p>
+        {description}
+    </p>
 </div>
-"""
+""".format()
 
     
 @app.route("/bloglist", methods=['GET', 'POST'])
