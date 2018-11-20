@@ -39,12 +39,18 @@ class BlogList:
         </div>
     </div>
     <div id="blogList">
+        <h3 style="text-align: center;">Browse All of Our Blogs!</h3>
+        {blogsListed}
     </div>
 </div>
 </body>"""
     
     def displayBlogs(self):
-        return
+        db = database()
+        queryBuilder = query("blog")
+        queryString = queryBuilder.selectAll()
+        for row in result:
+            return str(row)
     
     def createElement(self):
         return
@@ -55,10 +61,4 @@ class BlogList:
 def bloglist():
     blogList = BlogList()
     return blogList.html
-    #if request.method == 'GET':
-    #    requestData = request.get_json()
-    #    db = database()
-    #    queryBuilder = query("blog")
-    #    queryString = queryBuilder.selectAllFilter("blogName='test'")
-    #    result = []
     
