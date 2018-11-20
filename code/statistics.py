@@ -73,17 +73,16 @@ class Statistics:
             numReactions = db.execute(False, queryString)
             tableRows += """
 <tr class="dataRow">
-    <td id="{id}">{blogName}</td>
+    <td>{blogName}</td>
     <td>{owner}</td>
     <td>{numComments}</td>
-    <td class="commenters">{numCommenters}</td>
-    <td class="reactions">{numReactions}</td>
-    <td class="ranking"></td>
-</tr>""".format(id=row[1], blogName=row[1], owner=row[0], numComments=numComments[0][0],
+    <td>{numCommenters}</td>
+    <td>{numReactions}</td>
+</tr>""".format(blogName=row[1], owner=row[0], numComments=numComments[0][0],
                 numCommenters=distinctNumComments[0][0], numReactions=numReactions[0][0])
         db.disconnect()
         return """
-<table id="statsTable" class="display" style="width:100%">
+<table class="display" style="width:100%">
     <thead>
         <tr>
             <th>Blog Name</th>
@@ -91,7 +90,6 @@ class Statistics:
             <th>Number of Comments</th>
             <th>Number of Commenters</th>
             <th>Number of Reactions</th>
-            <th>Popularity</th>
         </tr>
     </thead>
     <tbody>
