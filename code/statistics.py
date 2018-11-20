@@ -63,11 +63,11 @@ class Statistics:
         else:
             return """
 <div id="currentBlog">
-    <h1>Blog Name: {blogName}</h1>
-    <h1>Owner: {owner}</h1>
-    <h1>Number of Comments: {numComments}</h1>
-    <h1>Number of Users Commented: {numCommenters}</h1>
-    <h1>Number of Reactions: {numReactions}</h1>
+    <label>Blog Name: {blogName}</label>
+    <label>Owner: {owner}</label>
+    <label>Number of Comments: {numComments}</label>
+    <label>Number of Users Commented: {numCommenters}</label>
+    <label>Number of Reactions: {numReactions}</label>
 </div>
 """.format(blogName="", owner="", numComments="", numCommenters="", numReactions="")
         
