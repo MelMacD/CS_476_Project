@@ -58,7 +58,7 @@ class Statistics:
         queryString = queryBuilder.selectAllFilter("blogName='test'")
         result = db.execute(False, queryString)
         db.disconnect()
-        if result = []:
+        if result == []:
             return "error"
         else:
             return """
