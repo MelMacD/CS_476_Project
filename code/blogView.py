@@ -156,8 +156,8 @@ def hello():
         db.disconnect()
         return str(requestData)
     else:
-        buildBlogSpecs()
         blogUrlName = request.args.get("blogName", "error")
+        buildBlogSpecs()
         return """
 <head>
 <title>{blogName}</title>
