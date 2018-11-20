@@ -55,7 +55,7 @@ class BlogList:
         for row in result:
             results += self.createElement(row)
         return """
-<ul class="list-group">
+<ul class="list-group" style="width: 800px; margin: auto;">
     {blogs}
 </ul>
 """.format(blogs=results)
