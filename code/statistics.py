@@ -46,6 +46,7 @@ class Statistics:
     <div id="blogList" style="margin-top: 50px;">
         <h3 style="text-align: center;">Statistics for Blog {blogName}</h3>
         {info}
+        <h3 style="text-align: center; margin-top: 50px;">Global Statistics</h3>
         {table}
     </div>
 </div>
@@ -90,7 +91,7 @@ class Statistics:
             <th>Number of Comments</th>
             <th>Number of Commenters</th>
             <th>Number of Reactions</th>
-            <th>Ranking</th>
+            <th>Popularity</th>
         </tr>
     </thead>
     <tbody>
