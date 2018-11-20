@@ -21,7 +21,7 @@ def uploadComment():
         queryString = queryBuilder.insertRow("'test', '{attachedToId}', '{currentUser}', '{comment}'".format(
                 attachedToId=requestData.get("attachedToId"), currentUser=request.cookies.get('userId'), comment=requestData.get("comment")))
         db.execute(True, queryString)
-        return str(requestData)
+        return request.args.get("blogName")
     else:
         return "error"
 
