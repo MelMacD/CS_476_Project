@@ -12,7 +12,7 @@ class BlogList:
     def buildContent(self):
         return """
 <head>
-<title>Test Page</title>
+<title>Blog List</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
@@ -76,7 +76,7 @@ class BlogList:
 """.format(image=row[2], blogName=row[1], description=row[3])
 
     
-@app.route("/bloglist", methods=['GET', 'POST'])
+@app.route("/bloglist")
 
 def bloglist():
     blogList = BlogList()
