@@ -50,11 +50,33 @@ class Statistics:
 </div>
 </body>""".format(blogName="test", info=self.info, table=self.table)
 
-    def displayCurrentInfo():
+    def displayCurrentInfo(self):
         return ""
         
-    def generateTable():
-        return ""
+    def generateTable(self):
+        return """
+<table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Blog Name</th>
+            <th>Owner</th>
+            <th>Number of Comments</th>
+            <th>Number of Reactions</th>
+            <th>Number of Commenters</th>
+            <th>Ranking</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Blog Name</td>
+            <td>Owner</td>
+            <td>Number of Comments</td>
+            <td>Number of Reactions</td>
+            <td>Number of Commenters</td>
+            <td>Ranking</td>
+        </tr>
+    </tbody>
+</table>"""
       
 @app.route("/statistics")
 
