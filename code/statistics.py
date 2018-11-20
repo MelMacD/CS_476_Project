@@ -1,5 +1,6 @@
 from code import app
 from flask import request
+from code.sql_query_builder import SQLQueryBuilder as query
 from code.database import Database as database
 
 class Statistics:
@@ -54,7 +55,23 @@ class Statistics:
         return ""
         
     def generateTable(self):
+        tableRows = ""
         db = database()
+        #need to iterate for each blog in the blog table
+        queryBuilder = query("blog")
+        queryString = queryBuilder.selectAll()
+        result = db.execute(False, queryString)
+        for row in result:
+            tableRows += """
+<tr>
+    <td>{blogName}</td>
+    <td>{owner}</td>
+    <td>Number of Comments</td>
+    <td>Number of Reactions</td>
+    <td>Number of Commenters</td>
+    <td class="ranking"></td>
+</tr>""".format(blogName=row[1], owner=row[0])
+        db.disconnect()
         return """
 <table id="statsTable" class="display" style="width:100%">
     <thead>
@@ -68,16 +85,9 @@ class Statistics:
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Blog Name</td>
-            <td>Owner</td>
-            <td>Number of Comments</td>
-            <td>Number of Reactions</td>
-            <td>Number of Commenters</td>
-            <td>Ranking</td>
-        </tr>
+        {rows}
     </tbody>
-</table>"""
+</table>""".format(rows=tableRows)
       
 @app.route("/statistics")
 
