@@ -86,23 +86,19 @@ body {font-family: "Lato", sans-serif}
   <div class="w3-black" id="tour">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
       <h2 class="w3-wide w3-center">CREATE YOUR OWN BLOG</h2>
-
+      
       <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
         <div class="w3-third w3-margin-bottom">
           <img src="static/picture4.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
           <div class="w3-container w3-white">
-            <p><b>CREATIVE BLOG</b></p>
-            <p class="w3-opacity">BEGINNING</p>
-            <p>WRITE SOMETHING</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Get Started</button>
+            <p id="blogEditOrCreate"><b>CREATE BLOG</b></p>
+            <button id="buttonEditOrCreate" class="w3-button w3-black w3-margin-bottom">Get Started</button>
           </div>
         </div>
         <div class="w3-third w3-margin-bottom">
           <img src="static/forest.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">
           <div class="w3-container w3-white">
             <p><b>VIEW BLOG LIST</b></p>
-            <p class="w3-opacity">WELCOME</p>
-            <p>WRITE SOMETHING</p>
 <a href="bloglist" class="w3-button w3-black w3-margin-bottom">VIEW </a>
           </div>
         
@@ -110,44 +106,6 @@ body {font-family: "Lato", sans-serif}
       </div>
     </div>
   </div>
-
-
-  <div id="ticketModal" class="w3-modal">
-    <div class="w3-modal-content w3-animate-top w3-card-4">
-      <header class="w3-container w3-teal w3-center w3-padding-32"> 
-        <span onclick="document.getElementById('ticketModal').style.display='none'" 
-       class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
-        <h2 class="w3-wide"><i class="fa fa-male w3-margin-right"></i>Sign-up</h2>
-      </header>
-      <div class="w3-container">
-          
-          
-           <p>Please fill in this form to create an account.</p>
-      <hr>
-          <label><b>Username</b></label>
-    <label id="username_msg" class="err_msg"></label>
-          <input class="w3-input w3-border" id="username" type="text" placeholder="Enter Username" size="30" name="username">
-          
-      <label><b>Email</b></label>
-    <label id="email_msg" class="err_msg"></label>
-      <input class="w3-input w3-border" id="email" type="text" placeholder="Enter Email" size="30" name="email" required>
-       
-      <label><b>Password</b></label>
-      <input class="w3-input w3-border" type="password" placeholder="Enter Password" size="30" name="pwd" required>
-
-       <label><b>Re-enter Password</b></label>
-     <label id="reEnter_msg" class="err_msg"></label>
-        
-      <input class="w3-input w3-border" type="password" placeholder="Re-enter Password" size="30"   name="pwd2" required>
-      
-    
-        
-        <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right"  type="submit"  class="signup" name="Signup" value="Signup">Signup <i class="fa fa-check"></i></button>
-        <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
-          <a class="dropdown-item" href="login">Already have an account? Sign in</a>
-        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
-      </div>
-    </div>
   </div>
   
 <!-- End Page Content -->
