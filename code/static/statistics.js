@@ -6,7 +6,9 @@ $(document).ready(function() {
     // then need to compare values and assign rankings
     // store as json, then iterate through and set ranking and display accordingly
     let values = {};
-    $("tr").each( function( ) {
-        alert($(this).find("td.commenters").text());
+    $(".dataRow").each( function( ) {
+        values[$(this).attr("id")] = parseInt($(this).find("td.commenters").text()) +
+            parseInt($(this).find("td.reactions").text());
     });
+    console.log(values);
 });
