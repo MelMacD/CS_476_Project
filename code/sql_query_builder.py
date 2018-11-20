@@ -13,6 +13,11 @@ class SQLQueryBuilder:
         return "SELECT COUNT(*) FROM {tableName} WHERE {condition}".format(tableName=self.table,
                                                                     condition=condition)
     
+    def selectCountDistinctFilter(self, column, condition):
+        return "SELECT COUNT(DISTINCT {column}) FROM {tableName} WHERE {condition}".format(tableName=self.table,
+                                                                                           condition=condition,
+                                                                                           column=column)
+    
     def insertRow(self, values):
         return "INSERT INTO {tableName} VALUES ({values})".format(tableName=self.table,
                                                                   values=values)
