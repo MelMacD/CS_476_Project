@@ -39,7 +39,7 @@ class BlogList:
             <a href="signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign-up</a>
         </div>
     </div>
-    <div id="blogList">
+    <div id="blogList" style="margin-top: 50px;">
         <h3 style="text-align: center;">Browse All of Our Blogs!</h3>
         {blogsListed}
     </div>
@@ -53,12 +53,16 @@ class BlogList:
         queryString = queryBuilder.selectAll()
         result = db.execute(False, queryString)
         for row in result:
-        #    createElement(row)
-            results += str(row)
-        return results
+            results += createElement(row)
+        return """
+<ul class="list-group">
+    {blogs}
+</ul>
+""".format(blogs=results)
     
     def createElement(self, row):
         return """
+<li class="list-group-item"
 <div class="blogEntry">
     <img src="{image}" style="height: 200px; width: 200px;">
     <h1>{blogName}</h1>
@@ -66,6 +70,7 @@ class BlogList:
         {description}
     </p>
 </div>
+</li>
 """.format(image=row[2], blogName=row[1], description=row[3])
 
     
