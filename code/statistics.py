@@ -63,7 +63,8 @@ class Statistics:
         else:
             for row in result:
                 return """
-<div id="currentBlog">
+<div id="currentBlog" style="font-weight:bold; margin-left: 30px;">
+    </br>
     <label>Blog Name: {blogName}</label></br>
     <label>Owner: {owner}</label></br>
     <label>Number of Comments: {numComments}</label></br>
