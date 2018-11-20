@@ -4,6 +4,8 @@ from code.database import Database as database
 
 class Statistics:
     def __init__(self):
+        self.info = self.displayCurrentInfo()
+        self.table = self.generateTable()
         self.html = self.buildContent()
         
     #abstract, inherited
@@ -42,15 +44,17 @@ class Statistics:
     </div>
     <div id="blogList" style="margin-top: 50px;">
         <h3 style="text-align: center;">Statistics for Blog {blogName}</h3>
+        {info}
+        {table}
     </div>
 </div>
-</body>""".format(blogName="test")
+</body>""".format(blogName="test", info=self.info, table=self.table)
 
     def displayCurrentInfo():
-        return
+        return ""
         
     def generateTable():
-        return
+        return ""
       
 @app.route("/statistics")
 
