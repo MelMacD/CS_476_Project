@@ -63,7 +63,7 @@ class Statistics:
         result = db.execute(False, queryString)
         for row in result:
             queryBuilder = query("comments")
-            queryString = queryBuilder.selectCountFilter("blogName={blog}".format(blog=row[1]))
+            queryString = queryBuilder.selectCountFilter("blogName='{blog}'".format(blog=row[1]))
             numComments = db.execute(False, queryString)
             tableRows += """
 <tr>
