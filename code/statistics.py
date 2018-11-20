@@ -65,15 +65,18 @@ class Statistics:
             queryBuilder = query("comments")
             queryString = queryBuilder.selectCountFilter("blogName='{blog}'".format(blog=row[1]))
             numComments = db.execute(False, queryString)
+            queryString = queryBuilder.selectCountDistinctFilter("username", "blogName='{blog}'".format(blog=row[1]))
+            distinctNumComments = db.execute(False, queryString)
             tableRows += """
 <tr>
     <td>{blogName}</td>
     <td>{owner}</td>
     <td>{numComments}</td>
+    <td>(numCommenters)</td>
     <td>Number of Reactions</td>
-    <td>Number of Commenters</td>
     <td class="ranking"></td>
-</tr>""".format(blogName=row[1], owner=row[0], numComments=numComments[0][0])
+</tr>""".format(blogName=row[1], owner=row[0], numComments=numComments[0][0],
+                numCommenters=distinctNumComments[0][0])
         db.disconnect()
         return """
 <table id="statsTable" class="display" style="width:100%">
@@ -82,8 +85,8 @@ class Statistics:
             <th>Blog Name</th>
             <th>Owner</th>
             <th>Number of Comments</th>
-            <th>Number of Reactions</th>
             <th>Number of Commenters</th>
+            <th>Number of Reactions</th>
             <th>Ranking</th>
         </tr>
     </thead>
