@@ -61,15 +61,16 @@ class Statistics:
         if result == []:
             return "error"
         else:
-            return """
+            for row in result:
+                return """
 <div id="currentBlog">
-    <label>Blog Name: {blogName}</label>
-    <label>Owner: {owner}</label>
-    <label>Number of Comments: {numComments}</label>
-    <label>Number of Users Commented: {numCommenters}</label>
-    <label>Number of Reactions: {numReactions}</label>
+    <label>Blog Name: {blogName}</label></br>
+    <label>Owner: {owner}</label></br>
+    <label>Number of Comments: {numComments}</label></br>
+    <label>Number of Users Commented: {numCommenters}</label></br>
+    <label>Number of Reactions: {numReactions}</label></br>
 </div>
-""".format(blogName="", owner="", numComments="", numCommenters="", numReactions="")
+""".format(blogName=row[1], owner=row[0], numComments="", numCommenters="", numReactions="")
         
     def generateTable(self):
         tableRows = ""
