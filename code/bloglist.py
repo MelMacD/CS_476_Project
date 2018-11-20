@@ -47,18 +47,22 @@ class BlogList:
 </body>""".format(blogsListed=self.blogContent)
     
     def displayBlogs(self):
-        return "henlo"
         results = ""
         db = database()
         queryBuilder = query("blog")
         queryString = queryBuilder.selectAll()
+        result = db.execute(False, queryString)
         for row in result:
             createElement(row)
             results += str(row)
         return results
     
     def createElement(self, row):
-        return
+        return """
+<div class="blogEntry">
+    
+</div>
+"""
 
     
 @app.route("/bloglist", methods=['GET', 'POST'])
