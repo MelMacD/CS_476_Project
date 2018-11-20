@@ -64,9 +64,9 @@ class BlogList:
         return """
 <li class="list-group-item"
 <div class="blogEntry">
-    <img src="{image}" style="height: 200px; width: 200px;">
-    <h1>{blogName}</h1>
-    <p>
+    <img src="{image}" style="height: 150px; width: 150px;">
+    <h1 style="position: absolute; left: 175px; top: 0px;">{blogName}</h1>
+    <p style="position: absolute; left: 175px; top: 70px;">
         {description}
     </p>
 </div>
