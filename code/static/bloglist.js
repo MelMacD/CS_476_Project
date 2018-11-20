@@ -7,5 +7,10 @@ $(document).ready(function() {
         }
     });
     // 2. Make tab clickable
+    $("li").on("click", function() {
+        alert("clicked list item");
+        alert($(this).find("h1").text());
+        //window.location = "https://expressyourself.azurewebsites.net/bloglist?blogName=test";
+    });
     // 3. Implement searching
 });
