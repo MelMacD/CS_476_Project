@@ -62,15 +62,18 @@ class Statistics:
         queryString = queryBuilder.selectAll()
         result = db.execute(False, queryString)
         for row in result:
+            queryBuilder = query("comments")
+            queryString = queryBuilder.selectCountFilter("blogName={blog}".format(blog=row[1]))
+            numComments = db.execute(False, queryString)
             tableRows += """
 <tr>
     <td>{blogName}</td>
     <td>{owner}</td>
-    <td>Number of Comments</td>
+    <td>{numComments}</td>
     <td>Number of Reactions</td>
     <td>Number of Commenters</td>
     <td class="ranking"></td>
-</tr>""".format(blogName=row[1], owner=row[0])
+</tr>""".format(blogName=row[1], owner=row[0], numComments=numComments[0][0])
         db.disconnect()
         return """
 <table id="statsTable" class="display" style="width:100%">
