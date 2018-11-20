@@ -53,7 +53,7 @@ class BlogList:
         queryString = queryBuilder.selectAll()
         result = db.execute(False, queryString)
         for row in result:
-            results += createElement(row)
+            results += self.createElement(row)
         return """
 <ul class="list-group">
     {blogs}
