@@ -1,4 +1,3 @@
-# additional: order by? num rows to return? can also join, group by
 class SQLQueryBuilder:
     def __init__(self, tableName):
         self.table = tableName
@@ -13,14 +12,6 @@ class SQLQueryBuilder:
     def selectCountFilter(self, condition):
         return "SELECT COUNT(*) FROM {tableName} WHERE {condition}".format(tableName=self.table,
                                                                     condition=condition)
-    
-    def selectColumn(self, column):
-        return "SELECT {column} FROM {tableName}".format(column=column, tableName=self.table)
-    
-    def selectColumnFilter(self, column, condition):
-        return "SELECT {column} FROM {tableName} WHERE {condition}".format(column=column,
-                                                                                   tableName=self.table,
-                                                                                   fieldName=condition)
     
     def insertRow(self, values):
         return "INSERT INTO {tableName} VALUES ({values})".format(tableName=self.table,
