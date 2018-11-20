@@ -66,6 +66,7 @@ def getComments():
 @app.route("/blogView", methods=['GET', 'POST'])
 
 def hello():
+    global blogUrlName
     if request.method == 'POST':
         requestData = request.get_json()#this is a dictionary
         db = database()
@@ -164,12 +165,11 @@ def hello():
         db.disconnect()
         return str(requestData)
     else:
-        global blogUrlName
         buildBlogSpecs()
         blogUrlName = request.args.get("blogName", "error")
         return """
 <head>
-<title>Test Page</title>
+<title>{blogName}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
@@ -268,7 +268,8 @@ def hello():
     <button type="button" style="display:inline;" id="save" class="btn btn-success">Save Changes</button>
   </div>
 </footer
-</body>""".format(blogContent=buildBlogContent(),
+</body>""".format(blogName=blogUrlName(),
+                  blogContent=buildBlogContent(),
                   backgroundColor=blogColor,
                   font=blogFont)
 
