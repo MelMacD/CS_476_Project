@@ -88,7 +88,7 @@ body {font-family: "Lato", sans-serif}
       <h2 class="w3-wide w3-center">CREATE YOUR OWN BLOG</h2>
       
       <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-        <div class="w3-third w3-margin-bottom">
+        <div class="w3-third w3-margin-bottom" style="margin-left: 125px;">
           <img src="static/picture4.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
           <div class="w3-container w3-white">
             <p><b>CREATE BLOG</b></p>
