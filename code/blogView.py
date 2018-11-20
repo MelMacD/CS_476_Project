@@ -23,6 +23,7 @@ def uploadComment():
         queryString = queryBuilder.insertRow("'{blogName}', '{attachedToId}', '{currentUser}', '{comment}'".format(blogName=blogUrlName,
                 attachedToId=requestData.get("attachedToId"), currentUser=request.cookies.get('userId'), comment=requestData.get("comment")))
         db.execute(True, queryString)
+        db.disconnect()
         return str(requestData)
     else:
         return "error"
@@ -46,23 +47,8 @@ def uploadReaction():
             queryString = queryBuilder.update("emote='{emote}'".format(emote=requestData.get("emote")),
                                               "blogName='{blogName}' and attachedToId='{id}' and username='{currentUser}'".format(blogName=blogUrlName, id=requestData.get("attachedToId"), currentUser=request.cookies.get('userId')))
         db.execute(True, queryString)
+        db.disconnect()
         return str(requestData)
-    else:
-        return "error"
-    
-#won't use for now, unless have the time to
-@app.route("/getComments", methods=['GET', 'POST'])
-
-def getComments():
-    global blogUrlName
-    if request.method == 'POST':
-        requestData = request.get_json()
-        db = database()
-        queryBuilder = query("comments")
-        queryString = queryBuilder.selectAllFilter("blogName='test' and attachedToId='{elementId}'".format(elementId=requestData.get("id")))
-        result = db.execute(False, queryString)
-        obj = thread(result)
-        return obj.buildComments(result)
     else:
         return "error"
     
