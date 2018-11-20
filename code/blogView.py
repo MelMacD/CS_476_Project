@@ -15,11 +15,12 @@ blogUrlName = ""
 @app.route("/uploadComment", methods=['GET', 'POST'])
 
 def uploadComment():
+    global blogUrlName
     if request.method == 'POST':
         requestData = request.get_json()
         db = database()
         queryBuilder = query("comments")
-        queryString = queryBuilder.insertRow("'test', '{attachedToId}', '{currentUser}', '{comment}'".format(
+        queryString = queryBuilder.insertRow("'{blogName}', '{attachedToId}', '{currentUser}', '{comment}'".format(blogName=blogUrlName,
                 attachedToId=requestData.get("attachedToId"), currentUser=request.cookies.get('userId'), comment=requestData.get("comment")))
         db.execute(True, queryString)
         return str(requestData)
@@ -29,6 +30,7 @@ def uploadComment():
 @app.route("/uploadReaction", methods=['GET', 'POST'])
 
 def uploadReaction():
+    global blogUrlName
     if request.method == 'POST':
         requestData = request.get_json()
         db = database()
@@ -52,6 +54,7 @@ def uploadReaction():
 @app.route("/getComments", methods=['GET', 'POST'])
 
 def getComments():
+    global blogUrlName
     if request.method == 'POST':
         requestData = request.get_json()
         db = database()
@@ -274,6 +277,7 @@ def hello():
                   font=blogFont)
 
 def buildBlogSpecs():
+    global blogUrlName
     global blogColor
     global blogFont
     db = database()
@@ -298,6 +302,7 @@ def buildBlogContent():
     return content
 
 def buildElement(db, tableName):
+    global blogUrlName
     content = ""
     addThreadButton = """<button type="button" class="dropdown-item addThread">Add Thread</button>"""
     removeThreadButton = """<button type="button" class="dropdown-item removeThread">Remove Thread</button>"""
@@ -344,6 +349,7 @@ def buildElement(db, tableName):
         return content
 
 def buildThread(db, key):
+    global blogUrlName
     queryBuilder = query("comments")
     queryString = queryBuilder.selectAllFilter("blogName='test' and attachedToId='{elementId}'".format(elementId=key))
     result = db.execute(False, queryString)
