@@ -1,4 +1,6 @@
-class Thread:
+from code.factory import Element
+
+class Thread(Element):
     def __init__(self, values):
         self.comments = self.buildComments(values)
 
