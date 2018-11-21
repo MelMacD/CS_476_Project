@@ -75,7 +75,7 @@ button:hover {
   background-color: #f44336;
 }
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signup {
+.cancelbtn, .enter {
   float: left;
   width: 50%;
 }
@@ -161,7 +161,7 @@ button:hover {
      </div>
      <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit"  class="submitForm" name="Signup" value="submit">Submit</button>
+      <button type="submit"  class="submitForm enter" name="Signup" value="submit">Submit</button>
         </div>
       </div>
   
