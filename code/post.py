@@ -23,7 +23,7 @@ class Post:
             <button type="button" class="dropdown-item deletePost">Delete</button>
         </div>
     </div>
-    <div id="originalContent" style="width: 100%; height: 100%; background-color: {backgroundColor}; color: {fontColor};">
+    <div id="originalContent" style="position: absolute; width: 100%; height: 100%; background-color: {backgroundColor}; color: {fontColor};">
         <h3>{title}</h3>
         <p>{content}</p>
     </div>
