@@ -7,7 +7,7 @@ class Thread(Element):
     #@override
     def buildHtml(self):
         return """
-<div class="newThread">
+<div class="newThread border border-dark">
     <div style="height: 200px; overflow-y: scroll; background-color: white;">
         <ul class="list-group" style="font-size: 14px;">
             {commentHtml}
