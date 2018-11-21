@@ -160,7 +160,7 @@ def hello():
         buildBlogSpecs()
         #if current user token is not owner of blog, don't display edit
         editBlogButton = ""
-        currentUser = request.cookies.get('userId')
+        currentUser = request.cookies.get('userId', "")
         if currentUser != "":
             editBlogButton = """
 <button type="button" id="enableEditing" style="position: absolute; left: 20px;" class="btn btn-default">Enable Edit Mode</button>
