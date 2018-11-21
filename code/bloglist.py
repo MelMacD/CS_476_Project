@@ -2,11 +2,12 @@ from code import app
 from flask import request, render_template
 from code.sql_query_builder import SQLQueryBuilder as query
 from code.database import Database as database
+from code.observer import Observer
 
-class BlogList:
+class BlogList(Observer):
     def __init__(self):
         self.blogContent = self.displayBlogs()
-        self.html = self.buildContent()
+        super().__init__()
       
     #abstract, inherited
     def buildContent(self):
