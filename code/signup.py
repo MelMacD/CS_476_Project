@@ -106,14 +106,9 @@ button:hover {
     <a href="login" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Login</a>
     <a href="signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign-up</a>
 </div>
-<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
-<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="login" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Login</a>
-  <a href="signup" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Sign-up</a>
-</div>
 </div>
 
-<form id="SignUp" style="width:700px; margin-left: 450px; margin-top: 50px;" method="post" enctype="multipart/form-data">
+<form id="SignUp" style="width:700px; margin: auto; margin-top: 50px;" method="post" enctype="multipart/form-data">
     <h3 style="text-align: center;">Sign Up and Start Creating Today!</h3>
     <div class="w3-container">
  
