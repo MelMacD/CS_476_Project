@@ -1,5 +1,7 @@
 from code import app
 from flask import request
+from code.sql_query_builder import SQLQueryBuilder as query
+from code.database import Database as database
     
 @app.route("/", methods=['GET', 'POST'])
 
@@ -7,6 +9,23 @@ def main():
     if request.method == 'POST':
         return "error"
     else:
+        blogCreated = False
+        link = ""
+        currentUser = request.cookies.get('userId', "")
+        if currentUser == "":
+            link = "signup"
+        else:
+            db = database()
+            queryBuilder = query("blog")
+            queryString = queryBuilder.selectAllFilter("username='{username}'".format(blogName=blogUrlName, username=currentUser))
+            result = db.execute(False, queryString)
+            db.disconnect()
+            if result == []:
+                link = "createBlog"
+            else:
+                for row in result:
+                    link = "blogView?blogName={blogName}".format(blogName=row[1])
+                blogCreated = True
         return """
 <!DOCTYPE html>
 <html lang="en">
@@ -143,5 +162,6 @@ function carousel() {{
 
 </body>
 </html>
-""".format(createEditText="CREATE",
-           createEditLink="createBlog")
+""".format(createEditText="EDIT" if blogCreated else "CREATE",
+           createEditLink=link)
+    
