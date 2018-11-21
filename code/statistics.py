@@ -1,6 +1,5 @@
 from code import app
 from flask import request
-from code.sql_query_builder import SQLQueryBuilder as query
 from code.database import Database as database
 from code.observer import Observer
 
@@ -57,21 +56,18 @@ class Statistics(Observer):
 
     def displayCurrentInfo(self):
         db = database()
-        queryBuilder = query("blog")
-        queryString = queryBuilder.selectAllFilter("blogName='{blogName}'".format(blogName=self.blogName))
+        queryString = db.buildQuery("blog", "selectAllFilter", "blogName='{blogName}'".format(blogName=self.blogName))
         result = db.execute(False, queryString)
         if result == []:
             db.disconnect()
             return "error"
         else:
             for row in result:
-                queryBuilder = query("comments")
-                queryString = queryBuilder.selectCountFilter("blogName='{blog}'".format(blog=self.blogName))
+                queryString = db.buildQuery("comments", "selectCountFilter", "blogName='{blog}'".format(blog=self.blogName))
                 numComments = db.execute(False, queryString)
-                queryString = queryBuilder.selectCountDistinctFilter("username", "blogName='{blog}'".format(blog=self.blogName))
+                queryString = db.buildQuery("comments", "selectCountDistinctFilter", "username", "blogName='{blog}'".format(blog=self.blogName))
                 distinctNumComments = db.execute(False, queryString)
-                queryBuilder = query("reactions")
-                queryString = queryBuilder.selectCountFilter("blogName='{blog}'".format(blog=self.blogName))
+                queryString = db.buildQuery("reactions", "selectCountFilter", "blogName='{blog}'".format(blog=self.blogName))
                 numReactions = db.execute(False, queryString)
                 db.disconnect()
                 return """
@@ -90,17 +86,14 @@ class Statistics(Observer):
         tableRows = ""
         db = database()
         #need to iterate for each blog in the blog table
-        queryBuilder = query("blog")
-        queryString = queryBuilder.selectAll()
+        queryString = db.buildQuery("blog", "selectAll")
         result = db.execute(False, queryString)
         for row in result:
-            queryBuilder = query("comments")
-            queryString = queryBuilder.selectCountFilter("blogName='{blog}'".format(blog=row[1]))
+            queryString = db.buildQuery("comments", "selectCountFilter", "blogName='{blog}'".format(blog=row[1]))
             numComments = db.execute(False, queryString)
-            queryString = queryBuilder.selectCountDistinctFilter("username", "blogName='{blog}'".format(blog=row[1]))
+            queryString = db.buildQuery("comments", "selectCountDistinctFilter", "username", "blogName='{blog}'".format(blog=row[1]))
             distinctNumComments = db.execute(False, queryString)
-            queryBuilder = query("reactions")
-            queryString = queryBuilder.selectCountFilter("blogName='{blog}'".format(blog=row[1]))
+            queryString = db.buildQuery("reactions", "selectCountFilter", "blogName='{blog}'".format(blog=row[1]))
             numReactions = db.execute(False, queryString)
             tableRows += """
 <tr>
