@@ -133,7 +133,7 @@ var imageEditHtml = `<form id="uploadImage" method="post" enctype="multipart/for
           <div class="form-group">
             <label for="message-text" class="col-form-label">Preview:</label>
             <div>
-              <img id="imagePreview" src="/static/default.gif">
+              <img style="width: 464px; height: 464px; object-fit: contain;" id="imagePreview" src="/static/default.gif">
             </div>
           </div>
         </form>`;
