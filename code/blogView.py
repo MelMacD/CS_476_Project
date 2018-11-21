@@ -255,8 +255,8 @@ def hello():
 <footer class="footer">
   <div class="container">
     <button type="button" id="enableEditing" style="position: absolute; left: 20px;" class="btn btn-default">Enable Edit Mode</button>
-    <button type="button" style="display:none;position: absolute; left: 20px;" id="disableEditing" class="btn btn-default">Exit Edit Mode</button>
-    <a style="" href="https://expressyourself.azurewebsites.net/statistics?blogName={blog}" id="seeStatistics" class="btn btn-default" role="button">Statistics</a>
+    <button type="button" style="display:none; position: absolute; left: 20px;" id="disableEditing" class="btn btn-default">Exit Edit Mode</button>
+    <a style="position: absolute; left: 50%;" href="https://expressyourself.azurewebsites.net/statistics?blogName={blog}" id="seeStatistics" class="btn btn-default" role="button">Statistics</a>
     <button type="button" style="display:inline; position: absolute; right: 20px;" id="save" class="btn btn-success">Save Changes</button>
   </div>
 </footer
