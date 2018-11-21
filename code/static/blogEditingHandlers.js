@@ -783,18 +783,18 @@ function setupDraggableResizable() {
     $( ".draggable" ).draggable({
             disabled: false,
             snap: true,
-            containment: $("blogBody"),
+            containment: $("#blogBody"),
             stack: ".draggable"
     });
     $( ".resizableAspect").resizable({
         disabled: false,
         aspectRatio: true,
-        containment: $("blogBody")
+        containment: $("#blogBody")
     });
     $( ".resizable").resizable({
         disabled: false,
         aspectRatio: false,
-        containment: $("blogBody")
+        containment: $("#blogBody")
     });
     $( ".draggable" ).css("position", "absolute");
 }
