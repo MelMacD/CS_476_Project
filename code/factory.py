@@ -6,7 +6,8 @@ class Element:
         self.width = self.setWidth(row)
         self.height = self.setHeight(row)
         self.depth = self.setDepth(row)
-     
+    
+    #abstract function, each child will override
     def buildHtml(self):
         pass
      
