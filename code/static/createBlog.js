@@ -1,5 +1,5 @@
 let errorPresent = false;
-// TODO: Enforce validation on input fields
+
 // TODO: Get upload image working
 $(document).ready(function() {
     $("#useUrl").on("change", function () {
@@ -64,7 +64,8 @@ $(document).ready(function() {
         });
     });
     
-        $("#submitImageUpload").on( "click", function () {
+        $("#uploadImage").on( "submit", function (e) {
+          e.preventDefault();
           let formData = new FormData(this);
           formData.append("file", $("#imageFile").get(0).files[0]);
           $.ajax({
