@@ -64,9 +64,8 @@ $(document).ready(function() {
         });
     });
     
-        $("#uploadImage").on( "submit", function (e) {
-          e.preventDefault();
-          let formData = new FormData(this);
+        $("#submitImageUpload").on( "click", function () {
+          let formData = new FormData( $("#uploadImage") );
           formData.append("file", $("#imageFile").get(0).files[0]);
           $.ajax({
             url: "/uploadBlobImage",
@@ -86,8 +85,10 @@ $(document).ready(function() {
               });
               alert("Upload successful.");
             },
-            error: function() {
+            error: function(xhr, ajaxOptions, thrownError) {
               alert("An error occurred. Could not upload image.");
+              console.log(xhr.status);
+              console.log(thrownError);
             },
             beforeSend: function() {
               $("#loading").css("display", "block");
