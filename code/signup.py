@@ -131,12 +131,12 @@ button:hover {
       <label><b>Password</b></label>
      <label id="pswd_msg" class="err_msg"></label>
         
-      <input class="w3-input w3-border" type="password" placeholder="Enter Password" size="30" name="pwd" required>
+      <input id="password" class="w3-input w3-border" type="password" placeholder="Enter Password" size="30" name="pwd" required>
 
       <label><b>Re-enter Password</b></label>
      <label id="reEnter_msg" class="err_msg"></label>
         
-      <input class="w3-input w3-border" type="password" placeholder="Re-enter Password" size="30"   name="pwd2" required>
+      <input id="rePassword" class="w3-input w3-border" type="password" placeholder="Re-enter Password" size="30"   name="pwd2" required>
     
      <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
