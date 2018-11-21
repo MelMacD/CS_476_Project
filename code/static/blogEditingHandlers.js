@@ -545,8 +545,10 @@ $(document).ready(function() {
               });
               alert("Upload successful.");
             },
-            error: function() {
-              alert("An error occurred. Could not upload image.");
+            error: function(xhr, ajaxOptions, thrownError) {
+              alert("An error occurred. Could not upload.");
+              console.log(xhr.status);
+              console.log(thrownError);
             },
             beforeSend: function() {
               $("#loading").css("display", "block");
@@ -646,8 +648,10 @@ $(document).ready(function() {
               });
               alert("Upload successful.");
             },
-            error: function() {
-              alert("An error occurred. Could not upload video.");
+            error: function(xhr, ajaxOptions, thrownError) {
+              alert("An error occurred. Could not upload.");
+              console.log(xhr.status);
+              console.log(thrownError);
             },
             beforeSend: function() {
               $("#loading").css("display", "block");
