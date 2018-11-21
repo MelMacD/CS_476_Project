@@ -1,6 +1,5 @@
 let errorPresent = false;
 
-// TODO: Get upload image working
 $(document).ready(function() {
     $("#useUrl").on("change", function () {
         $(".urlChange").css( "display", "block" );
