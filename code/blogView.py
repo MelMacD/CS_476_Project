@@ -238,7 +238,7 @@ def hello():
             <a href="signup" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Sign-up</a>
         </div>
     </div>
-    <div id="blogBody" style="font-family: {font};">
+    <div id="blogBody" style="font-family: {font}; margin-top: 46px; height: 698px;">
       {blogContent}
     </div>
     
