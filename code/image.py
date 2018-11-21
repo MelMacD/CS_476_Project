@@ -1,11 +1,8 @@
-class Image:
+from code.factory import Element
+
+class Image(Element):
     def __init__(self, row):
-        self.id = self.setId(row)
-        self.top = self.setTop(row)
-        self.left = self.setLeft(row)#inherit base attributes with super
-        self.width = self.setWidth(row)
-        self.height = self.setHeight(row)
-        self.depth = self.setDepth(row)
+        super().__init__(row)
         self.image = self.setImage(row)
 
     #@override
@@ -25,30 +22,6 @@ class Image:
     {{thread}}
 </div>""".format(id=self.id, top=self.top, left=self.left, width=self.width, height=self.height, depth=self.depth,
                 src=self.image)
-      
-    #@override
-    def setId(self, row):
-        return row[1]
-        
-    #@override
-    def setTop(self, row):
-        return row[2]
-     
-    #@override
-    def setLeft(self, row):
-        return row[3]
-    
-    #@override
-    def setWidth(self, row):
-        return row[4]
-     
-    #@override
-    def setHeight(self, row):
-        return row[5]
-    
-    #@override
-    def setDepth(self, row):
-        return row[6]
       
     def setImage(self, row):
         return row[7]
