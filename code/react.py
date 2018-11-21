@@ -7,7 +7,7 @@ class React(Element):
     #@override
     def buildHtml(self):
         return """
-        <div class="reactBar" style="bottom: -38px; height: 38px; background-color: lightgray; position: absolute; width: 100%;">
+        <div class="reactBar" style="bottom: 0px; height: 38px; background-color: lightgray; position: absolute; width: 100%;">
             <div class="reactions" style="position: absolute; left: 0px; width: 69%; font-size: 12px;">
                 {reactions}
             </div>
