@@ -101,7 +101,7 @@ button:hover {{
     
 </html>
 
-""".format(error=self.errorMessage)
+"""#.format(error=self.errorMessage)
 
 @app.route("/login", methods=['GET', 'POST'])
 
