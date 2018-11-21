@@ -1,34 +1,30 @@
- import abc
- 
- class Factory(metaclass=abc.ABCMeta):
+ class Factory:
      def __init__(self):
-         self.html = ""
+         self.id = self.setId(row)
+         self.top = self.setTop(row)
+         self.left = self.setLeft(row)
+         self.width = self.setWidth(row)
+         self.height = self.setHeight(row)
+         self.depth = self.setDepth(row)
+     #
+     #def buildHtml(self):
+     #    pass
      
-     @abc.abstractmethod
-     def buildHtml(self):
-         pass
-     
-     @abc.abstractmethod
      def setId(self, row):
-         pass
+        return row[1]
+        
+    def setTop(self, row):
+        return row[2]
      
-     @abc.abstractmethod
-     def setTop(self, row):
-         pass
+    def setLeft(self, row):
+        return row[3]
+    
+    def setWidth(self, row):
+        return row[4]
      
-     @abc.abstractmethod
-     def setLeft(self, row):
-         pass
-      
-     @abc.abstractmethod
-     def setWidth(self, row):
-         pass 
-     
-     @abc.abstractmethod
-     def setHeight(self, row):
-         pass
-
-     @abc.abstractmethod
-     def setDepth(self, row):
-         pass
+    def setHeight(self, row):
+        return row[5]
+    
+    def setDepth(self, row):
+        return row[6]
       
