@@ -494,14 +494,6 @@ $(document).ready(function() {
         $("#imageUrl").on("change", function() {
             imageUrl = $(this).val();
             $("#imagePreview").attr("src", imageUrl);
-            /*alert(parseInt($("#imagePreview").width()));
-            while ( parseInt($("#imagePreview").width()) > 464 ) {
-                alert("thats huge");
-                let halfWidth = parseInt($("#imagePreview").width() / 2);
-                $("#imagePreview").width(`${halfWidth}px`);
-                let halfHeight = parseInt($("#imagePreview").height() / 2);
-                $("#imagePreview").height(`${halfHeight}px`);
-            }*/
         });
         $.getJSON("/getBlobImages", function(data) {
             let i;
