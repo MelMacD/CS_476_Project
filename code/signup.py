@@ -160,7 +160,7 @@ button:hover {
 def signup():
     if request.method == 'POST':
         db = database()
-        queryString = db.queryBuilder("users", "insertRow", "'{username}', '{email}', '{password}', 0, null".format(
+        queryString = db.buildQuery("users", "insertRow", "'{username}', '{email}', '{password}', 0, null".format(
             username=str(request.form.get("username")),
             email=str(request.form.get("email")),
             password=str(request.form.get("pwd"))))
