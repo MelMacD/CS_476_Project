@@ -793,12 +793,16 @@ function setupDraggableResizable() {
     $( ".resizableAspect").resizable({
         disabled: false,
         aspectRatio: true,
-        containment: $("#blogBody")
+        containment: $("#blogBody"),
+        minHeight: 200,
+        minWidth: 200
     });
     $( ".resizable").resizable({
         disabled: false,
         aspectRatio: false,
-        containment: $("#blogBody")
+        containment: $("#blogBody"),
+        minHeight: 200,
+        minWidth: 200
     });
     $( ".draggable" ).css("position", "absolute");
 }
