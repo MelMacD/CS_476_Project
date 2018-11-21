@@ -2,13 +2,14 @@ from code import app
 from flask import request
 from code.sql_query_builder import SQLQueryBuilder as query
 from code.database import Database as database
+from code.observer import Observer
 
-class Statistics:
+class Statistics(Observer):
     def __init__(self):
         self.blogName = request.args.get("blogName", "error")
         self.info = self.displayCurrentInfo()
         self.table = self.generateTable()
-        self.html = self.buildContent()
+        super().__init__()
         
     #abstract, inherited
     def buildContent(self):
