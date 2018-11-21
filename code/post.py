@@ -1,11 +1,8 @@
-class Post:
+from code.factory import Element
+
+class Post(Element):
     def __init__(self, row):
-        self.id = self.setId(row)
-        self.top = self.setTop(row)
-        self.left = self.setLeft(row)#inherit base attributes with super
-        self.width = self.setWidth(row)
-        self.height = self.setHeight(row)
-        self.depth = self.setDepth(row)
+        super().__init__(row)
         self.title = self.setTitle(row)
         self.body = self.setBody(row)
         self.background = self.setBackground(row)
@@ -31,30 +28,6 @@ class Post:
     {{thread}}
 </div>""".format(id=self.id, top=self.top, left=self.left, width=self.width, height=self.height, depth=self.depth,
                 title=self.title, content=self.body, backgroundColor=self.background, fontColor=self.fontColor)
-      
-    #@override
-    def setId(self, row):
-        return row[1]
-        
-    #@override
-    def setTop(self, row):
-        return row[2]
-     
-    #@override
-    def setLeft(self, row):
-        return row[3]
-    
-    #@override
-    def setWidth(self, row):
-        return row[4]
-     
-    #@override
-    def setHeight(self, row):
-        return row[5]
-    
-    #@override
-    def setDepth(self, row):
-        return row[6]
       
     def setTitle(self, row):
         return row[7]
