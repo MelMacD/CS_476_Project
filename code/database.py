@@ -1,13 +1,14 @@
 import pyodbc
+from code.subject import Subject
 
-class Database:
+class Database(Subject):
     def __init__(self):
         self.server = 'tcp:expressyourself.database.windows.net'
         self.database = 'expressyourself'
         self.username = 'cs476'
         self.password = '$up3rSecret'
         self.driver = '{ODBC Driver 13 for SQL Server}'
-        self.connection = self.connect()
+        super().__init__()
       
     def connect(self):
         return pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
