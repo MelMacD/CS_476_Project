@@ -28,7 +28,8 @@ p {
    left: 0;
    bottom: 0;
    width: 100%;
-   background-color: lightgray;
+   z-index: 1000;
+   background-color: black;
 }
 
 .smallEmoji {
