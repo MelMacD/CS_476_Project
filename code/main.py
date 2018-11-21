@@ -17,7 +17,7 @@ def main():
         else:
             db = database()
             queryBuilder = query("blog")
-            queryString = queryBuilder.selectAllFilter("username='{username}'".format(blogName=blogUrlName, username=currentUser))
+            queryString = queryBuilder.selectAllFilter("username='{username}'".format(username=currentUser))
             result = db.execute(False, queryString)
             db.disconnect()
             if result == []:
