@@ -1,6 +1,5 @@
 from code import app
 from flask import request, render_template
-from code.sql_query_builder import SQLQueryBuilder as query
 from code.database import Database as database
 from code.observer import Observer
 
@@ -52,8 +51,7 @@ class BlogList(Observer):
     def displayBlogs(self):
         results = ""
         db = database()
-        queryBuilder = query("blog")
-        queryString = queryBuilder.selectAll()
+        queryString = db.buildQuery("blog", "selectAll")
         result = db.execute(False, queryString)
         for row in result:
             results += self.createElement(row)
