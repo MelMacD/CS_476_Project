@@ -10,7 +10,7 @@ class Login:
     def getHTML(self):
         return self.html
     
-    def setHTML(self):
+    def setHTML(self, message):
         self.html = """
 <!DOCTYPE html>
 <html lang="en">
@@ -100,7 +100,7 @@ button:hover {{
     
 </html>
 
-"""#.format(error="")
+""".format(error=message)
 
 @app.route("/login", methods=['GET', 'POST'])
 
@@ -114,9 +114,10 @@ def login():
         result = db.execute(False, queryString)
         if result == []:
             errorMessage = """
-                <p style="color: red; font-size: 15px; margin: auto;">The email or password was incorrect</p>"""
+                <p style="color: red; font-size: 15px; margin: auto;">The email or password was incorrect</p></br>"""
             loginHTML = Login()
             db.disconnect()
+            loginHTML.setHTML(errorMessage)
             return loginHTML.getHTML()
         else:
             redirectTo = redirect('/')
@@ -126,5 +127,5 @@ def login():
             return resp
     else:
         loginHTML = Login()
-        loginHTML.setHTML()
+        loginHTML.setHTML("")
         return loginHTML.getHTML()
