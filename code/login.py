@@ -4,8 +4,9 @@ from code.sql_query_builder import SQLQueryBuilder as query
 from code.database import Database as database
 
 class Login:
-    def __init__(self):
-        self.html = "Log In"
+    def __init__(self, errorMessage=""):
+        self.errorMessage = errorMessage
+        self.html = self.setHTML()
         
     def getHTML(self):
         return self.html
@@ -22,17 +23,17 @@ class Login:
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
     
-    input[type=text], input[type=password] {
+    input[type=text], input[type=password] {{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-}
+}}
         
   /* Set a style for all buttons */
-button {
+button {{
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -40,20 +41,20 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
-}
+}}
    /* Add a hover effect for buttons */
-button:hover {
+button:hover {{
     opacity: 0.8;
-}     
-.imgcontainer {
+}}
+.imgcontainer {{
     text-align: center;
     margin: 24px 0 12px 0;
     position: relative;
-}
-         img.avatar2 {
+}}
+         img.avatar2 {{
     width: 40%;
     border-radius: 50%;
-}
+}}
         
     </style>
     <body>
@@ -66,12 +67,6 @@ button:hover {
     <a href="signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign-up</a>
 </div>
 
-<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
-<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="login" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Login</a>
-  <a href="signup" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Sign-up</a>
-
-</div>
 </div>
 
 <form id="LogIn" style="width:500px; margin-left: 35%; margin-top: 50px;" method="post" enctype="multipart/form-data">
@@ -81,6 +76,7 @@ button:hover {
     </div>
 
   <div class="container">
+  <label>{error}</label>
   <label><b>Email</b></label>
     <label id="email_msg" class="err_msg"></label>
     <input id="email" type="text" placeholder="Enter Email" size="30" name="email" required>
@@ -105,7 +101,7 @@ button:hover {
     
 </html>
 
-"""
+""".format(error=self.errorMessage)
 
 @app.route("/login", methods=['GET', 'POST'])
 
@@ -120,9 +116,8 @@ def login():
         if result == []:
             errorMessage = """
                 <p style="color: red; font-size: 15px; margin-left: 35%; margin-top: 50px;">The email or password was incorrect</p>"""
-            loginHTML = Login()
-            loginHTML.setHTML()
-            return errorMessage + loginHTML.getHTML()
+            loginHTML = Login(errorMessage)
+            return loginHTML.getHTML()
         else:
             redirectTo = redirect('/')
             resp = make_response(redirectTo)
@@ -130,5 +125,4 @@ def login():
             return resp
     else:
         loginHTML = Login()
-        loginHTML.setHTML()
         return loginHTML.getHTML()
