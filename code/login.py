@@ -4,8 +4,7 @@ from code.sql_query_builder import SQLQueryBuilder as query
 from code.database import Database as database
 
 class Login:
-    def __init__(self, errorMessage):
-        self.errorMessage = errorMessage
+    def __init__(self):
         self.html = self.setHTML()
         
     def getHTML(self):
@@ -116,13 +115,15 @@ def login():
         if result == []:
             errorMessage = """
                 <p style="color: red; font-size: 15px; margin: auto;">The email or password was incorrect</p>"""
-            loginHTML = Login(errorMessage)
+            loginHTML = Login()
+            db.disconnect()
             return loginHTML.getHTML()
         else:
             redirectTo = redirect('/')
             resp = make_response(redirectTo)
             resp.set_cookie('userId', result[0][0])
+            db.disconnect()
             return resp
     else:
-        loginHTML = Login("")
+        loginHTML = Login()
         return loginHTML.getHTML()
