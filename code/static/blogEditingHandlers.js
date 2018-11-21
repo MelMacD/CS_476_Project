@@ -66,7 +66,7 @@ var videoHtml = `<div class="draggable resizableAspect newVideo" style="width: 4
                    </video>
                    <iframe id="youtubeVideo" allowFullScreen='allowFullScreen' src="https://www.youtube.com/embed/NpEaa2P7qZI" style="width: 100%; height: 100%;"</iframe>
                  </div>`;
-var threadHtml = `<div class="newThread">
+var threadHtml = `<div class="newThread border border-dark">
                     <div style="height: 200px; overflow-y: scroll; background-color: white;">
                       <ul class="comments list-group" style="font-size: 14px;">
                       </ul>
