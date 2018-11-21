@@ -5,7 +5,7 @@ from code.database import Database as database
 
 class Main():
     def __init__(self):
-        self.html = buildHTML()
+        self.html = self.buildHTML()
     
     def buildHTML(self):
         return """
