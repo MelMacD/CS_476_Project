@@ -65,7 +65,7 @@ $(document).ready(function() {
     });
     
         $("#submitImageUpload").on( "click", function () {
-          let formData = new FormData( document.querySelector("#uploadImage") );
+          let formData = new FormData( document.querySelector("#create") );
           formData.append("file", $("#imageFile").get(0).files[0]);
           console.log(formData);
           $.ajax({
