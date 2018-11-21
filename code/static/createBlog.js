@@ -41,7 +41,7 @@ $(document).ready(function() {
             return;
         }
         formData = {
-            blogName: $("#username").val(),
+            blogName: $("#name").val(),
             imageSource: $("#imagePreview").attr("src"),
             description: $("#description").val()
         };
