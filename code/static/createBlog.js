@@ -35,6 +35,11 @@ $(document).ready(function() {
     
     $("#create").submit(function(e) {
         e.preventDefault();
+        blogNameValidation();
+        descriptionValidation();
+        if ( errorPresent ) {
+            return;
+        }
         formData = {
             blogName: $("#username").val(),
             imageSource: $("#imagePreview").attr("src"),
@@ -59,8 +64,7 @@ $(document).ready(function() {
         });
     });
     
-        $("#uploadImage").submit( function (e) {
-          e.preventDefault();
+        $("#submitImageUpload").on( "click", function () {
           let formData = new FormData(this);
           formData.append("file", $("#imageFile").get(0).files[0]);
           $.ajax({
@@ -104,12 +108,12 @@ function blogNameValidation() {
     }
 }
 
-function emailValidation() {
-    if ( $("#email").val().length > 300 ) {
-        $("#email_msg").text("Email must not be more than 30 characters.");
+function descriptionValidation() {
+    if ( $("#description").val().length > 300 ) {
+        $("#descr_msg").text("Description must not be more than 300 characters.");
         errorPresent = true;
     }
     else {
-        $("#email_msg").text("");
+        $("#descr_msg").text("");
     }
 }
