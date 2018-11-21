@@ -691,6 +691,12 @@ $(document).ready(function() {
     });
   
     $("body").on("click", ".submitComment", function() {
+        // prevent comment without successful authentication
+        let loginToken = document.cookie;
+        if (loginToken.indexOf("userId") == -1) {
+            alert("Cannot post comment until you log in");
+            return;
+        }
         let current = $(this).parent().parent().parent().parent();
         formData = {
             attachedToId: current.attr("id"),
@@ -715,6 +721,12 @@ $(document).ready(function() {
     });
 
     function uploadReaction(element, emoji) {
+        // prevent reaction without authentication
+        let loginToken = document.cookie;
+        if (loginToken.indexOf("userId") == -1) {
+            alert("Cannot react until you log in");
+            return;
+        }
         let current = element.parent().parent().parent().parent().parent();
         formData = {
             attachedToId: current.attr("id"),
