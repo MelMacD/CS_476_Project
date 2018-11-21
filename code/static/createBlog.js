@@ -65,10 +65,9 @@ $(document).ready(function() {
     });
     
         $("#submitImageUpload").on( "click", function () {
-          let formData = new FormData( $("#uploadImage")[0] );
+          let formData = new FormData( document.querySelector("#uploadImage") );
           formData.append("file", $("#imageFile").get(0).files[0]);
           console.log(formData);
-          console.log($("#imageFile").get(0).files);
           $.ajax({
             url: "/uploadBlobImage",
             type: "post",
