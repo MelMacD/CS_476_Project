@@ -64,7 +64,7 @@ var videoHtml = `<div class="draggable resizableAspect newVideo" style="width: 4
                    <video id="libraryVideo" style="display: none; width: 100%; height: 100%;"controls>
                    <source src="" type="video/mp4">
                    </video>
-                   <iframe id="youtubeVideo" allowFullScreen='allowFullScreen' src="" style="width: 100%; height: 100%;"</iframe>
+                   <iframe id="youtubeVideo" allowFullScreen='allowFullScreen' src="https://www.youtube.com/embed/NpEaa2P7qZI" style="width: 100%; height: 100%;"</iframe>
                  </div>`;
 var threadHtml = `<div class="newThread">
                     <div style="height: 200px; overflow-y: scroll; background-color: white;">
