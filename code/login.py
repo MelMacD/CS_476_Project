@@ -1,6 +1,5 @@
 from code import app
 from flask import request, make_response, redirect
-from code.sql_query_builder import SQLQueryBuilder as query
 from code.database import Database as database
 
 class Login:
@@ -108,9 +107,8 @@ def login():
     if request.method == 'POST':
         #if not successful, append error message to page
         db = database()
-        queryBuilder = query("users")
-        queryString = queryBuilder.selectAllFilter("email='{email}' and pwd='{password}'".format(
-                email=request.form.get("email"), password=request.form.get("pwd")))
+        queryString = db.buildQuery("users", "selectAllFilter", "email='{email}' and pwd='{password}'".format(
+                        email=request.form.get("email"), password=request.form.get("pwd")))
         result = db.execute(False, queryString)
         if result == []:
             errorMessage = """
