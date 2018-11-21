@@ -4,7 +4,7 @@ from code.sql_query_builder import SQLQueryBuilder as query
 from code.database import Database as database
 
 class Login:
-    def __init__(self, errorMessage=""):
+    def __init__(self, errorMessage):
         self.errorMessage = errorMessage
         self.html = self.setHTML()
         
@@ -76,7 +76,7 @@ button:hover {{
     </div>
 
   <div class="container">
-  <label>{error}</label>
+  {error}
   <label><b>Email</b></label>
     <label id="email_msg" class="err_msg"></label>
     <input id="email" type="text" placeholder="Enter Email" size="30" name="email" required>
@@ -115,7 +115,7 @@ def login():
         result = db.execute(False, queryString)
         if result == []:
             errorMessage = """
-                <p style="color: red; font-size: 15px; margin-left: 35%; margin-top: 50px;">The email or password was incorrect</p>"""
+                <p style="color: red; font-size: 15px; margin: auto;">The email or password was incorrect</p>"""
             loginHTML = Login(errorMessage)
             return loginHTML.getHTML()
         else:
@@ -124,5 +124,5 @@ def login():
             resp.set_cookie('userId', result[0][0])
             return resp
     else:
-        loginHTML = Login()
+        loginHTML = Login("")
         return loginHTML.getHTML()
