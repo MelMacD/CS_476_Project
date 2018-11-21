@@ -1,9 +1,8 @@
+#interface class, no implemented functions
 class Observer:
-
     def __init__(self):
-        self._subject = None
-        self._observerState = None
+        self.html = self.buildContent()
     
-    @abc.abstractmethod
-    def update(self, arg):
+    #abstract, all children override
+    def buildContent(self):
         pass
