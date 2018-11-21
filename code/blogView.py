@@ -22,6 +22,7 @@ def uploadComment():
         queryBuilder = query("comments")
         queryString = queryBuilder.insertRow("'{blogName}', '{attachedToId}', '{currentUser}', '{comment}'".format(blogName=blogUrlName,
                 attachedToId=requestData.get("attachedToId"), currentUser=request.cookies.get('userId'), comment=requestData.get("comment")))
+        return queryString
         db.execute(True, queryString)
         db.disconnect()
         return str(requestData)
