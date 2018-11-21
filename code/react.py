@@ -1,4 +1,6 @@
-class React:
+from code.factory import Element
+
+class React(Element):
     def __init__(self, db, queryBuilder, blogName, attachedToId):
         self.reactions = self.buildReactions(db, queryBuilder, blogName, attachedToId)
     
