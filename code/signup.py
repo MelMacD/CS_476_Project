@@ -117,7 +117,7 @@ button:hover {
       <hr>
           <label><b>Username</b></label>
     <label id="username_msg" class="err_msg"></label>
-     <input class="w3-input w3-border" id="username" type="text" placeholder="Enter Username" size="30" name="username">
+     <input class="w3-input w3-border" id="username" type="text" placeholder="Enter Username" size="30" name="username" required>
           
       <label><b>Email</b></label>
     <label id="email_msg" class="err_msg"></label>
