@@ -202,7 +202,7 @@ def hello():
             <a href="login" class="w3-bar-item w3-button w3-padding-large login">Login</a>
             <a href="signup" class="w3-bar-item w3-button w3-padding-large signup">Sign-up</a>
         </div>
-        <div class="dropdown edit">
+        <div class="dropdown edit" style="width: 92px;">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Toolbar</button>
       <div class="dropdown-menu" style="min-width: 30rem;">
         <form class="px-4 py-3">
