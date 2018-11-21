@@ -1,6 +1,5 @@
 from code import app
 from flask import request, redirect
-from code.sql_query_builder import SQLQueryBuilder as query
 from code.database import Database as database
 
 class SignUp:
@@ -161,8 +160,7 @@ button:hover {
 def signup():
     if request.method == 'POST':
         db = database()
-        queryBuilder = query("users")
-        queryString = queryBuilder.insertRow("'{username}', '{email}', '{password}', 0, null".format(
+        queryString = db.queryBuilder("users", "insertRow", "'{username}', '{email}', '{password}', 0, null".format(
             username=str(request.form.get("username")),
             email=str(request.form.get("email")),
             password=str(request.form.get("pwd"))))
