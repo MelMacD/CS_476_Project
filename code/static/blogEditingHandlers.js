@@ -33,7 +33,7 @@ var postHtml = `<div class="border border-dark rounded draggable resizable newPo
                       <button type="button" class="dropdown-item deletePost">Delete</button>
                     </div>
                   </div>
-                 <div id="originalContent" style="width: 100%; height: 100%; background-color: white;">
+                 <div id="originalContent" style="position: absolute; width: 100%; height: 100%; background-color: white;">
                    <h3>What is the title?</h3><p>What is the content?</p>
                  </div>
                  ${reactHtml}
