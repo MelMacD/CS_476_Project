@@ -10,6 +10,7 @@ class Database(Subject):
         self.driver = '{ODBC Driver 13 for SQL Server}'
         super().__init__()
       
+    #override
     def connect(self):
         return pyodbc.connect('DRIVER='+self.driver+';SERVER='+self.server+';PORT=1433;DATABASE='+self.database+';UID='+self.username+';PWD='+self.password)
     
