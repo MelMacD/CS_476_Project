@@ -91,8 +91,8 @@ body {{font-family: "Lato", sans-serif}}
         <div class="w3-third w3-margin-bottom" style="margin-left: 125px;">
           <img src="static/picture4.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
           <div class="w3-container w3-white">
-            <p><b>{createEdit} BLOG</b></p>
-            <button id="createBlog" class="w3-button w3-black w3-margin-bottom">Get Started</button>
+            <p><b>{createEditText} BLOG</b></p>
+            <a href="{createEditLink}" id="createBlog" class="w3-button w3-black w3-margin-bottom">Get Started</a>
           </div>
         </div>
         <div class="w3-third w3-margin-bottom">
@@ -143,4 +143,5 @@ function carousel() {{
 
 </body>
 </html>
-""".format(createEdit="CREATE")
+""".format(createEditText="CREATE",
+           createEditLink="createBlog")
