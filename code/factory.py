@@ -1,4 +1,4 @@
- class Factory:
+ class Element:
      def __init__(self):
          self.id = self.setId(row)
          self.top = self.setTop(row)
