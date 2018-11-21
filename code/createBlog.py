@@ -1,6 +1,5 @@
 from code import app
 from flask import request
-from code.sql_query_builder import SQLQueryBuilder as query
 from code.database import Database as database
 import pyodbc
 
@@ -176,8 +175,7 @@ def createBlog():
     if request.method == 'POST':
         requestData = request.get_json()
         db = database()
-        queryBuilder = query("blog")
-        queryString = queryBuilder.insertRow("'{username}', '{blogName}', '{imageSource}', '{description}', 'rgb(255, 255, 255)', 'arial'".format(
+        queryString = db.buildQuery("blog", "insertRow", "'{username}', '{blogName}', '{imageSource}', '{description}', 'rgb(255, 255, 255)', 'arial'".format(
                 username=request.cookies.get('userId'), blogName=requestData.get("blogName"), imageSource=requestData.get("imageSource"), description=requestData.get("description")))
         db.execute(True, queryString)
         db.disconnect()
