@@ -162,7 +162,13 @@ def hello():
         editBlogButton = ""
         currentUser = request.cookies.get('userId', "")
         if currentUser != "":
-            editBlogButton = """
+            db = database()
+            queryBuilder = query("blog")
+            queryString = queryBuilder.selectAllFilter("blogName='{blogName}' AND username='{username}'".format(blogName=blogUrlName, username=currentUser))
+            result = db.execute(False, queryString)
+            db.disconnect()
+            if result != []:
+                editBlogButton = """
 <button type="button" id="enableEditing" style="position: absolute; left: 20px;" class="btn btn-default">Enable Edit Mode</button>
 """
         return """
