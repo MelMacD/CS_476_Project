@@ -97,7 +97,10 @@ button:hover {
     width: 100%;
   }
 }
-    
+
+.err_msg {
+    color: red;
+}
     
 </style>
 
