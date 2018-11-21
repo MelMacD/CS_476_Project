@@ -26,7 +26,7 @@ var reactHtml = `<div class="reactBar" style="bottom: 0px; height: 38px; backgro
                  </div>`;
 var postHtml = `<div class="border border-dark rounded draggable resizable newPost" style="width: 350px; height: 400px; z-index: 0;">
                   <div class="dropdown edit">
-                    <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</button>
+                    <button class="btn btn-secondary dropdown-toggle" style="position: absolute; top: 0; right: 0; z-index: 1;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</button>
                     <div class="dropdown-menu">
                       <button class="editPost dropdown-item" type="button" data-toggle="modal" data-target="#exampleModal">Change Content</button>
                       <button type="button" class="dropdown-item addThread">Add Thread</button>
