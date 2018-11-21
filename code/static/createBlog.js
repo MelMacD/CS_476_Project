@@ -34,6 +34,7 @@ $(document).ready(function() {
     });
     
     $("#create").submit(function(e) {
+        errorPresent = false;
         e.preventDefault();
         blogNameValidation();
         descriptionValidation();
