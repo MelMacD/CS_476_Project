@@ -68,6 +68,7 @@ $(document).ready(function() {
           let formData = new FormData( $("#uploadImage") );
           formData.append("file", $("#imageFile").get(0).files[0]);
           console.log(formData);
+          console.log($("#imageFile").get(0).files);
           $.ajax({
             url: "/uploadBlobImage",
             type: "post",
