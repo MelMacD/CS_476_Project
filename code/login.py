@@ -5,7 +5,7 @@ from code.database import Database as database
 
 class Login:
     def __init__(self):
-        self.html = self.setHTML()
+        self.html = ""
         
     def getHTML(self):
         return self.html
@@ -100,7 +100,7 @@ button:hover {{
     
 </html>
 
-""".format(error="")
+"""#.format(error="")
 
 @app.route("/login", methods=['GET', 'POST'])
 
@@ -126,4 +126,5 @@ def login():
             return resp
     else:
         loginHTML = Login()
+        loginHTML.setHTML()
         return loginHTML.getHTML()
