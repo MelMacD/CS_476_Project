@@ -1,5 +1,5 @@
  class Element:
-     def __init__(self):
+     def __init__(self, row):
          self.id = self.setId(row)
          self.top = self.setTop(row)
          self.left = self.setLeft(row)
