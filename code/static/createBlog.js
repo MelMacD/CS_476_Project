@@ -57,4 +57,38 @@ $(document).ready(function() {
             }
         });
     });
+    
+        $("#submitImageUpload").submit( function (e) {
+          e.preventDefault();
+          let formData = new FormData(this);
+          formData.append("file", $("#imageFile").get(0).files[0]);
+          $.ajax({
+            url: "/uploadBlobImage",
+            type: "post",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function() {
+              $.getJSON("/getBlobImages", function(data) {
+                  let i;
+                  $("#imageBlobSelector").empty();
+                  $("#imageBlobSelector").append( "<option value='none'>None</option>" );
+                  for (i = 0; i < data.length; i++) {
+                      $("#imageBlobSelector").append( "<option value='" + data[i] + "'>" + data[i] + "</option>" );
+                  }
+              });
+              alert("Upload successful.");
+            },
+            error: function() {
+              alert("An error occurred. Could not upload image.");
+            },
+            beforeSend: function() {
+              $("#loading").css("display", "block");
+            },
+            complete: function() {
+              $("#loading").css("display", "none");
+            }
+          });
+      });
 });
