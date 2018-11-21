@@ -1,3 +1,4 @@
+let errorPresent = false;
 // TODO: Enforce validation on input fields
 // TODO: Get upload image working
 $(document).ready(function() {
@@ -58,7 +59,7 @@ $(document).ready(function() {
         });
     });
     
-        $("#submitImageUpload").submit( function (e) {
+        $("#uploadImage").submit( function (e) {
           e.preventDefault();
           let formData = new FormData(this);
           formData.append("file", $("#imageFile").get(0).files[0]);
@@ -92,3 +93,23 @@ $(document).ready(function() {
           });
       });
 });
+
+function blogNameValidation() {
+    if ( $("#name").val().length > 20 ) {
+        $("#name_msg").text("Blog name must not be more than 20 characters.");
+        errorPresent = true;
+    }
+    else {
+        $("#name_msg").text("");
+    }
+}
+
+function emailValidation() {
+    if ( $("#email").val().length > 300 ) {
+        $("#email_msg").text("Email must not be more than 30 characters.");
+        errorPresent = true;
+    }
+    else {
+        $("#email_msg").text("");
+    }
+}
