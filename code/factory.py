@@ -1,16 +1,16 @@
- class Element:
-     def __init__(self, row):
-         self.id = self.setId(row)
-         self.top = self.setTop(row)
-         self.left = self.setLeft(row)
-         self.width = self.setWidth(row)
-         self.height = self.setHeight(row)
-         self.depth = self.setDepth(row)
+class Element:
+    def __init__(self, row):
+        self.id = self.setId(row)
+        self.top = self.setTop(row)
+        self.left = self.setLeft(row)
+        self.width = self.setWidth(row)
+        self.height = self.setHeight(row)
+        self.depth = self.setDepth(row)
      #
      #def buildHtml(self):
      #    pass
      
-     def setId(self, row):
+    def setId(self, row):
         return row[1]
         
     def setTop(self, row):
