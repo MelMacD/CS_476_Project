@@ -144,7 +144,7 @@ button:hover {
             <label for="message-text" class="col-form-label">Upload image to library:</label>
             <input type="file" name="imageFile" class="form-control" id="imageFile">
             </br>
-            <button id="submitImageUpload">Upload Image</button>
+            <button type="button" id="submitImageUpload">Upload Image</button>
             <p id="loading" style="display:none;">Uploading...</p>
           </div>
           <div class="form-group">
