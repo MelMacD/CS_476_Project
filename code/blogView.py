@@ -190,16 +190,17 @@ def hello():
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="static/blogEditingHandlers.js"></script>
+<script src="static/logInOut.js"></script>
 <link rel="stylesheet" href="static/blogEditingStyle.css" />
 </head>
 <body style="background-color: {backgroundColor};">
     <!-- Navbar -->
     <div class="w3-top" style="z-index: 1000;">
         <div class="w3-bar w3-black w3-card">
-            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
             <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
-            <a href="login" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Login</a>
-            <a href="signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign-up</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large logout" style="display: none;">Logout</a>
+            <a href="login" class="w3-bar-item w3-button w3-padding-large login">Login</a>
+            <a href="signup" class="w3-bar-item w3-button w3-padding-large signup">Sign-up</a>
         </div>
         <div class="dropdown edit">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Toolbar</button>
