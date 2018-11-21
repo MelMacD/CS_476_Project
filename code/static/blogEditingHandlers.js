@@ -2,7 +2,7 @@ let postId = 0;
 let imageId = 0;
 let videoId = 0;
 
-var reactHtml = `<div class="reactBar" style="bottom: -38px; height: 38px; background-color: lightgray; position: absolute; width: 100%; bottom: 0px;">
+var reactHtml = `<div class="reactBar" style="bottom: -38px; height: 38px; background-color: lightgray; position: absolute; width: 100%;">
                    <div class="dropdown">
                      <button class="btn btn-secondary dropdown-toggle react" style="position: absolute; top: 0; right: 0; z-index: 1;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">React</button>
                      <div class="dropdown-menu">
