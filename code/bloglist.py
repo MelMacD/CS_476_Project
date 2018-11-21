@@ -32,15 +32,15 @@ class BlogList:
 <script src="static/logInOut.js"></script>
 </head>
 <body>
-    <!-- Navbar -->
-    <div class="w3-top" style="z-index: 1000;">
-        <div class="w3-bar w3-black w3-card">
-            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-            <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
-            <a href="login" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Login</a>
-            <a href="signup" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Sign-up</a>
-        </div>
-    </div>
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large logout" style="display: none;">Logout</a>
+    <a href="login" class="w3-bar-item w3-button w3-padding-large login">Login</a>
+    <a href="signup" class="w3-bar-item w3-button w3-padding-large signup">Sign-up</a>
+  </div>
+</div>
     <div id="blogList" style="margin-top: 50px;">
         <h3 style="text-align: center;">Browse All of Our Blogs!</h3>
         {blogsListed}
