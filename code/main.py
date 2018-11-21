@@ -22,8 +22,8 @@ def main():
   crossorigin="anonymous"></script>
 <script src="static/logInOut.js"></script>
 <style>
-body {font-family: "Lato", sans-serif}
-.mySlides {display: none}
+body {{font-family: "Lato", sans-serif}}
+.mySlides {{display: none}}
  
 </style>
 <body>
@@ -91,7 +91,7 @@ body {font-family: "Lato", sans-serif}
         <div class="w3-third w3-margin-bottom" style="margin-left: 125px;">
           <img src="static/picture4.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
           <div class="w3-container w3-white">
-            <p><b>CREATE BLOG</b></p>
+            <p><b>{createEdit} BLOG</b></p>
             <button id="createBlog" class="w3-button w3-black w3-margin-bottom">Get Started</button>
           </div>
         </div>
@@ -128,43 +128,19 @@ body {font-family: "Lato", sans-serif}
 var myIndex = 0;
 carousel();
 
-function carousel() {
+function carousel() {{
     var i;
     var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
+    for (i = 0; i < x.length; i++) {{
        x[i].style.display = "none";  
-    }
+    }}
     myIndex++;
-    if (myIndex > x.length) {myIndex = 1}    
+    if (myIndex > x.length) {{myIndex = 1}}   
     x[myIndex-1].style.display = "block";  
     setTimeout(carousel, 4000);    
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-
-// When the user clicks anywhere outside of the modal, close it
-var modal = document.getElementById('ticketModal');
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-    var modal = document.getElementById('blogModal');
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-}
+}}
 </script>
 
 </body>
 </html>
-"""
+""".format(createEdit="CREATE")
