@@ -1,0 +1,20 @@
+Correctness/Functional:
+- add/edit/deleting blog content, can see changes persist
+- edit blog style (background color, font), changes persist
+- create blog creates proper listing on bloglist
+- commenting displays the current username, reacting okay
+- statistics page shows the right count for reactions, comments
+
+Robustness:
+- blog content cannot be dragged out of bounds
+- form validation for create blog; leaving image empty uses empty image icon on bloglist page
+- blog content cannot be resized below a certain size, images and videos retain aspect ratio
+- cannot edit another person's blog
+- cannot comment/react/create blog without an account
+
+Time-efficiency:
+- load blog content page not over certain time
+- upload image not over certain time
+- submit changes to blog not over certain time
+- comment not over certain time
+- react not over certain time
