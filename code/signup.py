@@ -1,7 +1,7 @@
 from code import app
 from flask import request, redirect
-import pyodbc
-
+from code.sql_query_builder import SQLQueryBuilder as query
+from code.database import Database as database
 
 class SignUp:
     def __init__(self):
@@ -152,24 +152,15 @@ button:hover {
 
 def signup():
     if request.method == 'POST':
-        server = 'tcp:expressyourself.database.windows.net'
-        database = 'expressyourself'
-        username = 'cs476'
-        password = '$up3rSecret'
-        driver= '{ODBC Driver 13 for SQL Server}'
-        cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
-        cursor = cnxn.cursor()
-        try:
-            cursor.execute("INSERT INTO users VALUES ('{username}', '{email}', '{password}', 0, null)".format(
-                username=str(request.form.get("username")),
-                email=str(request.form.get("email")),
-                password=str(request.form.get("pwd"))))
-            cnxn.commit()
-            return redirect('/login')
-        except pyodbc.Error as ex:
-            sqlstate = ex.args[1]
-            return sqlstate
-        return "Sign up request received"
+        db = database()
+        queryBuilder = query("users")
+        queryString = queryBuilder.insertRow("'{username}', '{email}', '{password}', 0, null".format(
+            username=str(request.form.get("username")),
+            email=str(request.form.get("email")),
+            password=str(request.form.get("pwd"))))
+        db.execute(True, queryString)
+        db.disconnect()
+        return redirect('/login')
     else:
         signupHTML = SignUp()
         signupHTML.setHTML()
