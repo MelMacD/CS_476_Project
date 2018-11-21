@@ -112,7 +112,7 @@ button:hover {
   </div>
 </div>
 
-<form id="create" style="width:700px; margin: auto;" method="post" enctype="multipart/form-data">
+<form id="create" style="width:700px; margin: auto; margin-top: 50px;" method="post" enctype="multipart/form-data">
     <h3 style="text-align: center;">Create Your Own Blog!</h3>
     <div class="w3-container">
            <p>Please fill in this form to create a blog.</p>
@@ -161,7 +161,7 @@ button:hover {
      </div>
      <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit"  class="signup submitForm" name="Signup" value="submit">Submit</button>
+      <button type="submit"  class="submitForm" name="Signup" value="submit">Submit</button>
         </div>
       </div>
   
