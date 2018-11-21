@@ -31,6 +31,7 @@ class CreateBlog:
 <script src="static/jquery-ui.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="static/createBlog.js"></script>
+<script src="static/logInOut.js"></script>
 <style>
 body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
@@ -94,17 +95,31 @@ button:hover {
     width: 100%;
   }
 }
+
+.err_msg {
+    color: red;
+}
 </style>
 
 <body>
-<form id="create" style="width:700px; margin-left: 450px;" method="post" enctype="multipart/form-data">
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large logout" style="display: none;">Logout</a>
+    <a href="login" class="w3-bar-item w3-button w3-padding-large login">Login</a>
+    <a href="signup" class="w3-bar-item w3-button w3-padding-large signup">Sign-up</a>
+  </div>
+</div>
+
+<form id="create" style="width:700px; margin: auto;" method="post" enctype="multipart/form-data">
     <h3 style="text-align: center;">Create Your Own Blog!</h3>
     <div class="w3-container">
            <p>Please fill in this form to create a blog.</p>
       <hr>
           <label><b>Blog Name</b></label>
-    <label id="username_msg" class="err_msg"></label>
-     <input id="username" type="text" placeholder="Enter a unique name for your blog" size="30" name="username">
+    <label id="name_msg" class="err_msg"></label>
+     <input id="name" type="text" placeholder="Enter a unique name for your blog" size="30" name="username" required>
     <label><b>Identifying Picture</b></label> 
     <form id="uploadImage" method="post" enctype="multipart/form-data">
           <div class="form-group">
@@ -140,8 +155,9 @@ button:hover {
           </div>
         </form>
       <label><b>Description</b></label>
+      <label id="descr_msg" class="err_msg"></label>
      <div class="form-group">
-         <textarea style="height: 200px;" id="description" placeholder="Enter the subject matter of your blog"></textarea>
+         <textarea style="height: 200px;" id="description" placeholder="Enter the subject matter of your blog" required></textarea>
      </div>
      <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
