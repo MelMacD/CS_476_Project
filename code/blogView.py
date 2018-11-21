@@ -7,170 +7,18 @@ from code.image import Image as image
 from code.video import Video as video
 from code.thread import Thread as thread
 from code.react import React as react
+from code.observer import Observer
 
 blogColor = ""
 blogFont = ""
 blogUrlName = ""
 
-@app.route("/uploadComment", methods=['GET', 'POST'])
-
-def uploadComment():
-    global blogUrlName
-    if request.method == 'POST':
-        requestData = request.get_json()
-        db = database()
-        queryBuilder = query("comments")
-        queryString = queryBuilder.insertRow("'{blogName}', '{attachedToId}', '{currentUser}', '{comment}'".format(blogName=blogUrlName,
-                attachedToId=requestData.get("attachedToId"), currentUser=request.cookies.get('userId'), comment=requestData.get("comment")))
-        db.execute(True, queryString)
-        db.disconnect()
-        return str(requestData)
-    else:
-        db.disconnect()
-        return "error"
-
-@app.route("/uploadReaction", methods=['GET', 'POST'])
-
-def uploadReaction():
-    global blogUrlName
-    if request.method == 'POST':
-        requestData = request.get_json()
-        db = database()
-        queryBuilder = query("reactions")
-        #need to check if user has reacted to that element before; if so, update instead of insert
-        queryString = queryBuilder.selectCountFilter("blogName='{blogName}' and attachedToId='{id}' and username='{currentUser}'".format(
-                blogName=blogUrlName, id=requestData.get("attachedToId"), currentUser=request.cookies.get('userId')));
-        result = db.execute(False, queryString);
-        if result[0][0] == 0:
-            queryString = queryBuilder.insertRow("'{blogName}', '{attachedToId}', '{currentUser}', '{emote}'".format(
-                    blogName=blogUrlName, attachedToId=requestData.get("attachedToId"), currentUser=request.cookies.get('userId'), emote=requestData.get("emote")))
-        else:
-            queryString = queryBuilder.update("emote='{emote}'".format(emote=requestData.get("emote")),
-                                              "blogName='{blogName}' and attachedToId='{id}' and username='{currentUser}'".format(blogName=blogUrlName, id=requestData.get("attachedToId"), currentUser=request.cookies.get('userId')))
-        db.execute(True, queryString)
-        db.disconnect()
-        return str(requestData)
-    else:
-        db.disconnect()
-        return "error"
+class BlogView(Observer):
+    def __init__(self):
+        super().__init__()
     
-@app.route("/blogView", methods=['GET', 'POST'])
-
-def hello():
-    global blogUrlName
-    if request.method == 'POST':
-        requestData = request.get_json()#this is a dictionary
-        db = database()
-        for key, value in requestData.items():
-            #check if action is present, if not, must be blog update
-            if "not present" in value.get("action", "not present"):
-                queryBuilder = query("blog")
-                queryString = queryBuilder.update("backgroundColor='{color}', font='{font}'".format(
-                    color=value.get("backgroundColor"), font=value.get("font")),
-                                                  "blogName='{blogName}'".format(blogName=blogUrlName))
-                db.execute(True, queryString)
-            elif "insert" in value.get("action"):
-                if "post" in key:
-                    queryBuilder = query("posts")
-                    queryString = queryBuilder.insertRow("'{blogName}', '{id}', {top}, {left}, {width}, {height}, {depth}, '{title}', '{body}', '{backgroundColor}', '{fontColor}', {hasThread}".format(
-                                    blogName=blogUrlName, id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                                    height=value.get("height"), depth=value.get("depth"), title=value.get("title"),
-                                    body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor"), hasThread=value.get("hasThread")))
-                    db.execute(True, queryString)
-                elif "image" in key:
-                    queryBuilder = query("images")
-                    queryString = queryBuilder.insertRow("'{blogName}', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}', {hasThread}".format(
-                                    blogName=blogUrlName, id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")))
-                    db.execute(True, queryString)
-                elif "video" in key:
-                    queryBuilder = query("videos")
-                    queryString = queryBuilder.insertRow("'{blogName}', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}', {hasThread}".format(
-                                    blogName=blogUrlName, id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")))
-                    db.execute(True, queryString)
-                else:
-                    return "error"
-            elif "update" in value.get("action"):
-                if value.get("hasThread") == 0:
-                    queryBuilder = query("comments")
-                    queryString = queryBuilder.delete("blogName='{blogName}' AND attachedToId='{id}'".format(blogName=blogUrlName, id=key))
-                    db.execute(True, queryString)
-                if "post" in key:
-                    queryBuilder = query("posts")
-                    queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, title='{title}', body='{body}', backgroundColor='{backgroundColor}', fontColor='{fontColor}', hasThread={hasThread}".format(
-                                    top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                                    height=value.get("height"), depth=value.get("depth"), title=value.get("title"),
-                                    body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor"), hasThread=value.get("hasThread")),
-                                                     "blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
-                    db.execute(True, queryString)
-                elif "image" in key:
-                    queryBuilder = query("images")
-                    queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, imageSource='{source}', hasThread={hasThread}".format(
-                                    top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")),
-                                                     "blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
-                    db.execute(True, queryString)
-                elif "video" in key:
-                    queryBuilder = query("videos")
-                    queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, videoSource='{source}', hasThread={hasThread}".format(
-                                    top=value.get("top"), left=value.get("left"), width=value.get("width"),
-                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")),
-                                                     "blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
-                    db.execute(True, queryString)
-                else:
-                    return "error"
-            elif "delete" in value.get("action"):
-                if value.get("hasThread") == 1:
-                    queryBuilder = query("comments")
-                    queryString = queryBuilder.delete("blogName='{blogName}' AND attachedToId='{id}'".format(blogName=blogUrlName, id=key))
-                    db.execute(True, queryString)
-                if "post" in key:
-                    queryBuilder = query("posts")
-                    queryString = queryBuilder.delete("blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
-                    db.execute(True, queryString)
-                    #delete all comments for a deleted element
-                    queryBuilder = query("reactions")
-                    queryString = queryBuilder.delete("blogName='{blogName}' AND attachedToId='{id}'".format(blogName=blogUrlName, id=key))
-                    db.execute(True, queryString)
-                elif "image" in key:
-                    queryBuilder = query("images")
-                    queryString = queryBuilder.delete("blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
-                    db.execute(True, queryString)
-                    #delete all comments for a deleted element
-                    queryBuilder = query("reactions")
-                    queryString = queryBuilder.delete("blogName='{blogName}' AND attachedToId='{id}'".format(blogName=blogUrlName, id=key))
-                    db.execute(True, queryString)
-                elif "video" in key:
-                    queryBuilder = query("videos")
-                    queryString = queryBuilder.delete("blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
-                    db.execute(True, queryString)
-                    #delete all comments for a deleted element
-                    queryBuilder = query("reactions")
-                    queryString = queryBuilder.delete("blogName='{blogName}' AND attachedToId='{id}'".format(blogName=blogUrlName, id=key))
-                    db.execute(True, queryString)
-                else:
-                    return "error"
-            else:
-                return "error"
-        db.disconnect()
-        return str(requestData)
-    else:
-        blogUrlName = request.args.get("blogName", "error")
-        buildBlogSpecs()
-        #if current user token is not owner of blog, don't display edit
-        editBlogButton = ""
-        currentUser = request.cookies.get('userId', "")
-        if currentUser != "":
-            db = database()
-            queryBuilder = query("blog")
-            queryString = queryBuilder.selectAllFilter("blogName='{blogName}' AND username='{username}'".format(blogName=blogUrlName, username=currentUser))
-            result = db.execute(False, queryString)
-            db.disconnect()
-            if result != []:
-                editBlogButton = """
-<button type="button" id="enableEditing" style="position: absolute; left: 20px;" class="btn btn-default">Enable Edit Mode</button>
-"""
+    #abstract, inherited
+    def buildContent(self):
         return """
 <head>
 <title>{blogName}</title>
@@ -274,7 +122,169 @@ def hello():
     <button type="button" style="display:inline; position: absolute; right: 20px;" id="save" class="btn btn-success">Save Changes</button>
   </div>
 </footer
-</body>""".format(blogName=blogUrlName,
+</body>"""
+
+@app.route("/uploadComment", methods=['GET', 'POST'])
+
+def uploadComment():
+    global blogUrlName
+    if request.method == 'POST':
+        requestData = request.get_json()
+        db = database()
+        queryBuilder = query("comments")
+        queryString = queryBuilder.insertRow("'{blogName}', '{attachedToId}', '{currentUser}', '{comment}'".format(blogName=blogUrlName,
+                attachedToId=requestData.get("attachedToId"), currentUser=request.cookies.get('userId'), comment=requestData.get("comment")))
+        db.execute(True, queryString)
+        db.disconnect()
+        return str(requestData)
+    else:
+        db.disconnect()
+        return "error"
+
+@app.route("/uploadReaction", methods=['GET', 'POST'])
+
+def uploadReaction():
+    global blogUrlName
+    if request.method == 'POST':
+        requestData = request.get_json()
+        db = database()
+        queryBuilder = query("reactions")
+        #need to check if user has reacted to that element before; if so, update instead of insert
+        queryString = queryBuilder.selectCountFilter("blogName='{blogName}' and attachedToId='{id}' and username='{currentUser}'".format(
+                blogName=blogUrlName, id=requestData.get("attachedToId"), currentUser=request.cookies.get('userId')));
+        result = db.execute(False, queryString);
+        if result[0][0] == 0:
+            queryString = queryBuilder.insertRow("'{blogName}', '{attachedToId}', '{currentUser}', '{emote}'".format(
+                    blogName=blogUrlName, attachedToId=requestData.get("attachedToId"), currentUser=request.cookies.get('userId'), emote=requestData.get("emote")))
+        else:
+            queryString = queryBuilder.update("emote='{emote}'".format(emote=requestData.get("emote")),
+                                              "blogName='{blogName}' and attachedToId='{id}' and username='{currentUser}'".format(blogName=blogUrlName, id=requestData.get("attachedToId"), currentUser=request.cookies.get('userId')))
+        db.execute(True, queryString)
+        db.disconnect()
+        return str(requestData)
+    else:
+        db.disconnect()
+        return "error"
+    
+@app.route("/blogView", methods=['GET', 'POST'])
+
+def blogView():
+    global blogUrlName
+    if request.method == 'POST':
+        requestData = request.get_json()#this is a dictionary
+        db = database()
+        for key, value in requestData.items():
+            #check if action is present, if not, must be blog update
+            if "not present" in value.get("action", "not present"):
+                queryBuilder = query("blog")
+                queryString = queryBuilder.update("backgroundColor='{color}', font='{font}'".format(
+                    color=value.get("backgroundColor"), font=value.get("font")),
+                                                  "blogName='{blogName}'".format(blogName=blogUrlName))
+                db.execute(True, queryString)
+            elif "insert" in value.get("action"):
+                if "post" in key:
+                    queryBuilder = query("posts")
+                    queryString = queryBuilder.insertRow("'{blogName}', '{id}', {top}, {left}, {width}, {height}, {depth}, '{title}', '{body}', '{backgroundColor}', '{fontColor}', {hasThread}".format(
+                                    blogName=blogUrlName, id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                                    height=value.get("height"), depth=value.get("depth"), title=value.get("title"),
+                                    body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor"), hasThread=value.get("hasThread")))
+                    db.execute(True, queryString)
+                elif "image" in key:
+                    queryBuilder = query("images")
+                    queryString = queryBuilder.insertRow("'{blogName}', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}', {hasThread}".format(
+                                    blogName=blogUrlName, id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")))
+                    db.execute(True, queryString)
+                elif "video" in key:
+                    queryBuilder = query("videos")
+                    queryString = queryBuilder.insertRow("'{blogName}', '{id}', {top}, {left}, {width}, {height}, {depth}, '{source}', {hasThread}".format(
+                                    blogName=blogUrlName, id=key, top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")))
+                    db.execute(True, queryString)
+                else:
+                    return "error"
+            elif "update" in value.get("action"):
+                if value.get("hasThread") == 0:
+                    queryBuilder = query("comments")
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND attachedToId='{id}'".format(blogName=blogUrlName, id=key))
+                    db.execute(True, queryString)
+                if "post" in key:
+                    queryBuilder = query("posts")
+                    queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, title='{title}', body='{body}', backgroundColor='{backgroundColor}', fontColor='{fontColor}', hasThread={hasThread}".format(
+                                    top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                                    height=value.get("height"), depth=value.get("depth"), title=value.get("title"),
+                                    body=value.get("content"), backgroundColor=value.get("backgroundColor"), fontColor=value.get("fontColor"), hasThread=value.get("hasThread")),
+                                                     "blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
+                    db.execute(True, queryString)
+                elif "image" in key:
+                    queryBuilder = query("images")
+                    queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, imageSource='{source}', hasThread={hasThread}".format(
+                                    top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")),
+                                                     "blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
+                    db.execute(True, queryString)
+                elif "video" in key:
+                    queryBuilder = query("videos")
+                    queryString = queryBuilder.update("topVal={top}, leftVal={left}, width={width}, height={height}, depth={depth}, videoSource='{source}', hasThread={hasThread}".format(
+                                    top=value.get("top"), left=value.get("left"), width=value.get("width"),
+                                    height=value.get("height"), depth=value.get("depth"), source=value.get("source"), hasThread=value.get("hasThread")),
+                                                     "blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
+                    db.execute(True, queryString)
+                else:
+                    return "error"
+            elif "delete" in value.get("action"):
+                if value.get("hasThread") == 1:
+                    queryBuilder = query("comments")
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND attachedToId='{id}'".format(blogName=blogUrlName, id=key))
+                    db.execute(True, queryString)
+                if "post" in key:
+                    queryBuilder = query("posts")
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
+                    db.execute(True, queryString)
+                    #delete all comments for a deleted element
+                    queryBuilder = query("reactions")
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND attachedToId='{id}'".format(blogName=blogUrlName, id=key))
+                    db.execute(True, queryString)
+                elif "image" in key:
+                    queryBuilder = query("images")
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
+                    db.execute(True, queryString)
+                    #delete all comments for a deleted element
+                    queryBuilder = query("reactions")
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND attachedToId='{id}'".format(blogName=blogUrlName, id=key))
+                    db.execute(True, queryString)
+                elif "video" in key:
+                    queryBuilder = query("videos")
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND id='{id}'".format(blogName=blogUrlName, id=key))
+                    db.execute(True, queryString)
+                    #delete all comments for a deleted element
+                    queryBuilder = query("reactions")
+                    queryString = queryBuilder.delete("blogName='{blogName}' AND attachedToId='{id}'".format(blogName=blogUrlName, id=key))
+                    db.execute(True, queryString)
+                else:
+                    return "error"
+            else:
+                return "error"
+        db.disconnect()
+        return str(requestData)
+    else:
+        viewObject = BlogView()
+        blogUrlName = request.args.get("blogName", "error")
+        buildBlogSpecs()
+        #if current user token is not owner of blog, don't display edit
+        editBlogButton = ""
+        currentUser = request.cookies.get('userId', "")
+        if currentUser != "":
+            db = database()
+            queryBuilder = query("blog")
+            queryString = queryBuilder.selectAllFilter("blogName='{blogName}' AND username='{username}'".format(blogName=blogUrlName, username=currentUser))
+            result = db.execute(False, queryString)
+            db.disconnect()
+            if result != []:
+                editBlogButton = """
+<button type="button" id="enableEditing" style="position: absolute; left: 20px;" class="btn btn-default">Enable Edit Mode</button>
+"""
+        return viewObject.html.format(blogName=blogUrlName,
                   blog=blogUrlName,
                   blogContent=buildBlogContent(),
                   backgroundColor=blogColor,
