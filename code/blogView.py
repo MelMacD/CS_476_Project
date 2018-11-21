@@ -158,6 +158,13 @@ def hello():
     else:
         blogUrlName = request.args.get("blogName", "error")
         buildBlogSpecs()
+        #if current user token is not owner of blog, don't display edit
+        editBlogButton = ""
+        currentUser = request.cookies.get('userId')
+        if currentUser != "":
+            editBlogButton = """
+<button type="button" id="enableEditing" style="position: absolute; left: 20px;" class="btn btn-default">Enable Edit Mode</button>
+"""
         return """
 <head>
 <title>{blogName}</title>
@@ -254,7 +261,7 @@ def hello():
 </div>
 <footer class="footer">
   <div class="container">
-    <button type="button" id="enableEditing" style="position: absolute; left: 20px;" class="btn btn-default">Enable Edit Mode</button>
+    {editButton}
     <button type="button" style="display:none; position: absolute; left: 20px;" id="disableEditing" class="btn btn-default">Exit Edit Mode</button>
     <a style="position: relative; left: 45%;" href="https://expressyourself.azurewebsites.net/statistics?blogName={blog}" id="seeStatistics" class="btn btn-default" role="button">Statistics</a>
     <button type="button" style="display:inline; position: absolute; right: 20px;" id="save" class="btn btn-success">Save Changes</button>
@@ -264,7 +271,8 @@ def hello():
                   blog=blogUrlName,
                   blogContent=buildBlogContent(),
                   backgroundColor=blogColor,
-                  font=blogFont)
+                  font=blogFont,
+                  editButton=editBlogButton)
 
 def buildBlogSpecs():
     global blogUrlName
